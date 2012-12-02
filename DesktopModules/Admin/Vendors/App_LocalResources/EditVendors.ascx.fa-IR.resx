@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="plVendorName.Text" xml:space="preserve">
+    <value>شرکت</value>
+  </data>
+  <data name="plVendorName.Help" xml:space="preserve">
+    <value>لطفا نام آگهی دهنده را وارد نمایید.</value>
+  </data>
+  <data name="plFirstName.Text" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="plFirstName.Help" xml:space="preserve">
+    <value>لطفا نام نماینده آگهی دهنده را وارد نمایید.</value>
+  </data>
+  <data name="plLastName.Text" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="plLastName.Help" xml:space="preserve">
+    <value>لطفا نام خانوادگی نماینده آگهی دهنده را وارد نمایید.</value>
+  </data>
+  <data name="plEmail.Text" xml:space="preserve">
+    <value>پست الکترونیک</value>
+  </data>
+  <data name="plEmail.Help" xml:space="preserve">
+    <value>لطفا آدرس پست الکترونیک نماینده آگهی دهنده را وارد نمایید.</value>
+  </data>
+  <data name="plFax.Text" xml:space="preserve">
+    <value>نمابر</value>
+  </data>
+  <data name="plFax.Help" xml:space="preserve">
+    <value>لطفا شماره نمابر آگهی دهنده را وارد نمایید.</value>
+  </data>
+  <data name="plWebsite.Text" xml:space="preserve">
+    <value>وب سایت</value>
+  </data>
+  <data name="plWebsite.Help" xml:space="preserve">
+    <value>لطفا آدرس وب سایت آگهی دهنده را وارد نمایید. (به عنوان مثال www.farsica.com)</value>
+  </data>
+  <data name="plLogo.Text" xml:space="preserve">
+    <value>لوگو</value>
+  </data>
+  <data name="plLogo.Help" xml:space="preserve">
+    <value>لطفا لوگوی آگهی دهنده را انتخاب نمایید.</value>
+  </data>
+  <data name="plAuthorized.Text" xml:space="preserve">
+    <value>تایید شده</value>
+  </data>
+  <data name="plAuthorized.Help" xml:space="preserve">
+    <value>برای تایید آگهی دهنده این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="plClassifications.Text" xml:space="preserve">
+    <value>طبقه بندی ها</value>
+  </data>
+  <data name="plClassifications.Help" xml:space="preserve">
+    <value>لطفا طبقه بندی های مرتبط با آگهی دهنده را وارد نمایید.</value>
+  </data>
+  <data name="plKeyWords.Text" xml:space="preserve">
+    <value>کلمات کلیدی</value>
+  </data>
+  <data name="plKeyWords.Help" xml:space="preserve">
+    <value>لطفا کلمات کلیدی مرتبط با آگهی دهنده را وارد نمایید.</value>
+  </data>
+  <data name="Settings.Text" xml:space="preserve">
+    <value>جزئیات آگهی دهنده</value>
+  </data>
+  <data name="Address.Text" xml:space="preserve">
+    <value>جزئیات آدرس</value>
+  </data>
+  <data name="Other.Text" xml:space="preserve">
+    <value>سایر جزئیات</value>
+  </data>
+  <data name="VendorClassification.Text" xml:space="preserve">
+    <value>طبقه بندی آگهی دهنده</value>
+  </data>
+  <data name="Views.Text" xml:space="preserve">
+    <value>مشاهده</value>
+  </data>
+  <data name="Clicks.Text" xml:space="preserve">
+    <value>شیوه های کلیک کردن</value>
+  </data>
+  <data name="BannerAdvertising.Text" xml:space="preserve">
+    <value>آگهی های تبلیغاتی</value>
+  </data>
+  <data name="AffiliateReferrals.Text" xml:space="preserve">
+    <value>ارجاعات وابسته</value>
+  </data>
+  <data name="ControlTitle_edit.Text" xml:space="preserve">
+    <value>ویرایش آگهی دهندگان</value>
+  </data>
+  <data name="ControlTitle_view vendor.Text" xml:space="preserve">
+    <value>مشاهده آگهی دهندگان</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;درباره بخش مدیریت آگهی دهندگان&lt;/h1&gt;&lt;p&gt;مدیران پورتال امکان مدیریت آگهی دهندگان و آگهی های تبلیغاتی مربوطه رادارا می باشند. این ماژول امکان ایجاد، ویرایش و حذف آگهی دهندگان را فراهم می آورد.&lt;/p&gt;</value>
+  </data>
+  <data name="EmailErrorAdmin.Text" xml:space="preserve">
+    <value>بروز خطا در زمان ارسال پست الکترونیک به مدیر پورتال</value>
+  </data>
+  <data name="EmailErrorVendor.Text" xml:space="preserve">
+    <value>بروز خطا در زمان ارسال پست الکترونیک به آگهی دهنده</value>
+  </data>
+  <data name="ErrorAddVendor.Text" xml:space="preserve">
+    <value>بروز خطا در زمان افزودن آگهی دهنده جدید. لطفا گزارش رخدادهای سیستم را برای جزئیات بیشتر مرور نمایید.</value>
+  </data>
+  <data name="companyRequired.Text" xml:space="preserve">
+    <value>وارد نمودن نام شرکت الزامی است</value>
+  </data>
+  <data name="eMailInvalid.Text" xml:space="preserve">
+    <value>آدرس پست الکترونیک وارد شده نامعتبر می باشد</value>
+  </data>
+  <data name="eMailRequired.Text" xml:space="preserve">
+    <value>وارد نمودن آدرس پست الکترونیک الزامی است</value>
+  </data>
+  <data name="firstNameRequired.Text" xml:space="preserve">
+    <value>وارد نمودن نام الزامی است</value>
+  </data>
+  <data name="lastNameRequired.Text" xml:space="preserve">
+    <value>وارد نمودن نام خانوادگی الزامی است</value>
+  </data>
+</root>
