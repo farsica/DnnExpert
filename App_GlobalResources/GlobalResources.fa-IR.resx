@@ -384,7 +384,8 @@
     <value>سیستم عضویت در پورتال [Host:HostTitle]</value>
   </data>
   <data name="EMAIL_PORTAL_SIGNUP_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [User:DisplayName]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [User:DisplayName]،
 
 پورتال شما با موفقیت ایجاد گردید. لطفا متن زیر را با دقت مطالعه نموده و آن را در مکان امنی برای استفاده های آتی ذخیره نمایید.
 
@@ -397,7 +398,7 @@
 با تشکر از حمایت بی دریغ و نظرات دلسوزانه شما
 
 [Host:HostTitle]
-
+&lt;/div&gt;
 </value>
   </data>
   <data name="MESSAGE_PORTAL_TERMS.Text" xml:space="preserve">
@@ -459,16 +460,19 @@
     <value>سیستم عضویت کاربر جدید پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_USER_REGISTRATION_ADMINISTRATOR_BODY.Text" xml:space="preserve">
-    <value>تاریخ: [Date:Current]
+    <value>&lt;div dir="rtl"&gt;
+    تاریخ: [Date:Current]
 نام مستعار: [User:DisplayName]
 پست الکترونیک: [User:Email]
+&lt;/div&gt;
 </value>
   </data>
   <data name="EMAIL_USER_REGISTRATION_PRIVATE_SUBJECT.Text" xml:space="preserve">
     <value>سیستم عضویت کاربر جدید پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_USER_REGISTRATION_PRIVATE_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [User:DisplayName]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [User:DisplayName]،
 
 با تشکر از عضویت شما در پورتال [Portal:PortalName]، لطفا اطلاعات زیر را مطالعه نموده و آن را برای استفاده های آتی در مکان مناسبی ذخیره نمایید.
 
@@ -481,7 +485,7 @@
 با تشکر از حمایت بی دریغ و نظرات دلسوزانه شما
 
 پورتال [Portal:PortalName]
-
+&lt;/div&gt;
 </value>
   </data>
   <data name="MESSAGE_REGISTRATION_INSTRUCTIONS.Text" xml:space="preserve">
@@ -491,7 +495,8 @@
     <value>سیستم بروزرسانی حساب کاربری پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_ROLE_ASSIGNMENT_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [User:DisplayName]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [User:DisplayName]،
 
 حساب کاربری شما در پورتال [Portal:PortalName] به منظور دسترسی به نقش های امنیتی زیر بروزرسانی گردید:
 
@@ -502,13 +507,15 @@
 
 با تشکر از حمایت بی دریغ و نظرات دلسوزانه شما
 پورتال [Portal:PortalName]
+&lt;/div&gt;
 </value>
   </data>
   <data name="EMAIL_ROLE_UNASSIGNMENT_SUBJECT.Text" xml:space="preserve">
     <value>سیستم بروزرسانی حساب کاربری پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_ROLE_UNASSIGNMENT_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [User:DisplayName]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [User:DisplayName]،
 
 حساب کاربری شما در پورتال [Portal:PortalName] به منظور پایان دسترسی به نقش های امنیتی زیر بروزرسانی گردید:
 
@@ -516,7 +523,8 @@
 توضیحات: [Custom:1]
 
 با تشکر از حمایت بی دریغ و نظرات دلسوزانه شما
-پورتال [Portal:PortalName]</value>
+پورتال [Portal:PortalName]
+&lt;/div&gt;</value>
   </data>
   <data name="MESSAGE_LOGIN_INSTRUCTIONS.Text" xml:space="preserve">
     <value />
@@ -528,7 +536,8 @@
     <value>سیستم یادآوری رمز عبور پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_PASSWORD_REMINDER_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [User:DisplayName]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [User:DisplayName]،
 
 شما درخواست یادآوری رمز عبور برای  پورتال [Portal:PortalName] نموده اید.
 
@@ -542,26 +551,29 @@
 پورتال [Portal:PortalName]
 
 *نکته: در صورتی که شما درخواست یادآوری رمز عبور ننموده اید، لطفا این پیغام را در نظر نگیرید.
+&lt;/div&gt;
 </value>
   </data>
   <data name="EMAIL_PROFILE_UPDATED_SUBJECT.Text" xml:space="preserve">
     <value>سیستم آکاه سازی بروزرسانی پروفایل کاربری در پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_PROFILE_UPDATED_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [User:DisplayName]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [User:DisplayName]،
 
 پروفایل کاربری شما در پورتال [Portal:PortalName] با موفقیت بروزرسانی گردید.
 
 با احترام،
 پورتال [Portal:PortalName]
-
+&lt;/div &gt;
 </value>
   </data>
   <data name="EMAIL_USER_UNREGISTER_SUBJECT.Text" xml:space="preserve">
     <value>سیستم لغو عضویت کاربر پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_USER_UNREGISTER_BODY.Text" xml:space="preserve">
-    <value>تاریخ: [Date:Current]
+    <value>&lt;div dir="rtl"&gt;
+    تاریخ: [Date:Current]
 نام: [Profile:FirstName]
 نام خانوادگی: [Profile:LastName]
 کشور: [Profile:Country]
@@ -571,13 +583,15 @@
 پلاک: [Profile:Unit]
 کد پستی: [Profile:PostalCode]
 تلفن: [Profile:Telephone]
-پست الکترونیک: [User:Email]</value>
+پست الکترونیک: [User:Email]
+&lt;/div &gt;</value>
   </data>
   <data name="EMAIL_USER_REGISTRATION_VERIFIED_SUBJECT.Text" xml:space="preserve">
     <value>سیستم عضویت کاربر جدید پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_USER_REGISTRATION_VERIFIED_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [User:DisplayName]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [User:DisplayName]،
 
 مفتخریم که به اطلاع شما برسانیم، درخواست عضویت شما در پورتال [Portal:PortalName] پذیرفته شده است. لطفا اطلاعات زیر را مطالعه نموده و آن را برای استفاده های آتی در مکان مناسبی ذخیره نمایید.
 
@@ -593,14 +607,15 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
 با تشکر از حمایت بی دریغ و نظرات دلسوزانه شما
 
 پورتال [Portal:PortalName]
-
+&lt;/div &gt;
     </value>
   </data>
   <data name="EMAIL_USER_REGISTRATION_PUBLIC_SUBJECT.Text" xml:space="preserve">
     <value>سیستم عضویت کاربر جدید پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_USER_REGISTRATION_PUBLIC_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [User:DisplayName]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [User:DisplayName]،
 
 مفتخریم که به اطلاع شما برسانیم، درخواست عضویت شما در پورتال [Portal:PortalName] پذیرفته شده است. لطفا اطلاعات زیر را مطالعه نموده و آن را برای استفاده های آتی در مکان مناسبی ذخیره نمایید.
 
@@ -611,14 +626,15 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
 با تشکر از حمایت بی دریغ و نظرات دلسوزانه شما
 
 پورتال [Portal:PortalName]
-
+&lt;/div &gt;
 </value>
   </data>
   <data name="EMAIL_AFFILIATE_NOTIFICATION_SUBJECT.Text" xml:space="preserve">
     <value>سیستم آگاه سازی از عضویت در پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_AFFILIATE_NOTIFICATION_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [Custom:0]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [Custom:0]،
 
 حساب کاربری شما برای پورتال [Portal:PortalName] ایجاد گردید.
 
@@ -628,14 +644,15 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
 
 با احترام
 پورتال [Portal:PortalName]
-
+&lt;/div &gt;
 </value>
   </data>
   <data name="//Admin//SiteWizard.String" xml:space="preserve">
     <value>ویزارد پورتال</value>
   </data>
   <data name="EMAIL_BANNER_NOTIFICATION_BODY.Text" xml:space="preserve">
-    <value>بنر تبلیغاتی: [Custom:0]
+    <value>&lt;div dir="rtl"&gt;
+    بنر تبلیغاتی: [Custom:0]
 توضیحات: [Custom:1]
 تصویر: [Custom:2]
 هزینه ها: [Custom:3]
@@ -643,13 +660,15 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
 تاریخ سروع: [Custom:5]
 تاریخ پایان: [Custom:6]
 بازدید ها: [Custom:7]
-کلیک ها: [Custom:8]</value>
+کلیک ها: [Custom:8]
+&lt;/div &gt;</value>
   </data>
   <data name="EMAIL_BANNER_NOTIFICATION_SUBJECT.Text" xml:space="preserve">
     <value>[Custom:0]</value>
   </data>
   <data name="EMAIL_VENDOR_REGISTRATION_ADMINISTRATOR_BODY.Text" xml:space="preserve">
-    <value>تاریخ: [Custom:0]
+    <value>&lt;div dir="rtl"&gt;
+    تاریخ: [Custom:0]
 نام فروشنده: [Custom:1]
 نام : [Custom:2]
 نام خانوادگی: [Custom:3]
@@ -663,19 +682,22 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
 نمابر: [Custom:11]
 تلفن همراه: [Custom:12]
 پست الکترونیک: [Custom:13]
-وب سایت: [Custom:14]</value>
+وب سایت: [Custom:14]
+&lt;/div &gt;</value>
   </data>
   <data name="EMAIL_VENDOR_REGISTRATION_ADMINISTRATOR_SUBJECT.Text" xml:space="preserve">
     <value>سیستم نمایندگی فروش پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_VENDOR_REGISTRATION_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [Custom:0] [Custom:1]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [Custom:0] [Custom:1]،
  
  [Custom:2]، با موفقیت در پورتال [Portal:PortalName] ثبت گردید.
  
  با تشکر،
  
-پورتال  [Portal:PortalName]</value>
+پورتال  [Portal:PortalName]
+&lt;/div &gt;</value>
   </data>
   <data name="EMAIL_VENDOR_REGISTRATION_SUBJECT.Text" xml:space="preserve">
     <value>سیستم نمایندگی فروش پورتال [Portal:PortalName]</value>
@@ -684,11 +706,12 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
     <value>سیستم هشداردهی قفل شدن حساب کاربری پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_USER_LOCKOUT_BODY.Text" xml:space="preserve">
-    <value>تلاش برای دسترسی به یک حساب کاربری قفل شده (نام کاربری: [Custom:0]( در تاریخ [Date:Current]. این مورد ممکن است نیاز به بررسی بیشتر توسط شما داشته باشد.
+    <value>&lt;div dir="rtl"&gt;
+    تلاش برای دسترسی به یک حساب کاربری قفل شده (نام کاربری: [Custom:0]( در تاریخ [Date:Current]. این مورد ممکن است نیاز به بررسی بیشتر توسط شما داشته باشد.
 
 با احترام،
 پورتال [Portal:PortalName]
-</value>
+&lt;/div &gt;</value>
   </data>
   <data name="404.Error" xml:space="preserve">
     <value>&lt;div style="height: 100%; width: 90%;"&gt;
@@ -771,7 +794,7 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
     <value>گزارش ارسال خبر نامه '{0}'.</value>
   </data>
   <data name="EMAIL_BulkMailConf_Html_Body.Text" xml:space="preserve">
-    <value>&lt;h1&gt;گزارش ارسال خبر نامه&lt;/h1&gt;
+    <value>&lt;div dir="rtl"&gt;&lt;h1&gt;گزارش ارسال خبر نامه&lt;/h1&gt;
     زمان شروع عملیات: [Custom:0]&lt;br /&gt;
     گیرندگان خبر نامه: [Custom:1]&lt;br /&gt;
     متن پیغام ارسالی: [Custom:2]&lt;br /&gt;
@@ -780,10 +803,12 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
     &lt;br /&gt;
     گزارش وضعیت: &lt;br /&gt;
            &lt;pre&gt;[Custom:5]&lt;/pre&gt;
-    [Custom:6|&lt;hr /&gt;&lt;strong&gt;گیرندگان:&lt;/strong&gt;&lt;br /&gt;{0}]</value>
+    [Custom:6|&lt;hr /&gt;&lt;strong&gt;گیرندگان:&lt;/strong&gt;&lt;br /&gt;{0}]
+  &lt;/div &gt;</value>
   </data>
   <data name="EMAIL_BulkMailConf_Text_Body.Text" xml:space="preserve">
-    <value>زمان شروع عملیات: [Custom:0]
+    <value>&lt;div dir="rtl"&gt;
+    زمان شروع عملیات: [Custom:0]
 گیرندگان خبر نامه:      [Custom:1]
 متن پیغام ارسالی:        [Custom:2]
 زمان اتمام عملیات:  [Custom:3]
@@ -795,7 +820,7 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
 [Custom:6|گیرندگان:
 ===========
 {0}]
-    </value>
+    &lt;/div &gt;</value>
   </data>
   <data name="NoErrorsSending.Text" xml:space="preserve">
     <value>در زمان ارسال هیچ خطایی رخ نداد.</value>
@@ -850,7 +875,8 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
     <value>سیستم بروزرسانی حساب کاربری پورتال [Portal:PortalName]</value>
   </data>
   <data name="EMAIL_ROLE_UPDATE_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [User:DisplayName]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [User:DisplayName]،
 
 حساب کاربری شما در پورتال [Portal:PortalName] به منظور تغییر در دسترسی به نقش های امنیتی زیر بروزرسانی گردید:
 
@@ -861,7 +887,7 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
 
 با تشکر از حمایت بی دریغ و نظرات دلسوزانه شما
 پورتال [Portal:PortalName]
-</value>
+&lt;/div &gt;</value>
   </data>
   <data name="//Host//WhatsNew.String" xml:space="preserve">
     <value>تازه ها</value>
@@ -873,7 +899,8 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
     <value>به علت عدم وجود ماژول معتبر ورود به سیستم در صفحه تنظیم شده و یا اعدم تنظیم صحیح دسترسی ها، شما به صفحه پیش فرض ورود به سیستم منتقل شده اید.</value>
   </data>
   <data name="EMAIL_USER_UPDATED_OWN_PASSWORD_BODY.Text" xml:space="preserve">
-    <value>کاربر گرامی [User:DisplayName]،
+    <value>&lt;div dir="rtl"&gt;
+    کاربر گرامی [User:DisplayName]،
 
 شما رمز عبور خود را در پورتال [Portal:PortalName] با موفقیت تغییر داده اید.
 
@@ -884,7 +911,8 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
 رمز عبور: [Membership:Password]
 
 با احترام،
-پورتال [Portal:PortalName]</value>
+پورتال [Portal:PortalName]
+&lt;/div &gt;</value>
   </data>
   <data name="EMAIL_USER_UPDATED_OWN_PASSWORD_SUBJECT.Text" xml:space="preserve">
     <value>سیستم بروزرسانی رمز عبور پورتال [Portal:PortalName]</value>
@@ -1010,7 +1038,9 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
     <value>پروفایل کاربر</value>
   </data>
   <data name="EMAIL_BulkMailStart_Body.Text" xml:space="preserve">
-    <value>کاربر {1} خبر نامه '{0}'  را به کاربران {2} ارسال نموده است. لطفا گزارش ارسال را برای بررسی موارد خطا بررسی نمایید.</value>
+    <value>&lt;div dir="rtl"&gt;
+    کاربر {1} خبر نامه '{0}'  را به کاربران {2} ارسال نموده است. لطفا گزارش ارسال را برای بررسی موارد خطا بررسی نمایید.
+  &lt;/div &gt;</value>
   </data>
   <data name="EMAIL_BulkMailStart_Subject.Text" xml:space="preserve">
     <value>خبر نامه '{0}' ثبت گردید</value>
@@ -1112,11 +1142,13 @@ http://[Portal:URL]/default.aspx?ctl=Login&amp;amp;username=[Custom:0]&amp;amp;v
     <value>پیام جدید از طرف {0}</value>
   </data>
   <data name="EMAIL_BODY_FORMAT.Text" xml:space="preserve">
-    <value>موضوع: {0}
+    <value>&lt;div dir="rtl"&gt;
+    موضوع: {0}
     
 {1}
 
-لطفا به این نامه پاسخ ندهید.</value>
+لطفا به این نامه پاسخ ندهید.
+&lt;/div &gt;</value>
   </data>
   <data name="PortalLinks.Text" xml:space="preserve">
     <value>لینک های پورتال</value>
