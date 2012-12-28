@@ -155,8 +155,6 @@ namespace DotNetNuke.Services.Install
                     }
 
                     Response.Write("<h2>پايان عمليات نصب</h2>");
-                    //Fariborz Khosravi
-                    //Response.Write("<br><br><h2><a href='../Default.aspx'>Click Here To Access Your Site</a></h2><br><br>");
                     Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>براي مشاهده پورتال کليک نماييد</a></h2><br/><br/>");
                     Response.Flush();
 
@@ -255,8 +253,6 @@ namespace DotNetNuke.Services.Install
                         Upgrade.Upgrade.InstallPackages("Package", true);
 
                         Response.Write("<h2>پايان عمليات بروزرساني</h2>");
-                        //Fariborz Khosravi
-                        //Response.Write("<br><br><h2><a href='../Default.aspx'>Click Here To Access Your Site</a></h2><br><br>");
                         Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>براي مشاهده پورتال کليک نماييد</a></h2><br/><br/>");
                     }
                     else
@@ -320,8 +316,6 @@ namespace DotNetNuke.Services.Install
 					DnnLog.Error(ex);
 				}
                 Response.Write("<h2>پايان عمليات نصب</h2>");
-                //Fariborz Khosravi
-                //Response.Write("<br><br><h2><a href='../Default.aspx'>Click Here To Access Your Site</a></h2><br><br>");
                 Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>براي مشاهده پورتال کليک نماييد</a></h2><br/><br/>");
                 Response.Flush();
             }
@@ -351,8 +345,6 @@ namespace DotNetNuke.Services.Install
             Upgrade.Upgrade.InstallPackages("Package", true);
 
             Response.Write("<h2>پايان عمليات نصب</h2>");
-            //Fariborz Khosravi
-            //Response.Write("<br><br><h2><a href='../Default.aspx'>Click Here To Access Your Site</a></h2><br><br>");
             Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>براي مشاهده پورتال کليک نماييد</a></h2><br/><br/>");
             Response.Flush();
 

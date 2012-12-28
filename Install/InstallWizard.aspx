@@ -9,7 +9,6 @@
     <title></title>
     <asp:PlaceHolder runat="server" ID="ClientDependencyHeadCss"></asp:PlaceHolder>
     <asp:PlaceHolder runat="server" ID="ClientDependencyHeadJs"></asp:PlaceHolder>
-    <!-- Fariborz Khosravi-->
     <link id="DefaultStylesheet" runat="server" rel="stylesheet" type="text/css" href="../Portals/_default/default.css?refresh" />    
     <link id="InstallStylesheet" runat="server" rel="stylesheet" type="text/css" href="Install.css?refresh" />    
      <!--[if IE]>
@@ -834,7 +833,6 @@
     </script>    
 
     <script type="text/javascript">
-        //Fariborz Khosravi
         $(document).ready(function () {
             if ($(document.body).css("direction") == "rtl")
                 $("#languageFlags").css("float", "left");

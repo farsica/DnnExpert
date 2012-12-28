@@ -226,7 +226,6 @@ namespace DotNetNuke.Services.Install
             PageLocale.Value = cultureCode;
             _culture = cultureCode;
 
-            //Fariborz Khosravi
             Thread.CurrentThread.CurrentUICulture = cultureCode == "fa-IR" ? Common.Globals.GetPersianCulture() : new CultureInfo(cultureCode);
         }
 
@@ -261,8 +260,6 @@ namespace DotNetNuke.Services.Install
             if (TestDataBaseInstalled())
             {
                 //running current version, so redirect to site home page
-                //Fariborz Khosravi
-                //Response.Redirect("~/Default.aspx", true);
                 Response.Redirect("~/" + Globals.glbDefaultPage, true);
             }
             else
@@ -288,7 +285,6 @@ namespace DotNetNuke.Services.Install
             //Set Script timeout to MAX value
             HttpContext.Current.Server.ScriptTimeout = int.MaxValue;
 
-            //Fariborz Khosravi
             if (_culture != null)
                 Thread.CurrentThread.CurrentUICulture = _culture == "fa-IR" ? Common.Globals.GetPersianCulture() : new CultureInfo(_culture);
 
@@ -679,7 +675,6 @@ namespace DotNetNuke.Services.Install
                             if (child.Name == "version")
                                 version = child.InnerText;
                         }
-                        //Fariborz Khosravi
                         var myCIintl = cultureCode == "fa-IR" ? Common.Globals.GetPersianCulture() : new CultureInfo(cultureCode, true);
 
                         var li = new ListItem { Value = cultureCode, Text = myCIintl.NativeName };
@@ -702,8 +697,6 @@ namespace DotNetNuke.Services.Install
             }
             finally
             {
-                //Fariborz Khosravi
-                //ensure there is always an fa-IR
                 if (languageList.Items.FindItemByValue("fa-IR") == null)
                 {
                     var myCIintl = Common.Globals.GetPersianCulture();
@@ -752,8 +745,6 @@ namespace DotNetNuke.Services.Install
                 //Do nothing
             }
             Config.Touch();
-            //Fariborz Khosravi
-            //HttpContext.Current.Response.Redirect("../Default.aspx");
             HttpContext.Current.Response.Redirect("../" + Globals.glbDefaultPage);
         }
 
@@ -946,7 +937,6 @@ namespace DotNetNuke.Services.Install
                     }
                 }
             }
-            //Fariborz Khosravi
             if (new CultureInfo(PageLocale.Value).TextInfo.IsRightToLeft)
             {
                 DefaultStylesheet.Attributes["href"] = ResolveUrl("~/Portals/_default/default.rtl.css?refresh");

@@ -194,7 +194,6 @@ namespace DotNetNuke.Modules.Admin.AdvancedSettings
                             }
                         }
 
-                        //Fariborz Khosravi
                         var myCIintl = cultureCode == "fa-IR" ? Common.Globals.GetPersianCulture() : new CultureInfo(cultureCode, true);
 
                         var package = new PackageInfo { Owner = OwnerUpdateService, Name = "LanguagePack-" + myCIintl.Name, FriendlyName = myCIintl.NativeName };

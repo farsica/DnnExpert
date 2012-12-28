@@ -51,8 +51,6 @@ namespace DotNetNuke.UI.Skins.Controls
             }
             if (!String.IsNullOrEmpty(PortalSettings.FooterText))
             {
-                //Fariborz Khosravi
-                //lblCopyright.Text = PortalSettings.FooterText.Replace("[year]", DateTime.Now.Year.ToString());
                 lblCopyright.Text = PortalSettings.FooterText.Replace("[year]", DateTime.Now.ToString("yyyy"));
             }
             else
