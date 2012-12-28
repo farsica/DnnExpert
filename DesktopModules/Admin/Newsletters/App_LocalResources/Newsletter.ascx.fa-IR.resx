@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BasicSettings.Text" xml:space="preserve">
+    <value>تنظیمات پایه</value>
+  </data>
+  <data name="plAddressees.Text" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+  <data name="plRoles.Text" xml:space="preserve">
+    <value>کاربر/کاربران نقش</value>
+  </data>
+  <data name="plRoles.Help" xml:space="preserve">
+    <value>لطفا نقش های گیرنده خبرنامه را مشخص نمایید. به عنوان مثال "مدیران پورتال" و یا "اعضاء"</value>
+  </data>
+  <data name="plLanguages.Text" xml:space="preserve">
+    <value>فیلتر زبان</value>
+  </data>
+  <data name="plLanguages.Help" xml:space="preserve">
+    <value>با انتخاب این گزینه کاربران با توجه زبانی که در پروفایل خود مشخص نموده اند، فیلتر می گردند.</value>
+  </data>
+  <data name="plEmail.Text" xml:space="preserve">
+    <value>سایر آدرس های پست الکترونیک</value>
+  </data>
+  <data name="plEmail.Help" xml:space="preserve">
+    <value>شما می توانید آدرس پست الکترونیک گیرندگان را که بوسیله ";" از هم جدا شده اند را در این بخش وارد نمایید.</value>
+  </data>
+  <data name="plFrom.Text" xml:space="preserve">
+    <value>فرستنده</value>
+  </data>
+  <data name="plFrom.Help" xml:space="preserve">
+    <value>لطفا آدرس پست الکترونیک فرستنده خبرنامه را مشخص نمایید.</value>
+  </data>
+  <data name="plReplyTo.Text" xml:space="preserve">
+    <value>پاسخ دهنده</value>
+  </data>
+  <data name="plReplyTo.Help" xml:space="preserve">
+    <value>لطفا آدرس پست الکترونیک پاسخ دهنده را مشخص نمایید.</value>
+  </data>
+  <data name="revEmailAddress.ErrorMessage" xml:space="preserve">
+    <value>آدرس پست الکترونیک نامعتبر می باشد!</value>
+  </data>
+  <data name="plSubject.Text" xml:space="preserve">
+    <value>موضوع</value>
+  </data>
+  <data name="plSubject.Help" xml:space="preserve">
+    <value>لطفا موضوع این پیغام را وارد نمایید.</value>
+  </data>
+  <data name="Message.Text" xml:space="preserve">
+    <value>پیغام</value>
+  </data>
+  <data name="AdvancedSettings.Text" xml:space="preserve">
+    <value>تنظیمات پیشرفته</value>
+  </data>
+  <data name="plAttachment.Text" xml:space="preserve">
+    <value>پیوست</value>
+  </data>
+  <data name="plAttachment.Help" xml:space="preserve">
+    <value>لطفا پیوست این خبرنامه را انتخاب نمایید.</value>
+  </data>
+  <data name="plPriority.Text" xml:space="preserve">
+    <value>اولویت</value>
+  </data>
+  <data name="plPriority.Help" xml:space="preserve">
+    <value>لطفا اولیت ارسال خبرنامه را مشخص نمایید.</value>
+  </data>
+  <data name="Normal.Text" xml:space="preserve">
+    <value>معمولی</value>
+  </data>
+  <data name="High.Text" xml:space="preserve">
+    <value>زیاد</value>
+  </data>
+  <data name="Low.Text" xml:space="preserve">
+    <value>کم</value>
+  </data>
+  <data name="plReplaceTokens.Text" xml:space="preserve">
+    <value>جایگزینی توکن ها</value>
+  </data>
+  <data name="plReplaceTokens.Help" xml:space="preserve">
+    <value>این گزینه نشانگر این است که آیا درصورت وجود توکن، بایستی با مقدار متناظر خود جایگزین گردد یا خیر؟&lt;br/&gt;نکته: در روش ارسال "BCC" فقط توکن های عمومی جایگزین خواهند شد.</value>
+  </data>
+  <data name="plNoDuplicates.Text" xml:space="preserve">
+    <value>حذف آدرس های تکراری</value>
+  </data>
+  <data name="plNoDuplicates.Help" xml:space="preserve">
+    <value>با انتخاب این گزینه آدرس های تکراری حذف خواهند گردید.</value>
+  </data>
+  <data name="SendTo.Text" xml:space="preserve">
+    <value>TO: یک پیغام شخصی به ازای هر آدرس پست الکترونیک</value>
+  </data>
+  <data name="SendBCC.Text" xml:space="preserve">
+    <value>BCC: یک پیغام یکسان به تمام گیرندگان بصورت ناشناس</value>
+  </data>
+  <data name="SendRelay.Text" xml:space="preserve">
+    <value>Relay: یک پیغام شخصی به ازای هر آدرس پست الکترونیک بوسیله سرور واسط</value>
+  </data>
+  <data name="plRelayAddress.Text" xml:space="preserve">
+    <value>آدرس واسط</value>
+  </data>
+  <data name="plSendMethod.Help" xml:space="preserve">
+    <value>لطفا روش ارسال خبرنامه را انتخاب نمایید.</value>
+  </data>
+  <data name="plSendMethod.Text" xml:space="preserve">
+    <value>روش ارسال</value>
+  </data>
+  <data name="plSendAction.Text" xml:space="preserve">
+    <value>شیوه ارسال</value>
+  </data>
+  <data name="plSendAction.Help" xml:space="preserve">
+    <value>لطفا شیوه ارسال خبرنامه را مشخص نمایید. در روش همزمان پیغام ارسالی بلافاصله ارسال خواهد شد و شما بایستی تا اتمام عملیات صبر نمایید. در روش غیرهمزمان نیازی به اتمام عملیات نبوده و پس از اتمام عملیات گزارش ارسال به آدرس پست الکترونیکی که به عنوان فرستنده مشخص شده، ارسال خواهد شد.</value>
+  </data>
+  <data name="Synchronous.Text" xml:space="preserve">
+    <value>همزمان</value>
+  </data>
+  <data name="Asynchronous.Text" xml:space="preserve">
+    <value>غیر همزمان</value>
+  </data>
+  <data name="cmdSend.Text" xml:space="preserve">
+    <value>ارسال پست الکترونیک</value>
+  </data>
+  <data name="ControlTitle_.Text" xml:space="preserve">
+    <value>خبرنامه ها</value>
+  </data>
+  <data name="MessageSent.Text" xml:space="preserve">
+    <value>خبرنامه ارسال گردید. (به روش غیر همزمان) لطفا پست الکترونیک تاییدیه را برای نتایج بررسی نمایید.</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;درباره بخش خبرنامه ها&lt;/h1&gt;
+&lt;p&gt;مدیران پورتال می توانند نسبت به ارسال خبرنامه به یک/چند کاربر خاص و یا تمامی کاربران عضو یک نقش، اقدام نمایند. در یک پورتال چند زبانه همچنین گزینه &lt;strong&gt;فیلتر زبان&lt;/strong&gt; وجود دارد تا بتوان به ازای هر زبان، مطالب خاص آن زبان را ارسال نمود.&lt;/p&gt;
+&lt;p&gt;در بخش فرستنده می توان &lt;strong&gt;آدرس پست الکترونیک فرستنده&lt;/strong&gt; را مشخص نمود. (بصورت پیش فرض این مقدار آدرس پست الکترونیک کاربر جاری می باشد) همچنین امکان مشخص نمودن آدرس پست الکترونیک &lt;strong&gt;&amp;quot;پاسخ دهنده&amp;quot;&lt;/strong&gt; نیز امکان پذیر می باشد. &lt;strong&gt;قالب&lt;/strong&gt; (متن ساده و یا HTML) خبرنامه نیز توسط ویرایشگر مورد استفاده مشخص می گردد.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;موضوع&lt;/strong&gt; و &lt;strong&gt;متن خبرنامه&lt;/strong&gt; می توانند شامل توکن هایی همچون نام پورتال، نام کاربر، تاریخ/زمان باشند که در زمان ارسال با مقادیر متناظر خود جایگزین خواهند شد؛ البته در صورتی که قابلیت &lt;strong&gt;جایگزینی توکن ها&lt;/strong&gt; فعال باشد. همچنین می توان &lt;strong&gt;پیوست&lt;/strong&gt; &lt;strong&gt;اولویت&lt;/strong&gt; خبرنامه را نیز مشخص نمود.&lt;/p&gt;
+&lt;p&gt;سه روش برای &lt;strong&gt;ارسال خبرنامه وجود دارد&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;TO:&lt;/strong&gt; ارسال  بصورت جداگانه به ازای هر آدرس پست الکترونیک، به همراه جایگزینی توکن های موجود&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;BCC:&lt;/strong&gt; ارسال متن یکسان به همه گیرندگان بصورت مخفی.&lt;br /&gt;
+    درصورتی که توکنی مختص یک کاربر باشد جایگزین نخواهد شد و فقط توکن های عمومی جایگزین می گردد&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;RELAY:&lt;/strong&gt; ارسال بصورت جداگانه به ازای هر آدرس پست الکترونیک، به همراه جایگزینی توکن های موجود و بوسیله یک سرور واسط.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;در صورت انتخاب شیوه &lt;strong&gt;همزمان&lt;/strong&gt;، بایستی تا زمان اتمام ارسال صبر نمایید. در شیوه غیر همزمان بدون نیاز به اتمام ارسال ها، شما می توانید به ادامه فعالیت ها بپردازید. در صورت اتمام عملیات، گزارش آن به آدرسی که در بخش فرستنده مشخص شده، ارسال می گردد.&lt;/p&gt;</value>
+  </data>
+  <data name="Heading.Text" xml:space="preserve">
+    <value>کاربر گرامی</value>
+  </data>
+  <data name="MessageValidation.Text" xml:space="preserve">
+    <value>شما بایستی موضوع و متن را مشخص نمایید</value>
+  </data>
+  <data name="MessagesSentCount.Text" xml:space="preserve">
+    <value>{0} پیغام با موفقیت ارسال گردید</value>
+  </data>
+  <data name="NoMessagesSent.Text" xml:space="preserve">
+    <value>پیغامی ارسال نگردید. پیغامی حاوی شرح خطاها و جزئیات مربوطه به آدرس پست الکترونیک {0} ارسال گردید.</value>
+  </data>
+  <data name="cmdPreview.Text" xml:space="preserve">
+    <value>پیش نمایش پست الکترونیک</value>
+  </data>
+  <data name="NoMessagesSentPlusError.Text" xml:space="preserve">
+    <value>بروز خطا در زمان ارسال خبرنامه: {0}</value>
+  </data>
+  <data name="NoRecipients.Text" xml:space="preserve">
+    <value>به علت عدم وجود گیرنده، پیغامی ارسال نگردید.</value>
+  </data>
+  <data name="cmdCancelPreview.Text" xml:space="preserve">
+    <value>لغو پیش نمایش</value>
+  </data>
+</root>
