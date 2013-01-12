@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Configuration.Text" xml:space="preserve">
+    <value>پیکربندی</value>
+  </data>
+  <data name="plServerTime.Text" xml:space="preserve">
+    <value>زمان سرور:</value>
+  </data>
+  <data name="plServerTime.Help" xml:space="preserve">
+    <value>این گزینه نشانگر زمان و تاریخ جاری مربوط به میزبان وب می باشد.</value>
+  </data>
+  <data name="plebFarm.Text" xml:space="preserve">
+    <value>فعال بودن استفاده از قابلیت Web Farm؟</value>
+  </data>
+  <data name="plWebFarm.Help" xml:space="preserve">
+    <value>این گزینه نشانگر این است که آیا این وب سایت از قابلیت Web Farm استفاده می کند یا خیر.</value>
+  </data>
+  <data name="plVersion.Text" xml:space="preserve">
+    <value>نسخه نرم افزار:</value>
+  </data>
+  <data name="plVersion.Help" xml:space="preserve">
+    <value>این گزینه نشانگر نسخه نرم افزاری می باشد که نصب گردیده است.</value>
+  </data>
+  <data name="plDataProvider.Text" xml:space="preserve">
+    <value>شیوه مورد استفاده برای ارتباط با بانک اطلاعات:</value>
+  </data>
+  <data name="plDataProvider.Help" xml:space="preserve">
+    <value>این گزینه نشانگر نام شیوه مورد استفاده برای ارتباط با بانک اطلاعات است که در فایل Web.config مشخص شده است.</value>
+  </data>
+  <data name="plFramework.Text" xml:space="preserve">
+    <value>نسخه کتابخانه NET. در حال استفاده:</value>
+  </data>
+  <data name="plFramework.Help" xml:space="preserve">
+    <value>این گزینه نشانگر نسخه کتابخانه NET. است که در حال استفاده توسط سیستم می باشد؛ این مشخصه در محیط نرم افزار IIS مشخص می شود.</value>
+  </data>
+  <data name="plIdentity.Text" xml:space="preserve">
+    <value>نام کاربر ASP.NET:</value>
+  </data>
+  <data name="plIdentity.Help" xml:space="preserve">
+    <value>این گزینه نام کاربری که برنامه در محیط سیستم عامل توسط این کاربر اجرا می شود را نمایش می دهد. این همان کاربری است که بایستی دسترسی های لازم را بر شاخه اصلی پوشه برنامه داشته باشد.</value>
+  </data>
+  <data name="plHostName.Text" xml:space="preserve">
+    <value>نام میزبان وب:</value>
+  </data>
+  <data name="plHostName.Help" xml:space="preserve">
+    <value>این گزینه نشانگر نام میزبان وب می باشد.</value>
+  </data>
+  <data name="plIPAddress.Text" xml:space="preserve">
+    <value>آدرس IP:</value>
+  </data>
+  <data name="plIPAddress.Help" xml:space="preserve">
+    <value>این گزینه نشانگر آدرس IP میزبان وب می باشد.</value>
+  </data>
+  <data name="plPermissions.Text" xml:space="preserve">
+    <value>دسترسی ها:</value>
+  </data>
+  <data name="plPermissions.Help" xml:space="preserve">
+    <value>این گزینه نشانگر سطوح دسترسی است که در محیط سیستم عامل میزبان مشخص شده است.</value>
+  </data>
+  <data name="plApplicationPath.Text" xml:space="preserve">
+    <value>مسیر نسبی:</value>
+  </data>
+  <data name="plApplicationPath.Help" xml:space="preserve">
+    <value>این گزینه نشانگر مسیر نسبی پورتال نسبت به شاخه اصلی پوشه برنامه می باشد.</value>
+  </data>
+  <data name="plApplicationMapPath.Text" xml:space="preserve">
+    <value>مسیر فیزیکی:</value>
+  </data>
+  <data name="plApplicationMapPath.Help" xml:space="preserve">
+    <value>این گزینه نشانگر مکان فیزیکی شاخه اصلی پورتال در سرور است.</value>
+  </data>
+  <data name="plGUID.Text" xml:space="preserve">
+    <value>شناسه پورتال:</value>
+  </data>
+  <data name="plGUID.Help" xml:space="preserve">
+    <value>این گزینه نشانگر شناسه منحصربفردی است که برای این نسخه از پورتال مشخص شده است.</value>
+  </data>
+  <data name="plHostPortal.Text" xml:space="preserve">
+    <value>پورتال پیش فرض:</value>
+  </data>
+  <data name="plHostTitle.Text" xml:space="preserve">
+    <value>عنوان میزبان:</value>
+  </data>
+  <data name="plHostURL.Text" xml:space="preserve">
+    <value>آدرس وب سایت میزبان:</value>
+  </data>
+  <data name="plHostEmail.Text" xml:space="preserve">
+    <value>آدرس پست الکترونیک مدیر ارشد پورتال:</value>
+  </data>
+  <data name="plHostSkin.Text" xml:space="preserve">
+    <value>پوسته پیش فرض:</value>
+  </data>
+  <data name="plHostContainer.Text" xml:space="preserve">
+    <value>طرح حاشیه ماژول پیش فرض:</value>
+  </data>
+  <data name="plProcessor.Text" xml:space="preserve">
+    <value>سیستم پردازشگرهای مالی:</value>
+  </data>
+  <data name="plUserId.Text" xml:space="preserve">
+    <value>شناسه کاربری در سیستم پردازشگر:</value>
+  </data>
+  <data name="plPassword.Text" xml:space="preserve">
+    <value>رمز عبور سیستم پردازشگر مالی:</value>
+  </data>
+  <data name="plHostFee.Text" xml:space="preserve">
+    <value>قیمت پایه برای هر پورتال:</value>
+  </data>
+  <data name="plHostCurrency.Text" xml:space="preserve">
+    <value>واحد پول:</value>
+  </data>
+  <data name="plHostSpace.Text" xml:space="preserve">
+    <value>فضای پورتال (MB):</value>
+  </data>
+  <data name="plDemoPeriod.Text" xml:space="preserve">
+    <value>بازه زمانی حساب کاربری آزمایشی:</value>
+  </data>
+  <data name="plDemoSignup.Text" xml:space="preserve">
+    <value>فعال بودن امکان نسخه آزمایشی؟</value>
+  </data>
+  <data name="plSiteLogBuffer.Text" xml:space="preserve">
+    <value>تعدادآیتم های رخدادهای سیستم که بایستی در حافظه موقت قرار بگیرند:</value>
+  </data>
+  <data name="plSiteLogHistory.Text" xml:space="preserve">
+    <value>تاریخچه رخدادهای پورتال:</value>
+  </data>
+  <data name="plUsersOnline.Text" xml:space="preserve">
+    <value>فعال بودن شناسایی کاربران آنلاین؟</value>
+  </data>
+  <data name="plUsersOnlineTime.Text" xml:space="preserve">
+    <value>بازه زمانی مورد استفاده برای شناسایی کاربران آنلاین:</value>
+  </data>
+  <data name="plProxyServer.Text" xml:space="preserve">
+    <value>آدرس میزبان پروکسی:</value>
+  </data>
+  <data name="plProxyPort.Text" xml:space="preserve">
+    <value>پورت میزبان پروکسی:</value>
+  </data>
+  <data name="plProxyUsername.Text" xml:space="preserve">
+    <value>نام کاربری میزبان پروکسی:</value>
+  </data>
+  <data name="plProxyPassword.Text" xml:space="preserve">
+    <value>رمز عبور میزبان پروکسی:</value>
+  </data>
+  <data name="plWebRequestTimeout.Text" xml:space="preserve">
+    <value>بازه زمانی مهلت درخواست های وب:</value>
+  </data>
+  <data name="plSMTPServer.Text" xml:space="preserve">
+    <value>میزبان پست الکترونیک و پورت مورد استفاده:</value>
+  </data>
+  <data name="EmailTest.Text" xml:space="preserve">
+    <value>تست تنظیمات میزبان پست الکترونیک</value>
+  </data>
+  <data name="plSMTPAuthentication.Text" xml:space="preserve">
+    <value>شیوه احراز هویت میزبان پست الکترونیک:</value>
+  </data>
+  <data name="plSMTPUsername.Text" xml:space="preserve">
+    <value>نام کاربری میزبان پست الکترونیک:</value>
+  </data>
+  <data name="plSMTPPassword.Text" xml:space="preserve">
+    <value>رمز عبور میزبان پست الکترونیک:</value>
+  </data>
+  <data name="plSMTPEnableSSL.Text" xml:space="preserve">
+    <value>فعال بودن پروتکل امن (SSL):</value>
+  </data>
+  <data name="plSMTPEnableSSL.Help" xml:space="preserve">
+    <value>برای فعال بودن استفاده از پروتکل امن (SSL) برای ارتباط با میزبان پست الکترونیک، این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="plFileExtensions.Text" xml:space="preserve">
+    <value>پسوند فایل های معتبر:</value>
+  </data>
+  <data name="plSkinUpload.Text" xml:space="preserve">
+    <value>دسترسی آپلود پوسته:</value>
+  </data>
+  <data name="plCache.Text" xml:space="preserve">
+    <value>بازه زمانی حافظه موقت (بر حسب ثانیه):</value>
+  </data>
+  <data name="ClearCache.Text" xml:space="preserve">
+    <value>خالی کردن حافظه موقت</value>
+  </data>
+  <data name="plCopyright.Text" xml:space="preserve">
+    <value>نمایش مشخصات تولید کننده نرم افزار؟</value>
+  </data>
+  <data name="plUseCustomErrorMessages.Text" xml:space="preserve">
+    <value>فعال بودن استفاده از پیغام های خطای سفارشی؟</value>
+  </data>
+  <data name="UpgradeLog.Text" xml:space="preserve">
+    <value>بروزرسانی وقایع برای نسخه</value>
+  </data>
+  <data name="EmailSentMessage.Text" xml:space="preserve">
+    <value>پست الکترونیک با موفقیت ارسال شد</value>
+  </data>
+  <data name="SpecifyHostEmailMessage.Text" xml:space="preserve">
+    <value>شما می بایست آدرس پست الکترونیک مدیر ارشد را مشخص نمایید.</value>
+  </data>
+  <data name="plSchedulerMode.Text" xml:space="preserve">
+    <value>شیوه زمانبندی وظایف:</value>
+  </data>
+  <data name="plSchedulerMode.Help" xml:space="preserve">
+    <value>در روش مبتنی بر زمان، از یک پردازشگر مجزا برای اجرای وظایف زمان بندی شده استفاده می شود؛ در روش مبتنی بر درخواست، وظایف مشخص شده پس از دریافت هر درخواست اجرا می گردد. برای غیر فعال کردن استفاده از وظایف زمان بندی شده می توایند گزینه "غیر فعال" را انتخاب نمایید.</value>
+  </data>
+  <data name="Disabled.Text" xml:space="preserve">
+    <value>غیرفعال</value>
+  </data>
+  <data name="TimerMethod.Text" xml:space="preserve">
+    <value>روش زمانبندی</value>
+  </data>
+  <data name="RequestMethod.Text" xml:space="preserve">
+    <value>روش درخواست</value>
+  </data>
+  <data name="15Seconds.Text" xml:space="preserve">
+    <value>15 ثانیه</value>
+  </data>
+  <data name="30Seconds.Text" xml:space="preserve">
+    <value>30 ثانیه</value>
+  </data>
+  <data name="45Seconds.Text" xml:space="preserve">
+    <value>45 ثانیه</value>
+  </data>
+  <data name="60Seconds.Text" xml:space="preserve">
+    <value>60 ثانیه</value>
+  </data>
+  <data name="plPerformance.Text" xml:space="preserve">
+    <value>تنظیمات حافظه موقت:</value>
+  </data>
+  <data name="HeavyCaching.Text" xml:space="preserve">
+    <value>Heavy</value>
+  </data>
+  <data name="ModerateCaching.Text" xml:space="preserve">
+    <value>Moderate</value>
+  </data>
+  <data name="LightCaching.Text" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="NoCaching.Text" xml:space="preserve">
+    <value>هیچ کدام</value>
+  </data>
+  <data name="BasicSettingsHelp.Text" xml:space="preserve">
+    <value>لطفا تنظیمات پایه مربوط به مدیریت ارشد را مشخص نمایید.</value>
+  </data>
+  <data name="BasicSettings.Text" xml:space="preserve">
+    <value>تنظیمات پایه</value>
+  </data>
+  <data name="HostDetails.Text" xml:space="preserve">
+    <value>جزئیات مدیریت ارشد</value>
+  </data>
+  <data name="plHostTitle.Help" xml:space="preserve">
+    <value>لطفا عنوان میزبان را وارد نمایید.</value>
+  </data>
+  <data name="plHostURL.Help" xml:space="preserve">
+    <value>لطفا آدرس وب سایت میزبان را وارد نمایید.</value>
+  </data>
+  <data name="plHostEmail.Help" xml:space="preserve">
+    <value>لطفا آدرس پست الکترونیک مدیر ارشد پورتال را وارد نمایید.</value>
+  </data>
+  <data name="plHostSkin.Help" xml:space="preserve">
+    <value>لطفا پوسته پیش فرض مورد استفاده برای صفحات پورتال را انتخاب نمایید.</value>
+  </data>
+  <data name="plHostContainer.Help" xml:space="preserve">
+    <value>لطفا طرح حاشیه پیش فرض مورد استفاده برای ماژول های پورتال را انتخاب نمایید.</value>
+  </data>
+  <data name="Appearance.Text" xml:space="preserve">
+    <value>ظاهر</value>
+  </data>
+  <data name="Payment.Text" xml:space="preserve">
+    <value>تنظیمات پرداخت</value>
+  </data>
+  <data name="Proxy.Text" xml:space="preserve">
+    <value>تنظیمات پروکسی</value>
+  </data>
+  <data name="SMTP.Text" xml:space="preserve">
+    <value>تنظیمات میزبان پست الکترونیک</value>
+  </data>
+  <data name="OtherSettings.Text" xml:space="preserve">
+    <value>سایر تنظیمات</value>
+  </data>
+  <data name="AdvancedSettings.Text" xml:space="preserve">
+    <value>تنظیمات پیشرفته</value>
+  </data>
+  <data name="AdvancedSettingsHelp.Text" xml:space="preserve">
+    <value>لطفا تنظیمات پیشرفته مربوط به مدیریت ارشد را مشخص نمایید.</value>
+  </data>
+  <data name="Other.Text" xml:space="preserve">
+    <value>سایر تنظیمات</value>
+  </data>
+  <data name="plCopyright.Help" xml:space="preserve">
+    <value>برای افزوده شدن مشخصات تولید کننده نرم افزار در کد صفحه، این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="plUseCustomErrorMessages.Help" xml:space="preserve">
+    <value>لطفا برای فعال  شدن امکان استفاده از پیغام های خطای سفارشی، این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="plProcessor.Help" xml:space="preserve">
+    <value>لطفا نوع سیستم مورد استفاده برای پردازش های مالی را انتخاب نمایید.</value>
+  </data>
+  <data name="plUserId.Help" xml:space="preserve">
+    <value>لطفا شناسه کاربری مربوط به سیستم پردازشگر مالی را وارد نمایید.</value>
+  </data>
+  <data name="plPassword.Help" xml:space="preserve">
+    <value>لطفا رمز عبور سیستم پردازشگر مالی را وارد نمایید.</value>
+  </data>
+  <data name="plHostFee.Help" xml:space="preserve">
+    <value>لطفا قیمت پایه را برای هر پورتال مشخص نمایید.</value>
+  </data>
+  <data name="plHostCurrency.Help" xml:space="preserve">
+    <value>لطفا واحد پول مورد استفاده را مشخص نمایید.</value>
+  </data>
+  <data name="plDemoPeriod.Help" xml:space="preserve">
+    <value>لطفا تعداد روزهای مربوط به حساب کاربری آزمایشی را مشخص نمایید.</value>
+  </data>
+  <data name="plDemoSignup.Help" xml:space="preserve">
+    <value>در صورت انتخاب این گزینه امکان ثبت درخواست برای نسخه آزمایشی امکان پذیر خواهد بود.</value>
+  </data>
+  <data name="plHostSpace.Help" xml:space="preserve">
+    <value>لطفا میزان فضای هر پورتال را مشخص نمایید.</value>
+  </data>
+  <data name="plSMTPServer.Help" xml:space="preserve">
+    <value>لطفا آدرس میزبان پست الکترونیک را وارد نمایید. در صورتی که پورت مورد استفاده، پورت پیش فرض (25) نباشد، بایستی در انتهای آدرس اضافه گردد. (به عنوان مثال smtp.googlemail.com:587)</value>
+  </data>
+  <data name="plSMTPAuthentication.Help" xml:space="preserve">
+    <value>لطفا روش مورد استفاده برای احراز هویت در میزبان پست الکترونیک را وارد نمایید. (روش پیش فرض Anonymous می باشد)</value>
+  </data>
+  <data name="SMTPAnonymous.Text" xml:space="preserve">
+    <value>ناشناس</value>
+  </data>
+  <data name="SMTPBasic.Text" xml:space="preserve">
+    <value>پایه</value>
+  </data>
+  <data name="SMTPNTLM.Text" xml:space="preserve">
+    <value>NTLM</value>
+  </data>
+  <data name="plSMTPUsername.Help" xml:space="preserve">
+    <value>لطفا نام کاربری میزبان پست الکترونیک را وارد نمایید.</value>
+  </data>
+  <data name="plSMTPPassword.Help" xml:space="preserve">
+    <value>لطفا رمز عبور میزبان پست الکترونیک را وارد نمایید.</value>
+  </data>
+  <data name="plControlPanel.Text" xml:space="preserve">
+    <value>پانل مدیریتی:</value>
+  </data>
+  <data name="plControlPanel.Help" xml:space="preserve">
+    <value>شما می توانید پانل مدیریتی مورد استفاده رامشخص نمایید.</value>
+  </data>
+  <data name="plFileExtensions.Help" xml:space="preserve">
+    <value>لطفا لیست پسوند فایل های معتبر را که بایستی امکان ثبت درون پورتال را داشته باشند، وارد نمایید. (اسامی فایل ها را با ویرگول از هم جدا نمایید)</value>
+  </data>
+  <data name="plSkinUpload.Help" xml:space="preserve">
+    <value>برای مشخص نمودن اینکه فقط مدیران ارشد پورتال بتوانند پوسته آپلود نمایند یا مدیران پورتال نیز این امکان را داشته باشند، از این گزینه استفاده نمایید.</value>
+  </data>
+  <data name="Host.Text" xml:space="preserve">
+    <value>مدیریت ارشد</value>
+  </data>
+  <data name="Portal.Text" xml:space="preserve">
+    <value>پورتال</value>
+  </data>
+  <data name="plCache.Help" xml:space="preserve">
+    <value>لطفا بازه زمانی که بایستی آبجکت ها در حافظه موقت باقی بمانند را بر حسب ثانیه مشخص نمایید.</value>
+  </data>
+  <data name="plPerformance.Help" xml:space="preserve">
+    <value>لطفا روش مورد استفاده برای افزایش کارآیی را انتخاب نمایید.</value>
+  </data>
+  <data name="plProxyServer.Help" xml:space="preserve">
+    <value>لطفا آدرس میزبان پروکسی وارد نمایید.</value>
+  </data>
+  <data name="plProxyPort.Help" xml:space="preserve">
+    <value>لطفا پورت میزبان پروکسی وارد نمایید.</value>
+  </data>
+  <data name="plProxyUsername.Help" xml:space="preserve">
+    <value>لطفا نام کاربری میزبان پروکسی وارد نمایید.</value>
+  </data>
+  <data name="plProxyPassword.Help" xml:space="preserve">
+    <value>لطفا رمز عبور میزبان پروکسی وارد نمایید.</value>
+  </data>
+  <data name="plWebRequestTimeout.Help" xml:space="preserve">
+    <value>لطفا بازه زمانی مهلت درخواست های وب را مشخص نمایید.</value>
+  </data>
+  <data name="plSiteLogBuffer.Help" xml:space="preserve">
+    <value>لطفا تعداد آیتم های مربوط به رخدادهای سیستم که تا قبل از ذخیره در بانک اطلاعات می توانند در حافظه موقت  قرار داشته باشند را مشخص نمایید.</value>
+  </data>
+  <data name="plSiteLogHistory.Help" xml:space="preserve">
+    <value>لطفا تعداد روزهایی که بایستی تاریخچه رخدادهای سیستم نگهداشته شود را مشخص نمایید.</value>
+  </data>
+  <data name="plUsersOnline.Help" xml:space="preserve">
+    <value>شما می توانید فعال بودن شناسایی کاربران آنلاین را فعال/غیر فعال نمایید.</value>
+  </data>
+  <data name="plUsersOnlineTime.Help" xml:space="preserve">
+    <value>لطفا بازه زمانی که برای شناسایی کاربران آنلاین توسط سیستم بایستی مورد استفاده قرار گیرد، را وارد نمایید.</value>
+  </data>
+  <data name="FriendlyUrl.Text" xml:space="preserve">
+    <value>تنظیمات آدرس های کاربرپسند</value>
+  </data>
+  <data name="plUseFriendlyUrls.Text" xml:space="preserve">
+    <value>فعال بودن آدرس های کاربرپسند؟</value>
+  </data>
+  <data name="plUseFriendlyUrls.Help" xml:space="preserve">
+    <value>لطفا برای فعال بودن آدرس های کاربرپسند و استفاده از آن در سیستم، این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="RequestFilter.Text" xml:space="preserve">
+    <value>تنظیمات فیلتر درخواست های دریافتی</value>
+  </data>
+  <data name="plEnableRequestFilters.Text" xml:space="preserve">
+    <value>فعال بودن امکان فیلتر سازی درخواست ها؟</value>
+  </data>
+  <data name="plEnableRequestFilters.Help" xml:space="preserve">
+    <value>لطفا برای فعال شدن امکان فیلتر سازی درخواست ها، این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="plHostPortal.Help" xml:space="preserve">
+    <value>لطفا پورتال پیش فرض را انتخاب نمایید.</value>
+  </data>
+  <data name="ControlTitle_.Text" xml:space="preserve">
+    <value>تنظیمات مدیریت راشد</value>
+  </data>
+  <data name="SkinUpload.Text" xml:space="preserve">
+    <value>آپلود پوسته/طرح حاشیه ماژول</value>
+  </data>
+  <data name="ContainerUpload.Text" xml:space="preserve">
+    <value>آپلود طرح حاشیه ماژول</value>
+  </data>
+  <data name="plSiteLogStorage.Text" xml:space="preserve">
+    <value>مکان ذخیره رخدادهای سیستم:</value>
+  </data>
+  <data name="plSiteLogStorage.Help" xml:space="preserve">
+    <value>مکان ذخیره رخدادهای سیستم را انتخاب نمایید.</value>
+  </data>
+  <data name="Database.Text" xml:space="preserve">
+    <value>بانک اطلاعات</value>
+  </data>
+  <data name="FileSystem.Text" xml:space="preserve">
+    <value>فایل سیستم</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;درباره بخش تنظیمات مدیریت ارشد&lt;/h1&gt;&lt;p&gt;مدیران ارشد می توانند تنظیمات پیکربندی مربوط به پورتال را مدیریت نمایند.&lt;/p&gt;</value>
+  </data>
+  <data name="plLogBuffer.Text" xml:space="preserve">
+    <value>استفاده از حافظه موقت برای ذخیره موقت رخدادهای سیستم؟</value>
+  </data>
+  <data name="plLogBuffer.Help" xml:space="preserve">
+    <value>با انتخاب این گزینه لیست رخدادهای سیستم ابتدا در حافظه موقت ذخیره شده و سپس به بانک اطلاعات منتقل می گردد. عدم انتخاب این گزینه باعث می شود رخدادهای سیستم بصورت مستقیم در بانک اطلاعات ذخیره شوند.</value>
+  </data>
+  <data name="plAutoAccountUnlock.Text" xml:space="preserve">
+    <value>زمان آزاد شدن حساب کاربری قفل شده:</value>
+  </data>
+  <data name="plAutoAccountUnlock.Help" xml:space="preserve">
+    <value>پس از اینکه یک حساب کاربری به علت ورودهای ناموفق متوالی قفل گردید، پس از گذشت زمان مشخص شده بصورت خودکار از حالت قفل خارج می شود. بازه زمانی مورد نظر را برحسب دقیقه وارد نمایید. درصورتی که عدد "0" را وارد نمایید، امکان از قفل خارج شدن خودکار غیر فعال خواهد شد.</value>
+  </data>
+  <data name="plCacheMethod.Text" xml:space="preserve">
+    <value>روش مدیریت حافظه موقت برای ماژول ها:</value>
+  </data>
+  <data name="plCacheMethod.Help" xml:space="preserve">
+    <value>استفاده از حافظه موقت بسیار انعطاف پذیر بوده و امکان ایجاد بالاترین کارآیی را فراهم می آورد، اما به هر حال این موجب مصرف شدن برخی از منابع سیستم می گردد.استفاده از فضای دیسک بجای حافظه موقت موجب مصرف شدن میزان کمتری از منابع می گردد اما این روش انعطاف پذیری زیادی نداشته و کارآیی کمتری دارد.</value>
+  </data>
+  <data name="Memory.Text" xml:space="preserve">
+    <value>حافظه</value>
+  </data>
+  <data name="Disk.Text" xml:space="preserve">
+    <value>دیسک</value>
+  </data>
+  <data name="ProcessorWebSite.Text" xml:space="preserve">
+    <value>انتقال به وب سایت سیستم پردازشگر برداخت های مالی</value>
+  </data>
+  <data name="plHelpUrl.Text" xml:space="preserve">
+    <value>آدرس راهنما:</value>
+  </data>
+  <data name="plHelpUrl.Help" xml:space="preserve">
+    <value>لطفا آدرس URL مربوط به صفحه راهنمای آنلاین را مشخص نمایید. در صورتی که این گزینه پر نشود، امکان راهنمای آنلاین غیر فعال خواهد شد.</value>
+  </data>
+  <data name="plEnableHelp.Text" xml:space="preserve">
+    <value>فعال بودن امکان راهنمای آنلاین ماژول ها:</value>
+  </data>
+  <data name="plEnableHelp.Help" xml:space="preserve">
+    <value>شما می توانید امکان مشاهده راهنمای آنلاین ماژول ها را فعال/غیرفعال نمایید. در صورت فعال کردن این گزینه، شما بایستی آدرس URL راهنمای آنلاین ماژول ها را مشخص نمایید، البته این آدرس را تولید کننده هر ماژول نیز می تواند مشخص نماید.</value>
+  </data>
+  <data name="plCacheability.Text" xml:space="preserve">
+    <value>قرارگرفتن کاربر شناسایی شده در حافظه موقت:</value>
+  </data>
+  <data name="plCacheability.Help" xml:space="preserve">
+    <value>لطفا مشخصه HTTP Cache-Control مربوط به کاربران احراز هویت شده را وارد نمایید.</value>
+  </data>
+  <data name="NoCache.Text" xml:space="preserve">
+    <value>عدم استفاده از حافظه موقت</value>
+  </data>
+  <data name="Private.Text" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Public.Text" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Server.Text" xml:space="preserve">
+    <value>سرور</value>
+  </data>
+  <data name="ServerAndNoCache.Text" xml:space="preserve">
+    <value>ServerAndNoCache</value>
+  </data>
+  <data name="ServerAndPrivate.Text" xml:space="preserve">
+    <value>ServerAndPrivate</value>
+  </data>
+  <data name="plUpgrade.Text" xml:space="preserve">
+    <value>فعال بودن بررسی وجود نسخه جدید نرم افزار؟</value>
+  </data>
+  <data name="plUpgrade.Help" xml:space="preserve">
+    <value>درصورتی که تمایل دارید سیستم وجود نسخه جدید را بررسی نماید، این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="UpgradeNever.Text" xml:space="preserve">
+    <value>هرگز</value>
+  </data>
+  <data name="plAvailable.Text" xml:space="preserve">
+    <value>آیا نسخه جدید برنامه موجود است؟</value>
+  </data>
+  <data name="plAvailable.Help" xml:space="preserve">
+    <value>درصورتی که نسخه جدیدی از برنامه در دسترس باشد، یک آیکون نمایش داده خواهد شد.</value>
+  </data>
+  <data name="plLog.Text" xml:space="preserve">
+    <value>مشاهده گزارش نصب مربوط به نسخه:</value>
+  </data>
+  <data name="plLog.Help" xml:space="preserve">
+    <value>این گزینه نشانگر گزارش نصب و جزئیات بروزرسانی برای نسخه مورد نظر می باشد.</value>
+  </data>
+  <data name="cmdRestart.Text" xml:space="preserve">
+    <value>راه اندازی مجدد برنامه</value>
+  </data>
+  <data name="plAutoSync.Text" xml:space="preserve">
+    <value>فعال بودن همسان سازی خودکار فایل های سیستمی؟</value>
+  </data>
+  <data name="plAutoSync.Help" xml:space="preserve">
+    <value>برای همسان سازی خودکار فایل های سیستم، این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="plPageQuota.Help" xml:space="preserve">
+    <value>شما می توانید حداکثر تعداد صفحاتی که بتوان در پورتال ایجاد نمود را مشخص نمود.</value>
+  </data>
+  <data name="plPageQuota.Text" xml:space="preserve">
+    <value>حداکثر تعداد صفحات:</value>
+  </data>
+  <data name="plUserQuota.Help" xml:space="preserve">
+    <value>شما می توانید تعداد حداکثر کاربران هر پورتال را مشخص نمایید.</value>
+  </data>
+  <data name="plUserQuota.Text" xml:space="preserve">
+    <value>حداکثر تعداد کاربران پورتال:</value>
+  </data>
+  <data name="Deflate.Text" xml:space="preserve">
+    <value>فشرده سازی با الگوریتم Deflate</value>
+  </data>
+  <data name="GZip.Text" xml:space="preserve">
+    <value>فشرده سازی با الگوریتم GZip</value>
+  </data>
+  <data name="NoCompression.Text" xml:space="preserve">
+    <value>بدون فشرده سازی</value>
+  </data>
+  <data name="plCompression.Help" xml:space="preserve">
+    <value>لطفا نوع فشرده سازی مورد استفاده را انتخاب نمایید.</value>
+  </data>
+  <data name="plCompression.Text" xml:space="preserve">
+    <value>تنظیمات فشرده سازی:</value>
+  </data>
+  <data name="Performance.Text" xml:space="preserve">
+    <value>تنظیمات کارایی</value>
+  </data>
+  <data name="Page.Text" xml:space="preserve">
+    <value>صفحه</value>
+  </data>
+  <data name="plPageState.Help" xml:space="preserve">
+    <value>لطفا روش حفظ وضعیت کنترل های صفحات را انتخاب نمایید. می توان یکی از دو روش استفاده از فیلد مخفی در صفحه (حالت پیش فرض) و یا ذخیره در حافظه موقت را انتخاب نمود. **هشدار: استفاده از روش حفظ وضعیت کنترل های صفحه در حافظه ممکن است موجب بروز برخی مشکلات در درخواست های مبتنی بر تکنولوژی Ajax شود.**</value>
+  </data>
+  <data name="plPageState.Text" xml:space="preserve">
+    <value>روش حفظ وضعیت کنترل های صفحه:</value>
+  </data>
+  <data name="plWhitespace.Help" xml:space="preserve">
+    <value>لطفا برای فعال بودن حذف فضاهای خالی پاسخ ارسال شده به کاربر، این گزینه را انتخاب نمایید. فعال شدن این امکان موجب کاهش زمان بارگزاری صفحه (10 % تا 15%) می شود.</value>
+  </data>
+  <data name="plWhitespace.Text" xml:space="preserve">
+    <value>استفاده از فیلتر فضاهای خالی:</value>
+  </data>
+  <data name="Compression.Text" xml:space="preserve">
+    <value>تنظیمات فشرده سازی</value>
+  </data>
+  <data name="plExcludedPaths.Text" xml:space="preserve">
+    <value>مسیرهایی که نبایستی در نظر گرفته شوند:</value>
+  </data>
+  <data name="plExcludedPaths.Help" xml:space="preserve">
+    <value>لطفا لیست مسیرهایی که نبایستی در نظر گرفته شوند را وارد نمایید.</value>
+  </data>
+  <data name="plWhitespaceFilter.Text" xml:space="preserve">
+    <value>فرمول حذف فضاهای خالی :</value>
+  </data>
+  <data name="plWhitespaceFilter.Help" xml:space="preserve">
+    <value>لطفا فرمولی که بایستی برای حذف فضاهای خالی مورد استفاده قرار بگیرد را وارد نمایید.</value>
+  </data>
+  <data name="valHostFee.Error" xml:space="preserve">
+    <value>مبلغ وارد شده نامعتبر می باشد!</value>
+  </data>
+  <data name="LogEmpty.Text" xml:space="preserve">
+    <value>برای نسخه اسکریپت مشخص شده، لاگی ثبت نشده است. عموما این امر، نشانگر اجرای صحیح و بدون خطای اسکریپت است.</value>
+  </data>
+  <data name="NoLog.Text" xml:space="preserve">
+    <value>برای نسخه اسکریپت مشخص شده، فایل لاگ موجود نمی باشد. عموما این امر، نشانگر آن است که اسکریپت مربوطه تاکنون اجرا نشده است.</value>
+  </data>
+  <data name="Authentication.Text" xml:space="preserve">
+    <value>تنظیمات زیر سیستم احراز هویت</value>
+  </data>
+  <data name="EmailErrorMessage.Text" xml:space="preserve">
+    <value>بروز خطا در زمان ارسال پست الکترونیک تستی. متن خطا: &lt;br /&gt;{0}</value>
+  </data>
+  <data name="plAJAX.Help" xml:space="preserve">
+    <value>لطفا برای فعال بودن تکنولوژی AJAX این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="plAJAX.Text" xml:space="preserve">
+    <value>فعال بودن تکنولوژی AJAX؟</value>
+  </data>
+  <data name="UserRestart.Text" xml:space="preserve">
+    <value>کاربر دستور راه اندازی مجدد  برنامه را نموده است</value>
+  </data>
+  <data name="NoPermissions.Text" xml:space="preserve">
+    <value>مجوز دسترسی وجود ندارد</value>
+  </data>
+  <data name="Items.Text" xml:space="preserve">
+    <value>آیتم</value>
+  </data>
+  <data name="plHostDefaultDocType.Text" xml:space="preserve">
+    <value>استاندارد Doctype پیش فرض مورد استفاده برای پوسته های پورتال:</value>
+  </data>
+  <data name="plHostDefaultDocType.Help" xml:space="preserve">
+    <value>لطفا استاندارد Doctype پیش فرض مورد استفاده برای پوسته های پورتال را مشخص نمایید. این گزینه درصورتی که در یک پوسته این مشخصه تنظیم نشده باشد، مورد استفاده قرار خواهد گرفت.</value>
+  </data>
+  <data name="LegacyDoctype.Text" xml:space="preserve">
+    <value>HTML 4 (legacy)</value>
+  </data>
+  <data name="TransDoctype.Text" xml:space="preserve">
+    <value>XHTML 1.0 transitional</value>
+  </data>
+  <data name="StrictDoctype.Text" xml:space="preserve">
+    <value>XHTML 1.0 strict</value>
+  </data>
+  <data name="plRememberMe.Text" xml:space="preserve">
+    <value>فعال بودن امکان گزینه "مرا بخاطر بسپار" در صفحه ورود به سیستم؟</value>
+  </data>
+  <data name="plRememberMe.Help" xml:space="preserve">
+    <value>با انتخاب این گزینه در صفحه ورود به سیستم گزینه "مرا بخاطر بسپار" نمایش داده شده و در صورت انتخاب کاربر، برای دفعات بعدی احتیاجی به ورود به سیستم نبوده و سیستم بصورت خودکار با استفاده از کوکی کاربر وی را شناسایی می کند.</value>
+  </data>
+  <data name="plWebFarm.Text" xml:space="preserve">
+    <value>فعال بودن قابلیت Web Farm؟</value>
+  </data>
+  <data name="valFileExtensions.Error" xml:space="preserve">
+    <value>&lt;br/&gt;پسوندهای فایل فقط بایستی شامل حروف، اعداد و کاراکتر "_" باشد که توسط ویرگول از هم جدا شده اند.</value>
+  </data>
+  <data name="UpgradeFramework.Text" xml:space="preserve">
+    <value>بروزرسانی نسخه جاری کتابخانه .Net</value>
+  </data>
+  <data name="plNotifyUpgrade.Help" xml:space="preserve">
+    <value>با انتخاب این گزینه، در صورت وجود نسخه جدیدی از نرم افزار، به مدیر ارشد پورتال برای اطلاع یک پست الکترونیک ارسال خواهد شد.</value>
+  </data>
+  <data name="plNotifyUpgrade.Text" xml:space="preserve">
+    <value>ارسال پیغام هشدار به مدیر ارشد پورتال؟</value>
+  </data>
+  <data name="plAdminContainer.Help" xml:space="preserve">
+    <value>طرح حاشیه ماژول انتخاب شده بر روی همه ماژول ها در حالت ویرایش، اعمال خواهد شد.</value>
+  </data>
+  <data name="plAdminContainer.Text" xml:space="preserve">
+    <value>طرح حاشیه ماژول در حالت ویرایش:</value>
+  </data>
+  <data name="plAdminSkin.Help" xml:space="preserve">
+    <value>پوسته انتخاب شده بر روی همه ماژول ها در حالت ویرایش، اعمال خواهد شد.</value>
+  </data>
+  <data name="plAdminSkin.Text" xml:space="preserve">
+    <value>پوسته در حالت ویرایش:</value>
+  </data>
+  <data name="plJQueryDebugVersion.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، نسخه استاندارد کتابخانه JQuery مورد استفاده قرار می گیرد. در صورت عدم انتخاب این گزینه، نسخه فشرده شده کتابخانه که حجم کمتری دارد مورد استفاده قرار خواهد گرفت.</value>
+  </data>
+  <data name="plJQueryDebugVersion.Text" xml:space="preserve">
+    <value>استفاده از نسخه استاندارد کتابخانه JQuery؟</value>
+  </data>
+  <data name="plJQueryHostUrl.Help" xml:space="preserve">
+    <value>این گزینه نشانگر آدرس کامل URL مربوط به کتابخانه JQuery می باشد. بصورت پیش فرض آدرس تنظیم شده، مربوط به نسخه فشرده موجود در وب سایت Google می باشد.</value>
+  </data>
+  <data name="plJQueryHostUrl.Text" xml:space="preserve">
+    <value>آدرس URL خارجی کتابخانه JQuery:</value>
+  </data>
+  <data name="plJQueryUseHosted.Help" xml:space="preserve">
+    <value>در صورت انتخاب این گزینه، فایل های مربوط به کتابخانه JQuery از آدرس URL مشخص شده بارگزاری می گردد. در صورت عدم انتخاب، از نسخه موجود در خود پورتال استفاده خواهد شد.</value>
+  </data>
+  <data name="plJQueryUseHosted.Text" xml:space="preserve">
+    <value>استفاده از نسخه خارجی کتابخانه JQuery؟</value>
+  </data>
+  <data name="plJQueryVersion.Help" xml:space="preserve">
+    <value>این گزینه نشانگر نسخه نصب شده کتابخانه JQuery می باشد.</value>
+  </data>
+  <data name="plJQueryVersion.Text" xml:space="preserve">
+    <value>نسخه کتابخانه jQuery نصب شده در سیستم:</value>
+  </data>
+  <data name="HostEmail.Error" xml:space="preserve">
+    <value>آدرس پست الکترونیک نامعتبر است</value>
+  </data>
+  <data name="JQuery.Text" xml:space="preserve">
+    <value>تنظیمات کتابخانه jQuery</value>
+  </data>
+  <data name="plProduct.Text" xml:space="preserve">
+    <value>نوع نرم افزار مورد استفاده:</value>
+  </data>
+  <data name="plProduct.Help" xml:space="preserve">
+    <value>این گزینه نشانگر نوع نرم افزار مورد استفاده می باشد.</value>
+  </data>
+  <data name="FrameworkDownLevel.Text" xml:space="preserve">
+    <value>نکته: شما از نسخه قدیمی کتابخانه .NET استفاده می نمایید. برای اجرای صحیح نرم افزار، نیاز به نسخه 3.5 به بعد می باشد. درصورتی که از وجود نسخه 3.5 اطمینان دارید، فایل web.config را بررسی نموده و از صحت تنظیمات System.Core و System.Data.Linq اطمینان حاصل نمایید.</value>
+  </data>
+  <data name="plBetaNotice.Help" xml:space="preserve">
+    <value>با انتخاب این گزینه، در صورتی که نسخه در حال اجرا یک نسخه آزمایشی باشد، پیغامی نمایش داده خواهد شد.</value>
+  </data>
+  <data name="plBetaNotice.Text" xml:space="preserve">
+    <value>نمایش آزمایشی بودن بودن؟</value>
+  </data>
+  <data name="plThrowExceptions.Help" xml:space="preserve">
+    <value>با انتخاب این گزینه خطاهایی که به علت نبودن احتمالی برخی فیلدها در رکوردهای گرفته شده از بانک اطلاعات رخ می دهد علاوه بر ثبت در بخش رخدادهای سیستم، در صفحه پورتال نیز به کاربران نمایش داده خواهد شد. در صورت عدم انتخاب، خطاهای اینچنینی فقط در بخش رخدادهای سیستم ثبت می گردند.</value>
+  </data>
+  <data name="plThrowExceptions.Text" xml:space="preserve">
+    <value>نمایش خطاهای تبدیل داده:</value>
+  </data>
+  <data name="plPsWarning.Text" xml:space="preserve">
+    <value>هشدار: استفاده از قابلیت حفظ وضعیت کنترل های صفحه در حافظه ممکن است موجب بروز برخی مشکلات در درخواست های مبتنی بر تکنولوژی Ajax شود.</value>
+  </data>
+  <data name="ModuleCacheProvider.Help" xml:space="preserve">
+    <value>لطفا شیوه پیش فرض مدیریت حافظه موقت را انتخاب نمایید. این تنظیم می تواند توسط تنظیمات هر ماژول جایگزین گردد.</value>
+  </data>
+  <data name="ModuleCacheProvider.Text" xml:space="preserve">
+    <value>شیوه مدیریت حافظه موقت</value>
+  </data>
+  <data name="plContentLocalization.Help" xml:space="preserve">
+    <value>با انتخاب این گزینه امکان بومی سازی محتوای پورتال بصورت پویا فراهم می شود.</value>
+  </data>
+  <data name="plContentLocalization.Text" xml:space="preserve">
+    <value>فعال بودن بومی سازی محتوا؟</value>
+  </data>
+  <data name="PageCacheProvider.Help" xml:space="preserve">
+    <value>لطفا شیوه پیش فرض استفاده از حافظه موقت برای صفحات را انتخاب نمایید. برای فعال نمودن حافظه موقت بایستی بازه زمانی مورد استفاده را در هر صفحه مشخص نمود.</value>
+  </data>
+  <data name="PageCacheProvider.Text" xml:space="preserve">
+    <value>شیوه استفاده از حافظه موقت برای صفحه</value>
+  </data>
+  <data name="plUseCustomModuleCssClass.Help" xml:space="preserve">
+    <value>برای فعال شدن استفاده از فایل های استایل سفارشی هر ماژول این گزینه را انتخاب نمایید. این امکان ممکن است توسط طراحان پوسته برای رسیدن به ظاهر مورد نظر مورد استفاده قرار بگیرد.</value>
+  </data>
+  <data name="plUseCustomModuleCssClass.Text" xml:space="preserve">
+    <value>فعال بودن امکان استفاده از فایل های استایل سفارشی مربوط به هر ماژول؟</value>
+  </data>
+  <data name="plEnableContentLocalization.Help" xml:space="preserve">
+    <value>با انتخاب این گزینه مدیر پورتال می تواند بومی سازی محتوا را برای پورتال مورد نظر، تنظیم نماید.</value>
+  </data>
+  <data name="plEnableContentLocalization.Text" xml:space="preserve">
+    <value>فعال بودن امکان بومی سازی محتوا؟</value>
+  </data>
+  <data name="SkinPreview.Text" xml:space="preserve">
+    <value>پیش نمایش پوسته و طرح حاشیه ماژول برای صفحات مدیریت ارشد</value>
+  </data>
+  <data name="EditSkinPreview.Text" xml:space="preserve">
+    <value>پیش نمایش ویرایش پوسته و طرح حاشیه ماژول</value>
+  </data>
+  <data name="plJQueryUIHostUrl.Help" xml:space="preserve">
+    <value>این گزینه نشانگر آدرس کامل URL مربوط به کتابخانه JQuery UI می باشد. بصورت پیش فرض آدرس تنظیم شده، مربوط به نسخه فشرده موجود در وب سایت Google می باشد.</value>
+  </data>
+  <data name="plJQueryUIHostUrl.Text" xml:space="preserve">
+    <value>آدرس URL خارجی کتابخانه JQuery UI:</value>
+  </data>
+  <data name="plJQueryUIVersion.Help" xml:space="preserve">
+    <value>این گزینه نشانگر نسخه نصب شده کتابخانه JQuery UI می باشد.</value>
+  </data>
+  <data name="plJQueryUIVersion.Text" xml:space="preserve">
+    <value>نسخه کتابخانه jQuery UI نصب شده در سیستم:</value>
+  </data>
+  <data name="PreviewNoSelectionMessage.Text" xml:space="preserve">
+    <value>لطفا یک پوسته و/یا طرح حاشیه ماژول برای پیش نمایش انتخاب نمایید.</value>
+  </data>
+  <data name="DeprecateGzip.Text" xml:space="preserve">
+    <value>فشرده سازی محتوا با روش GZip در نسخه بعدی سیستم حذف خواهد شد. شما می توانید از تنظیمات موجود در سرور وب IIS استفاده نمایید.</value>
+  </data>
+  <data name="ClientResourceManagement.Text" xml:space="preserve">
+    <value>مدیریت منابع در سمت کاربر</value>
+  </data>
+  <data name="plCrmVersion.Help" xml:space="preserve">
+    <value>برای مدیریت و کنترل حافظه موقت مرورگر کاربران، به فایل های منابع شماره نسخه داده می شود. این عدد در زمان نصب پلاگین ها، بروزرسانی فایل portal.css و یا در زمان خالی کردن حافظه موقت سمت سرور، اضافه می گردد. همچنین بصورت دستی نیز می توان با افزایش عدد زیر مرورگر کاربران را الزام به بارگزاری نسخه جدیدی از فایل ها نمود.</value>
+  </data>
+  <data name="plCrmVersion.Text" xml:space="preserve">
+    <value>نسخه جاری سیستم</value>
+  </data>
+  <data name="plCrmEnableCompositeFiles.Help" xml:space="preserve">
+    <value>تجمیع فایل ها عبارت است از یکپارچگی و فشرده سازی فایل ها (استایل و جاوا اسکریپت) به منظور کاهش تعداد فایل های ارسالی سمت مرورگر کاربر؛ این امر موجب افزایش سرعت بارگزاری صفحات می گردد.</value>
+  </data>
+  <data name="plCrmEnableCompositeFiles.Text" xml:space="preserve">
+    <value>فعال بودن تجمیع فایل ها</value>
+  </data>
+  <data name="plCrmMinifyCss.Help" xml:space="preserve">
+    <value>در فشرده سازی استایل ها، با حذف فضاهای خالی و توضیحات و کدهای غیر ضروری، اندازه کدهای مربوطه کاهش می یابد. این امکان تنها در صورت فعال بودن امکان تجمیع فایل ها فعال می گردد.</value>
+  </data>
+  <data name="plCrmMinifyCss.Text" xml:space="preserve">
+    <value>فشرده سازی استایل</value>
+  </data>
+  <data name="plCrmMinifyJs.Help" xml:space="preserve">
+    <value>در فشرده سازی فایل های جاوا اسکریپت، با حذف فضاهای خالی و توضیحات و کدهای غیر ضروری، اندازه کدهای مربوطه کاهش می یابد. این امکان تنها در صورت فعال بودن امکان تجمیع فایل ها فعال می گردد.</value>
+  </data>
+  <data name="plCrmMinifyJs.Text" xml:space="preserve">
+    <value>فشرده سازی جاوا اسکریپت</value>
+  </data>
+  <data name="CrmIncrementCrmVersionButton.Text" xml:space="preserve">
+    <value>افزایش نسخه سایت</value>
+  </data>
+  <data name="IncrementCrmVersionButton.Text" xml:space="preserve">
+    <value>نسخه سایت بصورت افزایشی</value>
+  </data>
+  <data name="IncrementCrmVersionConfirm.Text" xml:space="preserve">
+    <value>&lt;p&gt;این عمل موجب الزام همه بازدیدکنندگان سایت به بارگزاری نسخه جدید فایل های استایل و جاوااسکریپت می شود. تنها زمانی بایستی از این دستور استفاده نمود که برخی از فایل ها تغییر کرده و بایستی این تغییرات روی سیستم بازدیدکنندگان نیز اعمال گردد.&lt;/p&gt;&lt;p&gt;آیا از افزایش شماره نسخه اطمینان دارید؟&lt;/p&gt;</value>
+  </data>
+  <data name="IncrementCrmVersionError.Text" xml:space="preserve">
+    <value>بروز خطا در زمان افزایش نسخه منابع در سمت کاربر.</value>
+  </data>
+  <data name="DebugEnabled.Text" xml:space="preserve">
+    <value>حالت تست در سطح برنامه فعال می باشد(این تنظیم در فایل web.config می باشد). این بدان معنی است که فایل ها تجمیع نخواهند شد حتی اگر فشرده سازی فایل در این بخش یا توسط مدیر ارشد فعال شده باشد.</value>
+  </data>
+  <data name="DebugEnabled.Title" xml:space="preserve">
+    <value>نکات مهم در زمان تست برنامه در محیط توسعه</value>
+  </data>
+  <data name="MinificationSettingsInfo.Text" xml:space="preserve">
+    <value>درصورت فعال بودن امکان تجمیع فایل ها اگر تنظیمات فشرده سازی تغییر نماید، بایستی ابتدا تنظیمات مربوطه را با کلیک نمودن بر روی دکمه بروزرسانی ذخیره کرده و سپس شماره نسخه را افزایش دهید. این امر موجب ایجاد فایل های جدید بر مبنای تنظیمات جدید می گردد.</value>
+  </data>
+  <data name="MinificationSettingsInfo.Title" xml:space="preserve">
+    <value>نکته مهم در زمان تنظیمات فشرده سازی</value>
+  </data>
+  <data name="txtBatch.Text" xml:space="preserve">
+    <value>تعداد پیام های ارسال شده در هر بار:</value>
+  </data>
+  <data name="txtBatch.Help" xml:space="preserve">
+    <value>این گزینه نشانگر تعداد پیام های ارسال شده در هر بار توسط سیستم می باشد.</value>
+  </data>
+  <data name="SmtpServerWarning.Text" xml:space="preserve">
+    <value>برای میزبان پست الکترونیک پورتی غیر از پورت پیش فرض مشخص شده است، توجه داشته باشید که در صورت استفاده از حالت medium trust بایستی با بخش پشتیبانی میزبان وب خود تماس حاصل نمایید تا از صحت کارکرد آن اطمینان یابید.</value>
+  </data>
+  <data name="Html5Doctype.Text" xml:space="preserve">
+    <value>HTML 5</value>
+  </data>
+  <data name="plBatch.Help" xml:space="preserve">
+    <value>این گزینه نشانگر تعداد پیام های ارسال شده در هر ارسال گروهی توسط سیستم زمانبندی می باشد.</value>
+  </data>
+  <data name="plBatch.Text" xml:space="preserve">
+    <value>تعداد پیام های ارسال شده در هر ارسال گروهی:</value>
+  </data>
+</root>

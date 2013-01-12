@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Introduction.Title" xml:space="preserve">
+    <value>ویزارد پیکربندی پورتال</value>
+  </data>
+  <data name="Introduction.Help" xml:space="preserve">
+    <value>
+
+			ویزارد پیکربندی پورتال، محیط کاربرپسندی را برای مدیران پورتال فراهم می نماید 
+			تا بتوانند مشخصات و تنظیمات پورتال را تنظیم نمایند.
+			شما می توانید با استفاده از دکمه های قبلی/بعدی به بخش های مختلف ویزارد بروید
+			بعد از کامل شدن اطلاعات لازم، دکمه پایان فعال می گردد.</value>
+  </data>
+  <data name="Template.Title" xml:space="preserve">
+    <value>لطفا الگوی مورد نظر برای پورتال را انتخاب نمایید</value>
+  </data>
+  <data name="Template.Help" xml:space="preserve">
+    <value>								
+								
+				شما می توانید الگوی پورتال را با استفاده از الگوهای موجود ایجاد نمایید. برای انتخاب الگو 
+				بر روی گزینه زیر برای فعال نمودن لیست الگوها کلیک نمایید و سپس الگوی موردنظر را از لیست انتخاب نمایید.
+				در صورت استفاده از الگو برای ساخت پورتال، بایستی عکس العمل مورد نظر در برخورد با ماژول های تکراری را مشخص نمایید. (ماژول هایی که هم در الگوی انتخابی و هم در پورتال وجود دارند).
+		</value>
+  </data>
+  <data name="lblMergeModule.Help" xml:space="preserve">
+    <value>نحوه برخورد با ماژول های تکراری را مشخص نمایید. (ماژول هایی که هم در الگو و هم در پورتال وجود دارند)</value>
+  </data>
+  <data name="Ignore.Text" xml:space="preserve">
+    <value>صرفنظر</value>
+  </data>
+  <data name="Replace.Text" xml:space="preserve">
+    <value>جایگزین کردن</value>
+  </data>
+  <data name="Merge.Text" xml:space="preserve">
+    <value>ادغام</value>
+  </data>
+  <data name="MergeWarning.Text" xml:space="preserve">
+    <value>								
+			&lt;span class="NormalRed"&gt;
+				نکته: در صورت انتخاب گزینه "جایگزین کردن"، همه محتوای صفحات که در الگو نیز وجود دارند، حذف خواهد شد.
+			&lt;/span&gt;
+		</value>
+  </data>
+  <data name="TemplateRequired.Text" xml:space="preserve">
+    <value>قبل از ادامه کار بایستی الگوی مورد نظر را انتخاب نمایید.</value>
+  </data>
+  <data name="InvalidTemplate.Text" xml:space="preserve">
+    <value>فایل {0} یک فایل معتبر الگوی پورتال نمی باشد.</value>
+  </data>
+  <data name="Skin.Title" xml:space="preserve">
+    <value>لطفا پوسته مورد نظر را انتخاب نمایید</value>
+  </data>
+  <data name="Skin.Help" xml:space="preserve">
+    <value>
+			شما می توانید پوسته مورد نظر را انتخاب نمایید. این پوسته بر روی تمام صفحات پورتال اعمال خواهد شد. اگرچه در زمان ویرایش تنظیمات صفحه شما امکان 
+		بازنویسی پوسته پیش فرض را دارید.
+		</value>
+  </data>
+  <data name="Container.Title" xml:space="preserve">
+    <value>لطفا طرح حاشیه پیش فرض برای ماژول های پورتال را انتخاب نمایید</value>
+  </data>
+  <data name="Container.Help" xml:space="preserve">
+    <value>شما می توانید از نمایشگر طرح حاشیه ماژول یک طرح حاشیه انتخاب نمایید. این طرح حاشیه برای همه ماژول ها 
+			و همه صفحات پورتال استفاده می گردد. اگرچه در زمان ویرایش تنظیمات ماژول شما امکان 
+		بازنویسی طرح حاشیه پیش فرض را دارید.		</value>
+  </data>
+  <data name="IncludeAll.Text" xml:space="preserve">
+    <value>نمایش همه طرح های حاشیه ماژول:</value>
+  </data>
+  <data name="Details.Title" xml:space="preserve">
+    <value>افزودن جزییات پورتال</value>
+  </data>
+  <data name="Details.Help" xml:space="preserve">
+    <value>
+
+			در این صفحه شما می توانید اطلاعات پایه پورتال را مشخص نمایید.
+			شما می توانید توضیحات و کلمات کلیدی مورد نظر برای پورتال را وارد نمایید.
+			این موارد توسط موتورهای جستجو برای ثبت بهتر و ایندکس گذاری مورد استفاده قرار می گیرد.
+			کلمات کلیدی می بایست با ویرگول از هم جدا شوند. 
+			&lt;p&gt;
+			اکثر پوسته ها از لوگو پشتیبانی می کنند در این پوسته ها اغلب لوگو در قسمت راست بالای صفحه قرار دارد. 
+			شما می توانید لوگو مورد نظر را انتخاب نمایید.
+			اگر لوگوی موردنظر شما بر روی سرور وجود ندارد می توانید آن را آپلود نمایید.
+			&lt;/p&gt;
+		</value>
+  </data>
+  <data name="lblPortalName.Text" xml:space="preserve">
+    <value>عنوان:</value>
+  </data>
+  <data name="lblPortalName.Help" xml:space="preserve">
+    <value>عنوان پورتال در بخش مربوطه در مرورگر کاربر نمایش داده می گردد.</value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value>توضیحات:</value>
+  </data>
+  <data name="lblDescription.Help" xml:space="preserve">
+    <value>لطفا توضیحات مربوط به پورتال را وارد نمایید.</value>
+  </data>
+  <data name="lblKeyWords.Text" xml:space="preserve">
+    <value>کلمات کلیدی:</value>
+  </data>
+  <data name="lblKeyWords.Help" xml:space="preserve">
+    <value>لطفا کلمات کلیدی مرتبط با پورتال را که توسط ویرگول از هم جدا شده اند، را وارد نمایید.</value>
+  </data>
+  <data name="lblLogo.Text" xml:space="preserve">
+    <value>لوگو:</value>
+  </data>
+  <data name="lblLogo.Help" xml:space="preserve">
+    <value>لطفا لوگوی مورد نظر را انتخاب نمایید.</value>
+  </data>
+  <data name="Complete.Title" xml:space="preserve">
+    <value>تکمیل پیکربندی پورتال</value>
+  </data>
+  <data name="Complete.Help" xml:space="preserve">
+    <value>&lt;p&gt;
+				پورتال با موفقیت پیکربندی گردید.
+			&lt;/p&gt;
+			&lt;p&gt;
+				درصورتی که پوسته پورتال را تغییر دهید، پس از خروج از این صفحه تغییرات اعمال می گردد. 
+			&lt;/p&gt;</value>
+  </data>
+  <data name="ControlTitle_.Text" xml:space="preserve">
+    <value>ویزارد پورتال</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;درباره بخش ویزارد پورتال&lt;/h1&gt;&lt;p&gt;مدیران پورتال امکان مشخص نمودن تنظیمات عمومی پورتال را با استفاده از یک محیط کاربرپسند دارا می باشند.&lt;/p&gt;</value>
+  </data>
+  <data name="Finish.Text" xml:space="preserve">
+    <value>پایان</value>
+  </data>
+  <data name="Next.Text" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="Previous.Text" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="EditOnly.Text" xml:space="preserve">
+    <value>این ماژول فقط برای افرادی که دسترسی ویرایش آن را دارند قابل مشاهده می باشد. در صورت نیزا به اطلاعات بیشتر و یا تصحیح دسترسی ها، با مدیریت پورتال تماس حاصل نمایید.</value>
+  </data>
+  <data name="lblMergeModule.Text" xml:space="preserve">
+    <value>چگونگی برخورد با ماژول های تکراری</value>
+  </data>
+  <data name="lblTemplateList.Help" xml:space="preserve">
+    <value>شما می توانید برای ایجاد پورتال یک الگو را انتخاب نمایید.</value>
+  </data>
+  <data name="lblTemplateList.Text" xml:space="preserve">
+    <value>لیست الگوها</value>
+  </data>
+  <data name="lblTemplateMessage.Help" xml:space="preserve">
+    <value>لطفا درصورت تمایل به ایجاد مجدد پورتال بوسیله الگو، این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="lblTemplateMessage.Text" xml:space="preserve">
+    <value>ایجاد پورتال بوسیله الگو</value>
+  </data>
+  <data name="ModulesNotInstalled.Text" xml:space="preserve">
+    <value>این الگو شامل ماژول های زیر می باشد که نصب نگردیده اند.&lt;br /&gt;{0}</value>
+  </data>
+</root>
