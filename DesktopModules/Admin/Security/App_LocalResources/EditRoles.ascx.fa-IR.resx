@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BasicSettings.Text" xml:space="preserve">
+    <value>تنظیمات پایه</value>
+  </data>
+  <data name="BasicSettingsDescription.Text" xml:space="preserve">
+    <value>در این بخش شما می توانید تنظیمات پایه مرتبط با این نقش رامشخص نمایید.</value>
+  </data>
+  <data name="RoleName.Text" xml:space="preserve">
+    <value>نام نقش</value>
+  </data>
+  <data name="RoleName.Help" xml:space="preserve">
+    <value>لطفا نام نقش را وارد نمایید.</value>
+  </data>
+  <data name="Description.Text" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="Description.Help" xml:space="preserve">
+    <value>لطفا توضیحات مربوط به نقش را وارد نمایید.</value>
+  </data>
+  <data name="PublicRole.Text" xml:space="preserve">
+    <value>نقش عمومی:</value>
+  </data>
+  <data name="PublicRole.Help" xml:space="preserve">
+    <value>آیا این نقش عمومی است؟</value>
+  </data>
+  <data name="AutoAssignment.Text" xml:space="preserve">
+    <value>انتساب خودکار:</value>
+  </data>
+  <data name="AutoAssignment.Help" xml:space="preserve">
+    <value>آیا این نقش بصورت خودکار به کاربران بایستی داده شود؟</value>
+  </data>
+  <data name="AdvancedSettings.Text" xml:space="preserve">
+    <value>تنظیمات پیشرفته</value>
+  </data>
+  <data name="AdvancedSettingsHelp.Text" xml:space="preserve">
+    <value>در این بخش شما می توانید تنظیمات پیشرفته مرتبط با این نقش رامشخص نمایید.</value>
+  </data>
+  <data name="ServiceFee.Text" xml:space="preserve">
+    <value>هزینه سرویس</value>
+  </data>
+  <data name="ServiceFee.Help" xml:space="preserve">
+    <value>لطفا هزینه ای که کاربران عضو این نقش باید پرداخت نمایند را مشخص نمایید</value>
+  </data>
+  <data name="BillingPeriod.Text" xml:space="preserve">
+    <value>دوره پرداخت</value>
+  </data>
+  <data name="BillingPeriod.Help" xml:space="preserve">
+    <value>برای هر دوره پرداخت دو فیلد استفاده می شود. به عنوان مثال 2 هفته و یا 1 ماه.</value>
+  </data>
+  <data name="TrialFee.Text" xml:space="preserve">
+    <value>هزینه دوره آزمایشی</value>
+  </data>
+  <data name="TrialFee.Help" xml:space="preserve">
+    <value>لطفا هزینه دوره آزمایشی که کاربران عضو این نقش باید پرداخت نمایند را مشخص نمایید</value>
+  </data>
+  <data name="TrialPeriod.Text" xml:space="preserve">
+    <value>دوره آزمایشی</value>
+  </data>
+  <data name="TrialPeriod.Help" xml:space="preserve">
+    <value>دوره آزمایشی از دو بخش تشکیل می شود. به عنوان مثال 2 هفته و یا 1 ماه.</value>
+  </data>
+  <data name="cmdManage.Text" xml:space="preserve">
+    <value>مدیریت کاربران عضو این نقش</value>
+  </data>
+  <data name="valRoleName.Text" xml:space="preserve">
+    <value>&lt;br/&gt;شما بایستی نام معتبری را وارد نمایید</value>
+  </data>
+  <data name="valServiceFee1.Text" xml:space="preserve">
+    <value>&lt;br/&gt;هزینه خدمات وارد شده نامعتبر می باشد</value>
+  </data>
+  <data name="valServiceFee2.Text" xml:space="preserve">
+    <value>&lt;br/&gt;هزینه خدمات بایستی بزرگتر و یا مساوی 0 باشد</value>
+  </data>
+  <data name="valBillingPeriod1.Text" xml:space="preserve">
+    <value>&lt;br/&gt;دوره پرداخت وارد شده نامعتبر می باشد</value>
+  </data>
+  <data name="valBillingPeriod2.Text" xml:space="preserve">
+    <value>&lt;br/&gt;دوره پرداخت بایستی بزرگتر از 0 باشد</value>
+  </data>
+  <data name="valTrialFee1.Text" xml:space="preserve">
+    <value>&lt;br/&gt;هزینه دوره آزمایشی وارد شده نامعتبر می باشد</value>
+  </data>
+  <data name="valTrialFee2.Text" xml:space="preserve">
+    <value>&lt;br/&gt;هزینه دوره آزمایشی بایستی بزرگتر و یا مساوی 0 باشد</value>
+  </data>
+  <data name="valTrialPeriod1.Text" xml:space="preserve">
+    <value>&lt;br/&gt;طول دوره آزمایشی وارد شده نامعتبر می باشد</value>
+  </data>
+  <data name="valTrialPeriod2.Text" xml:space="preserve">
+    <value>&lt;br/&gt;طول دوره آزمایشی بایستی بزرگتر از 0 باشد</value>
+  </data>
+  <data name="ControlTitle_edit.Text" xml:space="preserve">
+    <value>ویرایش نقش های امنیتی</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;درباره بخش ویرایش نقش های امنیتی&lt;/h1&gt;&lt;p&gt;مدیران پورتال امکان مدیریت نقش های امنیتی پورتال را دارا می باشند. این ماژول امکان ایجاد، ویرایش و حذف نقش ها را فراهم می آورد.&lt;/p&gt;</value>
+  </data>
+  <data name="plRoleGroups.Text" xml:space="preserve">
+    <value>گروه نقش:</value>
+  </data>
+  <data name="plRoleGroups.Help" xml:space="preserve">
+    <value>لطفا گروه نقش مرتبط با این نقش را انتخاب نمایید.</value>
+  </data>
+  <data name="plRSVPCode.Text" xml:space="preserve">
+    <value>کد RSVP:</value>
+  </data>
+  <data name="plRSVPCode.Help" xml:space="preserve">
+    <value>لطفا کد RSVP این نقش را وارد نمایید. این کد را می توان برای ایجاد یک روش راحت برای اشتراک کاربران در یک یا چند نقش، مورد استفاده قرار داد.</value>
+  </data>
+  <data name="plRSVPLink.Text" xml:space="preserve">
+    <value>لینک RSVP:</value>
+  </data>
+  <data name="plRSVPLink.Help" xml:space="preserve">
+    <value>در صورت عرضه کد RSVP، شما می توانید آدرس زیر را به اشتراک بگذارید.</value>
+  </data>
+  <data name="plIcon.Text" xml:space="preserve">
+    <value>آیکون:</value>
+  </data>
+  <data name="plIcon.Help" xml:space="preserve">
+    <value>لطفا آیکونی برای این نقش انتخاب نمایید.</value>
+  </data>
+  <data name="DuplicateRole.Text" xml:space="preserve">
+    <value>نقشی با همین نام وجود دارد. نقش اضافه نگردید.</value>
+  </data>
+  <data name="ProcessorWarning.Text" xml:space="preserve">
+    <value>&lt;b&gt;هشدار:&lt;/b&gt; برای فعال سازی هزینه مربوط به نقش ها، ابتدا بایستی تنظیمات مربوط به پردازشگر مالی را در بخش تنظیمات پورتال پیکربندی نمود.</value>
+  </data>
+  <data name="IncompatibleFee.Text" xml:space="preserve">
+    <value>شما بایستی بازه پرداخت را در صورتی که تمایل دارید برای این نقش هزینه ای وارد کنید، را مشخص نمایید</value>
+  </data>
+  <data name="valRoleName2.Text" xml:space="preserve">
+    <value>&lt;br/&gt;نام وارد شده نامعتبر می باشد. نام نقش ها بایستی فقط شامل حروف الفبا، اعداد و فاصله خالی باشد</value>
+  </data>
+  <data name="securityModeListLabel.Help" xml:space="preserve">
+    <value>لطفا حالت این نقش/گروه را مشخص نمایید.</value>
+  </data>
+  <data name="securityModeListLabel.Text" xml:space="preserve">
+    <value>حالت امنیتی:</value>
+  </data>
+  <data name="statusListLabel.Help" xml:space="preserve">
+    <value>لطفا وضعیت این نقش/گروه را مشخص نمایید</value>
+  </data>
+  <data name="statusListLabel.Text" xml:space="preserve">
+    <value>وضعیت:</value>
+  </data>
+</root>

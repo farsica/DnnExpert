@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="plBannerName.Text" xml:space="preserve">
+    <value>نام آگهی</value>
+  </data>
+  <data name="plBannerName.Help" xml:space="preserve">
+    <value>لطفا نام آگهی را وارد نمایید. این نام به عنوان متن جایگزین برای تصویر آگهی نمایش داده خواهد شد.</value>
+  </data>
+  <data name="BannerName.ErrorMessage" xml:space="preserve">
+    <value>وارد نمودن نام آگهی الزامی است</value>
+  </data>
+  <data name="plBannerType.Text" xml:space="preserve">
+    <value>نوع آگهی</value>
+  </data>
+  <data name="plBannerType.Help" xml:space="preserve">
+    <value>لطفا نوع آگهی را برای نمایش انتخاب نمایید.</value>
+  </data>
+  <data name="plBannerGroup.Text" xml:space="preserve">
+    <value>گروه آگهی</value>
+  </data>
+  <data name="plBannerGroup.Help" xml:space="preserve">
+    <value>در صورتی که تمایل به مرتبط ساختن گروهی از آگهی ها به یکدیگر را دارید، گروه بندی آگهی را مشخص نمایید.</value>
+  </data>
+  <data name="plImage.Text" xml:space="preserve">
+    <value>تصویر/لینک</value>
+  </data>
+  <data name="plImage.Help" xml:space="preserve">
+    <value>برای آگهی های تصویری بایستی تصویر مربوط به آگهی را مشخص نمایید. (آپلود تصویر مورد نظر و یا با وارد نمودن آدرس URL مربوط به تصویر) برای آگهی های نوشتاری بایستی آدرس URL که بایستی به عنوان تبلیغ نمایش داده شود، را وارد نمود.</value>
+  </data>
+  <data name="plWidth.Text" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="plWidth.Help" xml:space="preserve">
+    <value>لطفا اندازه عرض آگهی را مشخص نمایید. این گزینه برای آگهی هایی که بصورت تصویری هستند، اختیاری بوده و برای مورادی که فایل فلش می باشند، الزامی می باشد.</value>
+  </data>
+  <data name="plHeight.Text" xml:space="preserve">
+    <value>ارتفاع</value>
+  </data>
+  <data name="plHeight.Help" xml:space="preserve">
+    <value>لطفا اندازه ارتفاع تصویر را مشخص نمایید. این گزینه برای آگهی های تصویری اختیاری است ولی برای آگهی های انیمیشن فلشی الزامی می باشد.</value>
+  </data>
+  <data name="plDescription.Text" xml:space="preserve">
+    <value>متن/اسکریپت</value>
+  </data>
+  <data name="plDescription.Help" xml:space="preserve">
+    <value>لطفا توضیحات مرتبط با آگهی را وارد نمایید. متن وارد شده به عنوان متن جایگزین برای آگهی های تصویری و یا متن نمایش داده شده برای آگهی های نوشتاری مورد استفاده قرار می گیرد.</value>
+  </data>
+  <data name="plURL.Text" xml:space="preserve">
+    <value>آدرس URL</value>
+  </data>
+  <data name="plURL.Help" xml:space="preserve">
+    <value>لطفا آدرسی که بایستی کاربر پس از کلیک بر روی آگهی به آنجا منتقل شود را وارد نمایید. درصورت عدم وارد کردن آدرس، آدرس وب سایت مربوط به آگهی دهنده مورد استفاده قرار خواهد گرفت.</value>
+  </data>
+  <data name="plImpressions.Text" xml:space="preserve">
+    <value>تعداد نمایش</value>
+  </data>
+  <data name="plImpressions.Help" xml:space="preserve">
+    <value>لطفا تعداد مرتبه ای که بایستی آگهی نمایش داده شود را مشخص نمایید. برای نمایش نامحدود، عدد 0 را وارد نمایید.</value>
+  </data>
+  <data name="Impressions.ErrorMessage" xml:space="preserve">
+    <value>&lt;br/&gt; شما بایستی مقدار معتبری را برای تعداد نمایش وارد نمایید</value>
+  </data>
+  <data name="plCPM.Text" xml:space="preserve">
+    <value>CPM/هزینه</value>
+  </data>
+  <data name="plCPM.Help" xml:space="preserve">
+    <value>CPM نشانگر هزینه ای است که در ازای 1000 بار نمایش آگهی دریافت می شود. مبلغ هزینه همچنین می تواند مبلغ ثابتی باشد.</value>
+  </data>
+  <data name="CPM.ErrorMessage" xml:space="preserve">
+    <value>شما بایستی هزینه و یا CPM معتبری را وارد نمایید</value>
+  </data>
+  <data name="plStartDate.Text" xml:space="preserve">
+    <value>تاریخ شروع</value>
+  </data>
+  <data name="plStartDate.Help" xml:space="preserve">
+    <value>لطفا تاریخ شروع نمایش آگهی را مشخص نمایید.</value>
+  </data>
+  <data name="plEndDate.Text" xml:space="preserve">
+    <value>تاریخ پایان</value>
+  </data>
+  <data name="plEndDate.Help" xml:space="preserve">
+    <value>لطفا تاریخ پایان نمایش اگهی را مشخص نمایید.</value>
+  </data>
+  <data name="plCriteria.Text" xml:space="preserve">
+    <value>معیارها</value>
+  </data>
+  <data name="plCriteria.Help" xml:space="preserve">
+    <value>لطفا مشخص نمایید که زمان اتمام قرارداد بر اساس پایان یافتن تعداد مرتبه نمایش آگهی و یا اتمام تاریخ مشخص شده برای نمایش آگهی و یا هر دو مورد با هم می باشد.</value>
+  </data>
+  <data name="cmdEmail.Text" xml:space="preserve">
+    <value>ارسال وضعیت به آگهی دهنده از طریق پست الکترونیک</value>
+  </data>
+  <data name="ControlTitle_banner.Text" xml:space="preserve">
+    <value>ویرایش آگهی</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;درباره بخش مدیریت اگهی ها&lt;/h1&gt;
+
+&lt;p&gt;این ماژول امکان نمایش آگهی ها را فراهم می آورد. &lt;/p&gt;
+
+&lt;h1&gt;گزینه های قابل تنظیم آگهی&lt;/h1&gt;
+
+&lt;ol&gt;&lt;li&gt;یک ماژول &lt;b&gt;آگهی&lt;/b&gt; اضافه نموده و یا به صفحه ای که شامل یک نمونه از این ماژول است، بروید.&lt;/li&gt;
+&lt;li&gt;بر روی دکمه &lt;b&gt;گزینه های قابل تنظیم آگهی&lt;/b&gt; کلیک نمایید. 
+&lt;li&gt;در بخش مرجع آگهی، یک از انواع &lt;b&gt;مدیریت&lt;/b&gt; و یا &lt;b&gt;مدیریت ارشد&lt;/b&gt; را انتخاب نمایید.
+&lt;li&gt;در بخش نوع آگهی، نوع آن را انتخاب نمایید.
+&lt;li&gt;در بخش تعداد آگهی ها، تعداد آگهی هایی که بایستی نمایش داده شود را مشخص نمایید.
+&lt;li&gt;بر روی دکمه &lt;b&gt;بروزرسانی&lt;/b&gt; کلیک نمایید.&lt;/ol&gt;</value>
+  </data>
+  <data name="EmailSuccess.Text" xml:space="preserve">
+    <value>پست الکترونیک ارسال گردید</value>
+  </data>
+  <data name="EmailFailure.Text" xml:space="preserve">
+    <value>پست الکترونیک ارسال نگردید: {0}</value>
+  </data>
+  <data name="cmdCopy.Text" xml:space="preserve">
+    <value>کپی</value>
+  </data>
+  <data name="and.Text" xml:space="preserve">
+    <value>و</value>
+  </data>
+  <data name="or.Text" xml:space="preserve">
+    <value>یا</value>
+  </data>
+</root>
