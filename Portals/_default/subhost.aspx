@@ -70,8 +70,6 @@
         }
         else
         {
-            //Fariborz Khosravi
-            //DomainName = string.Format("{0}Default.aspx?alias={1}&{2}", ServerPath, DomainName, queryString);
             DomainName = string.Format("{0}{1}?alias={2}&{3}", ServerPath, DotNetNuke.Common.Globals.glbDefaultPage, DomainName, queryString);
 
             Response.Redirect(DomainName, true);
