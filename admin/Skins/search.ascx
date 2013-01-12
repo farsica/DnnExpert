@@ -1,11 +1,10 @@
 <%@ Control Language="C#" AutoEventWireup="false" Inherits="DotNetNuke.UI.Skins.Controls.Search" CodeFile="Search.ascx.cs" %>
 <%@ Register TagPrefix="dnn" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
-
 <span id="ClassicSearch" runat="server" visible="true">
-    <asp:RadioButton ID="WebRadioButton" runat="server" CssClass="SkinObject" GroupName="Search" />
-    <asp:RadioButton ID="SiteRadioButton" runat="server" CssClass="SkinObject" GroupName="Search" />
-    <asp:TextBox ID="txtSearch" runat="server" EnableViewState="False" CssClass="NormalTextBox" Columns="20" MaxLength="255" ></asp:TextBox>
-	<asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="False" CssClass="SkinObject"></asp:LinkButton>
+  <asp:RadioButton ID="WebRadioButton" runat="server" CssClass="SkinObject" GroupName="Search" />
+  <asp:RadioButton ID="SiteRadioButton" runat="server" CssClass="SkinObject" GroupName="Search" />
+  <asp:TextBox ID="txtSearch" runat="server" CssClass="NormalTextBox" Columns="20" MaxLength="255" EnableViewState="False"></asp:TextBox>&nbsp;
+  <asp:LinkButton ID="cmdSearch" runat="server" CausesValidation="False" CssClass="SkinObject"></asp:LinkButton>
 </span>
 
 <div id="DropDownSearch" runat="server" class="SearchContainer" visible="false">

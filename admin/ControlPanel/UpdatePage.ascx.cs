@@ -327,15 +327,10 @@ namespace DotNetNuke.UI.ControlPanel
             LocationLst.ClearSelection();
             LocationLst.Items.Clear();
 
-            //LocationLst.Items.Add(new ListItem(GetString("NoLocationSelection"), ""));
-            //LocationLst.Items.Add(new ListItem(GetString("Before"), "BEFORE"));
-            //LocationLst.Items.Add(new ListItem(GetString("After"), "AFTER"));
-            //LocationLst.Items.Add(new ListItem(GetString("Child"), "CHILD"));
-
-            LocationLst.AddItem(GetString("NoLocationSelection"), "");
-            LocationLst.AddItem(GetString("Before"), "BEFORE");
-            LocationLst.AddItem(GetString("After"), "AFTER");
-            LocationLst.AddItem(GetString("Child"), "CHILD");
+            LocationLst.Items.Add(new ListItem(GetString("NoLocationSelection"), ""));
+            LocationLst.Items.Add(new ListItem(GetString("Before"), "BEFORE"));
+            LocationLst.Items.Add(new ListItem(GetString("After"), "AFTER"));
+            LocationLst.Items.Add(new ListItem(GetString("Child"), "CHILD"));
 
             LocationLst.SelectedIndex = 0;
         }
@@ -350,14 +345,13 @@ namespace DotNetNuke.UI.ControlPanel
             PageLst.DataSource = RibbonBarManager.GetPagesList();
             PageLst.DataBind();
 
-            var disableCurrentTab = PageLst.FindItemByValue(CurrentTab.TabID.ToString());
+            ListItem disableCurrentTab = PageLst.Items.FindByValue(CurrentTab.TabID.ToString());
             if (((disableCurrentTab != null)))
             {
                 disableCurrentTab.Enabled = false;
             }
 
-            //PageLst.Items.Insert(0, new ListItem(GetString("NoPageSelection"), string.Empty));
-            PageLst.InsertItem(0, GetString("NoPageSelection"), string.Empty);
+            PageLst.Items.Insert(0, new ListItem(GetString("NoPageSelection"), string.Empty));
             PageLst.SelectedIndex = 0;
         }
 

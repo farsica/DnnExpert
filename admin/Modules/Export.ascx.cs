@@ -180,18 +180,16 @@ namespace DotNetNuke.Modules.Admin.Modules
                 }
                 if (!Page.IsPostBack)
                 {
-                    cmdCancel.NavigateUrl = Globals.NavigateURL(); 
+                    cmdCancel.NavigateUrl = Globals.NavigateURL();
 
-                    //cboFolders.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
-                    cboFolders.InsertItem(0, "<" + Localization.GetString("None_Specified") + ">", "-");
+                    cboFolders.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
                     var user = UserController.GetCurrentUserInfo();
                     var folders = FolderManager.Instance.GetFileSystemFolders(user, "ADD");
                     foreach (var folderItem in
                         from FolderInfo folder in folders
                         select new ListItem { Text = folder.FolderPath == Null.NullString ? Localization.GetString("Root", LocalResourceFile) : folder.DisplayPath, Value = folder.FolderPath })
                     {
-                        //cboFolders.Items.Add(folderItem);
-                        cboFolders.AddItem(folderItem.Text, folderItem.Value);
+                        cboFolders.Items.Add(folderItem);
                     }
                     if (Module != null)
                     {

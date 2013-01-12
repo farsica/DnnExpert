@@ -21,6 +21,7 @@
 #region Usings
 
 using System;
+using System.Web;
 
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
@@ -90,7 +91,7 @@ namespace DotNetNuke.UI.Containers
                 moduleTitle = " ";
             }
             var ps = new PortalSecurity();
-            titleLabel.Text = ps.InputFilter(moduleTitle,PortalSecurity.FilterFlag.NoScripting);
+            titleLabel.Text = ps.InputFilter(moduleTitle, PortalSecurity.FilterFlag.NoScripting);
             titleLabel.EditEnabled = false;
             titleToolbar.Visible = false;
 
@@ -101,6 +102,7 @@ namespace DotNetNuke.UI.Containers
             }
 
         }
+
 
         private void UpdateTitle(object source, DNNLabelEditEventArgs e)
         {

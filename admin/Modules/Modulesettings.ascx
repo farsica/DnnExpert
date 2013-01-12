@@ -1,4 +1,4 @@
-<%@ Control Language="C#" AutoEventWireup="false" Inherits="DotNetNuke.Modules.Admin.Modules.ModuleSettingsPage" CodeFile="Modulesettings.ascx.cs" %>
+<%@ Control Language="C#" AutoEventWireup="false" Inherits="DotNetNuke.Modules.Admin.Modules.ModuleSettingsPage" CodeFile="ModuleSettings.ascx.cs" %>
 <%@ Register TagPrefix="dnn" TagName="URL" Src="~/controls/URLControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Security.Permissions.Controls" Assembly="DotNetNuke" %>
@@ -54,14 +54,6 @@
                     <dnn:label id="plNewTabs" runat="server" controlname="chkNewTabs" />
                     <asp:CheckBox ID="chkNewTabs" runat="server" />
                 </div>
-                <div id="isShareableRow" runat="server" Visible="False" class="dnnFormItem">
-                    <dnn:label id="isShareableLabel" runat="server" controlname="isShareableCheckBox" />
-                    <asp:CheckBox ID="isShareableCheckBox" runat="server"/>
-                </div>
-                <div id="isShareableRowViewOnly" class="dnnFormItem">
-                    <dnn:label id="isShareableViewOnlyLabel" runat="server" controlname="isShareableViewOnlyCheckBox" />
-                    <asp:CheckBox ID="isShareableViewOnlyCheckBox" runat="server" />
-                </div>
                 <div class="dnnFormItem">
                     <dnn:label id="plAdminBorder" runat="server" controlname="chkAdminBorder" />
                     <asp:CheckBox ID="chkAdminBorder" runat="server" />
@@ -98,15 +90,9 @@
             <fieldset>
                 <div>
                     <div class="dnnFormItem">
-                        <dnnweb:DnnGrid ID="dgOnTabs" runat="server" AutoGenerateColumns="False" 
-                            AllowPaging="true" PageSize="20">
+                        <dnnweb:DnnGrid ID="dgOnTabs" runat="server" AutoGenerateColumns="False" AllowPaging="true" PageSize="20">
                             <MasterTableView>
                                 <Columns>
-                                    <dnnweb:DnnGridTemplateColumn HeaderText="Site" HeaderStyle-Width="150px">
-                                        <ItemTemplate>
-                                            <%#GetInstalledOnSite(Container.DataItem)%>
-                                        </ItemTemplate>
-                                    </dnnweb:DnnGridTemplateColumn>
                                     <dnnweb:DnnGridTemplateColumn HeaderText="Page">
                                         <ItemTemplate>
                                             <%#GetInstalledOnLink(Container.DataItem)%>
@@ -130,7 +116,7 @@
             <fieldset>
                 <div id="permissionsRow" runat="server">
                     <dnn:modulepermissionsgrid id="dgPermissions" runat="server" />
-                    <asp:CheckBox ID="chkInheritPermissions" Visible="false" AutoPostBack="true" runat="server" resourcekey="InheritPermissions" />
+                    <asp:CheckBox ID="chkInheritPermissions" AutoPostBack="true" runat="server" resourcekey="InheritPermissions" />
                 </div>
             </fieldset>
         </div>
@@ -153,7 +139,7 @@
                 </div>
                 <div class="dnnFormItem">
                     <dnn:label id="plAlign" runat="server" controlname="cboAlign" />
-                    
+                    <div class="dnnLeft">
                         <asp:RadioButtonList ID="cboAlign" CssClass="dnnFormRadioButtons" runat="server"
                             RepeatLayout="Flow">
                             <asp:ListItem resourcekey="Left" Value="left" />
@@ -161,7 +147,7 @@
                             <asp:ListItem resourcekey="Right" Value="right" />
                             <asp:ListItem resourcekey="Not_Specified" Value="" />
                         </asp:RadioButtonList>
-                   
+                    </div>
                 </div>
                 <div class="dnnFormItem">
                     <dnn:label id="plColor" runat="server" controlname="txtColor" />
@@ -219,8 +205,7 @@
                 </div>
                 <div class="dnnFormItem dnnContainerPreview">
                     <dnn:label id="plModuleContainer" runat="server" controlname="ctlModuleContainer" />
-                    <%--<asp:DropDownList ID="moduleContainerCombo" runat="server" DataTextField="Key" DataValueField="Value" />--%>
-                    <dnn:DnnComboBox ID="moduleContainerCombo" runat="server" DataTextField="Key" DataValueField="Value" />
+                    <asp:DropDownList ID="moduleContainerCombo" runat="server" DataTextField="Key" DataValueField="Value" />
                     <a href="#" class="dnnSecondaryAction">
                         <%=LocalizeString("ContainerPreview")%></a>
                 </div>
@@ -229,12 +214,11 @@
                 <a href="" class="dnnSectionExpanded">
                     <%=LocalizeString("CacheSettings")%></a></h2>
             <fieldset>
-                <div class="dnnFormItem dnnCacheSettings">
+                <div class="dnnFormItem">
                     <dnn:label id="lblCacheProvider" runat="server" controlname="cboCacheProvider" resourcekey="CacheProvider" />
-                    <%--<asp:DropDownList ID="cboCacheProvider" runat="server" AutoPostBack="true" DataValueField="Key"
-                        DataTextField="filteredkey" />--%>
-                    <dnn:DnnComboBox ID="cboCacheProvider" runat="server" AutoPostBack="true" DataValueField="Key" DataTextField="filteredkey" />
-                    <asp:Label ID="lblCacheInherited" runat="server" resourceKey="CacheInherited" CssClass="labelCacheInherited" />
+                    <asp:DropDownList ID="cboCacheProvider" runat="server" AutoPostBack="true" DataValueField="Key"
+                        DataTextField="filteredkey" />
+                    <asp:Label ID="lblCacheInherited" runat="server" resourceKey="CacheInherited" CssClass="dnnFormError" />
                 </div>
                 <div class="dnnFormItem" id="divCacheDuration" runat="server" visible="false">
                     <asp:Panel ID="cacheWarningRow" runat="server" Class="dnnFormMessage dnnFormWarning">
@@ -261,9 +245,8 @@
                 </div>
                 <div class="dnnFormItem" id="rowTab" runat="server">
                     <dnn:label id="plTab" runat="server" controlname="cboTab" />
-                    <%--<asp:DropDownList ID="cboTab" DataTextField="IndentedTabName" DataValueField="TabId"
-                        runat="server" />--%>
-                    <dnn:DnnComboBox ID="cboTab" DataTextField="IndentedTabName" DataValueField="TabId" runat="server" />
+                    <asp:DropDownList ID="cboTab" DataTextField="IndentedTabName" DataValueField="TabId"
+                        runat="server" />
                 </div>
             </fieldset>
         </div>
@@ -311,29 +294,12 @@
                 title: '<%= Localization.GetSafeJSString("Confirm.Text", Localization.SharedResourceFile) %>'
             });
             $('.dnnContainerPreview').dnnPreview({
-                containerSelector: '<%=  moduleContainerCombo.ClientID %>',
+                containerSelector: 'select',
                 baseUrl: '<%= DotNetNuke.Common.Globals.NavigateURL(this.TabId) %>',
                 noSelectionMessage: '<%= DotNetNuke.UI.Utilities.ClientAPI.GetSafeJSString(LocalizeString("PreviewNoSelectionMessage.Text")) %>',
                 alertCloseText: '<%= Localization.GetSafeJSString("Close.Text", Localization.SharedResourceFile)%>',
-                alertOkText: '<%= Localization.GetSafeJSString("Ok.Text", Localization.SharedResourceFile)%>',
-                useComboBox: true
+                alertOkText: '<%= Localization.GetSafeJSString("Ok.Text", Localization.SharedResourceFile)%>'
             });
-
-            toggleShareableRowViewOnly(false);
-            $('#<%=isShareableCheckBox.ClientID %>').change(function () {
-                toggleShareableRowViewOnly(true);
-            });
-
-        }
-        
-        function toggleShareableRowViewOnly(animation) {
-            var isSharable = $('#<%=isShareableCheckBox.ClientID %>').attr("checked");
-            if (isSharable == "checked") {
-                animation ? $('#isShareableRowViewOnly').slideDown() : $('#isShareableRowViewOnly').show();
-            }
-            else {
-                animation ? $('#isShareableRowViewOnly').slideUp('fast') : $('#isShareableRowViewOnly').hide();
-            }
         }
 
         $(document).ready(function () {

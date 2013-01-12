@@ -420,9 +420,6 @@ namespace DotNetNuke.UI.Skins.Controls
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            
-            // load dnn.jquery library for customising radiobutton
-            DotNetNuke.Framework.jQuery.RegisterDnnJQueryPlugins(this.Page);
 
             cmdSearch.Click += cmdSearch_Click;
             cmdSearchNew.Click += cmdSearchNew_Click;

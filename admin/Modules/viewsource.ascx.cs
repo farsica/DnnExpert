@@ -69,23 +69,19 @@ namespace DotNetNuke.Modules.Admin.Modules
         private void BindFiles(string controlSrc)
         {
             cboFile.Items.Clear();
-            //cboFile.Items.Add(new ListItem(Localization.GetString("None_Specified"), "None"));
-            //cboFile.Items.Add(new ListItem("User Control", "UserControl"));
-            cboFile.AddItem(Localization.GetString("None_Specified"), "None");
-            cboFile.AddItem("User Control", "UserControl");
+            cboFile.Items.Add(new ListItem(Localization.GetString("None_Specified"), "None"));
+            cboFile.Items.Add(new ListItem("User Control", "UserControl"));
 
             var srcPhysicalPath = Server.MapPath(controlSrc);
             if (File.Exists(srcPhysicalPath + ".vb") || File.Exists(srcPhysicalPath + ".cs"))
             {
-                //cboFile.Items.Add(new ListItem("Code File", "CodeFile"));
-                cboFile.AddItem("Code File", "CodeFile");
+                cboFile.Items.Add(new ListItem("Code File", "CodeFile"));
             }
             var fileName = Path.GetFileName(srcPhysicalPath);
             var folder = Path.GetDirectoryName(srcPhysicalPath);
             if (File.Exists(folder + "\\App_LocalResources\\" + fileName + ".resx"))
             {
-                //cboFile.Items.Add(new ListItem("Resource File", "ResourceFile"));
-                cboFile.AddItem("Resource File", "ResourceFile");
+                cboFile.Items.Add(new ListItem("Resource File", "ResourceFile"));
             }
         }
 

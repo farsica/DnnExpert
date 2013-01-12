@@ -124,19 +124,19 @@
     <value>مشاهده اطلاع رسانی ها</value>
   </data>
   <data name="Messages.Text" xml:space="preserve">
-    <value>&lt;span&gt;{0}&lt;/span&gt;&lt;strong&gt; پیام ها&lt;/strong&gt;</value>
+    <value>&lt;span&gt;{0}&lt;/span&gt;&lt;b&gt; پیام ها&lt;/b&gt;</value>
   </data>
   <data name="NewMessages.Text" xml:space="preserve">
     <value> ({0})</value>
   </data>
   <data name="NoMessages.Text" xml:space="preserve">
-    <value>&lt;strong&gt; پیام ها&lt;/strong&gt;</value>
+    <value>&lt;b&gt; پیام ها&lt;/b&gt;</value>
   </data>
   <data name="NoNotifications.Text" xml:space="preserve">
-    <value>&lt;strong&gt; اطلاع رسانی ها&lt;/strong&gt;</value>
+    <value>&lt;b&gt; اطلاع رسانی ها&lt;/b&gt;</value>
   </data>
   <data name="Notifications.Text" xml:space="preserve">
-    <value>&lt;span&gt;{0}&lt;/span&gt;&lt;strong&gt; اطلاع رسانی ها&lt;/strong&gt;</value>
+    <value>&lt;span&gt;{0}&lt;/span&gt;&lt;b&gt; اطلاع رسانی ها&lt;/b&gt;</value>
   </data>
   <data name="ProfileAvatar.Text" xml:space="preserve">
     <value>آیکون پروفایل</value>

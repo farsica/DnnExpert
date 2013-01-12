@@ -1,13 +1,11 @@
 <%@ Control Language="C#" AutoEventWireup="false" Inherits="DotNetNuke.Modules.Admin.Modules.Export" CodeFile="Export.ascx.cs" %>
-<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.UI.WebControls" Assembly="DotNetNuke" %>
-<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web" %>
+<%@ Register Assembly="DotnetNuke" Namespace="DotNetNuke.UI.WebControls" TagPrefix="dnn" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
 <div class="dnnForm dnnExport dnnClear" id="dnnLogViewer">
     <fieldset>
 		<div class="dnnFormItem">
             <dnn:label id="plFolder" runat="server" controlname="cboFolders" suffix=":" />
-            <dnn:DnnComboBox runat="server" ID="cboFolders" />
-            <%--<asp:DropDownList ID="cboFolders" Runat="server" />--%>
+            <asp:DropDownList ID="cboFolders" Runat="server" />
         </div>
 		<div class="dnnFormItem">
             <dnn:label id="plFile" runat="server" controlname="txtFile" suffix=":" />

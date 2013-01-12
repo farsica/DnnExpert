@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Module.Text" xml:space="preserve">
     <value>ماژول</value>
@@ -396,9 +396,6 @@
   <data name="Pane.Text" xml:space="preserve">
     <value>ناحیه</value>
   </data>
-  <data name="Site.Text" xml:space="preserve">
-    <value>وب سایت</value>
-  </data>
   <data name="Skin.Text" xml:space="preserve">
     <value>پوسته</value>
   </data>
@@ -439,12 +436,6 @@
     <value>واسط:</value>
   </data>
   <data name="MenuTitleSuffix.Text" xml:space="preserve">
-    <value>امکانات</value>
-  </data>
-  <data name="cmdCancelAdd.Text" xml:space="preserve">
-    <value>انصراف</value>
-  </data>
-  <data name="cmdConfirmAdd.Text" xml:space="preserve">
-    <value>پذیرش ریسک</value>
+    <value></value>
   </data>
 </root>

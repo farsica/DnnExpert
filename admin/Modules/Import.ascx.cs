@@ -152,15 +152,13 @@ namespace DotNetNuke.Modules.Admin.Modules
                 if (!Page.IsPostBack)
                 {
                     cmdCancel.NavigateUrl = Globals.NavigateURL();
-                    //cboFolders.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
-                    cboFolders.InsertItem(0, "<" + Localization.GetString("None_Specified") + ">", "-");
+                    cboFolders.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
                     var user = UserController.GetCurrentUserInfo();
                     var folders = FolderManager.Instance.GetFileSystemFolders(user, "BROWSE, ADD");
                     foreach (FolderInfo folder in folders)
                     {
                         var folderItem = new ListItem { Text = folder.FolderPath == Null.NullString ? Localization.GetString("Root", LocalResourceFile) : folder.DisplayPath, Value = folder.FolderPath };
-                        //cboFolders.Items.Add(folderItem);
-                        cboFolders.AddItem(folderItem.Text, folderItem.Value);
+                        cboFolders.Items.Add(folderItem);
                     }
                 }
             }
@@ -173,8 +171,7 @@ namespace DotNetNuke.Modules.Admin.Modules
         protected void OnFoldersIndexChanged(object sender, EventArgs e)
         {
             cboFiles.Items.Clear();
-            //cboFiles.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
-            cboFiles.InsertItem(0, "<" + Localization.GetString("None_Specified") + ">", "-");
+            cboFiles.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
             if (cboFolders.SelectedIndex == 0)
             {
                 return;
@@ -188,8 +185,7 @@ namespace DotNetNuke.Modules.Admin.Modules
             {
                 if (objFile.Text.IndexOf("content." + Globals.CleanName(Module.DesktopModule.ModuleName) + ".") != -1)
                 {
-                    //cboFiles.Items.Add(new ListItem(objFile.Text.Replace("content." + Globals.CleanName(Module.DesktopModule.ModuleName) + ".", ""), objFile.Text));
-                    cboFiles.AddItem(objFile.Text.Replace("content." + Globals.CleanName(Module.DesktopModule.ModuleName) + ".", ""), objFile.Text);
+                    cboFiles.Items.Add(new ListItem(objFile.Text.Replace("content." + Globals.CleanName(Module.DesktopModule.ModuleName) + ".", ""), objFile.Text));
                 }
 
                 //legacy support for files which used the FriendlyName
@@ -199,8 +195,7 @@ namespace DotNetNuke.Modules.Admin.Modules
                 }
                 if (objFile.Text.IndexOf("content." + Globals.CleanName(Module.DesktopModule.FriendlyName) + ".") != -1)
                 {
-                    //cboFiles.Items.Add(new ListItem(objFile.Text.Replace("content." + Globals.CleanName(Module.DesktopModule.FriendlyName) + ".", ""), objFile.Text));
-                    cboFiles.AddItem(objFile.Text.Replace("content." + Globals.CleanName(Module.DesktopModule.FriendlyName) + ".", ""), objFile.Text);
+                    cboFiles.Items.Add(new ListItem(objFile.Text.Replace("content." + Globals.CleanName(Module.DesktopModule.FriendlyName) + ".", ""), objFile.Text));
                 }
             }
         }

@@ -111,21 +111,15 @@ namespace DotNetNuke.Modules.Admin.Tabs
                                                          : PathUtils.Instance.RemoveTrailingSlash(folder.DisplayPath),
                                                  Value = folder.FolderPath
                                              };
-                        //cboFolders.Items.Add(folderItem);
-                        cboFolders.AddItem(folderItem.Text, folderItem.Value);
+                        cboFolders.Items.Add(folderItem);
                     }
                     if (Tab != null)
                     {
                         txtFile.Text = Globals.CleanName(Tab.TabName);
                     }
-                    //if (cboFolders.Items.FindByValue("Templates/") != null)
-                    //{
-                    //    cboFolders.Items.FindByValue("Templates/").Selected = true;
-                    //}
-
-                    if (cboFolders.FindItemByValue("Templates/") != null)
+                    if (cboFolders.Items.FindByValue("Templates/") != null)
                     {
-                        cboFolders.FindItemByValue("Templates/").Selected = true;
+                        cboFolders.Items.FindByValue("Templates/").Selected = true;
                     }
                 }
             }

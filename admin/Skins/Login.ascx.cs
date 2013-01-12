@@ -153,8 +153,7 @@ namespace DotNetNuke.UI.Skins.Controls
                     if (PortalSettings.EnablePopUps && PortalSettings.LoginTabId == Null.NullInteger
                         && !HasSocialAuthenticationEnabled())
                     {
-                        //To avoid duplicated encodes of URL
-                        var clickEvent = "return " + UrlUtils.PopUpUrl(HttpUtility.UrlDecode(loginLink.NavigateUrl), this, PortalSettings, true, false, 300, 650);
+                        var clickEvent = "return " + UrlUtils.PopUpUrl(loginLink.NavigateUrl, this, PortalSettings, true, false, 300, 650);
                         loginLink.Attributes.Add("onclick", clickEvent);
                         enhancedLoginLink.Attributes.Add("onclick", clickEvent);
                     }

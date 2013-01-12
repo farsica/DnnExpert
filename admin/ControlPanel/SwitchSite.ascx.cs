@@ -135,8 +135,7 @@ namespace DotNetNuke.UI.ControlPanel
             SitesLst.DataValueField = "PortalID";
             SitesLst.DataBind();
 
-            //SitesLst.Items.Insert(0, new ListItem(string.Empty));
-            SitesLst.InsertItem(0, string.Empty, string.Empty);
+            SitesLst.Items.Insert(0, new ListItem(string.Empty));
         }
 
         #endregion

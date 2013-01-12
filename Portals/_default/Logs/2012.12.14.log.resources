@@ -1,6 +1,0 @@
-2012-12-14 23:45:26,555 [FARSICA-SERVER][Thread:26][ERROR] DotNetNuke.Web.UI.Utilities - Object reference not set to an instance of an object.
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at DotNetNuke.Web.UI.Utilities.ApplySkin(Control telerikControl, String fallBackEmbeddedSkinName, String controlName, String webControlSkinSubFolderName) in d:\Development\DNN\Core\DNN_07.00.00_Source\Community\DotNetNuke.Web\UI\Utilities.cs:line 131
-2012-12-14 23:45:48,579 [FARSICA-SERVER][Thread:26][ERROR] DotNetNuke.Web.UI.Utilities - Object reference not set to an instance of an object.
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at DotNetNuke.Web.UI.Utilities.ApplySkin(Control telerikControl, String fallBackEmbeddedSkinName, String controlName, String webControlSkinSubFolderName) in d:\Development\DNN\Core\DNN_07.00.00_Source\Community\DotNetNuke.Web\UI\Utilities.cs:line 131

@@ -90,11 +90,9 @@ namespace DotNetNuke.Modules.Admin.Tabs
                 foreach (var file in files)
                 {
                     var f = file.Replace(PortalSettings.HomeDirectoryMapPath + cboFolders.SelectedValue, "");
-                    //cboTemplate.Items.Add(new ListItem(f.Replace(".page.template", ""), f));
-                    cboTemplate.AddItem(f.Replace(".page.template", ""), f);
+                    cboTemplate.Items.Add(new ListItem(f.Replace(".page.template", ""), f));
                 }
-                //cboTemplate.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "None_Specified"));
-                cboTemplate.InsertItem(0, "<" + Localization.GetString("None_Specified") + ">", "None_Specified");
+                cboTemplate.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "None_Specified"));
                 cboTemplate.SelectedIndex = 0;
             }
         }
@@ -106,15 +104,10 @@ namespace DotNetNuke.Modules.Admin.Tabs
             BindBeforeAfterTabControls();
             divInsertPositionRow.Visible = cboPositionTab.Items.Count > 0;
             cboParentTab.AutoPostBack = true;
-            //if (cboPositionTab.Items.FindByValue(TabId.ToString()) != null)
-            //{
-            //    cboPositionTab.ClearSelection();
-            //    cboPositionTab.Items.FindByValue(TabId.ToString()).Selected = true;
-            //}
-            if (cboPositionTab.FindItemByValue(TabId.ToString()) != null)
+            if (cboPositionTab.Items.FindByValue(TabId.ToString()) != null)
             {
                 cboPositionTab.ClearSelection();
-                cboPositionTab.FindItemByValue(TabId.ToString()).Selected = true;
+                cboPositionTab.Items.FindByValue(TabId.ToString()).Selected = true;
             }
         }
 
@@ -165,8 +158,7 @@ namespace DotNetNuke.Modules.Admin.Tabs
                 if (!Page.IsPostBack)
                 {
                     cmdCancel.NavigateUrl = Globals.NavigateURL();
-                    //cboFolders.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
-                    cboFolders.InsertItem(0, "<" + Localization.GetString("None_Specified") + ">", "-");
+                    cboFolders.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
 #pragma warning disable 612,618
                     var folders = FileSystemUtils.GetFoldersByUser(PortalId, false, false, "BROWSE, ADD");
 #pragma warning restore 612,618
@@ -180,18 +172,12 @@ namespace DotNetNuke.Modules.Admin.Tabs
                                                          : PathUtils.Instance.RemoveTrailingSlash(folder.DisplayPath),
                                                  Value = folder.FolderPath
                                              };
-                        //cboFolders.Items.Add(folderItem);
-                        cboFolders.AddItem(folderItem.Text, folderItem.Value);
+                        cboFolders.Items.Add(folderItem);
                     }
-                    //if (cboFolders.Items.FindByValue("Templates/") != null)
-                    //{
-                    //    cboFolders.Items.FindByValue("Templates/").Selected = true;
-                    //}
-                    if (cboFolders.FindItemByValue("Templates/") != null)
+                    if (cboFolders.Items.FindByValue("Templates/") != null)
                     {
-                        cboFolders.FindItemByValue("Templates/").Selected = true;
+                        cboFolders.Items.FindByValue("Templates/").Selected = true;
                     }
-
                     BindFiles();
                     BindTabControls();
                     DisplayNewRows();
@@ -271,22 +257,6 @@ namespace DotNetNuke.Modules.Admin.Tabs
                     }
 
                     int positionTabID = Int32.Parse(cboPositionTab.SelectedItem.Value);
-
-                    var pc = new PermissionController();
-
-                    var permission = pc.GetPermissionByCodeAndKey("SYSTEM_TAB", "VIEW");
-                    if (permission.Count > 0)
-                    {
-                        var pid = ((PermissionInfo)permission[0]).PermissionID;
-                        objTab.TabPermissions.Add(new TabPermissionInfo { PermissionID = pid, AllowAccess = true, RoleID = 0 });
-                    }
-
-                    permission = pc.GetPermissionByCodeAndKey("SYSTEM_TAB", "EDIT");
-                    if (permission.Count > 0)
-                    {
-                        var pid = ((PermissionInfo)permission[0]).PermissionID;
-                        objTab.TabPermissions.Add(new TabPermissionInfo { PermissionID = pid, AllowAccess = true, RoleID = 0 });
-                    }
 
                     var objEventLog = new EventLogController();
                     if (rbInsertPosition.SelectedValue == "After" && positionTabID > Null.NullInteger)

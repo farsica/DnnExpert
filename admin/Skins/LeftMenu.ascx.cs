@@ -869,6 +869,11 @@ namespace DotNetNuke.UI.Skins.Controls
                         {
                             FillShowPathArray(ref arrayShowPath, (desktopTabs[i]).TabID, objTabController);
                         }
+                        //Fariborz Khosravi
+                        //if (((desktopTabs[i]).IsVisible && !(desktopTabs[i]).IsDeleted) &&
+                        //    (((desktopTabs[i]).StartDate == DateTime.MinValue && (desktopTabs[i]).EndDate == DateTime.MinValue) ||
+                        //     ((desktopTabs[i]).StartDate < DateTime.Now && (desktopTabs[i]).EndDate > DateTime.Now) || AdminMode) &&
+                        //    (TabPermissionController.CanViewPage(desktopTabs[i]) && !CheckToExclude((desktopTabs[i]).TabName, (desktopTabs[i]).TabID)))
                         if (((desktopTabs[i]).IsVisible && !(desktopTabs[i]).IsDeleted) &&
                             (((desktopTabs[i]).StartDate == DotNetNuke.Common.Utilities.Null.NullDate && (desktopTabs[i]).EndDate == DotNetNuke.Common.Utilities.Null.NullDate) ||
                              ((desktopTabs[i]).StartDate < DateTime.Now && (desktopTabs[i]).EndDate > DateTime.Now) || AdminMode) &&

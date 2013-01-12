@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ModuleSettings.Text" xml:space="preserve">
     <value>تنظیمات ماژول</value>
@@ -443,17 +443,5 @@
   </data>
   <data name="plSearchOnce.Text" xml:space="preserve">
     <value>نمایش در نتایج جستجو به ازای هر صفحه شامل این ماژول</value>
-  </data>
-  <data name="isShareableLabel.Help" xml:space="preserve">
-    <value>در صورت انتخاب این گزینه، ماژول قابلیت به اشتراک گذاری در بین وب سایت ها خواهد داشت.</value>
-  </data>
-  <data name="isShareableLabel.Text" xml:space="preserve">
-    <value>پشتیبانی از به اشتراک گذاری؟</value>
-  </data>
-  <data name="isShareableViewOnlyLabel.Help" xml:space="preserve">
-    <value>در صورت انتخاب این گزینه، ماژول فقط بصورت خواندنی قابلیت به اشتراک گذاری خواهد داشت.</value>
-  </data>
-  <data name="isShareableViewOnlyLabel.Text" xml:space="preserve">
-    <value>فقط مشاهده؟</value>
   </data>
 </root>

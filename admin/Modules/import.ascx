@@ -1,8 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="false" Inherits="DotNetNuke.Modules.Admin.Modules.Import"
     CodeFile="Import.ascx.cs" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
-<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.UI.WebControls" Assembly="DotNetNuke" %>
-<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web" %>
+<%@ Register Assembly="DotnetNuke" Namespace="DotNetNuke.UI.WebControls" TagPrefix="dnn" %>
 <div class="dnnForm" id="importModuleForm">
     <h2 id="dnnPanel-ImportFile" class="dnnFormSectionHead">
         <a href="#" class="dnnSectionExpanded">
@@ -10,13 +9,11 @@
     <fieldset class="dnnClear">
         <div class="dnnFormItem">
             <dnn:Label ID="plFolder" runat="server" ControlName="cboFolders" Suffix=":" />
-            <dnn:DnnComboBox runat="server" ID="cboFolders"  AutoPostBack="true"/>
-           <%-- <asp:DropDownList ID="cboFolders" runat="server" AutoPostBack="true" />--%>
+            <asp:DropDownList ID="cboFolders" runat="server" AutoPostBack="true" />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="plFile" runat="server" ControlName="cboFiles" Suffix=":" />
-              <dnn:DnnComboBox runat="server" ID="cboFiles"  AutoPostBack="true"/>
-           <%--<asp:DropDownList ID="cboFiles" runat="server" AutoPostBack="true" />--%>
+            <asp:DropDownList ID="cboFiles" runat="server" AutoPostBack="true" />
         </div>
     </fieldset>
     <h2 id="dnnPanel-ModuleContent" class="dnnFormSectionHead">

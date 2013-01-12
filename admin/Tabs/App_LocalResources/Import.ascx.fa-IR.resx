@@ -186,9 +186,6 @@
   <data name="SpecifyMode.Text" xml:space="preserve">
     <value>لطفا شیوه Import را مشخص نمایید.</value>
   </data>
-  <data name="NoTabsInTemplate.Text" xml:space="preserve">
-    <value>الگو فاقد صفحه می باشد.</value>
-  </data>
   <data name="valTemplate.ErrorMessage" xml:space="preserve">
     <value>لطفا یک الگو انتخاب نمایید</value>
   </data>
@@ -221,5 +218,8 @@
   </data>
   <data name="TabRecycled.Text" xml:space="preserve">
     <value>صفحه ای با این نام در سطل بازیافت وجود دارد. برای بازیابی این صفحه از بخش سطل بازیافت استفاده نمایید.</value>
+  </data>
+  <data name="NoTabsInTemplate.Text" xml:space="preserve">
+    <value>الگو فاقد صفحه می باشد.</value>
   </data>
 </root>
