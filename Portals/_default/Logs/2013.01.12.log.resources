@@ -1,0 +1,68 @@
+2013-01-12 20:41:44,501 [FARSICA-SERVER][Thread:391][ERROR] DotNetNuke.Services.Localization.LocalizationProvider - System.NullReferenceException: Object reference not set to an instance of an object.
+   at DotNetNuke.Common.Globals.get_Status() in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Common\Globals.cs:line 597
+   at DotNetNuke.Services.Localization.LocaleController.GetLocales(Int32 portalID) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 187
+   at DotNetNuke.Services.Localization.LocaleController.GetLocale(Int32 portalID, String code) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 154
+   at DotNetNuke.Services.Localization.LocaleController.GetLocale(String code) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 143
+   at DotNetNuke.Services.Localization.LocalizationProvider.TryGetStringInternal(String key, String userLanguage, String resourceFile, PortalSettings portalSettings, String& resourceValue) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocalizationProvider.cs:line 317
+2013-01-12 20:41:44,646 [FARSICA-SERVER][Thread:391][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.InvalidOperationException: Failed to map the path '/app_globalresources/sharedresources.portal--1.resx'.
+   at System.Web.Hosting.HostingEnvironment.MapPathActual(VirtualPath virtualPath, Boolean permitNull)
+   at System.Web.Hosting.HostingEnvironment.MapPathInternal(VirtualPath virtualPath)
+   at System.Web.Hosting.HostingEnvironment.MapPath(VirtualPath virtualPath)
+   at DotNetNuke.Services.Localization.LocalizationProvider.GetResourceFileCallBack(CacheItemArgs cacheItemArgs) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocalizationProvider.cs:line 127
+   at DotNetNuke.Common.Utilities.DataCache.GetCachedDataFromDictionary(CacheItemArgs cacheItemArgs, CacheItemExpiredCallback cacheItemExpired) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Common\Utilities\DataCache.cs:line 495
+2013-01-12 20:41:49,200 [FARSICA-SERVER][Thread:391][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.NullReferenceException: Object reference not set to an instance of an object.
+   at DotNetNuke.Web.UI.Utilities.ApplySkin(Control telerikControl, String fallBackEmbeddedSkinName, String controlName, String webControlSkinSubFolderName) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\DotNetNuke.Web\UI\Utilities.cs:line 131
+2013-01-12 20:41:58,418 [FARSICA-SERVER][Thread:391][ERROR] DotNetNuke.Services.Localization.LocalizationProvider - System.NullReferenceException: Object reference not set to an instance of an object.
+   at DotNetNuke.Common.Globals.get_Status() in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Common\Globals.cs:line 597
+   at DotNetNuke.Services.Localization.LocaleController.GetLocales(Int32 portalID) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 187
+   at DotNetNuke.Services.Localization.LocaleController.GetLocale(Int32 portalID, String code) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 154
+   at DotNetNuke.Services.Localization.LocaleController.GetLocale(String code) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 143
+   at DotNetNuke.Services.Localization.LocalizationProvider.TryGetStringInternal(String key, String userLanguage, String resourceFile, PortalSettings portalSettings, String& resourceValue) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocalizationProvider.cs:line 317
+2013-01-12 20:41:58,465 [FARSICA-SERVER][Thread:391][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.InvalidOperationException: Failed to map the path '/app_globalresources/sharedresources.portal--1.resx'.
+   at System.Web.Hosting.HostingEnvironment.MapPathActual(VirtualPath virtualPath, Boolean permitNull)
+   at System.Web.Hosting.HostingEnvironment.MapPathInternal(VirtualPath virtualPath)
+   at System.Web.Hosting.HostingEnvironment.MapPath(VirtualPath virtualPath)
+   at DotNetNuke.Services.Localization.LocalizationProvider.GetResourceFileCallBack(CacheItemArgs cacheItemArgs) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocalizationProvider.cs:line 127
+   at DotNetNuke.Common.Utilities.DataCache.GetCachedDataFromDictionary(CacheItemArgs cacheItemArgs, CacheItemExpiredCallback cacheItemExpired) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Common\Utilities\DataCache.cs:line 495
+2013-01-12 21:16:29,373 [FARSICA-SERVER][Thread:363][ERROR] DotNetNuke.Services.Localization.LocalizationProvider - System.NullReferenceException: Object reference not set to an instance of an object.
+   at DotNetNuke.Common.Globals.get_Status() in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Common\Globals.cs:line 597
+   at DotNetNuke.Services.Localization.LocaleController.GetLocales(Int32 portalID) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 187
+   at DotNetNuke.Services.Localization.LocaleController.GetLocale(Int32 portalID, String code) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 154
+   at DotNetNuke.Services.Localization.LocaleController.GetLocale(String code) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 143
+   at DotNetNuke.Services.Localization.LocalizationProvider.TryGetStringInternal(String key, String userLanguage, String resourceFile, PortalSettings portalSettings, String& resourceValue) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocalizationProvider.cs:line 317
+2013-01-12 21:16:29,376 [FARSICA-SERVER][Thread:363][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.InvalidOperationException: Failed to map the path '/app_globalresources/sharedresources.portal--1.resx'.
+   at System.Web.Hosting.HostingEnvironment.MapPathActual(VirtualPath virtualPath, Boolean permitNull)
+   at System.Web.Hosting.HostingEnvironment.MapPathInternal(VirtualPath virtualPath)
+   at System.Web.Hosting.HostingEnvironment.MapPath(VirtualPath virtualPath)
+   at DotNetNuke.Services.Localization.LocalizationProvider.GetResourceFileCallBack(CacheItemArgs cacheItemArgs) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocalizationProvider.cs:line 127
+   at DotNetNuke.Common.Utilities.DataCache.GetCachedDataFromDictionary(CacheItemArgs cacheItemArgs, CacheItemExpiredCallback cacheItemExpired) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Common\Utilities\DataCache.cs:line 495
+2013-01-12 21:16:31,076 [FARSICA-SERVER][Thread:363][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.NullReferenceException: Object reference not set to an instance of an object.
+   at DotNetNuke.Web.UI.Utilities.ApplySkin(Control telerikControl, String fallBackEmbeddedSkinName, String controlName, String webControlSkinSubFolderName) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\DotNetNuke.Web\UI\Utilities.cs:line 131
+2013-01-12 21:16:43,512 [FARSICA-SERVER][Thread:363][ERROR] DotNetNuke.Services.Localization.LocalizationProvider - System.NullReferenceException: Object reference not set to an instance of an object.
+   at DotNetNuke.Common.Globals.get_Status() in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Common\Globals.cs:line 597
+   at DotNetNuke.Services.Localization.LocaleController.GetLocales(Int32 portalID) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 187
+   at DotNetNuke.Services.Localization.LocaleController.GetLocale(Int32 portalID, String code) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 154
+   at DotNetNuke.Services.Localization.LocaleController.GetLocale(String code) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 143
+   at DotNetNuke.Services.Localization.LocalizationProvider.TryGetStringInternal(String key, String userLanguage, String resourceFile, PortalSettings portalSettings, String& resourceValue) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocalizationProvider.cs:line 317
+2013-01-12 21:16:43,573 [FARSICA-SERVER][Thread:363][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.InvalidOperationException: Failed to map the path '/app_globalresources/sharedresources.portal--1.resx'.
+   at System.Web.Hosting.HostingEnvironment.MapPathActual(VirtualPath virtualPath, Boolean permitNull)
+   at System.Web.Hosting.HostingEnvironment.MapPathInternal(VirtualPath virtualPath)
+   at System.Web.Hosting.HostingEnvironment.MapPath(VirtualPath virtualPath)
+   at DotNetNuke.Services.Localization.LocalizationProvider.GetResourceFileCallBack(CacheItemArgs cacheItemArgs) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocalizationProvider.cs:line 127
+   at DotNetNuke.Common.Utilities.DataCache.GetCachedDataFromDictionary(CacheItemArgs cacheItemArgs, CacheItemExpiredCallback cacheItemExpired) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Common\Utilities\DataCache.cs:line 495
+2013-01-12 21:16:45,283 [FARSICA-SERVER][Thread:363][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.NullReferenceException: Object reference not set to an instance of an object.
+   at DotNetNuke.Web.UI.Utilities.ApplySkin(Control telerikControl, String fallBackEmbeddedSkinName, String controlName, String webControlSkinSubFolderName) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\DotNetNuke.Web\UI\Utilities.cs:line 131
+2013-01-12 21:17:05,302 [FARSICA-SERVER][Thread:363][ERROR] DotNetNuke.Services.Localization.LocalizationProvider - System.NullReferenceException: Object reference not set to an instance of an object.
+   at DotNetNuke.Common.Globals.get_Status() in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Common\Globals.cs:line 597
+   at DotNetNuke.Services.Localization.LocaleController.GetLocales(Int32 portalID) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 187
+   at DotNetNuke.Services.Localization.LocaleController.GetLocale(Int32 portalID, String code) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 154
+   at DotNetNuke.Services.Localization.LocaleController.GetLocale(String code) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocaleController.cs:line 143
+   at DotNetNuke.Services.Localization.LocalizationProvider.TryGetStringInternal(String key, String userLanguage, String resourceFile, PortalSettings portalSettings, String& resourceValue) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocalizationProvider.cs:line 317
+2013-01-12 21:17:05,305 [FARSICA-SERVER][Thread:363][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.InvalidOperationException: Failed to map the path '/app_globalresources/sharedresources.portal--1.resx'.
+   at System.Web.Hosting.HostingEnvironment.MapPathActual(VirtualPath virtualPath, Boolean permitNull)
+   at System.Web.Hosting.HostingEnvironment.MapPathInternal(VirtualPath virtualPath)
+   at System.Web.Hosting.HostingEnvironment.MapPath(VirtualPath virtualPath)
+   at DotNetNuke.Services.Localization.LocalizationProvider.GetResourceFileCallBack(CacheItemArgs cacheItemArgs) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Services\Localization\LocalizationProvider.cs:line 127
+   at DotNetNuke.Common.Utilities.DataCache.GetCachedDataFromDictionary(CacheItemArgs cacheItemArgs, CacheItemExpiredCallback cacheItemExpired) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\Library\Common\Utilities\DataCache.cs:line 495
+2013-01-12 21:17:06,018 [FARSICA-SERVER][Thread:363][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.NullReferenceException: Object reference not set to an instance of an object.
+   at DotNetNuke.Web.UI.Utilities.ApplySkin(Control telerikControl, String fallBackEmbeddedSkinName, String controlName, String webControlSkinSubFolderName) in d:\Development\DNN\Core\DNN_07.00.02_Source\Community\DotNetNuke.Web\UI\Utilities.cs:line 131

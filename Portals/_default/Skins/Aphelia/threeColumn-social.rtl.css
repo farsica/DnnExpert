@@ -1,0 +1,27 @@
+﻿/* SET COLUMNS */
+	.leftPane {
+		width: 120px;
+		float: right;
+	}
+	.contentPane {
+		margin-right:130px;
+		margin-left: 230px;
+	}
+	.rightPane {
+		width: 220px;
+		margin-right:10px;
+		float: left;
+	}
+	
+	/* ACCOMODATE EMPTY PANES */
+	.DNNEmptyPane{width:0; margin:0;}
+	.paneGroup .leftPane.DNNEmptyPane + .contentPane{
+		margin-right:0;
+	}
+	.paneGroup .rightPane.DNNEmptyPane + .leftPane + .contentPane{
+	    margin-left: 0;
+	}
+	.paneGroup .rightPane.DNNEmptyPane + .leftPane.DNNEmptyPane + .contentPane{
+	    margin-right:0;
+	    margin-left: 0;
+	}
