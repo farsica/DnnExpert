@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="LogTitle.Text" xml:space="preserve">
+    <value>گزارش نصب پکیج</value>
+  </data>
+  <data name="Cancel.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="InvalidExt.Text" xml:space="preserve">
+    <value>فایل با پسوند {0} نامعتبر می باشد</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;درباره بخش نصب پکیج&lt;/h1&gt;&lt;p&gt;این بخش به شما امکان آپلود و نصب پکیج ها در پورتال را بوجود می آورد.&lt;/p&gt;</value>
+  </data>
+  <data name="NoFile.Text" xml:space="preserve">
+    <value>شما بایستی برای آپلود، یک فایل را انتخاب نمایید. بر روی دکمه مربوطه کلیک نموده و فایل مورد نظر را در سیستم خود انتخاب نمایید.</value>
+  </data>
+  <data name="InstallCustomPackage.Text" xml:space="preserve">
+    <value>نصب پلاگین جدید {0}</value>
+  </data>
+  <data name="InstallPackage.Text" xml:space="preserve">
+    <value>نصب پلاگین</value>
+  </data>
+  <data name="UploadPackage.Text" xml:space="preserve">
+    <value>آپلود پکیج</value>
+  </data>
+  <data name="AcceptLicense.Text" xml:space="preserve">
+    <value>پذیرفتن شرایط استفاده</value>
+  </data>
+  <data name="Introduction.Help" xml:space="preserve">
+    <value>با توجه به انعطاف پذیری این سیستم، می توان آن را به راحتی گسترش داد. این راهنما به شما کمک می کند تا پلاگین هایی را آپلود نموده و نصب نمایید.</value>
+  </data>
+  <data name="Introduction.Title" xml:space="preserve">
+    <value>آپلود پلاگین جدید</value>
+  </data>
+  <data name="ZipCriticalError.Text" xml:space="preserve">
+    <value>خطای مهم در خواندن فایل فشرده پکیج</value>
+  </data>
+  <data name="ZipError.Text" xml:space="preserve">
+    <value>خطا در خواندن فایل فشرده پکیج.</value>
+  </data>
+  <data name="AcceptTerms.Text" xml:space="preserve">
+    <value>برای اینکه امکان نصب پکیج باشد، بایستی شرایط و مجوز استفاده را قبول نمایید.</value>
+  </data>
+  <data name="InstallError.Text" xml:space="preserve">
+    <value>خطا در بارگزاری فایل از پوشه موقت. لطفا بخش زیر را مرور نمایید</value>
+  </data>
+  <data name="InstallResults.Help" xml:space="preserve">
+    <value>برای مشاهده نتیجه نصب پکیج بخش زیر را مرور نمایید</value>
+  </data>
+  <data name="InstallResults.Title" xml:space="preserve">
+    <value>گزارش نصب پکیج</value>
+  </data>
+  <data name="PackageInfo.Help" xml:space="preserve">
+    <value>اطلاعات زیر در فایل راهنمای نصب پکیج یافت شد.</value>
+  </data>
+  <data name="PackageInfo.Title" xml:space="preserve">
+    <value>اطلاعات پکیج</value>
+  </data>
+  <data name="License.Help" xml:space="preserve">
+    <value>قبل از ادامه عملیات شما بایستی شرایط استفاده از این پلاگین را قبول نمایید. لطفا متن مربوطه را مرور نموده و گزینه قبول شرایط را انتخاب نمایید.</value>
+  </data>
+  <data name="License.Title" xml:space="preserve">
+    <value>مرور فایل مجوز استفاده</value>
+  </data>
+  <data name="ReleaseNotes.Help" xml:space="preserve">
+    <value>شما می توانید یادداشت های زمان انتشار مربوط به این پکیج را مرور نمایید.</value>
+  </data>
+  <data name="ReleaseNotes.Title" xml:space="preserve">
+    <value>یادداشت های زمان انتشار</value>
+  </data>
+  <data name="IgnoreWhiteList.Text" xml:space="preserve">
+    <value>نادیده گرفتن محدودیت ها؟</value>
+  </data>
+  <data name="IgnoreRestrictedFilesWarning.Text" xml:space="preserve">
+    <value>هشدار: شما تصمیم گرفته اید که بررسی برای وجود برخی فایل ها با پسوند خاص را نادیده بگیرید. در این حالت مسئولیت وجود خطر امنیتی با شما بوده و تنها در صورتی که از صحت پکیج اطمینان دارید، بایستی این کار را انجام دهید.</value>
+  </data>
+  <data name="RepairInstall.Text" xml:space="preserve">
+    <value>نصب مجدد؟</value>
+  </data>
+  <data name="InvalidFiles.Text" xml:space="preserve">
+    <value>این پکیج شامل فایل هایی با پسوند های نامعتبر ({0}) می باشد.</value>
+  </data>
+  <data name="PackageInstalled.Text" xml:space="preserve">
+    <value>این پکیج قبلا نصب شده است.</value>
+  </data>
+  <data name="RepairInstallWarning.Text" xml:space="preserve">
+    <value>هشدار: شما اقدام به نصب مجدد این پلاگین نموده اید، این عمل موجب بازنویسی مجدد تمام فایل هایی خواهد شد که قبلا ایجاد شده اند.</value>
+  </data>
+  <data name="Return.Text" xml:space="preserve">
+    <value>بازگشت</value>
+  </data>
+  <data name="LegacySkin.Text" xml:space="preserve">
+    <value>نسخه قدیمی پوسته/ طرح حاشیه ماژول:</value>
+  </data>
+  <data name="NoManifest.Text" xml:space="preserve">
+    <value>به نظر می رسد این پکیج یک پلاگین معتبر نبوده و فاقد فایل راهنمای نصب می باشد. نسخه های قدیمی پلاگین ها فاقد فایل راهنمای نصب هستند، در صورتی که این پلاگین از انواع قدیمی است، گزینه مربوطه را انتخاب نموده و بر روی دکمه بعدی کلیک نمایید.</value>
+  </data>
+  <data name="Container.Text" xml:space="preserve">
+    <value>طرح حاشیه ماژول</value>
+  </data>
+  <data name="None.Text" xml:space="preserve">
+    <value>پوسته/ طرح حاشیه ماژول نمی باشد</value>
+  </data>
+  <data name="Skin.Text" xml:space="preserve">
+    <value>پوسته</value>
+  </data>
+  <data name="CoreLanguageError.Text" xml:space="preserve">
+    <value>زبانی که این بسته زبانی برای آن زبان ایجاد شده است، در پورتال فعال نمی باشد. قبل از نصب این بسته زبان بایستی ابتدا زبان مربوطه را در پورتال فعال نمود.</value>
+  </data>
+  <data name="DependencyError.Text" xml:space="preserve">
+    <value>این بسته زبان برای پلاگینی ایجاد شده که هنوز در پورتال نصب نشده است.</value>
+  </data>
+  <data name="IgnoreWhiteListHelp.Text" xml:space="preserve">
+    <value>برنامه نصب لیستی از فایل های قابل نصب را مشخص نموده که ممکن است تایید شده نباشند. درصورتی که شما از صحت پکیج اطمینان دارید، می توانید این هشدار را نادیده گرفته و ادامه دهید.</value>
+  </data>
+  <data name="LegacySkinHelp.Text" xml:space="preserve">
+    <value>نسخه های قدیمی پوسته و طرح حاشیه ماژول نیز توسط این برنامه نصب قابل نصب شدن می باشند. اما بخاطر اینکه آنها فایل راهنمای نصب ندارند، شما بایستی صحت آنها را تایید نمایید.</value>
+  </data>
+  <data name="RepairInstallHelp.Text" xml:space="preserve">
+    <value>بصورت پیش فرض برنامه نصب پلاگین ها یا نسخه های مشابه را بازنویسی نمی کند، در صورتی که تمایل دارید عملیات نصب ادامه پیدا کرده و نسخه جاری بازنویسی گردد، این گزینه را انتخاب نمایید؛ در غیر اینصورت عملیات نصب متوقف خواهد شد.</value>
+  </data>
+  <data name="BrowseFile.Text" xml:space="preserve">
+    <value>یافتن فایل:</value>
+  </data>
+  <data name="BrowseFileHelp.Text" xml:space="preserve">
+    <value>برای یافتن فایل پکیجی که تمایل به نصب دارید، بایستی از دکمه یافتن فایل استفاده نموده و سپس بر روی دکمه ادامه کلیک نمایید.</value>
+  </data>
+  <data name="Warnings.Help" xml:space="preserve">
+    <value>اگر به این صفحه هدایت شده اید، بدین معناست که برای ادامه نصب پکیج، نیاز به اطلاعات بیشتری می باشد.</value>
+  </data>
+  <data name="Warnings.Title" xml:space="preserve">
+    <value>نتیجه آپلود</value>
+  </data>
+  <data name="AcceptLicense.Help" xml:space="preserve">
+    <value>برای پذیرش شرایط و مجوز استفاده این گزینه را انتخاب نمایید.</value>
+  </data>
+  <data name="ControlTitle_install.Text" xml:space="preserve">
+    <value>نصب پلاگین</value>
+  </data>
+  <data name="FileSizeRestriction.Text" xml:space="preserve">
+    <value>حداکثر اندازه فایل قابل آپلود در پورتال {0} مگابایت می باشد.</value>
+  </data>
+</root>

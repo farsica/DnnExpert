@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FileManager.Text" xml:space="preserve">
+    <value>مدیریت فایل ها</value>
+  </data>
+  <data name="HostRoot.Text" xml:space="preserve">
+    <value>شاخه اصلی بخش مدیریت ارشد</value>
+  </data>
+  <data name="PortalRoot.Text" xml:space="preserve">
+    <value>شاخه اصلی پورتال</value>
+  </data>
+  <data name="FileName.Header" xml:space="preserve">
+    <value>نام فایل</value>
+  </data>
+  <data name="Size.Header" xml:space="preserve">
+    <value>اندازه</value>
+  </data>
+  <data name="DiskSpace.Text" xml:space="preserve">
+    <value>فضای دیسک</value>
+  </data>
+  <data name="Capacity.Text" xml:space="preserve">
+    <value>ظرفیت</value>
+  </data>
+  <data name="Used.Text" xml:space="preserve">
+    <value>استفاده شده</value>
+  </data>
+  <data name="Free.Text" xml:space="preserve">
+    <value>آزاد</value>
+  </data>
+  <data name="MB.Text" xml:space="preserve">
+    <value>مگابایت</value>
+  </data>
+  <data name="AddContent.Action" xml:space="preserve">
+    <value>آپلود فایل جدید</value>
+  </data>
+  <data name="ControlTitle_.Text" xml:space="preserve">
+    <value>مدیریت فایل ها</value>
+  </data>
+  <data name="Ok.Text" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="Cancel.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="CopyFiles.Text" xml:space="preserve">
+    <value>کپی فایل ها</value>
+  </data>
+  <data name="CancelCopy.Text" xml:space="preserve">
+    <value>لغو عملیات کپی</value>
+  </data>
+  <data name="MoveFiles.Text" xml:space="preserve">
+    <value>انتقال فایل ها</value>
+  </data>
+  <data name="CancelMove.Text" xml:space="preserve">
+    <value>لغو عملیات انتقال</value>
+  </data>
+  <data name="NoFilesChecked.Text" xml:space="preserve">
+    <value>فایلی انتخاب نشده است</value>
+  </data>
+  <data name="PleaseSpecifyAFolderNameFirst.Text" xml:space="preserve">
+    <value>لطفا ابتدا نام پوشه را مشخص نمایید</value>
+  </data>
+  <data name="CopyCheckedFiles.Text" xml:space="preserve">
+    <value>آیا فایل های انتخاب شده  کپی شوند؟</value>
+  </data>
+  <data name="MoveCheckedFiles.Text" xml:space="preserve">
+    <value>انتقال فایل های انتخاب شده؟</value>
+  </data>
+  <data name="DeleteFolder.Text" xml:space="preserve">
+    <value>حذف پوشه:</value>
+  </data>
+  <data name="DeleteFolderLabel.Text" xml:space="preserve">
+    <value>حذف پوشه</value>
+  </data>
+  <data name="MoveSelectedFilesTo.Text" xml:space="preserve">
+    <value>انتقال فایل های انتخاب شده به:</value>
+  </data>
+  <data name="CopySelectedFilesTo.Text" xml:space="preserve">
+    <value>کپی فایل های انتخاب شده به:</value>
+  </data>
+  <data name="UnzipSelectedFilesTo.Text" xml:space="preserve">
+    <value>از حالت فشرده خارج نمودن فایل ها به:</value>
+  </data>
+  <data name="AddFolderImg.AlternateText" xml:space="preserve">
+    <value>افزودن پوشه</value>
+  </data>
+  <data name="DeleteFolderImg.AlternateText" xml:space="preserve">
+    <value>حذف پوشه</value>
+  </data>
+  <data name="RefreshImg.AlternateText" xml:space="preserve">
+    <value>رفرش</value>
+  </data>
+  <data name="CopyImg.AlternateText" xml:space="preserve">
+    <value>کپی فایل ها</value>
+  </data>
+  <data name="MoveImg.AlternateText" xml:space="preserve">
+    <value>انتقال فایل ها</value>
+  </data>
+  <data name="UploadImg.AlternateText" xml:space="preserve">
+    <value>آپلود</value>
+  </data>
+  <data name="DeleteImg.AlternateText" xml:space="preserve">
+    <value>حذف فایل ها</value>
+  </data>
+  <data name="FilterImg.AlternateText" xml:space="preserve">
+    <value>فیلتر</value>
+  </data>
+  <data name="RenameFileImg.AlternateText" xml:space="preserve">
+    <value>تغییرنام فایل</value>
+  </data>
+  <data name="SaveChangesImg.AlternateText" xml:space="preserve">
+    <value>ذخیره تغییرات</value>
+  </data>
+  <data name="DeleteFileImg.AlternateText" xml:space="preserve">
+    <value>حذف فایل</value>
+  </data>
+  <data name="CancelRenameImg.AlternateText" xml:space="preserve">
+    <value>لغو عملیات تغییر نام</value>
+  </data>
+  <data name="UnzipFileImg.AlternateText" xml:space="preserve">
+    <value>از حالت فشرده خارج نمودن فایل</value>
+  </data>
+  <data name="GetFolderProperties.AlternateText" xml:space="preserve">
+    <value>دریافت مشخصات پوشه</value>
+  </data>
+  <data name="NotAllowedToDeleteRootFolder.Text" xml:space="preserve">
+    <value>امکان حذف پوشه شاخه اصلی نمی باشد</value>
+  </data>
+  <data name="FolderAlreadyRemoved.Text" xml:space="preserve">
+    <value>پوشه حذف گردیده است...</value>
+  </data>
+  <data name="PleaseRemoveFilesBeforeDeleting.Text" xml:space="preserve">
+    <value>لطفا قبل از حذف پوشه، فایل ها و پوشه های زیر مجموعه را حذف نمایید</value>
+  </data>
+  <data name="ErrorMovingFile.Text" xml:space="preserve">
+    <value>خطا درانتقال فایل:</value>
+  </data>
+  <data name="ErrorCopyingFile.Text" xml:space="preserve">
+    <value>خطا در کپی فایل:</value>
+  </data>
+  <data name="plPermissions.Text" xml:space="preserve">
+    <value>دسترسی ها:</value>
+  </data>
+  <data name="plPermissions.Help" xml:space="preserve">
+    <value>اعمال دسترسی ها برای پوشه انتخاب شده از لیست پوشه های بالا</value>
+  </data>
+  <data name="Folders.Text" xml:space="preserve">
+    <value>پوشه ها</value>
+  </data>
+  <data name="Date.Header" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="ErrorDeletingFolder.Text" xml:space="preserve">
+    <value>خطا در حذف پوشه:&lt;br/&gt;</value>
+  </data>
+  <data name="NotEnoughSpace.Text" xml:space="preserve">
+    <value>فضای کافی موجود نمی باشد</value>
+  </data>
+  <data name="PleaseLogin.Text" xml:space="preserve">
+    <value>لطفا قبل از کپی/انتقال فایل وارد سیستم شوید</value>
+  </data>
+  <data name="ErrorUnzippingFile.Text" xml:space="preserve">
+    <value>خطا در از حالت فشرده خارج کردن فایل:</value>
+  </data>
+  <data name="ItemsPerPage.Text" xml:space="preserve">
+    <value>تعداد آیتم ها در هر صفحه :</value>
+  </data>
+  <data name="SpaceUsed.Text" xml:space="preserve">
+    <value>استفاده شده : {0} از {1}</value>
+  </data>
+  <data name="MovingFiles.Text" xml:space="preserve">
+    <value>در حال انتقال فایل ها:</value>
+  </data>
+  <data name="CopyingFiles.Text" xml:space="preserve">
+    <value>در حال کپی فایل ها»</value>
+  </data>
+  <data name="UnzippingFile.Text" xml:space="preserve">
+    <value>در حال از حالت فشرده خارج نمودن فایل:</value>
+  </data>
+  <data name="FromFolder.Text" xml:space="preserve">
+    <value>از پوشه:</value>
+  </data>
+  <data name="ToFolder.Text" xml:space="preserve">
+    <value>به پوشه: لطفا پوشه مقصد را از جستجوگر پوشه ها انتخاب نمایید.</value>
+  </data>
+  <data name="DeleteFiles.Text" xml:space="preserve">
+    <value>حذف فایل ها</value>
+  </data>
+  <data name="Security.Text" xml:space="preserve">
+    <value>تنظیمات امنیتی پوشه</value>
+  </data>
+  <data name="SelectAll.Text" xml:space="preserve">
+    <value>انتخاب همه</value>
+  </data>
+  <data name="UnSelectAll.Text" xml:space="preserve">
+    <value>عدم انتخاب همه</value>
+  </data>
+  <data name="Rename.Error" xml:space="preserve">
+    <value>خطا در تغییر نام فایل: &lt;br/&gt;</value>
+  </data>
+  <data name="SetAttrubute.Error" xml:space="preserve">
+    <value>بروز خطا در زمان تغییر مشخصه های فایل: &lt;br/&gt;</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;درباره بخش مدیریت فایل ها&lt;/h1&gt;&lt;p&gt;مدیران پورتال می توانند فایل های قرارگرفته در پوشه آپلود خود را مدیریت نمایند. این ماژول امکان آپلود فایل های جدید، بارگزاری فایل ها، حذف فایل ها، همسان سازی فایل ها و پوشه ها، میزان فضای اختصاص داده شده و میزان فضای استفاده شده را فراهم می آورد.&lt;/p&gt;</value>
+  </data>
+  <data name="Refresh.Text" xml:space="preserve">
+    <value>رفرش</value>
+  </data>
+  <data name="EnsureDeleteFile.Text" xml:space="preserve">
+    <value>آیا از حذف فایل {0} اطمینان دارید؟</value>
+  </data>
+  <data name="EnsureDeleteFolder.Text" xml:space="preserve">
+    <value>آیا از حذف پوشه {0} اطمینان دارید؟</value>
+  </data>
+  <data name="ErrorDeletingFile.Text" xml:space="preserve">
+    <value>خطا در حذف فایل:&amp;nbsp;</value>
+  </data>
+  <data name="UnlimitedSpace.Text" xml:space="preserve">
+    <value>[نامحدود]</value>
+  </data>
+  <data name="InsecureFileSystem.Text" xml:space="preserve">
+    <value>استاندارد - فایل سیستم</value>
+  </data>
+  <data name="SecureFileSystem.Text" xml:space="preserve">
+    <value>امن - فایل سیستم</value>
+  </data>
+  <data name="SecureDatabase.Text" xml:space="preserve">
+    <value>امن - بانک اطلاعات</value>
+  </data>
+  <data name="plStorageLocation.Text" xml:space="preserve">
+    <value>مکان ذخیره سازی:</value>
+  </data>
+  <data name="plStorageLocation.Help" xml:space="preserve">
+    <value>این گزینه نشانگر روش پوشه انتخاب شده برای ذخیره فایل ها می باشد.</value>
+  </data>
+  <data name="FolderBar.Text" xml:space="preserve">
+    <value>پوشه ها:</value>
+  </data>
+  <data name="FileBar.Text" xml:space="preserve">
+    <value>فایل ها:</value>
+  </data>
+  <data name="AddFolder.Text" xml:space="preserve">
+    <value>افزودن پوشه</value>
+  </data>
+  <data name="SynchronizeFolder.Text" xml:space="preserve">
+    <value>همسان سازی فایل ها</value>
+  </data>
+  <data name="lnkSyncFolderIMG.AlternateText" xml:space="preserve">
+    <value>همسان سازی فایل ها</value>
+  </data>
+  <data name="Recursive.Text" xml:space="preserve">
+    <value>بازگشتی</value>
+  </data>
+  <data name="NoWritePermission.Text" xml:space="preserve">
+    <value>شما دسترسی نوشتن در پوشه مقصد را ندارید.</value>
+  </data>
+  <data name="PermissionsError.Text" xml:space="preserve">
+    <value>بروز خطا در بروزرسانی دسترسی ها. لطفا برای مشاهده جزئیات بیشتر گزارش رخدادها را مرور نمایید.</value>
+  </data>
+  <data name="PermissionsUpdated.Text" xml:space="preserve">
+    <value>دسترسی های پوشه با موفقیت بروزرسانی گردید.</value>
+  </data>
+  <data name="ManageFolderTypes.Action" xml:space="preserve">
+    <value>مدیریت انواع پوشه ها</value>
+  </data>
+  <data name="SecureFolderWarning.Text" xml:space="preserve">
+    <value>این دسترسی ها در سیستم اعمال شده است. کاربران ناشناس امکان خواندن این فایل ها را دارند. سایر شیوه های مدیریت پوشه ها همچون امن و بانک اطلاعات جلوی دسترسی کاربران ناشناس به فایل ها را می گیرد.</value>
+  </data>
+  <data name="ErrorDownloadingFile.Text" xml:space="preserve">
+    <value>خطا در بارگزاری فایل:&amp;nbsp;</value>
+  </data>
+  <data name="ErrorSynchronizingFolder.Text" xml:space="preserve">
+    <value>خطا در همسان سازی پوشه:&amp;nbsp;</value>
+  </data>
+  <data name="ErrorSynchronizingFolders.Text" xml:space="preserve">
+    <value>خطا در همسان سازی پوشه ها:&amp;nbsp;</value>
+  </data>
+  <data name="ConflictFiles.Text" xml:space="preserve">
+    <value>فایل های مشخص شده در لیست زیر در پوشه مقصد نیز وجود دارند. در صورت تمایل به جایگزینی هر فایل، گزینه مربوطه را در کنار نام فایل انتخاب نمایید.</value>
+  </data>
+</root>
