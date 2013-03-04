@@ -1,6 +1,6 @@
 .dnnLogViewer, .dnnEditLogTypes{margin:2em auto;}
 .dnnlvOptions, .dnnlvLegend{width:49%;}
-	.dnnlvOptions{border-right:1px #ccc solid}
+	.dnnlvOptions{border-left:1px #ccc solid}
 .dnnLogViewer .dnnShortFormInfo{background:#edf8ff url(../../../images/help-icn.png) no-repeat 98% 50%;border:#46a3d3 2px solid;color:#085b8f;text-shadow:0px 1px 1px #fff;width: 350px;}
 	.dnnLogViewer .dnnFormItem input[type="text"], .dnnLogViewer .dnnFormItem textarea{width:35%;}
 	.dnnlvFilter{}
@@ -9,7 +9,7 @@
 		.dnnlvFilter fieldset .RadComboBox .RadComboBox_Default .dnnLeft{width:200px !important;}
 		.dnnlvFilter .rcbArrowCell .rcbArrowCellRight a{display:none;}
 	.dnnlvLegend{margin:0 0 10px 0}
-		.dnnlvLegend h3{margin-top:0;padding-top:0;}
+		.dnnlvLegend h3{margin-top:0;padding-top:0;padding-bottom:6px;}
 		.dnnlvLegend .dnnLeft{width:125px;padding-left:20px;}
 			.dnnlvLegend .dnnLeft div{padding:3px 8px;margin-bottom:1px; text-shadow:1px 1px 1px #333;}
 			.dnnlvLegend .dnnLeft div.lvlItem{}

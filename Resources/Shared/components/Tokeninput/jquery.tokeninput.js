@@ -629,11 +629,14 @@
        }
 
         function show_dropdown() {
+            if ($(document.body).css("direction") == "rtl")
+                dropdown.css("right", $(token_list).offset().right);
+            else
+                dropdown.css("left", $(token_list).offset().left);
             dropdown
             .css({
                 position: "absolute",
                 top: $(token_list).offset().top + $(token_list).outerHeight(),
-                left: $(token_list).offset().left,
                 zindex: 999
             })
             .show();

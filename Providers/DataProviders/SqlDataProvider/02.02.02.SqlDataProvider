@@ -1630,7 +1630,7 @@ create procedure	{databaseOwner}{objectQualifier}GetUrlLog
 as
 
 select {objectQualifier}UrlLog.*,
-       'FullName' = {objectQualifier}Users.FirstName + ' ' + {objectQualifier}Users.LastName + ' (' + {objectQualifier}Users.UserName + ')'
+       'FullName' = {objectQualifier}Users.FirstName + ' ' + {objectQualifier}Users.LastName + ': ' + {objectQualifier}Users.UserName
 from   {objectQualifier}UrlLog
 inner join {objectQualifier}UrlTracking on {objectQualifier}UrlLog.UrlTrackingId = {objectQualifier}UrlTracking.UrlTrackingId
 left outer join {objectQualifier}Users on {objectQualifier}UrlLog.UserId = {objectQualifier}Users.UserId
