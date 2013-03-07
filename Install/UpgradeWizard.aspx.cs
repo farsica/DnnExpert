@@ -177,7 +177,7 @@ namespace DotNetNuke.Services.Install
             PageLocale.Value = cultureCode;
             _culture = cultureCode;
 
-            Thread.CurrentThread.CurrentUICulture = cultureCode == "fa-IR" ? Common.Globals.GetPersianCulture() : new CultureInfo(cultureCode);
+            Thread.CurrentThread.CurrentUICulture = Common.Globals.GetUICulture(null, cultureCode);
         }
 
         private static string LocalizeStringStatic(string key)
@@ -194,7 +194,7 @@ namespace DotNetNuke.Services.Install
             HttpContext.Current.Server.ScriptTimeout = int.MaxValue;
 
             if (_culture != null)
-                Thread.CurrentThread.CurrentUICulture = _culture == "fa-IR" ? Common.Globals.GetPersianCulture() : new CultureInfo(_culture);
+                Thread.CurrentThread.CurrentUICulture = Common.Globals.GetUICulture(null, _culture);
 
             //bail out early if upgrade is in progress
             if (_upgradeRunning)
