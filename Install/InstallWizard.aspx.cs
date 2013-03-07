@@ -227,7 +227,8 @@ namespace DotNetNuke.Services.Install
             PageLocale.Value = cultureCode;
             _culture = cultureCode;
 
-            Thread.CurrentThread.CurrentUICulture = cultureCode == "fa-IR" ? Common.Globals.GetPersianCulture() : new CultureInfo(cultureCode);
+            //Fariborz Khosravi
+            Thread.CurrentThread.CurrentUICulture = Common.Globals.GetUICulture(null, cultureCode);
         }
 
         private string GetNextScriptVersion(string strProviderPath, Version currentVersion)
@@ -261,6 +262,7 @@ namespace DotNetNuke.Services.Install
             if (TestDataBaseInstalled())
             {
                 //running current version, so redirect to site home page
+                //Fariborz Khosravi
                 Response.Redirect("~/" + Globals.glbDefaultPage, true);
             }
             else
@@ -286,8 +288,9 @@ namespace DotNetNuke.Services.Install
             //Set Script timeout to MAX value
             HttpContext.Current.Server.ScriptTimeout = int.MaxValue;
 
+            //Fariborz Khosravi
             if (_culture != null)
-                Thread.CurrentThread.CurrentUICulture = _culture == "fa-IR" ? Common.Globals.GetPersianCulture() : new CultureInfo(_culture);
+                Thread.CurrentThread.CurrentUICulture = Common.Globals.GetUICulture(null, _culture);
 
             Install();
 
@@ -683,7 +686,8 @@ namespace DotNetNuke.Services.Install
 						}
 						if (!string.IsNullOrEmpty(cultureCode) && !string.IsNullOrEmpty(version) && version.Length == 6)
 						{
-                        	var myCIintl = cultureCode == "fa-IR" ? Common.Globals.GetPersianCulture() : new CultureInfo(cultureCode, true);
+							//Fariborz Khosravi
+                            var myCIintl = Common.Globals.GetUICulture(null, cultureCode);
 							version = version.Insert(4, ".").Insert(2, ".");
 							var package = new PackageInfo { Name = "LanguagePack-" + myCIintl.Name, FriendlyName = myCIintl.NativeName };
 							package.Name = myCIintl.NativeName;
@@ -726,10 +730,11 @@ namespace DotNetNuke.Services.Install
             }
             finally
             {
+                //Fariborz Khosravi
                 //ensure there is always an fa-IR
                 if (languageList.Items.FindItemByValue("fa-IR") == null)
                 {
-                    var myCIintl = Common.Globals.GetPersianCulture();
+                    var myCIintl = Common.Globals.GetUICulture(null, "fa-IR");
                     var li = new ListItem { Value = "fa-IR", Text = myCIintl.NativeName };
                     languageList.AddItem(li.Text, li.Value);
                     RadComboBoxItem lastItem = languageList.Items[languageList.Items.Count - 1];
@@ -775,6 +780,7 @@ namespace DotNetNuke.Services.Install
                 //Do nothing
             }
             Config.Touch();
+            //Fariborz Khosravi
             HttpContext.Current.Response.Redirect("../" + Globals.glbDefaultPage);
         }
         #endregion 
@@ -966,6 +972,7 @@ namespace DotNetNuke.Services.Install
                     }
                 }
             }
+            //Fariborz Khosravi
             if (new CultureInfo(PageLocale.Value).TextInfo.IsRightToLeft)
             {
                 DefaultStylesheet.Attributes["href"] = ResolveUrl("~/Portals/_default/default.rtl.css?refresh");
