@@ -194,7 +194,6 @@ namespace DotNetNuke.Modules.Admin.AdvancedSettings
                         }
 	                    if (!string.IsNullOrEmpty(cultureCode) && !string.IsNullOrEmpty(version) && version.Length == 6)
 	                    {
-		                    //Fariborz Khosravi
                             var myCIintl = Common.Globals.GetUICulture(null, cultureCode);
 		                    version = version.Insert(4, ".").Insert(2, ".");
 		                    var package = new PackageInfo {Owner = OwnerUpdateService, Name = "LanguagePack-" + myCIintl.Name, FriendlyName = myCIintl.NativeName};
