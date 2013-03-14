@@ -989,7 +989,7 @@
   </data>
   <data name="EMAIL_BulkMailStart_Body.Text" xml:space="preserve">
     <value>&lt;div dir="rtl"&gt;
-    کاربر {1} خبر نامه '{0}'  را به کاربران {2} ارسال نموده است. لطفا گزارش ارسال را برای بررسی موارد خطا بررسی نمایید.
+    کاربر {1} خبر نامه '{0}'  را به {2} کاربر ارسال نموده است. لطفا گزارش ارسال را برای بررسی موارد خطا بررسی نمایید.
   &lt;/div &gt;</value>
   </data>
   <data name="EMAIL_BulkMailStart_Subject.Text" xml:space="preserve">
