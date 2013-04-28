@@ -629,7 +629,6 @@
        }
 
         function show_dropdown() {
-            //Fariborz Khosravi
             if ($(document.body).css("direction") == "rtl")
                 dropdown.css("right", $(token_list).offset().right);
             else

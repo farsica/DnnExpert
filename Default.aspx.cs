@@ -355,7 +355,6 @@ namespace DotNetNuke.Framework
                 KeyWords += ",Farsica,PortalSuite,DnnExpert";
             }
 
-            //Fariborz Khosravi
             //META copyright
             if (!string.IsNullOrEmpty(PortalSettings.FooterText))
             {

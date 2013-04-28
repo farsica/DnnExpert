@@ -486,7 +486,6 @@ Telerik.Web.UI.RadDatePicker.prototype = {
     }, _setInputDate: function (a) {
         this._dateInput.set_selectedDate(a);
     }, _getJavaScriptDate: function (b) {
-        /*Fariborz Khosravi*/
         b = DnnExpert.Util.PersianToGregorian(b[0], b[1], b[2]);
         var a = new Date();
         a.setFullYear(b[0], b[1] - 1, b[2]);

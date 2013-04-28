@@ -61,14 +61,11 @@ Telerik.Web.UI.RadCalendar.prototype = {
         Telerik.Web.UI.RadCalendar.callBaseMethod(this, "initialize");
         this.EnableTodayButtonSelection = (this.get_monthYearNavigationSettings()[4] == "False") ? false : true;
         this.DateTimeFormatInfo = new Telerik.Web.UI.Calendar.DateTimeFormatInfo(this.get__FormatInfoArray());
-        /*Fariborz Khosravi*/
         this.DateTimeFormatInfo.Calendar = Telerik.Web.UI.Calendar.PersianCalendar;
-
         this.DateTimeFormatInfo.CalendarWeekRule = this._calendarWeekRule;
         var e, f, r;
         var c = this._auxDatesHidden();
         var a = eval(c.value);
-        /*Fariborz Khosravi*/
         this.RangeMinDate = DnnExpert.Util.GregorianToPersian(a[0][0], a[0][1], a[0][2]);
         this.RangeMaxDate = DnnExpert.Util.GregorianToPersian(a[1][0], a[1][1], a[1][2]);
         this.FocusedDate = DnnExpert.Util.GregorianToPersian(a[2][0], a[2][1], a[2][2]);
@@ -898,14 +895,12 @@ Telerik.Web.UI.RadCalendar.prototype = {
             }, 200);
         }
     }, _getStepFromDate: function (a) {
-        /*Fariborz Khosravi*/
         a = DnnExpert.Util.GregorianToPersian(a[0], a[1], a[2]);
         var d = a[0] - this.FocusedDate[0];
         var b = a[1] - this.FocusedDate[1];
         var c = d * 12 + b;
         return c;
     }, _getBoundaryDate: function (a) {
-        /*Fariborz Khosravi*/
         a = DnnExpert.Util.GregorianToPersian(a[0], a[1], a[2]);
         if (!this.RangeValidation.IsDateValid(a)) {
             if (this._isInSameMonth(a, this.RangeMinDate)) {
@@ -1932,7 +1927,6 @@ Telerik.Web.UI.Calendar.MonthYearFastNavigation.prototype = {
         }
     }, OnToday: function (a) {
         var b = new Date();
-        //Fariborz Khosravi
         var d = DnnExpert.Util.GregorianToPersian(b.getFullYear(), b.getMonth() + 1, b.getDate());
         this.Date = d[2];
         this.Month = d[1] > 1 ? d[1] - 1 : d[1];
@@ -2459,7 +2453,6 @@ Telerik.Web.UI.Calendar.GregorianCalendar = {
         }
     }
 };
-/*Fariborz Khosravi*/
 Telerik.Web.UI.Calendar.PersianCalendar = {
     DatePartDay: 3,
     DatePartDayOfYear: 1,

@@ -976,14 +976,12 @@ Telerik.Web.UI.RadDateInput.prototype = {
         this._outOfRangeDate = a;
     }, _constructDisplayText: function (a) {
         if (a && isFinite(a)) {
-            /*Fariborz Khosravi*/
             return DnnExpert.Util.FormatDate(a, this.get_displayDateFormat(), this.get_dateFormatInfo());
         } else {
             return "";
         }
     }, _constructEditText: function (a) {
         if (a && isFinite(a)) {
-            /*Fariborz Khosravi*/
             return DnnExpert.Util.FormatDate(a, this.get_dateFormat(), this.get_dateFormatInfo());
         } else {
             return "";
@@ -1011,7 +1009,6 @@ Telerik.Web.UI.RadDateInput.prototype = {
             return new Date(this._value);
         }
     }, set_value: function (b) {
-        /*Fariborz Khosravi*/
         var t = this.parseDate(b);
         var k = DnnExpert.Util.PersianToGregorian(t.getFullYear(), t.getMonth() + 1, t.getDate());
         b = new Date(k[0], parseInt(k[1]) - 1, k[2], t.getHours(), t.getMinutes(), t.getSeconds(), t.getMilliseconds());
@@ -1129,7 +1126,6 @@ Telerik.Web.UI.RadDateInput.prototype = {
         if (this.isReadOnly()) {
             return false;
         }
-        /*Fariborz Khosravi*/
         var t = this.parseDate(this._textBoxElement.value);
         var k = DnnExpert.Util.PersianToGregorian(t.getFullYear(), t.getMonth() + 1, t.getDate());
         var a = new Date(k[0], parseInt(k[1]) - 1, k[2], t.getHours(), t.getMinutes(), t.getSeconds(), t.getMilliseconds());
@@ -1338,7 +1334,6 @@ Telerik.Web.UI.RadDateInput.prototype = {
 };
 Telerik.Web.UI.RadDateInput.registerClass("Telerik.Web.UI.RadDateInput", Telerik.Web.UI.RadInputControl);
 
-/*Fariborz Khosravi*/
 Type.registerNamespace("DnnExpert");
 DnnExpert.Util = {
     IsGregorianLeapYear: function (b) {

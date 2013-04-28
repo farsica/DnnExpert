@@ -234,8 +234,6 @@ namespace DotNetNuke.Modules.Admin.Extensions
                             var objPortalAliasController = new PortalAliasController();
                             ArrayList arr = objPortalAliasController.GetPortalAliasArrayByPortalID(t.PortalID);
                             var objPortalAliasInfo = (PortalAliasInfo)arr[0];
-                            //url = Globals.AddHTTP(objPortalAliasInfo.HTTPAlias) + "/Default.aspx?tabId=" + t.TabID;
-                            //Fariborz Khosravi
                             url = Globals.AddHTTP(objPortalAliasInfo.HTTPAlias) + "/" + Globals.glbDefaultPage + "?tabId=" + t.TabID;
                             returnValue.AppendFormat("<a href=\"{0}\">{1}</a>", url, t.LocalizedTabName);
                         }

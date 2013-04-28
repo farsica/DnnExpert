@@ -1,6 +1,6 @@
 ï»¿#region Copyright
 // 
-// DotNetNuke® - http://www.dotnetnuke.com
+// DotNetNukeï¿½ - http://www.dotnetnuke.com
 // Copyright (c) 2002-2012
 // by DotNetNuke Corporation
 // 
@@ -781,8 +781,6 @@ namespace DotNetNuke.Services.Install
             if (TestDataBaseInstalled())
             {
                 //running current version, so redirect to site home page
-                //Fariborz khosravi
-                //Response.Redirect("~/Default.aspx", true);
                 Response.Redirect("~/" + Globals.glbDefaultPage, true);
             }
             else
@@ -990,7 +988,6 @@ namespace DotNetNuke.Services.Install
                 {
                     var locale = LocaleController.Instance.GetLocale("en-US");
 
-                    //Fariborz Khosravi
                     if (locale != null)
                     {
                         //remove en-US from portal
@@ -1008,8 +1005,6 @@ namespace DotNetNuke.Services.Install
                 UserController.UserLogin(PortalId, usrAdmin.UserName, usrAdmin.Password, "", "", "", ref loginStatus, false);
 
                 Config.Touch();
-                //Fariborz Khosravi
-                //Response.Redirect("~/Default.aspx", true);
             	Response.Redirect("~/" + Globals.glbDefaultPage, true);
           	}
             catch (ThreadAbortException)
@@ -1576,10 +1571,6 @@ namespace DotNetNuke.Services.Install
 
             hostWarningLabel.Visible = !Regex.IsMatch(Request.Url.Host, "^([a-zA-Z0-9.-]+)$", RegexOptions.IgnoreCase);
 
-            // Fariborz  khosravi
-            ////update current thread culture to make dnn label work correctly
-            //Thread.CurrentThread.CurrentUICulture = new CultureInfo(cboLanguages.SelectedValue);
-
             if (!Page.IsPostBack)
             {
 				//Adding ClientDependency Resources config to web.config
@@ -1628,7 +1619,6 @@ namespace DotNetNuke.Services.Install
                 LocalizePage();
                 SetupPage();
             }
-			//Fariborz Khosravi
 			//update current thread culture to make dnn label work correctly
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(cboLanguages.SelectedValue);
             if (new CultureInfo(cboLanguages.SelectedValue).TextInfo.IsRightToLeft)
