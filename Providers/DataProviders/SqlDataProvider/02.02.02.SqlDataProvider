@@ -1621,6 +1621,7 @@ GO
 
 drop procedure {databaseOwner}{objectQualifier}GetUrlLog
 GO
+/*********** Fariborz Khosravi  return username *****************/
 create procedure	{databaseOwner}{objectQualifier}GetUrlLog
 
 @URLTrackingID int,

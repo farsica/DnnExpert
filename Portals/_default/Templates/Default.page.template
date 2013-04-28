@@ -1,4 +1,4 @@
-<portal version="3.0">
+﻿<portal version="3.0">
   <description>Default page template with just an HTML/Text module</description>
   <tabs>
     <tab>
