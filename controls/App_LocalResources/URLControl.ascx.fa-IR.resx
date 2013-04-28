@@ -172,7 +172,7 @@
     <value>آیا اطلاعات کاربر، تاریخ و زمان برای لینک ها ثبت گردد؟&lt;br/&gt;</value>
   </data>
   <data name="NewWindow.Text" xml:space="preserve">
-    <value>آیا لینک در یک پنجره جدید باز شود؟&lt;br/&gt;</value>
+    <value>لینک در یک پنجره جدید باز شود&lt;br/&gt;</value>
   </data>
   <data name="UploadError.Text" xml:space="preserve">
     <value>فایل با پسوند {1} معتبر نمی باشد. پسوندهای معتبر عبارتند از: {0}</value>

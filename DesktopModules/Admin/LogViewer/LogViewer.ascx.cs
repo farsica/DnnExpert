@@ -301,6 +301,7 @@ namespace DotNetNuke.Modules.Admin.LogViewer
             {
 				//display the values in the Panel child controls.
                 var ldi = (LogDetailInfo)objLogProperties[i];
+                //Fariborz Khosravi
                 var tmp = Localization.GetString(ldi.PropertyName, LocalResourceFile);
                 str.Append("<p><strong>" + (string.IsNullOrEmpty(tmp) ? ldi.PropertyName : tmp) + "</strong>: " + Server.HtmlEncode(ldi.PropertyValue) + "</p>");
             }
@@ -396,6 +397,7 @@ namespace DotNetNuke.Modules.Admin.LogViewer
 			
             //add entry to log recording it was cleared
             objEventLog.AddLog(Localization.GetString("LogCleared", LocalResourceFile),
+                			   //Fariborz Khosravi
                                Localization.GetString("UserName", LocalResourceFile) + ":" + UserInfo.Username,
                                PortalSettings,
                                -1,
@@ -499,6 +501,8 @@ namespace DotNetNuke.Modules.Admin.LogViewer
 
                 ctlPagingControlBottom.Visible = false;
             }
+
+			editSettings.Visible = UserInfo.IsSuperUser;
         }
 
         public string EventFilter { get; set; }

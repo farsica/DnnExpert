@@ -597,10 +597,10 @@
   <data name="valPriorityRequired.ErrorMessage" xml:space="preserve">
     <value>مشخص نمودن اولویت الزامی می باشد</value>
   </data>
-    <data name="lblAllowIndex.Help" xml:space="preserve">
+  <data name="plAllowIndex.Help" xml:space="preserve">
     <value>این گزینه نشانگر فعال بودن امکان ایندکس شدن صفحه توسط موتورهای جستجو می باشد.</value>
   </data>
-  <data name="lblAllowIndex.Text" xml:space="preserve">
+  <data name="plAllowIndex.Text" xml:space="preserve">
     <value>امکان ایندکس شدن توسط موتورهای جستجو:</value>
   </data>
 </root>

@@ -62,13 +62,13 @@
     text-align: center;
 }
 
-.dnnUser, .dnnMembership
+#dnnManageUsers .dnnUser, #dnnManageUsers .dnnMembership
 {
-    width: 45%;
+    /*width: 45%;*/
     float: right;
     margin-left: 10px;
 }
-.dnnMembership{
+#dnnManageUsers .dnnMembership{
     margin-right: 30px;
     padding: 15px 25px 0 0;
     background-color :#eaeaea;

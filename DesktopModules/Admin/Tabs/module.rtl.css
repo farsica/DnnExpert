@@ -151,7 +151,7 @@ p.dnnFormRequired span {
 }
 .dnnTreePages {
     border-left: 1px solid #ccc;
-    padding-bottom: 10px;
+    padding-bottom: 10px;float:left !important
 }
 .dnnTreeLegend {
     clear: both;

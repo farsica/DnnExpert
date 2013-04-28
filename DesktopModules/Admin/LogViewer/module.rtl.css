@@ -57,9 +57,6 @@
     .dnnLogItemHeader .dnnCheckbox img{
 	    margin-top: -15px;
 	}
-    .dnnLogItemHeader .dnnCheckbox-checked img{
-	    background-position:-51px 0;
-	}
 	
 .dnnLogItemHeader{border-bottom:1px solid #ccc;line-height:2;cursor:pointer; clear:both;overflow:hidden;color:#fff; padding: 3px 10px; }
 .dnnLogItemAltHeader {background-color: #f2f2f2; }

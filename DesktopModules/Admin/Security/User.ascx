@@ -46,9 +46,10 @@
 			<asp:textbox id="txtConfirm" runat="server" textmode="Password" size="12" maxlength="128" />
             <asp:CompareValidator ID="ComparePasswordsValidator" runat="server"
                                   resourcekey = "ComparePasswordsValidator.ErrorMessage" 
-                                  CssClass="dnnFormMessage dnnFormError"                                   
-                                  ControlToValidate="txtConfirm" 
-                                  ControlToCompare="txtPassword"></asp:CompareValidator>
+                                  CssClass="dnnFormMessage dnnFormError" 
+                                  Display="Dynamic"                     
+                                  ControlToValidate="txtPassword" 
+                                  ControlToCompare="txtConfirm"></asp:CompareValidator>
         </div>
         <div id="questionRow" runat="server"  class="dnnFormItem" visible="false">
             <dnn:label id="plQuestion" runat="server" controlname="lblQuestion"  cssclass="dnnFormRequired" />

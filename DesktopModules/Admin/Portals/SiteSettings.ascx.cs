@@ -839,6 +839,8 @@ namespace DotNetNuke.Modules.Admin.Portals
                     cancelHyperLink.Visible = false;
                 }
 
+				ctlLogo.PortalId = ctlBackground.PortalId = ctlFavIcon.PortalId = _portalId;
+
                 ////this needs to execute always to the client script code is registred in InvokePopupCal
                 //cmdExpiryCalendar.NavigateUrl = Calendar.InvokePopupCal(txtExpiryDate);
 
