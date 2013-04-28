@@ -779,7 +779,8 @@ ul.ControlBar_ModuleList{
 ul.ControlBar_ModuleList > li{
     display:block;
     float: left;
-    margin-right: 10px;  
+    margin: 0 10px 0 0 !important;
+	padding: 0 !important;
     height: 150px;  
     width: 150px;
 }

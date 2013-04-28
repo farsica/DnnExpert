@@ -24,6 +24,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
 
 using DotNetNuke.Common;
@@ -58,6 +59,7 @@ namespace DotNetNuke.Modules.Admin.Modules
 
         private new int ModuleId = -1;
         private ModuleInfo _module;
+	    private const string _invalidCharsRegex = "[\x00-\x08]|[\x0B-\x0C]|[\x0E-\x1F]";
 
         private ModuleInfo Module
         {
@@ -88,6 +90,8 @@ namespace DotNetNuke.Modules.Admin.Modules
                             var content = Convert.ToString(((IPortable)objObject).ExportModule(moduleID));
                             if (!String.IsNullOrEmpty(content))
                             {
+								//remove invalid chars in content
+	                            content = Regex.Replace(content, _invalidCharsRegex, string.Empty);
 								//add attributes to XML document
                                 content = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>" + "<content type=\"" + CleanName(Module.DesktopModule.ModuleName) + "\" version=\"" +
                                           Module.DesktopModule.Version + "\">" + content + "</content>";

@@ -148,6 +148,11 @@ namespace DotNetNuke.UI.ControlPanels
 
 		protected string PreviewPopup()
 		{
+            //Fariborz Khosravi
+            //var previewUrl = string.Format("{0}/Default.aspx?ctl={1}&previewTab={2}&TabID={2}", 
+            //                            Globals.AddHTTP(PortalSettings.PortalAlias.HTTPAlias), 
+            //                            "MobilePreview",
+            //                            PortalSettings.ActiveTab.TabID);
             var previewUrl = string.Format("{0}/{1}?ctl={2}&previewTab={3}&TabID={3}", 
 										Globals.AddHTTP(PortalSettings.PortalAlias.HTTPAlias),
                                         Globals.glbDefaultPage,
@@ -414,14 +419,14 @@ namespace DotNetNuke.UI.ControlPanels
                 if (!isRemoveBookmark)
                 {
                     if(!isHideBookmark)
-                        return string.Format("<li data-tabname='{3}'><a href='{0}'{4}>{1}</a><a href='javascript:void(0)' class='bookmark' title='{2}'><span></span></a></li>",
+						return string.Format("<li data-tabname=\"{3}\"><a href=\"{0}\" {4}>{1}</a><a href=\"javascript:void(0)\" class=\"bookmark\" title=\"{2}\"><span></span></a></li>",
                                              tab.FullUrl,
                                              name,
                                              ClientAPI.GetSafeJSString(GetString("Tool.AddToBookmarks.ToolTip")),
                                              ClientAPI.GetSafeJSString(tab.TabName),
 											 linkClass);
                     else
-						return string.Format("<li data-tabname='{3}'><a href='{0}'{4}>{1}</a><a href='javascript:void(0)' class='bookmark hideBookmark' data-title='{2}'><span></span></a></li>",
+						return string.Format("<li data-tabname=\"{3}\"><a href=\"{0}\" {4}>{1}</a><a href=\"javascript:void(0)\" class=\"bookmark hideBookmark\" data-title=\"{2}\"><span></span></a></li>",
                                             tab.FullUrl,
                                             name,
                                             ClientAPI.GetSafeJSString(GetString("Tool.AddToBookmarks.ToolTip")),
@@ -429,7 +434,7 @@ namespace DotNetNuke.UI.ControlPanels
 											linkClass);
                 }
                 else
-					return string.Format("<li data-tabname='{3}'><a href='{0}'{4}>{1}</a><a href='javascript:void(0)' class='removeBookmark' title='{2}'><span></span></a></li>",
+					return string.Format("<li data-tabname=\"{3}\"><a href=\"{0}\" {4}>{1}</a><a href=\"javascript:void(0)\" class=\"removeBookmark\" title=\"{2}\"><span></span></a></li>",
                                         tab.FullUrl,
                                         name,
                                         ClientAPI.GetSafeJSString(GetString("Tool.RemoveFromBookmarks.ToolTip")),
@@ -591,7 +596,7 @@ namespace DotNetNuke.UI.ControlPanels
 
         protected bool ShowSwitchLanguagesPanel()
         {
-             if (PortalSettings.AllowUserUICulture)
+             if (PortalSettings.AllowUserUICulture && PortalSettings.ContentLocalizationEnabled)
              {
                  if (CurrentUICulture == null)
                  {
@@ -645,7 +650,7 @@ namespace DotNetNuke.UI.ControlPanels
 
         protected string GetModeForAttribute()
         {
-            return UserMode.ToString().ToUpper();
+            return UserMode.ToString().ToUpperInvariant();
         }
 
         protected string GetEditButtonLabel()

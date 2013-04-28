@@ -82,6 +82,8 @@ namespace DotNetNuke.UI.Skins.Controls
                     objLink.ID = Globals.CreateValidID(Name);
                     objLink.Attributes["rel"] = "stylesheet";
                     objLink.Attributes["type"] = "text/css";
+                    //Fariborz Khosravi
+                    //support rtl
                     objLink.Href = DotNetNuke.Web.Client.ClientResourceManagement.ClientResourceManager.PrepareCssFilePath(new System.Web.HttpServerUtilityWrapper(Server), skinpath + StyleSheet);
                     if (Media != "")
                     {

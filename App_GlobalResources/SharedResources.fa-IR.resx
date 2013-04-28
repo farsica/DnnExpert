@@ -169,7 +169,7 @@
     <value>همه</value>
   </data>
   <data name="Unauthorized.Text" xml:space="preserve">
-    <value>غیرمجاز</value>
+    <value>تایید نشده</value>
   </data>
   <data name="Today.Text" xml:space="preserve">
     <value>امروز</value>
@@ -802,7 +802,7 @@
     <value>توقف عملیات نصب. ماژول مورد نظر با این نسخه پورتال هماهنگ نمی باشد.</value>
   </data>
   <data name="INSTALL_Compatibility.Text" xml:space="preserve">
-    <value>توقف عملیات نصب. ماژول مورد نظر با این نسخه پورتال هماهنگ نمی باشد.</value>
+    <value>توقف عملیات نصب. ماژول مورد نظر با این نسخه پورتال هماهنگ نمی باشد. بروزرسانی به نسخه {0} الزامی می باشد.</value>
   </data>
   <data name="INSTALL_Dependencies.Text" xml:space="preserve">
     <value>توقف عمیات نصب. ماژول مورد نظر نیازمند کامپوننت های دیگری است که در پورتال موجود نمی باشد.</value>

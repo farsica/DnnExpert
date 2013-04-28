@@ -237,8 +237,8 @@
   <data name="MsgSenderRequiredError.Text" xml:space="preserve">
     <value>فرستنده نامشخص بوده و یا شناسه وی مقداری منفی می باشد.</value>
   </data>
-  <data name="MsgOnlyHostOrAdminOrGroupOwnerCanSendToRoleError.Text" xml:space="preserve">
-    <value>فقط مدیران ارشد، مدیران پورتال و سرپرست گروه ها اجازه ارسال پیام به نقش ها را دارند.</value>
+  <data name="MsgOnlyHostOrAdminOrUserInGroupCanSendToRoleError.Text" xml:space="preserve">
+    <value>فقط مدیران ارشد، مدیران پورتال و اعضاء گروه ها اجازه ارسال پیام به نقش ها را دارند.</value>
   </data>
   <data name="MsgThrottlingIntervalNotMet.Text" xml:space="preserve">
     <value>امکان ارسال پیام در این لحظه میسر نمی باشد. بر اساس محدودیت اعمال شده از سوی مدیر پورتال بین پیام های ارسالی هر کاربر بایستی حداقل {0} دقیقه فاصله باشد.</value>
