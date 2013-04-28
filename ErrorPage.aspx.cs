@@ -118,6 +118,7 @@ namespace DotNetNuke.Services.Exceptions
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
+            //Fariborz Khosravi
             if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
             {
                 DefaultStylesheet.Attributes["href"] = ResolveUrl("~/Portals/_default/default.rtl.css");
