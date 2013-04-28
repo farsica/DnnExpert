@@ -525,7 +525,7 @@
                 label = $('label[for="' + $ch.attr('id') + '"]');
                 if (!label.length) label = false;
             }
-
+            var isRadCheckBox = $ch.hasClass('rtChk'); // rad checkbox is a special case, use jQuery eventPath.
             /* Labe found, applying event hanlers */
             if (label) {
                 label.css('display', 'inline-block');
@@ -533,7 +533,7 @@
                 if (!parentLabel) {
                     label.click(function (e) {
                         $ch.triggerHandler('focus');
-                        $ch.trigger('click', [e]);
+                        !isRadCheckBox ? ch.click() : $ch.trigger('click', [e]);
                         $ch.trigger('change', [e]);
                         CB(e);
                         return false;
@@ -546,7 +546,7 @@
 
                         $this.click(function (e) {
                             $ch.triggerHandler('focus');
-                            $ch.trigger('click', [e]);
+                            !isRadCheckBox ? ch.click() : $ch.trigger('click', [e]);
                             $ch.trigger('change', [e]);
                             CB(e);
                             return false;
@@ -557,14 +557,14 @@
 
             if (!parentLabel) {
                 ch.wrapper.click(function (e) {
-                    $ch.triggerHandler('focus');
-                    $ch.trigger('click', [e]);
+                	$ch.triggerHandler('focus');
+                	!isRadCheckBox ? ch.click() : $ch.trigger('click', [e]);
                     $ch.trigger('change', [e]);
                     CB(e);
                     return false;
                 });
             }
-            if ($ch.hasClass("rtChk")) { // stop event propagation for checkbox in rad control.
+            if (isRadCheckBox) { // stop event propagation for checkbox in rad control.
 		        $ch.click(function(e) { CB(e); });
 	        }
 	        $ch.bind('disable', function () { ch.wrapperInner.addClass(settings.cls + '-disabled'); }).bind('enable', function () { ch.wrapperInner.removeClass(settings.cls + '-disabled'); });
@@ -757,6 +757,41 @@
         // hide the input control and place within the Spinner Control body
         inputControl.insertAfter($("div.dnnSpinnerDisplay", objContainerDiv));
         $("div.dnnSpinnerDisplay", objContainerDiv).click(function () {
+            if (opt.type == 'range') {
+                var displayCtrl = $(this);
+                // show inner input
+                var innerInput = $('input[type="text"]', displayCtrl);
+                if (innerInput.length < 1) {
+                    var originalVal = displayCtrl.html();
+                    innerInput = $('<input type="text" />').val(originalVal);
+                    displayCtrl.html(innerInput);
+
+                    innerInput.blur(function () {
+                        var newVal = $(this).val();
+                        if (newVal > opt.typedata.max) {
+                            newVal = opt.typedata.max;
+                        }
+                        if (newVal < opt.typedata.min) {
+                            newVal = opt.typedata.min;
+                        }
+
+                        $(this).remove();
+                        selectedValue = parseInt(newVal);
+                        inputControl.val(newVal);
+                        displayCtrl.html(newVal);
+                    }).keypress(function (e) {
+                        var regex = new RegExp("^[0-9]+$");
+                        var key = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                        if (!regex.test(key)) {
+                            event.preventDefault();
+                            return false;
+                        }
+                    });
+                }
+
+                innerInput.focus();
+            }
+
             inputControl.triggerHandler('focus');
         });
         inputControl.css('display', 'none');
@@ -777,6 +812,7 @@
                 if ((opt.typedata.max - opt.typedata.min) > opt.typedata.interval) {
                     // attach events;
                     $("a.dnnSpinnerTopButton", objContainerDiv).click(function () {
+
                         if ((selectedValue + opt.typedata.interval) <= opt.typedata.max || opt.looping) {
                             if ((selectedValue + opt.typedata.interval) > opt.typedata.max) {
                                 selectedValue = opt.typedata.min - opt.typedata.interval;
@@ -1255,7 +1291,7 @@
     $.dnnAutocompleter.prototype.position = function () {
         var offset = this.dom.$elem.offset();
         var height = this.dom.$results.outerHeight();
-        var totalHeight = $(window).outerHeight();
+        var totalHeight = window.outerHeight;
         var inputBottom = offset.top + this.dom.$elem.outerHeight();
         var bottomIfDown = inputBottom + height;
         // Set autocomplete results at the bottom of input
@@ -2091,6 +2127,8 @@
             interactive: true,
             defaultText: 'add a tag',
             minChars: 0,
+            maxChars: 50,
+            maxTags: 16,
             width: '45%',
             height: '28px',
             autocomplete: { selectFirst: false },
@@ -2186,9 +2224,15 @@
                     // this is only available if autocomplete is not used.
                     $(data.fake_input).bind('blur', data, function (event) {
                         var d = $(this).attr('data-default');
+                        var tagslist = $(event.data.real_input).val().split(delimiter[id]);
+                        if (tagslist[0] == '') {
+                            tagslist = new Array();
+                        }
                         if ($(event.data.fake_input).val() != '' && $(event.data.fake_input).val() != d) {
-                            if ((event.data.minChars <= $(event.data.fake_input).val().length) && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length)))
+                            if ((event.data.minChars <= $(event.data.fake_input).val().length) && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length)) && (event.data.maxTags > tagslist.length))
                                 $(event.data.real_input).dnnAddTag($(event.data.fake_input).val(), { focus: true, unique: (settings.unique) });
+                            else
+                                $(this).val('');
                         } else {
                             $(event.data.fake_input).val($(event.data.fake_input).attr('data-default'));
                             $(event.data.fake_input).css('color', settings.placeholderColor);
@@ -2201,8 +2245,14 @@
                 $(data.fake_input).bind('keypress', data, function (event) {
                     if (event.which == event.data.delimiter.charCodeAt(0) || event.which == 13) {
                         event.preventDefault();
-                        if ((event.data.minChars <= $(event.data.fake_input).val().length) && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length)))
+                        var tagslist = $(event.data.real_input).val().split(delimiter[id]);
+                        if (tagslist[0] == '') {
+                            tagslist = new Array();
+                        }
+                        if ((event.data.minChars <= $(event.data.fake_input).val().length) && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length)) && (event.data.maxTags > tagslist.length))
                             $(event.data.real_input).dnnAddTag($(event.data.fake_input).val(), { focus: true, unique: (settings.unique) });
+                        else
+                            $(this).val('');
                         $(event.data.fake_input).dnnResetAutosize(settings);
                         return false;
                     } else if (event.data.autosize) {
@@ -2471,9 +2521,32 @@
             var $this = $(this);
             var ele = $this.get(0);
             ele.scrollPane = $this.jScrollPane();
+            var api = ele.scrollPane.data('jsp');
+            var throttleTimeout;
+            $(window).bind(
+                'resize',
+                function () {
+                    if ($.browser.msie) {
+                        // IE fires multiple resize events while you are dragging the browser window which
+                        // causes it to crash if you try to update the scrollpane on every one. So we need
+                        // to throttle it to fire a maximum of once every 50 milliseconds...
+                        if (!throttleTimeout) {
+                            throttleTimeout = setTimeout(
+                                function () {
+                                    api.reinitialise();
+                                    throttleTimeout = null;
+                                },
+                                50
+                            );
+                        }
+                    } else {
+                        api.reinitialise();
+                    }
+                }
+            );
+
             if (window.__rgDataDivScrollTopPersistArray && window.__rgDataDivScrollTopPersistArray.length) {
                 var y = window.__rgDataDivScrollTopPersistArray.pop();
-                var api = ele.scrollPane.data('jsp');
                 api.scrollToY(y);
             }
         });

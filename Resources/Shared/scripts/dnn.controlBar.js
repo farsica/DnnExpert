@@ -1152,17 +1152,17 @@ dnn.controlBar.init = function (settings) {
 };
 
 $(function () {
-    if (dnn.controlBarSettings)
-    	dnn.controlBar.init(dnn.controlBarSettings);
-	
+	if (dnn.controlBarSettings)
+		dnn.controlBar.init(dnn.controlBarSettings);
+
 	//extend dnnControlPanel to show or hide control panel
-    if (typeof $.fn.dnnControlPanel == "undefined") {
-    	$.fn.dnnControlPanel = {};
-	    $.fn.dnnControlPanel.show = function() {
-		    $("#ControlBar").slideDown();
-	    };
-	    $.fn.dnnControlPanel.hide = function () {
-	    	$("#ControlBar").slideUp();
-	    };
-    }
+	if (typeof $.fn.dnnControlPanel == "undefined") {
+		$.fn.dnnControlPanel = {};
+		$.fn.dnnControlPanel.show = function() {
+			$("#ControlBar").slideDown();
+		};
+		$.fn.dnnControlPanel.hide = function() {
+			$("#ControlBar").slideUp();
+		};
+	}
 });

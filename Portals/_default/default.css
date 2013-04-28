@@ -1133,6 +1133,15 @@
 	    background: transparent;	
 	    color: #999;   
 	}
+
+        .dnnFormItem .dnnSpinnerDisplay > input[type="text"],
+        .dnnFormItem .dnnSpinnerDisplay > input[type="text"]:focus  {
+            border: none;
+            margin: 0;
+            box-shadow: none;
+            padding: 0;
+            background: transparent;	
+        }
 	
 	.dnnSpinnerCtrl {
 	    position: absolute;
@@ -1779,7 +1788,7 @@
 		
 		zoom:1;
 	}
-	.dnnFormPopup .ui-dialog-buttonpane {
+	dnnFormPopup .ui-dialog-buttonpane {
 		margin:.5em 0 0 0;
 		padding:.3em 1em 1em .4em;
 		overflow:hidden;
@@ -2031,7 +2040,7 @@
         width: auto;
         margin-right: 5px;
     }
-    .urlConrol .urlControlLinkType input[type="radio"] {
+    .urlControl .urlControlLinkType input[type="radio"] {
         width: auto;
         margin-right: 5px;
     }

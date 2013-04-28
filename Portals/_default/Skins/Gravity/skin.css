@@ -1302,47 +1302,7 @@
 	    font-size: 12px; /* All lists: Archive & Reply links */
 	    font-weight: bold;
     }
-    .threeColSocial .DnnModule-Messaging-Details .smListings .profileImg {
-	    display:block; /* Drilldown message list: Avatar column style */
-	    padding:5px;
-	    width:50px; height:auto;
-	    background:#fff;
-	    border:1px solid #e2e2e2;
-	    /*CSS3*/
-	    -webkit-border-radius: 2px;
-	    -moz-border-radius: 2px;
-	    border-radius: 2px; 
-	
-    }
-    .threeColSocial .DnnModule-Messaging-Details .smListings .profileImg span{
-	    display:block; /* Drilldown message list: Avatar column style */
-	    width:50px; 
-	    max-height:50px; 
-	    overflow:hidden;
-    }
-
-    .threeColSocial .DnnModule-Messaging-Details .smListings .profileImg:hover {  border: solid 1px #d7d7d7;  /* Drilldown message list: Avatar column style */  }
-
-    .threeColSocial .DnnModule-Messaging-Notifications .smListings .profileImg {
-	    padding:4px; /* All lists: Avatar style */
-	    width:50px; height:auto;
-	    background: #fff;
-	    border:1px solid #d7d7d7;
-	    /*CSS3*/
-	    -webkit-border-radius:  5px;
-	    -moz-border-radius: 	5px;
-	    border-radius: 			5px; 
-    }
-
-    .threeColSocial .DnnModule-Messaging-Notifications .smListings .profileImg span {
-	    width:50px; /* All lists: Avatar style */
-	    max-height:50px; 
-	    overflow:hidden;
-    }
-
-    .threeColSocial .DnnModule-Messaging-Notifications .smListings .profileImg img{  min-width:50px;	/* All lists: Avatar style */ }
-    .threeColSocial .DnnModule-Messaging-Notifications .smListings .profileImg:hover { background:#d7d7d7; /* All lists: Avatar hover style */  }
-	.threeColSocial .DnnModule-Messaging-Details .smListings .meta { margin-bottom: 5px; /* Drilldown message list: UserName link */  }
+    .threeColSocial .DnnModule-Messaging-Details .smListings .meta { margin-bottom: 5px; /* Drilldown message list: UserName link */  }
     .threeColSocial .DnnModule-Messaging-Details .smListings .meta a { font-weight: bold;  /* Drilldown message list: UserName link */ }
     .threeColSocial .DnnModule-Messaging-Details .smListings .message { color:#999; /* Drilldown message list: Message text */   margin: 0; }
     .threeColSocial .DnnModule-Messaging-Notifications .smListings  .subject { font-weight:bold;}

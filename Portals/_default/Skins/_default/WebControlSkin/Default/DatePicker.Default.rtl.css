@@ -1,4 +1,23 @@
 ﻿/* START Telerik.Web.UI.Skins.Input.css */
+html body .RadInput_Default .riError,
+html body .RadInput_Error_Default {
+  border-color: #d51923;
+  background: white 100% 50% no-repeat url('../../../../../../images/error-icn.png');
+  color: #d51923; }
+
+.RadForm.rfdTextbox .RadInput_Default .riError[type="text"],
+.RadForm.rfdTextbox .RadInput_Error_Default[type="text"] {
+  border-color: #d51923;
+  background: white 100% 50% no-repeat url('../../../../../../images/error-icn.png');
+  color: #d51923; }
+html body .RadInputRTL_Default .riError,
+html body .RadInputRTL_Error_Default {
+  background-position: 3px 50%; }
+
+.RadForm.rfdTextbox .RadInputRTL_Default .riError[type="text"],
+.RadForm.rfdTextbox .RadInputRTL_Error_Default[type="text"] {
+  background-position: 3px 50%; }
+
 .RadInput, .RadInputMgr {
     vertical-align: middle;
 }
@@ -466,10 +485,10 @@ table.RadCalendarMonthView td {
     background: transparent url(../../../../../../images/calendaricons.png) no-repeat;
 }
 .RadCalendarMonthView #rcMView_PrevY a{
-    background-position: 16px 8px;
+    background-position: -33px 8px;
 }
 .RadCalendarMonthView #rcMView_NextY a{
-    background-position: -33px 8px;
+    background-position: 16px 8px;
 }
 .RadCalendarMonthView .rcButtons {
     border: 0;
@@ -508,11 +527,12 @@ table.RadCalendarTimeView {
 }
 table.RadCalendarTimeView td {
     border-style: solid;
-    border-width: 0 0 0 1px;
+    border-width: 0 1px 0 0 !important;
     padding: 2px 2px 3px;
 }
 table.RadCalendarTimeView td:first-child {
-    border-left: 0;
+    border-right: 0;
+    border-left: 1px;
 }
 .RadCalendarTimeView a {
     display: block;
@@ -756,11 +776,11 @@ body > .RadCalendarPopupShadows {
 }
 
 .RadCalendar_Default a.rcPrev {
-    background-position: -15px;
+    background-position: -70px;
 }
 
 .RadCalendar_Default a.rcNext {
-    background-position: -70px;
+    background-position: -15px;
 }
 
 
@@ -838,5 +858,39 @@ body > .RadCalendarPopupShadows {
     background-color: #ccc;
 }
 
-
-
+.RadPicker.RadPicker_Default .rcTimePopup {
+    background-image: url(../../../../../../images/timepicker.png);
+    background-position: center 5px;
+    border: none !important;
+}
+.RadCalendarTimeView.RadCalendarTimeView_Default {
+	    padding: 8px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #000;
+    background: rgba(0,0,0,0.75);
+    font-size: 11px;
+    color: #ddd;
+}
+.RadCalendarTimeView.RadCalendarTimeView_Default .rcHeader {
+	background: #f0f2f1;
+    background: -moz-linear-gradient(top, #fff 0%, #f0f2f1 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, right top, right bottom, color-stop(0%,#fff), color-stop(100%,#f0f2f1)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fff 0%,#f0f2f1 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(top, #fff 0%,#f0f2f1 100%); /* W3C */
+    color: rgba(0,0,0,0.75);
+    font-size: 12px !important;
+    font-weight: bold;
+    padding: 6px 0 6px 0 !important;
+}
+.RadCalendarTimeView.RadCalendarTimeView_Default td {
+	padding: 4px 0 0 0 !important;
+    text-align: right !important;
+}
+.RadCalendarTimeView.RadCalendarTimeView_Default td a {
+    color: #8a8a8a;
+}
+.RadCalendarTimeView.RadCalendarTimeView_Default td.rcHover a {
+    color: #000;
+	background: #e8f1fa no-repeat;
+}

@@ -36,8 +36,8 @@ GO
 /***** Fix bug 24221: add unique index on MetaData table. *****/
 DELETE FROM {databaseOwner}[{objectQualifier}MetaData] WHERE MetaDataID NOT IN (SELECT MIN(MetaDataID) FROM {databaseOwner}[{objectQualifier}MetaData] GROUP BY MetaDataName)
 GO
-IF EXISTS (SELECT * FROM dbo.sysindexes WHERE name='IX_{objectQualifier}MetaData_MetaDataName')
-	DROP INDEX {databaseOwner}[{objectQualifier}MetaData].[IX_{objectQualifier}MetaData_MetaDataName]   
+IF EXISTS (SELECT * FROM sys.indexes WHERE name='IX_{objectQualifier}MetaData_MetaDataName')
+	DROP INDEX [IX_{objectQualifier}MetaData_MetaDataName] ON {databaseOwner}[{objectQualifier}MetaData]
 GO
 CREATE UNIQUE NONCLUSTERED INDEX IX_{objectQualifier}MetaData_MetaDataName ON {databaseOwner}[{objectQualifier}MetaData](MetaDataName) 
 GO
@@ -50,7 +50,7 @@ SET [ControlType] = 2 WHERE [ControlSrc] = N'DesktopModules/Admin/Extensions/Usa
 
 
 /***** DNN-25176 - Core allows duplicate ContentType. *****/
-IF NOT EXISTS (SELECT * FROM dbo.sysindexes WHERE name='IX_{objectQualifier}ContentTypes_ContentType')
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE name='IX_{objectQualifier}ContentTypes_ContentType')
 	CREATE UNIQUE NONCLUSTERED INDEX IX_{objectQualifier}ContentTypes_ContentType ON {databaseOwner}[{objectQualifier}ContentTypes](ContentType) 
 GO
 
@@ -236,8 +236,8 @@ UPDATE {databaseOwner}{objectQualifier}ModuleControls SET HelpUrl = 'http://help
 
 GO
 
-IF NOT EXISTS(SELECT * FROM sysconstraints WHERE id = (SELECT id FROM sysobjects WHERE name = '{objectQualifier}Tabs') 
-				AND colid = (SELECT colid FROM syscolumns WHERE id = (SELECT id FROM sysobjects WHERE name = '{objectQualifier}Tabs') AND name = 'Level'))
+IF NOT EXISTS(SELECT * FROM sys.default_constraints WHERE parent_object_id = (SELECT object_id FROM sys.objects WHERE name = '{objectQualifier}Tabs') 
+                     AND parent_column_id = (SELECT column_id FROM sys.columns WHERE object_id = (SELECT object_id FROM sys.objects WHERE name = '{objectQualifier}Tabs') AND name = 'Level'))
 BEGIN
 	ALTER TABLE {databaseOwner}{objectQualifier}Tabs ADD CONSTRAINT
 		DF_{objectQualifier}Tabs_Level DEFAULT 0 FOR [Level]
