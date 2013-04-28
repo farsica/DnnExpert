@@ -298,6 +298,7 @@ namespace DotNetNuke.Services.Install
 
                 LocalizePage();
             }
+            //Fariborz Khosravi
             if (new CultureInfo(cboLanguages.SelectedValue).TextInfo.IsRightToLeft)
             {
                 DefaultStylesheet.Attributes["href"] = ResolveUrl("~/Portals/_default/default.rtl.css?refresh");
