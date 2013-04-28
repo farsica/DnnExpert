@@ -148,11 +148,6 @@ namespace DotNetNuke.UI.ControlPanels
 
 		protected string PreviewPopup()
 		{
-            //Fariborz Khosravi
-            //var previewUrl = string.Format("{0}/Default.aspx?ctl={1}&previewTab={2}&TabID={2}", 
-            //                            Globals.AddHTTP(PortalSettings.PortalAlias.HTTPAlias), 
-            //                            "MobilePreview",
-            //                            PortalSettings.ActiveTab.TabID);
             var previewUrl = string.Format("{0}/{1}?ctl={2}&previewTab={3}&TabID={3}", 
 										Globals.AddHTTP(PortalSettings.PortalAlias.HTTPAlias),
                                         Globals.glbDefaultPage,

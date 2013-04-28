@@ -227,7 +227,6 @@ namespace DotNetNuke.Services.Install
             PageLocale.Value = cultureCode;
             _culture = cultureCode;
 
-            //Fariborz Khosravi
             Thread.CurrentThread.CurrentUICulture = Common.Globals.GetUICulture(null, cultureCode);
         }
 
@@ -262,7 +261,6 @@ namespace DotNetNuke.Services.Install
             if (TestDataBaseInstalled())
             {
                 //running current version, so redirect to site home page
-                //Fariborz Khosravi
                 Response.Redirect("~/" + Globals.glbDefaultPage, true);
             }
             else
@@ -288,7 +286,6 @@ namespace DotNetNuke.Services.Install
             //Set Script timeout to MAX value
             HttpContext.Current.Server.ScriptTimeout = int.MaxValue;
 
-            //Fariborz Khosravi
             if (_culture != null)
                 Thread.CurrentThread.CurrentUICulture = Common.Globals.GetUICulture(null, _culture);
 
@@ -686,7 +683,6 @@ namespace DotNetNuke.Services.Install
 						}
 						if (!string.IsNullOrEmpty(cultureCode) && !string.IsNullOrEmpty(version) && version.Length == 6)
 						{
-							//Fariborz Khosravi
                             var myCIintl = Common.Globals.GetUICulture(null, cultureCode);
 							version = version.Insert(4, ".").Insert(2, ".");
 							var package = new PackageInfo { Name = "LanguagePack-" + myCIintl.Name, FriendlyName = myCIintl.NativeName };
@@ -732,7 +728,6 @@ namespace DotNetNuke.Services.Install
             }
             finally
             {
-                //Fariborz Khosravi
                 //ensure there is always an fa-IR
                 if (languageList.Items.FindItemByValue("fa-IR") == null)
                 {
@@ -782,7 +777,6 @@ namespace DotNetNuke.Services.Install
                 //Do nothing
             }
             Config.Touch();
-            //Fariborz Khosravi
             HttpContext.Current.Response.Redirect("../" + Globals.glbDefaultPage);
         }
         #endregion 
@@ -974,7 +968,6 @@ namespace DotNetNuke.Services.Install
                     }
                 }
             }
-            //Fariborz Khosravi
             if (new CultureInfo(PageLocale.Value).TextInfo.IsRightToLeft)
             {
                 DefaultStylesheet.Attributes["href"] = ResolveUrl("~/Portals/_default/default.rtl.css?refresh");
