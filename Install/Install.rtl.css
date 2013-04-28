@@ -200,7 +200,7 @@ img#bannerImage {
 	height: 120px;
 }
 div#banners{
-	margin-right: -20px;
+	margin-left: -20px;
 }
 
 .visitSiteLink {
@@ -284,7 +284,7 @@ img#finishImage
 	cursor: default;
 }
 a.videoLink {
-	background: url(../images/videoIcon.png) no-repeat;
+	background: url(../images/videoIcon.png) 100% 0 no-repeat;
 	display: inline-block;
 	padding-right: 24px;
 	height: 24px;
