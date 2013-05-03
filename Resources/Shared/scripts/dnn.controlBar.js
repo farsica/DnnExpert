@@ -465,11 +465,13 @@ dnn.controlBar.init = function (settings) {
                 if (!dnn.controlBar.isMouseDown) {
                     var $this = $(this);
                     var dataModuleId = $this.data('module');
-                    if (dnn.controlBar.selectedModule && dnn.controlBar.selectedModule.data('module') !== dataModuleId) {
+                    if (dnn.controlBar.selectedModule && dnn.controlBar.selectedModule.data('module') !== dataModuleId && !$('#ControlBar_Module_ModulePosition').is(":visible")) {
                         dnn.controlBar.selectedModule.removeClass('ControlBar_Module_Selected');
                     }
                     $this.addClass('ControlBar_Module_Selected');
-                    $this.find('div.ModuleLocator_Menu').removeClass('ModuleLocator_Hover');
+                    if (!$('#ControlBar_Module_ModulePosition').is(":visible")) {
+                    	$this.find('div.ModuleLocator_Menu').removeClass('ModuleLocator_Hover');
+                    }
                     dnn.controlBar.selectedModule = $this;
                     dnn.controlBar.showSelectedModule = true;
 
@@ -488,7 +490,7 @@ dnn.controlBar.init = function (settings) {
                     dnn.controlBar.showSelectedModule = false;
 
                     setTimeout(function () {
-                        if (!dnn.controlBar.showSelectedModule && dnn.controlBar.selectedModule) {
+                    	if (!dnn.controlBar.showSelectedModule && dnn.controlBar.selectedModule && !$('#ControlBar_Module_ModulePosition').is(":visible")) {
                             dnn.controlBar.selectedModule.removeClass('ControlBar_Module_Selected');
                         }
                     }, 600);
@@ -573,14 +575,19 @@ dnn.controlBar.init = function (settings) {
                         dnn.controlBar.hideModuleLocationMenu = true;
                         dnn.controlBar.showSelectedModule = false;
                         setTimeout(function () {
-                            if (dnn.controlBar.hideModuleLocationMenu) {
-                                $('#ControlBar_Module_ModulePosition').slideUp('fast');
+                        	if (dnn.controlBar.hideModuleLocationMenu) {
+                        		$this.removeClass('ModuleLocator_Hover');
+                            	$('#ControlBar_Module_ModulePosition').slideUp('fast', function () {
+                                	if (dnn.controlBar.selectedModule && dnn.controlBar.selectedModule.data("module") != $this.parent().data("module")) {
+                                		$this.parent().removeClass('ControlBar_Module_Selected');
+                                	}
+                                });
                             }
 
                             if (!dnn.controlBar.showSelectedModule && dnn.controlBar.selectedModule) {
                                 dnn.controlBar.selectedModule.removeClass('ControlBar_Module_Selected');
                             }
-                        }, 600);
+                        }, 200);
                     });
 
                 // hide tooltip
@@ -593,13 +600,17 @@ dnn.controlBar.init = function (settings) {
                 setTimeout(function () {
                     if (dnn.controlBar.hideModuleLocationMenu) {
                         $this.removeClass('ModuleLocator_Hover');
-                        $('#ControlBar_Module_ModulePosition').slideUp('fast');
+                        $('#ControlBar_Module_ModulePosition').slideUp('fast', function() {
+                        	if (dnn.controlBar.selectedModule && dnn.controlBar.selectedModule.data("module") != $this.parent().data("module")) {
+                        		$this.parent().removeClass('ControlBar_Module_Selected');
+                        	}
+                        });
                     }
 
                     if (!dnn.controlBar.showSelectedModule && dnn.controlBar.selectedModule) {
                         dnn.controlBar.selectedModule.removeClass('ControlBar_Module_Selected');
                     }
-                }, 600);
+                }, 200);
             });
         };
         setTimeout(modulesInitFunc, 0);
@@ -623,18 +634,20 @@ dnn.controlBar.init = function (settings) {
     dnn.controlBar.ControlBar_Module_PageList_Changed = function (sender, e) {
         var item = e.get_item();
         var visibilityCombo = $find(settings.visibilityComboId);
+	    var makeCopyCheckbox = $("#" + settings.makeCopyCheckboxId);
         if (item) {
             var val = item.get_value();
             if (val) {
                 dnn.controlBar.getTabModules(item.get_value());
                 visibilityCombo.enable();
-
+	            makeCopyCheckbox.attr("disabled", false).parent().removeClass("disabled");
                 if (dnn.controlBar.status && !dnn.controlBar.status.addNewModule) {
                     visibilityCombo.findItemByValue(dnn.controlBar.status.visibility).select();
                 }
 
             } else {
-                visibilityCombo.disable();
+            	visibilityCombo.disable();
+            	makeCopyCheckbox.attr("disabled", true).parent().addClass("disabled");
             }
         }
     };
@@ -650,8 +663,22 @@ dnn.controlBar.init = function (settings) {
     var currentUserMode = settings.currentUserMode;
 
     $('div.subNav').hide();
-    $("#ControlNav li").hoverIntent({
+    $("#ControlNav > li").hoverIntent({
         over: function () {
+    		// hide all the sub menu which has already shown.
+    		$("#ControlNav > li").each(function() {
+    			var subNav = $(this).find('div.subNav');
+    			if (subNav.is(":visible")) {
+    				//hide the drop down in subnav
+    				$("div[class*=RadComboBox]", subNav).each(function() {
+    					var combo = $find($(this).attr("id"));
+    					if (combo != null) {
+    						combo.hideDropDown();
+    					}
+    				});
+    				$(this).prop("hoverIntent_s", 1).trigger("mouseleave");
+    			}
+    		});
             $('.onActionMenu').removeClass('onActionMenu');
             toggleModulePane($('.ControlModulePanel'), false);
 	        $(this).addClass("hover");
@@ -852,24 +879,22 @@ dnn.controlBar.init = function (settings) {
         }
     });
 
-    $('#controlBar_SwitchSite, #controlBar_SwitchLanguage').focus(function (e) {
+	$('#controlBar_SwitchSite_DropDown, #controlBar_SwitchLanguage_DropDown').mouseenter(function (e) {
 	    dnn.controlBar.focused = true;
-    }).change(function (e) {
-    	dnn.controlBar.focused = false;
-    }).blur(function(e) {
-    	dnn.controlBar.focused = false;
+	}).mouseleave(function(e) {
+		dnn.controlBar.focused = false;
     }).click(function (e) {
-    	dnn.controlBar.focused = true;
+		dnn.controlBar.focused = false;
     });
 
     $('#controlBar_SwitchSiteButton').click(function () {
-        var site = $('#controlBar_SwitchSite').val();
+        var site = $find('controlBar_SwitchSite').get_value();
         dnn.controlBar.switchSite(site);
         return false;
     });
 
     $('#controlBar_SwitchLanguageButton').click(function () {
-        var language = $('#controlBar_SwitchLanguage').val();
+        var language = $find('controlBar_SwitchLanguage').get_value();
         dnn.controlBar.switchLanguage(language);
         return false;
     });
@@ -1165,4 +1190,18 @@ $(function () {
 			$("#ControlBar").slideUp();
 		};
 	}
+	
+	//hide drop down's item list when scroll the window.
+	$(window).scroll(function (e) {
+		if ($(e.target).hasClass("rcbScroll")) {
+			return;
+		}
+		$("div[id^=ControlBar][id$=_DropDown][class*=RadComboBoxDropDown]").each(function() {
+			var id = $(this).attr("id").replace("_DropDown", "");
+			var combo = $find(id);
+			if (combo != null && combo.get_dropDownVisible()) {
+				combo.hideDropDown();
+			}
+});
+	});
 });

@@ -1,4 +1,4 @@
-﻿Type.registerNamespace("Telerik.Web.UI.DateParsing");
+Type.registerNamespace("Telerik.Web.UI.DateParsing");
 var dp = Telerik.Web.UI.DateParsing;
 with (dp) {
     dp.DateEvaluator = function (a) {
@@ -976,12 +976,14 @@ Telerik.Web.UI.RadDateInput.prototype = {
         this._outOfRangeDate = a;
     }, _constructDisplayText: function (a) {
         if (a && isFinite(a)) {
+            /*Fariborz Khosravi*/
             return DnnExpert.Util.FormatDate(a, this.get_displayDateFormat(), this.get_dateFormatInfo());
         } else {
             return "";
         }
     }, _constructEditText: function (a) {
         if (a && isFinite(a)) {
+            /*Fariborz Khosravi*/
             return DnnExpert.Util.FormatDate(a, this.get_dateFormat(), this.get_dateFormatInfo());
         } else {
             return "";
@@ -1009,6 +1011,7 @@ Telerik.Web.UI.RadDateInput.prototype = {
             return new Date(this._value);
         }
     }, set_value: function (b) {
+        /*Fariborz Khosravi*/
         var t = this.parseDate(b);
         var k = DnnExpert.Util.PersianToGregorian(t.getFullYear(), t.getMonth() + 1, t.getDate());
         b = new Date(k[0], parseInt(k[1]) - 1, k[2], t.getHours(), t.getMinutes(), t.getSeconds(), t.getMilliseconds());
@@ -1033,13 +1036,12 @@ Telerik.Web.UI.RadDateInput.prototype = {
             this._minDate = b;
             if (!this._clientID) {
                 return;
-            } this.updateClientState();
-            this.raisePropertyChanged("minDate");
+            } this.raisePropertyChanged("minDate");
             var a = this.get_selectedDate();
             if (a && !this._dateInRange(a)) {
                 this._invalidate();
                 this.updateCssClass();
-            }
+            } this.updateClientState();
         }
     }, get_maxDate: function () {
         return this._maxDate;
@@ -1051,13 +1053,12 @@ Telerik.Web.UI.RadDateInput.prototype = {
             this._maxDate = b;
             if (!this._clientID) {
                 return;
-            } this.updateClientState();
-            this.raisePropertyChanged("maxDate");
+            } this.raisePropertyChanged("maxDate");
             var a = this.get_selectedDate();
             if (a && !this._dateInRange(a)) {
                 this._invalidate();
                 this.updateCssClass();
-            }
+            } this.updateClientState();
         }
     }, get_dateFormat: function () {
         return this._dateFormat;
@@ -1097,6 +1098,7 @@ Telerik.Web.UI.RadDateInput.prototype = {
         this._setHiddenValue(b);
         this._initialValueAsText = this._text;
         this.set_displayValue(this._constructDisplayText(this._value));
+        this.updateClientState();
         this.updateCssClass();
         this._errorHandlingCanceled = c;
     }, _onTextBoxKeyDownHandler: function (a) {
@@ -1126,6 +1128,7 @@ Telerik.Web.UI.RadDateInput.prototype = {
         if (this.isReadOnly()) {
             return false;
         }
+        /*Fariborz Khosravi*/
         var t = this.parseDate(this._textBoxElement.value);
         var k = DnnExpert.Util.PersianToGregorian(t.getFullYear(), t.getMonth() + 1, t.getDate());
         var a = new Date(k[0], parseInt(k[1]) - 1, k[2], t.getHours(), t.getMinutes(), t.getSeconds(), t.getMilliseconds());
@@ -1280,13 +1283,11 @@ Telerik.Web.UI.RadDateInput.prototype = {
             } this._value = b;
             this._text = this._constructEditText(b);
             this.set_validationText(this._constructValidationText(b));
-            this.updateClientState();
             return true;
         } else {
             this._value = "";
             this._text = this._constructEditText("");
             this.set_validationText("");
-            this.updateClientState();
             return true;
         }
     }, _constructValidationText: function (a) {
@@ -1334,6 +1335,7 @@ Telerik.Web.UI.RadDateInput.prototype = {
 };
 Telerik.Web.UI.RadDateInput.registerClass("Telerik.Web.UI.RadDateInput", Telerik.Web.UI.RadInputControl);
 
+/*Fariborz Khosravi*/
 Type.registerNamespace("DnnExpert");
 DnnExpert.Util = {
     IsGregorianLeapYear: function (b) {

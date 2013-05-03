@@ -43,6 +43,7 @@ using DotNetNuke.Services.Localization;
 using DotNetNuke.Services.Upgrade;
 using DotNetNuke.UI.Utilities;
 using DotNetNuke.Web.Client.ClientResourceManagement;
+using DotNetNuke.Web.UI.WebControls;
 
 using Globals = DotNetNuke.Common.Globals;
 
@@ -110,6 +111,8 @@ namespace DotNetNuke.UI.ControlPanels
                 LoadSiteList();
                 LoadVisibilityList();
                 AutoSetUserMode();
+	            BindPortalsList();
+	            BindLanguagesList();
             }
 
             LoadTabModuleMessage = SiteList.Items.Count == 2 ? GetString("LoadingTabModuleCE.Text") : GetString("LoadingTabModule.Text");
@@ -148,11 +151,12 @@ namespace DotNetNuke.UI.ControlPanels
 
 		protected string PreviewPopup()
 		{
-            var previewUrl = string.Format("{0}/{1}?ctl={2}&previewTab={3}&TabID={3}", 
-										Globals.AddHTTP(PortalSettings.PortalAlias.HTTPAlias),
-                                        Globals.glbDefaultPage,
+			//Fariborz Khosravi
+			var previewUrl = string.Format("{0}/{3}?ctl={1}&previewTab={2}&TabID={2}", 
+										Globals.AddHTTP(PortalSettings.PortalAlias.HTTPAlias), 
 										"MobilePreview",
-										PortalSettings.ActiveTab.TabID);
+										PortalSettings.ActiveTab.TabID,
+										Globals.glbDefaultPage);
 
 			if(PortalSettings.EnablePopUps)
 			{
@@ -575,7 +579,7 @@ namespace DotNetNuke.UI.ControlPanels
                 IEnumerable<ListItem> cultureListItems = Localization.LoadCultureInListItems(CultureDropDownTypes.NativeName, CurrentUICulture, "", false);
                 foreach (var cultureItem in cultureListItems)
                 {
-                    string selected = cultureItem.Value == CurrentUICulture ? "selected='selected'" : string.Empty;
+                    var selected = cultureItem.Value == CurrentUICulture ? "true" : "false";
                     string[] p = new string[]
                                      {
                                          cultureItem.Text,
@@ -776,8 +780,9 @@ namespace DotNetNuke.UI.ControlPanels
             }
 
             string lastPageId = GetLastPageHistory();
+	        var isShowAsCustomError = Request.QueryString.AllKeys.Contains("aspxerrorpath");
 
-            if (lastPageId != pageId)
+			if (lastPageId != pageId && !isShowAsCustomError)
             {
                 // navigate between pages
                 if (PortalSettings.Current.UserMode != Entities.Portals.PortalSettings.Mode.View)
@@ -788,7 +793,10 @@ namespace DotNetNuke.UI.ControlPanels
                 }
             }
 
-            SetLastPageHistory(pageId);            
+	        if (!isShowAsCustomError)
+	        {
+		        SetLastPageHistory(pageId);
+	        }
         }
 
         private void SetLastPageHistory(string pageId)
@@ -813,6 +821,31 @@ namespace DotNetNuke.UI.ControlPanels
                 DotNetNuke.Services.Personalization.Personalization.SetProfile("Usability", "UICulture", currentCulture);
             }
         }
+
+		private void BindPortalsList()
+		{
+			foreach (var portal in LoadPortalsList())
+			{
+				controlBar_SwitchSite.Items.Add(new DnnComboBoxItem(portal[0], portal[1]));
+			}
+		}
+
+		private void BindLanguagesList()
+		{
+			if (ShowSwitchLanguagesPanel())
+			{
+				foreach (var lang in LoadLanguagesList())
+				{
+					var item = new DnnComboBoxItem(lang[0], lang[1]);
+					if (lang[2] == "true")
+					{
+						item.Selected = true;
+					}
+
+					controlBar_SwitchLanguage.Items.Add(item);
+				}
+			}
+		}
 
         #endregion
 

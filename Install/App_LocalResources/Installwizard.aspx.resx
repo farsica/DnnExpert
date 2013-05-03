@@ -232,10 +232,10 @@
     <value>File or Database entry is required under connection node in DotNetNuke.Install.Config file</value>
   </data>
   <data name="SqlTypeExpress.Text" xml:space="preserve">
-    <value>SQL Express</value>
+    <value>SQL Server Express File</value>
   </data>
   <data name="SqlTypeServer.Text" xml:space="preserve">
-    <value>SQL Server</value>
+    <value>SQL Server/SQL Server Express Database</value>
   </data>
   <data name="StepFailed.Text" xml:space="preserve">
     <value>Step Failed - {0}</value>

@@ -471,7 +471,6 @@
 با تشکر از عضویت شما در پورتال [Portal:PortalName]، لطفا اطلاعات زیر را مطالعه نموده و آن را برای استفاده های آتی در مکان مناسبی ذخیره نمایید.&lt;br/&gt;
 آدرس پورتال: [Portal:URL]&lt;br/&gt;
 نام کاربری: [User:UserName]&lt;br/&gt;
-رمز عبور: [Membership:Password]&lt;br/&gt;
 جزئیات مربوط به حساب کاربری شما توسط مدیر پورتال بررسی شده و برای شما کد فعال سازی مربوطه ارسال خواهد شد.&lt;br/&gt;
 با تشکر از حمایت بی دریغ و نظرات دلسوزانه شما&lt;br/&gt;
 پورتال [Portal:PortalName]
@@ -572,7 +571,6 @@
 مفتخریم که به اطلاع شما برسانیم، درخواست عضویت شما در پورتال [Portal:PortalName] پذیرفته شده است. لطفا اطلاعات زیر را مطالعه نموده و آن را برای استفاده های آتی در مکان مناسبی ذخیره نمایید.&lt;br/&gt;
 آدرس پورتال: [Portal:URL]&lt;br/&gt;
 نام کاربری: [User:UserName]&lt;br/&gt;
-رمز عبور: [Membership:Password]&lt;br/&gt;
 شما می توانید با کلیک بر روی لینک زیر نسبت به فعال سازی حساب کاربری خود اقدام نمایید:&lt;br/&gt;&lt;br/&gt;
 &lt;b&gt;&lt;a href="http://[Portal:URL]/default.aspx?ctl=Login&amp;username=[Custom:0]&amp;verificationcode=[Custom:1]"&gt;لینک فعالسازی حساب کاربری&lt;/a&gt;&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
 با تشکر از حمایت بی دریغ و نظرات دلسوزانه شما&lt;br/&gt;
@@ -589,7 +587,6 @@
 مفتخریم که به اطلاع شما برسانیم، درخواست عضویت شما در پورتال [Portal:PortalName] پذیرفته شده است. لطفا اطلاعات زیر را مطالعه نموده و آن را برای استفاده های آتی در مکان مناسبی ذخیره نمایید.&lt;br/&gt;
 آدرس پورتال: [Portal:URL]&lt;br/&gt;
 نام کاربری: [User:UserName]&lt;br/&gt;
-رمز عبور: [Membership:Password]&lt;br/&gt;
 با تشکر از حمایت بی دریغ و نظرات دلسوزانه شما&lt;br/&gt;
 پورتال [Portal:PortalName]
 &lt;/div &gt;
@@ -754,8 +751,8 @@
   <data name="EMAIL_BulkMailConf_Html_Body.Text" xml:space="preserve">
     <value>&lt;div dir="rtl"&gt;&lt;h1&gt;گزارش ارسال خبر نامه&lt;/h1&gt;
     زمان شروع عملیات: [Custom:0]&lt;br /&gt;
-    گیرندگان خبر نامه: [Custom:1]&lt;br /&gt;
-    متن پیغام ارسالی: [Custom:2]&lt;br /&gt;
+    تعداد گیرندگان خبر نامه: [Custom:1]&lt;br /&gt;
+    نعداد پیام ارسالی: [Custom:2]&lt;br /&gt;
     زمان اتمام عملیات: [Custom:3]&lt;br /&gt;
     [Custom:4|تعداد خطا ها:{0}&lt;br /&gt;]
     &lt;br /&gt;
@@ -767,8 +764,8 @@
   <data name="EMAIL_BulkMailConf_Text_Body.Text" xml:space="preserve">
     <value>&lt;div dir="rtl"&gt;
     زمان شروع عملیات: [Custom:0]&lt;br/&gt;
-گیرندگان خبر نامه:      [Custom:1]&lt;br/&gt;
-متن پیغام ارسالی:        [Custom:2]&lt;br/&gt;
+تعداد گیرندگان خبر نامه:      [Custom:1]&lt;br/&gt;
+تعداد پیام ارسالی:        [Custom:2]&lt;br/&gt;
 زمان اتمام عملیات:  [Custom:3]&lt;br/&gt;
 [Custom:4|تعداد خطا ها:     {0}&lt;br/&gt;
 ]گزارش وضعیت:&lt;br/&gt;
@@ -859,7 +856,6 @@
 لطفا برای ورود به سیستم از اطلاعات زیر استفاده نمایید:&lt;br/&gt;
 آدرس پورتال: [Portal:URL]&lt;br/&gt;
 نام کاربری: [User:Username]&lt;br/&gt;
-رمز عبور: [Membership:Password]&lt;br/&gt;
 با احترام&lt;br/&gt;
 پورتال [Portal:PortalName]
 &lt;/div &gt;</value>
@@ -989,7 +985,7 @@
   </data>
   <data name="EMAIL_BulkMailStart_Body.Text" xml:space="preserve">
     <value>&lt;div dir="rtl"&gt;
-    کاربر {1} خبر نامه '{0}'  را به کاربران {2} ارسال نموده است. لطفا گزارش ارسال را برای بررسی موارد خطا بررسی نمایید.
+    کاربر {1} خبر نامه '{0}'  را به {2} کاربر ارسال نموده است. لطفا گزارش ارسال را برای بررسی موارد خطا بررسی نمایید.
   &lt;/div &gt;</value>
   </data>
   <data name="EMAIL_BulkMailStart_Subject.Text" xml:space="preserve">

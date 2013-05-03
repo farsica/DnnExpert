@@ -61,11 +61,14 @@ Telerik.Web.UI.RadCalendar.prototype = {
         Telerik.Web.UI.RadCalendar.callBaseMethod(this, "initialize");
         this.EnableTodayButtonSelection = (this.get_monthYearNavigationSettings()[4] == "False") ? false : true;
         this.DateTimeFormatInfo = new Telerik.Web.UI.Calendar.DateTimeFormatInfo(this.get__FormatInfoArray());
+        /*Fariborz Khosravi*/
         this.DateTimeFormatInfo.Calendar = Telerik.Web.UI.Calendar.PersianCalendar;
+
         this.DateTimeFormatInfo.CalendarWeekRule = this._calendarWeekRule;
         var e, f, r;
         var c = this._auxDatesHidden();
         var a = eval(c.value);
+        /*Fariborz Khosravi*/
         this.RangeMinDate = DnnExpert.Util.GregorianToPersian(a[0][0], a[0][1], a[0][2]);
         this.RangeMaxDate = DnnExpert.Util.GregorianToPersian(a[1][0], a[1][1], a[1][2]);
         this.FocusedDate = DnnExpert.Util.GregorianToPersian(a[2][0], a[2][1], a[2][2]);
@@ -895,12 +898,14 @@ Telerik.Web.UI.RadCalendar.prototype = {
             }, 200);
         }
     }, _getStepFromDate: function (a) {
+        /*Fariborz Khosravi*/
         a = DnnExpert.Util.GregorianToPersian(a[0], a[1], a[2]);
         var d = a[0] - this.FocusedDate[0];
         var b = a[1] - this.FocusedDate[1];
         var c = d * 12 + b;
         return c;
     }, _getBoundaryDate: function (a) {
+        /*Fariborz Khosravi*/
         a = DnnExpert.Util.GregorianToPersian(a[0], a[1], a[2]);
         if (!this.RangeValidation.IsDateValid(a)) {
             if (this._isInSameMonth(a, this.RangeMinDate)) {
@@ -1927,6 +1932,7 @@ Telerik.Web.UI.Calendar.MonthYearFastNavigation.prototype = {
         }
     }, OnToday: function (a) {
         var b = new Date();
+        //Fariborz Khosravi
         var d = DnnExpert.Util.GregorianToPersian(b.getFullYear(), b.getMonth() + 1, b.getDate());
         this.Date = d[2];
         this.Month = d[1] > 1 ? d[1] - 1 : d[1];
@@ -2453,6 +2459,7 @@ Telerik.Web.UI.Calendar.GregorianCalendar = {
         }
     }
 };
+/*Fariborz Khosravi*/
 Telerik.Web.UI.Calendar.PersianCalendar = {
     DatePartDay: 3,
     DatePartDayOfYear: 1,
@@ -2819,7 +2826,6 @@ Telerik.Web.UI.Calendar.CalendarView = function (K, l, t, d, O, x, Y, X, I, m) {
     this._onMouseOverDelegate = null;
     this._onMouseOutDelegate = null;
     this._onKeyDownDelegate = null;
-    this._onKeyPressDelegate = null;
     this._SingleViewMatrix = l;
     this._ViewInMonthDate = m;
     this.MonthsInView = 1;
@@ -2959,12 +2965,10 @@ Telerik.Web.UI.Calendar.CalendarView = function (K, l, t, d, O, x, Y, X, I, m) {
         this._onMouseOverDelegate = Function.createDelegate(this, this._onMouseOverHandler);
         this._onMouseOutDelegate = Function.createDelegate(this, this._onMouseOutHandler);
         this._onKeyDownDelegate = Function.createDelegate(this, this._onKeyDownHandler);
-        this._onKeyPressDelegate = Function.createDelegate(this, this._onKeyPressHandler);
         $addHandler(this.DomTable, "click", this._onClickDelegate);
         $addHandler(this.DomTable, "mouseover", this._onMouseOverDelegate);
         $addHandler(this.DomTable, "mouseout", this._onMouseOutDelegate);
         $addHandler(this.DomTable, "keydown", this._onKeyDownDelegate);
-        $addHandler(this.DomTable, "keypress", this._onKeyPressDelegate);
     } this.ColumnHeaders = [];
     if (n && this.UseColumnHeadersAsSelectors) {
         for (s = 0;
@@ -2991,13 +2995,7 @@ Telerik.Web.UI.Calendar.CalendarView = function (K, l, t, d, O, x, Y, X, I, m) {
 };
 Telerik.Web.UI.Calendar.CalendarView.prototype = {
     _onKeyDownHandler: function (a) {
-        if (!$telerik.isOpera) {
-            this._raiseKeyPressInternal(a);
-        }
-    }, _onKeyPressHandler: function (a) {
-        if ($telerik.isOpera) {
-            this._raiseKeyPressInternal(a);
-        }
+        this._raiseKeyPressInternal(a);
     }, _raiseKeyPressInternal: function (a) {
         if ((this.RadCalendar._enableKeyboardNavigation) && (!this.RadCalendar._enableMultiSelect)) {
             var c = a.keyCode ? a.keyCode : a.charCode;
@@ -3892,14 +3890,18 @@ Telerik.Web.UI.Calendar.RenderDay.prototype = {
         if (!this.ApplyHoverBehavior()) {
             return;
         } var a = this.RadCalendar.get_stylesHash()["DayOverStyle"];
-        this.DomElement.className = a[1];
+        var b = this.GetDefaultItemStyle();
+        this.DomElement.className = b[1].replace(/^\s+|\s+$/g, "") + " " + a[1];
         this.DomElement.style.cssText = a[0];
     }, MouseOut: function () {
         if (!this.ApplyHoverBehavior()) {
             return;
         } var a = this.GetDefaultItemStyle();
-        this.DomElement.className = a[1];
-        this.DomElement.style.cssText = a[0];
+        if ((this.RadCalendar && this.RadCalendar._hoveredDate) && ([this.RadCalendar._hoveredDate.getFullYear(), this.RadCalendar._hoveredDate.getMonth() + 1, this.RadCalendar._hoveredDate.getDate()] == this._date.toString())) {
+            this.DomElement.className = a[1].replace(/^\s+|\s+$/g, "") + " rcHover";
+        } else {
+            this.DomElement.className = a[1];
+        } this.DomElement.style.cssText = a[0];
     }, Click: function (b) {
         var c = new Telerik.Web.UI.CalendarDateClickEventArgs(b, this);
         var a = this.RadCalendar;

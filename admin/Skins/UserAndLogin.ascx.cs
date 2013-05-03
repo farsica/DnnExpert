@@ -146,8 +146,8 @@ namespace DotNetNuke.UI.Skins.Controls
             viewProfileLink.NavigateUrl = Globals.UserProfileURL(PortalSettings.UserId);
             viewProfileImageLink.NavigateUrl = Globals.UserProfileURL(PortalSettings.UserId);
             logoffLink.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Logoff");
-            editProfileLink.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Profile", "userId=" + PortalSettings.UserId, "pageno=3");
-            accountLink.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Profile", "userId=" + PortalSettings.UserId, "pageno=1");
+            editProfileLink.NavigateUrl = Globals.NavigateURL(PortalSettings.UserTabId, "Profile", "userId=" + PortalSettings.UserId, "pageno=3");
+            accountLink.NavigateUrl = Globals.NavigateURL(PortalSettings.UserTabId, "Profile", "userId=" + PortalSettings.UserId, "pageno=1");
             messagesLink.NavigateUrl = Globals.NavigateURL(GetMessageTab(), "", string.Format("userId={0}", PortalSettings.UserId)); ;
             notificationsLink.NavigateUrl = messagesLink.NavigateUrl + "?view=notifications&action=notifications";
 

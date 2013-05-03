@@ -66,7 +66,7 @@ namespace DotNetNuke.Modules.Admin.Modules
     /// </history>
     public partial class ModuleSettingsPage : PortalModuleBase
     {
-    	private static readonly ILog Logger = LoggerSource.Instance.GetLogger(typeof (ModuleSettingsPage));
+        private static readonly ILog Logger = LoggerSource.Instance.GetLogger(typeof(ModuleSettingsPage));
 
         #region Private Members
 
@@ -124,7 +124,7 @@ namespace DotNetNuke.Modules.Admin.Modules
         #endregion
 
         #region Private Methods
-        
+
         private void BindData()
         {
             if (Module != null)
@@ -132,7 +132,7 @@ namespace DotNetNuke.Modules.Admin.Modules
                 var desktopModule = DesktopModuleController.GetDesktopModule(Module.DesktopModuleID, PortalId);
                 dgPermissions.ResourceFile = Globals.ApplicationPath + "/DesktopModules/" + desktopModule.FolderName + "/" + Localization.LocalResourceDirectory + "/" +
                                              Localization.LocalSharedResourceFile;
-                if(!Module.IsShared)
+                if (!Module.IsShared)
                 {
                     chkInheritPermissions.Checked = Module.InheritViewPermissions;
                     dgPermissions.InheritViewPermissionsFromTab = Module.InheritViewPermissions;
@@ -390,7 +390,7 @@ namespace DotNetNuke.Modules.Admin.Modules
                         settingsControl.ModuleContext.Configuration = Module;
 
                         hlSpecificSettings.Text = Localization.GetString("ControlTitle_settings", settingsControl.LocalResourceFile);
-                        if(String.IsNullOrEmpty(hlSpecificSettings.Text))
+                        if (String.IsNullOrEmpty(hlSpecificSettings.Text))
                         {
                             hlSpecificSettings.Text = String.Format(Localization.GetString("ControlTitle_settings", LocalResourceFile), Module.DesktopModule.FriendlyName);
                         }
@@ -568,8 +568,8 @@ namespace DotNetNuke.Modules.Admin.Modules
                     Module.Color = txtColor.Text;
                     Module.Border = txtBorder.Text;
                     Module.IconFile = ctlIcon.Url;
-                    Module.CacheTime = !String.IsNullOrEmpty(txtCacheDuration.Text) 
-                                            ? Int32.Parse(txtCacheDuration.Text) 
+                    Module.CacheTime = !String.IsNullOrEmpty(txtCacheDuration.Text)
+                                            ? Int32.Parse(txtCacheDuration.Text)
                                             : 0;
                     Module.CacheMethod = cboCacheProvider.SelectedValue;
                     Module.TabID = TabId;
@@ -579,10 +579,10 @@ namespace DotNetNuke.Modules.Admin.Modules
                     }
                     Module.AllTabs = chkAllTabs.Checked;
                     moduleController.UpdateTabModuleSetting(Module.TabModuleID, "hideadminborder", chkAdminBorder.Checked.ToString());
-                    
+
                     //check whether searchonce value is changed
                     var searchOnce = Settings.ContainsKey("searchonce") && Convert.ToBoolean(Settings["searchonce"]);
-                    if(searchOnce != chkSearchOnce.Checked)
+                    if (searchOnce != chkSearchOnce.Checked)
                     {
                         searchOnceChanged = true;
                     }
@@ -603,12 +603,12 @@ namespace DotNetNuke.Modules.Admin.Modules
                     Module.Header = txtHeader.Text;
                     Module.Footer = txtFooter.Text;
 
-                    Module.StartDate = startDatePicker.SelectedDate != null 
-                                        ? startDatePicker.SelectedDate.Value 
+                    Module.StartDate = startDatePicker.SelectedDate != null
+                                        ? startDatePicker.SelectedDate.Value
                                         : Null.NullDate;
 
-                    Module.EndDate = endDatePicker.SelectedDate != null 
-                                        ? endDatePicker.SelectedDate.Value 
+                    Module.EndDate = endDatePicker.SelectedDate != null
+                                        ? endDatePicker.SelectedDate.Value
                                         : Null.NullDate;
 
                     Module.ContainerSrc = moduleContainerCombo.SelectedValue;
@@ -617,7 +617,7 @@ namespace DotNetNuke.Modules.Admin.Modules
                     Module.Terms.Clear();
                     Module.Terms.AddRange(termsSelector.Terms);
 
-                    if(!Module.IsShared)
+                    if (!Module.IsShared)
                     {
                         Module.InheritViewPermissions = chkInheritPermissions.Checked;
                         Module.IsShareable = isShareableCheckBox.Checked;
@@ -630,8 +630,8 @@ namespace DotNetNuke.Modules.Admin.Modules
                     Module.IsWebSlice = chkWebSlice.Checked;
                     Module.WebSliceTitle = txtWebSliceTitle.Text;
 
-                    Module.WebSliceExpiryDate = diWebSliceExpiry.SelectedDate != null 
-                                                ? diWebSliceExpiry.SelectedDate.Value 
+                    Module.WebSliceExpiryDate = diWebSliceExpiry.SelectedDate != null
+                                                ? diWebSliceExpiry.SelectedDate.Value
                                                 : Null.NullDate;
 
                     if (!string.IsNullOrEmpty(txtWebSliceTTL.Text))
@@ -698,16 +698,19 @@ namespace DotNetNuke.Modules.Admin.Modules
                                 foreach (var destinationTab in listTabs)
                                 {
                                     var module = moduleController.GetModule(_moduleId, destinationTab.TabID);
-                                    if(module != null)
+                                    if (module != null)
                                     {
-                                        if(module.IsDeleted)
+                                        if (module.IsDeleted)
                                         {
                                             moduleController.RestoreModule(module);
                                         }
                                     }
                                     else
                                     {
-                                        moduleController.CopyModule(Module, destinationTab, Module.PaneName, true);
+                                        if (!PortalSettings.ContentLocalizationEnabled || (Module.CultureCode == destinationTab.CultureCode))
+                                        {
+                                            moduleController.CopyModule(Module, destinationTab, Module.PaneName, true);
+                                        }
                                     }
                                 }
                             }
@@ -719,7 +722,7 @@ namespace DotNetNuke.Modules.Admin.Modules
                     }
 
                     //if searchonce is changed, then should update all other tabmodules to update the setting value.
-                    if(searchOnceChanged)
+                    if (searchOnceChanged)
                     {
                         moduleController.GetAllTabsModulesByModuleID(_moduleId)
                             .Cast<ModuleInfo>()

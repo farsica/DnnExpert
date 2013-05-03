@@ -16,13 +16,13 @@
 	        </tr>
 	        <tr style="height:100%;">
 		        <td valign="top" style="width:650px;">
-                    <h2>ุฎุทุง ุฏุฑ  ุณูุณุชู… ูพูุฑุชุงู ุณูุฆูุช</h2>
+                    <h2>ฮุว ฯั  ำํำสใ ๆัสวแ ำๆฦํส</h2>
                     <hr />
                     <p><asp:PlaceHolder ID="ErrorPlaceHolder" runat="server" /></p>
                 </td>
 	        </tr>
 	        <tr>
-	            <td><asp:Hyperlink ID="hypReturn" runat="Server" NavigateUrl="~/Default.aspx" cssClass="WizardButton" text="Return to Site"/></td>
+	            <td><asp:Hyperlink ID="hypReturn" runat="Server" NavigateUrl="~/Default.aspx" cssClass="dnnPrimaryAction" text="Return to Site"/></td>
 	        </tr>
 	        <tr><td height="10px"></td></tr>
         </table>

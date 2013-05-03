@@ -47,7 +47,7 @@
           <name>ContentPane</name>
           <modules>
             <module>
-              <title>ўЊЎ±ўИўБЎІўКўД ўЕўЖ</title>
+              <title>Б—жЁ«нб гд</title>
               <alltabs>false</alltabs>
               <inheritviewpermissions>true</inheritviewpermissions>
               <header />
@@ -94,7 +94,7 @@
               <moduledefinition>ViewProfile</moduledefinition>
             </module>
             <module>
-              <title>ўЊўКЎІўЕ ўЗЎІўК ўЕўЖ</title>
+              <title>Бн«г е«н гд</title>
               <alltabs>false</alltabs>
               <inheritviewpermissions>true</inheritviewpermissions>
               <header />

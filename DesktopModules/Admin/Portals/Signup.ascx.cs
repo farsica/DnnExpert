@@ -114,9 +114,10 @@ namespace DotNetNuke.Modules.Admin.Portals
                     if (UserInfo.IsSuperUser)
                     {
                         rowType.Visible = true;
-                        useCurrentPanel.Visible = true;
-                        useCurrent.Checked = true;
-                        adminUserPanel.Visible = false;
+	                    var useCurrentEnabled = MembershipProvider.Instance().PasswordRetrievalEnabled;
+						useCurrentPanel.Visible = useCurrentEnabled;
+						useCurrent.Checked = useCurrentEnabled;
+						adminUserPanel.Visible = !useCurrentEnabled;
 
                         optType.SelectedValue = "P";
                     }

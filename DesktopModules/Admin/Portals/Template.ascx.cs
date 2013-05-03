@@ -259,15 +259,15 @@ namespace DotNetNuke.Modules.Admin.Portals
             writer.WriteStartElement("tabs");
 
             var locales = LocaleController.Instance.GetLocales(portal.PortalID).Values;
-            if (PortalSettings.ContentLocalizationEnabled)
+			if (PortalController.GetPortalSettingAsBoolean("ContentLocalizationEnabled", portal.PortalID, false))
             {
                 //Process Default Language first
-                SerializeTabs(writer, portal, tabs, tabController.GetTabsByPortal(portal.PortalID).WithCulture(portal.DefaultLanguage, true));
+				SerializeTabs(writer, portal, tabs, tabController.GetTabsByPortal(portal.PortalID).WithCulture(portal.DefaultLanguage, true, true));
 
                 //Process other locales
                 foreach (Locale locale in locales.Where(l => l.Code != portal.DefaultLanguage))
                 {
-                    SerializeTabs(writer, portal, tabs, tabController.GetTabsByPortal(portal.PortalID).WithCulture(locale.Code, false));
+					SerializeTabs(writer, portal, tabs, tabController.GetTabsByPortal(portal.PortalID).WithCulture(locale.Code, false, true));
                 }
             }
             else

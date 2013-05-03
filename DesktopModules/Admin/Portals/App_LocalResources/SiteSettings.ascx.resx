@@ -427,10 +427,10 @@
     <value>The number of days of site activity that is kept for this site.</value>
   </data>
   <data name="plDesktopModules.Text" xml:space="preserve">
-    <value>Premium Modules:</value>
+    <value>Available modules:</value>
   </data>
   <data name="plDesktopModules.Help" xml:space="preserve">
-    <value>Premium modules are only available to specific websites</value>
+    <value>Here you can select which of the installed modules can be used in this site.</value>
   </data>
   <data name="StylesheetEditor.Text" xml:space="preserve">
     <value>Stylesheet Editor</value>
@@ -1057,5 +1057,17 @@ The host-level settings are currently set as follows:
   </data>
   <data name="MsgSendEmailYes.Text" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="plHideLoginControl.Help" xml:space="preserve">
+    <value>Check this box to hide the login link in page.</value>
+  </data>
+  <data name="plHideLoginControl.Text" xml:space="preserve">
+    <value>Hide Login Control?</value>
+  </data>
+  <data name="plEnableRegisterNotification.Help" xml:space="preserve">
+    <value>Whether enable website administrator to receive email notification during new user registration.</value>
+  </data>
+  <data name="plEnableRegisterNotification.Text" xml:space="preserve">
+    <value>Receive user registration notification:</value>
   </data>
 </root>

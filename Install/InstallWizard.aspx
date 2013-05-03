@@ -1,4 +1,4 @@
-ï»¿<%@ Page Language="C#" AutoEventWireup="false" Inherits="DotNetNuke.Services.Install.InstallWizard" CodeFile="InstallWizard.aspx.cs" %>
+<%@ Page Language="C#" AutoEventWireup="false" Inherits="DotNetNuke.Services.Install.InstallWizard" CodeFile="InstallWizard.aspx.cs" %>
 <%@ Import Namespace="DotNetNuke.UI.Utilities" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
 <%@ Register TagPrefix="dnncrm" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
@@ -9,6 +9,7 @@
     <title></title>
     <asp:PlaceHolder runat="server" ID="ClientDependencyHeadCss"></asp:PlaceHolder>
     <asp:PlaceHolder runat="server" ID="ClientDependencyHeadJs"></asp:PlaceHolder>
+    <!-- Fariborz Khosravi-->
     <link id="DefaultStylesheet" runat="server" rel="stylesheet" type="text/css" href="../Portals/_default/default.css?refresh" />    
     <link id="InstallStylesheet" runat="server" rel="stylesheet" type="text/css" href="Install.css?refresh" />    
      <!--[if IE]>
@@ -32,7 +33,7 @@
     <img src="../images/Branding/DNN_logo.png" alt="DotNetNuke" />
             
     <div id="languageFlags" style="float: right;">
-        <asp:LinkButton  id="lang_fa_IR" class="flag" runat="server" value="fa-IR" title="ÙØ§Ø±Ø³ÙŠ (Ø§ÙŠØ±Ø§Ù†)" OnClientClick="installWizard.changePageLocale('lang_fa_IR','fa-IR');" CausesValidation="false"><img src="../images/flags/fa-IR.gif" alt="fa-IR" class="flagimage"/></asp:LinkButton>
+        <asp:LinkButton  id="lang_fa_IR" class="flag" runat="server" value="fa-IR" title="ÝÇÑÓí (ÇíÑÇä)" OnClientClick="installWizard.changePageLocale('lang_fa_IR','fa-IR');" CausesValidation="false"><img src="../images/flags/fa-IR.gif" alt="fa-IR" class="flagimage"/></asp:LinkButton>
 		<asp:LinkButton  id="lang_en_US" class="flag" runat="server" value="en-US" title="English (United States)" OnClientClick="installWizard.changePageLocale('lang_en_US','en-US');" CausesValidation="false"><img src="../images/flags/en-US.gif" alt="en-US" class="flagimage"/></asp:LinkButton>
         <asp:LinkButton  id="lang_de_DE" class="flag" runat="server" value="de-DE" title="Deutsch (Deutschland)" OnClientClick="installWizard.changePageLocale('lang_de_DE','de-DE');" CausesValidation="false"><img src="../images/flags/de-DE.gif" alt="de-DE" class="flagimage"/></asp:LinkButton>
         <asp:LinkButton  id="lang_es_ES" class="flag" runat="server" value="es-ES" title="Espanol (Espana)" OnClientClick="installWizard.changePageLocale('lang_es_ES','es-ES');" CausesValidation="false"><img src="../images/flags/es-ES.gif" alt="es-ES" class="flagimage"/></asp:LinkButton> 
@@ -394,9 +395,14 @@
                 if (databaseType == "express") {
                     $('#databaseFilename').show();
                     $('#databaseName').hide();
+	                $("input[id^=databaseSecurityType][value='integrated']").attr("checked", true).trigger("change");
+	                $("input[id^=databaseSecurityType][value='userDefined']").attr("disabled", true);
+	                $("#databaseRunAs").attr("checked", true).attr("disabled", true);
                 } else {
                     $('#databaseName').show();
                     $('#databaseFilename').hide();
+                    $("input[id^=databaseSecurityType][value='userDefined']").attr("disabled", false);
+                    $("#databaseRunAs").attr("disabled", false);
                 }
             };
             this.toggleDatabaseSecurity = function(animation) {
@@ -869,6 +875,7 @@
     </script>    
 
     <script type="text/javascript">
+        //Fariborz Khosravi
         $(document).ready(function () {
             if ($(document.body).css("direction") == "rtl")
                 $("#languageFlags").css("float", "left");

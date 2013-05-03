@@ -21,7 +21,7 @@
 		   <fieldset>
 				<div class="dnnFormItem">
 					<dnn:Label ID="plTabName" runat="server" ResourceKey="TabName" Suffix=":" HelpKey="TabNameHelp" ControlName="txtTabName" CssClass="dnnFormRequired"  />
-					<asp:TextBox ID="txtTabName" runat="server" MaxLength="50" />
+					<asp:TextBox ID="txtTabName" runat="server" MaxLength="200" />
 					<asp:RequiredFieldValidator ID="valTabName" CssClass="dnnFormMessage dnnFormError" runat="server" resourcekey="valTabName.ErrorMessage" Display="Dynamic" ControlToValidate="txtTabName" />
 				</div>    
 				<div class="dnnFormItem">

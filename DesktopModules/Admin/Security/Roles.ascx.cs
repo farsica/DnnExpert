@@ -223,7 +223,7 @@ namespace DesktopModules.Admin.Security
                     {
                         //so first create the format string with a dummy value and then
                         //replace the dummy value with the FormatString place holder
-                        string formatString = EditUrl("RoleID", "KEYFIELD", "User Roles");
+                        string formatString = EditUrl("RoleId", "KEYFIELD", "User Roles");
                         formatString = formatString.Replace("KEYFIELD", "{0}");
                         imageColumn.NavigateURLFormatString = formatString;
                     }

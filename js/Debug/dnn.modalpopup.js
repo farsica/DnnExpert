@@ -103,43 +103,6 @@
 
             }
 
-            //$('a.ui.dialog-titlebar-close').before('<a href="#" class="dnnToggleMax"></a>');
-            //            if ($('.ui-dialog-title').next("a.dnnToggleMax").length === 0) {
-            //                var $dnnToggleMax = $('<a href="#" class="dnnToggleMax"><span>Max</span></a>');
-            //                $('.ui-dialog-title').after($dnnToggleMax);
-            //                $dnnToggleMax.click(function (e) {
-            //                    e.preventDefault();
-
-            //                    var $window = $(window),
-            //                        $this = $(this),
-            //                        newHeight,
-            //                        newWidth,
-            //                        newPosition;
-
-            //                    if ($modal.data('isMaximized')) {
-            //                        newHeight = $modal.data('height');
-            //                        newWidth = $modal.data('width');
-            //                        newPosition = $modal.data('position');
-            //                        $modal.data('isMaximized', false);
-            //                    } else {
-            //                        $modal.data('height', $modal.dialog("option", "minHeight"))
-            //                            .data('width', $modal.dialog("option", "minWidth"))
-            //                            .data('position', $modal.dialog("option", "position"));
-
-            //                        newHeight = $window.height() - 36;
-            //                        newWidth = $window.width() - 36;
-            //                        newPosition = [0, 0];
-            //                        $modal.data('isMaximized', true);
-            //                    }
-
-            //                    $this.toggleClass('ui-dialog-titlebar-max');
-            //                    $this.next().toggleClass('titlebar-max');
-            //                    $modal.dialog({ height: newHeight, width: newWidth });
-            //                    $modal.dialog({ position: 'center' });
-
-            //                });
-            //            };
-
             var showLoading = function () {
                 var loading = $("<div class=\"dnnLoading\"></div>");
                 loading.css({
@@ -167,21 +130,23 @@
         },
 
         closePopUp: function (refresh, url) {
-            var windowTop = parent; //needs to be assign to a varaible for Opera compatibility issues.
-            if (typeof refresh === "undefined") {
-                refresh = true;
-            }
-            if ((typeof url === "undefined") || (url == "")) {
-                url = windowTop.location;
-            }
-            if (refresh.toString() == "true") {
-                windowTop.location.href = url;
-                $(this).hide();
-            }
-            else {
-                $(this).remove();
-            }
-            $(windowTop.document).find('html').css('overflow', '');
+        	var windowTop = parent; //needs to be assign to a varaible for Opera compatibility issues.
+        	var popup = windowTop.jQuery("#iPopUp");
+
+        	if (typeof refresh === "undefined") {
+        		refresh = true;
+        	}
+        	if ((typeof url === "undefined") || (url == "")) {
+        		url = windowTop.location;
+        	}
+        	if (refresh.toString() == "true") {
+        		windowTop.location.href = url;
+        		popup.hide();
+        	}
+        	else {
+        		popup.remove();
+        	}
+        	$(windowTop.document).find('html').css('overflow', '');
         }
 
     };

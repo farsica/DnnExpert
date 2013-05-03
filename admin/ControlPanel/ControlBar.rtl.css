@@ -352,7 +352,7 @@
 }
 #ControlBar_SiteSelector input[type="submit"],
 #ControlBar_LanguageSelector input[type="submit"] {
-    float: right;
+    float: left;
     display: inline-block;
     margin: 0;
     padding: 4px;
@@ -479,6 +479,7 @@
 #ControlActionMenu > li ul li:hover a {
     color: #4e89e3; /*blue*/
 }
+#ControlActionMenu .separator { border-top: 1px solid #666;margin: 15px 0;}
 
 /* Control Edit Page --- list
 ******************************************/
@@ -719,6 +720,9 @@ span.controlBar_editPageTxt{
     color: #999;
 }
 
+.ControlModuleContainer .ControlBar_chckCopyModule.disabled label {
+	color: #444;
+}
 a.controlBar_CloseAddModules {
     display: block;
     float: left;
@@ -984,3 +988,24 @@ ul#ControlBar_Module_ModulePosition li:hover{
 	right:auto;
 	left:15px !important;
 }
+#controlBar_SwitchSite, 
+#controlBar_SwitchLanguage {
+	width: 120px;
+}
+#controlBar_SwitchSite .rcbInput, 
+#controlBar_SwitchLanguage .rcbInput {
+	padding: 4px !important;
+	width: 90px !important;
+}
+#controlBar_SwitchSite .rcbArrowCellRight a,
+#controlBar_SwitchLanguage .rcbArrowCellRight a {
+	width: 15px !important;
+}
+#controlBar_SwitchSite_DropDown li.rcbItem, 
+#controlBar_SwitchSite_DropDown li.rcbHovered,
+#controlBar_SwitchLanguage_DropDown li.rcbItem, 
+#controlBar_SwitchLanguage_DropDown li.rcbHovered {
+	padding: 4px !important;
+}
+
+.RadComboBox .rcbDisabled{ opacity: 0.3;}

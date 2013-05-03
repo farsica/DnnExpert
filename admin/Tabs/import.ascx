@@ -26,7 +26,7 @@
     </div>
     <div class="dnnFormItem" id="divTabName" runat="server" visible="false">
         <dnn:label id="plTabName" runat="server" controlname="txtTabName" />
-        <asp:TextBox id="txtTabName" runat="server" maxlength="50" />
+        <asp:TextBox id="txtTabName" runat="server" maxlength="200" />
     </div>
     <div class="dnnFormItem" id="divParentTab" runat="server" visible="false">
         <dnn:Label ID="plParentTab" runat="server" ControlName="cboParentTab" />

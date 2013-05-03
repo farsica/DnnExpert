@@ -17,8 +17,8 @@
     <form id="form1" runat="server">                
         <asp:ScriptManager ID="scManager" runat="server" EnablePageMethods="true"></asp:ScriptManager>
         <asp:placeholder id="BodySCRIPTS" runat="server">
-	        <script type="text/javascript" src="../js/dnn.js"></script>
-            <script type="text/javascript" src="../Resources/Shared/Scripts/dnn.jquery.js"></script>
+	        <script type="text/javascript" src="../js/dnn.js?ver=<%=DotNetNuke.Common.Globals.FormatVersion(ApplicationVersion)%>"></script>
+            <script type="text/javascript" src="../Resources/Shared/Scripts/dnn.jquery.js?ver=<%=DotNetNuke.Common.Globals.FormatVersion(ApplicationVersion)%>"></script>
         </asp:placeholder>
                                                             
         <br/>
@@ -435,6 +435,7 @@
     </script>    
 
     <script type="text/javascript">
+        //Fariborz Khosravi
         $(document).ready(function () {
             if ($(document.body).css("direction") == "rtl")
                 $("#languageFlags").css("float", "left");

@@ -5,6 +5,7 @@
     <script name="Data">DotNetNuke.Data</script>
   </scripts>
   <version>07.00.00</version>
+  <installCulture>fa-IR</installCulture>
   <superuser>
     <firstname>SuperUser</firstname>
     <lastname>Account</lastname>

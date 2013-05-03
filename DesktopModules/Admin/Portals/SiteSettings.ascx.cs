@@ -305,6 +305,7 @@ namespace DotNetNuke.Modules.Admin.Portals
             cboUserTabId.DataBind(portal.UserTabId.ToString());
 
             DisableInvalidLoginTabs();
+			DisableInvalidSearchResultTabs();
         }
 
         private void DisableInvalidLoginTabs()
@@ -314,10 +315,22 @@ namespace DotNetNuke.Modules.Admin.Portals
                 var tabId = int.Parse(item.Value);
                 if(tabId != Null.NullInteger && !Globals.ValidateLoginTabID(tabId))
                 {
-                    item.Attributes.Add("disabled", "disabled");
+	                item.Enabled = false;
                 }
             }
         }
+
+		private void DisableInvalidSearchResultTabs()
+		{
+			foreach (Telerik.Web.UI.RadComboBoxItem item in cboSearchTabId.Items)
+			{
+				var tabId = int.Parse(item.Value);
+				if (tabId != Null.NullInteger && !Globals.ValidateModuleInTab(tabId, "SearchCrawlerResults") && !Globals.ValidateModuleInTab(tabId, "Search Results"))
+				{
+					item.Enabled = false;
+				}
+			}
+		}
 
         private void BindPaymentProcessor(PortalInfo portal)
         {
@@ -348,8 +361,6 @@ namespace DotNetNuke.Modules.Admin.Portals
             }
 
             txtUserId.Text = portal.ProcessorUserId;
-            txtPassword.Attributes.Add("value", portal.ProcessorPassword);
-
 
             // return url after payment or on cancel
             string strPayPalReturnURL = PortalController.GetPortalSetting("paypalsubscriptionreturn", portal.PortalID, Null.NullString);
@@ -384,6 +395,7 @@ namespace DotNetNuke.Modules.Admin.Portals
             lblHomeDirectory.Text = portal.HomeDirectory;
 
             optUserRegistration.SelectedIndex = portal.UserRegistration;
+			chkEnableRegisterNotification.Checked = PortalController.GetPortalSettingAsBoolean("EnableRegisterNotification", portalId, true);
 
             BindPaymentProcessor(portal);
 
@@ -397,6 +409,8 @@ namespace DotNetNuke.Modules.Admin.Portals
 
             //PortalSettings for portal being edited
             var portalSettings = new PortalSettings(portal);
+
+	        chkHideLoginControl.Checked = portalSettings.HideLoginControl;
 
             cboTimeZone.DataBind(portalSettings.TimeZone.Id);
 
@@ -1134,11 +1148,6 @@ namespace DotNetNuke.Modules.Admin.Portals
                         intSearchTabId = int.Parse(cboSearchTabId.SelectedItem.Value);
                     }
 
-                    if (txtPassword.Attributes["value"] != null)
-                    {
-                        txtPassword.Attributes["value"] = txtPassword.Text;
-                    }
-
                     var portal = new PortalInfo
                                             {
                                                 PortalID = _portalId,
@@ -1160,7 +1169,7 @@ namespace DotNetNuke.Modules.Admin.Portals
                                                         ? ""
                                                         : processorCombo.SelectedItem.Text,
                                                 ProcessorUserId = txtUserId.Text,
-                                                ProcessorPassword = txtPassword.Text,
+                                                ProcessorPassword = !string.IsNullOrEmpty(txtPassword.Text) ? txtPassword.Text : existingPortal.ProcessorPassword,
                                                 Description = txtDescription.Text,
                                                 KeyWords = txtKeyWords.Text,
                                                 BackgroundFile = background,
@@ -1210,6 +1219,9 @@ namespace DotNetNuke.Modules.Admin.Portals
                     PortalController.UpdatePortalSetting(_portalId, "paypalsubscriptionreturn", txtPayPalReturnURL.Text, false);
                     PortalController.UpdatePortalSetting(_portalId, "paypalsubscriptioncancelreturn", txtPayPalCancelURL.Text, false);
                     PortalController.UpdatePortalSetting(_portalId, "TimeZone", cboTimeZone.SelectedValue, false);
+
+					PortalController.UpdatePortalSetting(_portalId, "HideLoginControl", chkHideLoginControl.Checked.ToString(), false);
+					PortalController.UpdatePortalSetting(_portalId, "EnableRegisterNotification", chkEnableRegisterNotification.Checked.ToString(), false);
 
                     new FavIcon(_portalId).Update(ctlFavIcon.FileID);
 

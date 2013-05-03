@@ -13,7 +13,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccountInfo.Text">
-    <value xml:space="preserve">Info Account</value>
+    <value xml:space="preserve">Inserire le Informazioni dell'Account</value>
   </data>
   <data name="AccountInfoIntro.Text">
     <value xml:space="preserve">Per configurare Installazione DotNetNuke, inserire le seguenti informazioni.</value>
@@ -165,6 +165,9 @@
   <data name="FileAndFolderPermissionCheck.Text">
     <value xml:space="preserve">Controllo Permessi sui File e Cartelle</value>
   </data>
+  <data name="FileAndFolderPermissionCheckFailed.Text">
+    <value xml:space="preserve">&lt;div class="permission"&gt;&lt;img alt="Immagine che mostra le impostazioni di protezione della cartella principale del sito web, la quale deve essere impostata su Read, Write, e Change Control per gli account ASPNET o NT AUTHORITY / NETWORK SERVICES." src="..\403-3.gif" align="right" hspace="10"/&gt;&lt;p&gt;&lt;b&gt;&lt;font color='red'&gt;Il tuo sito non ha superato il controllo delle autorizzazioni.&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;Utilizzando Esplora risorse, individuare le cartelle del Sito web ({0}). Fai clic destro sulla cartella e seleziona Condivisione e Protezione dal menu a comparsa. Selezionare la scheda Protezione. Aggiungere l'account utente appropriato e impostare le autorizzazioni.&lt;br/&gt;&lt;br/&gt;&lt;h3&gt;Se si sta usando Windows 2000 - IIS5&lt;/h3&gt;&lt;p&gt;L'utente ASPNET deve avere Read, Write, e Change Control della cartella virtuale del sito.&lt;/p&gt;&lt;h3&gt;Se stai usando Windows 2003, Windows Vista oppure Windows Server 2008 con  IIS6 or IIS7&lt;/h3&gt;&lt;p&gt;L'utente NT AUTHORITY\NETWORK SERVICE deve avere Read, Write, e Change Control della root virtulae del sito Web.&lt;/p&gt;&lt;h3&gt;Se si sta usando Windows 7 o Windows Server 2008 R2 con  IIS7.5&lt;/h3&gt;&lt;p&gt;L'utente  IIS AppPool\DefaultAppPool deve avere Read, Write, e Change Control della cartella virtuale del sito.&lt;/p&gt;&lt;p&gt;&lt;a class="dnnPrimaryAction" href=""&gt;Ricontrolla&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</value>
+  </data>
   <data name="FileAndFolderPermissionCheckTitle.Text">
     <value xml:space="preserve">Controllo File e Autorizzazioni Cartella</value>
   </data>
@@ -180,6 +183,9 @@
   <data name="FolderDeleteCheck.Text">
     <value xml:space="preserve">Controllo Eliminazione Folder</value>
   </data>
+  <data name="HostWarning.Text">
+    <value xml:space="preserve">Nome Host contiene caratteri non consentiti (solo a-Z, 0-9, - e . sono permesi).  Dovresti modificare il nome host.</value>
+  </data>
   <data name="IISVerificationFail.Text">
     <value xml:space="preserve">AppPool in IIS deve essere eseguito sotto modalità Integrata</value>
   </data>
@@ -193,7 +199,7 @@
     <value xml:space="preserve">Mancano Campi Obbligatori</value>
   </data>
   <data name="Installation.Text">
-    <value xml:space="preserve">Installazione</value>
+    <value xml:space="preserve">Procedi con Installazione</value>
   </data>
   <data name="InstallationComplete.Text">
     <value xml:space="preserve">Installazione Completata!</value>
@@ -223,7 +229,7 @@
     <value xml:space="preserve">Installazione DotNetNuke</value>
   </data>
   <data name="IntroDetail.Text">
-    <value>&lt;a class="dnnSecondaryAction" href="http://www.dotnetnuke.com/Resources/Training/Training-Videos/Installation.aspx" target="new"&gt;Vedi Video Installazione&lt;/a&gt;</value>
+    <value xml:space="preserve">&lt;a class="videoLink" href="http://www.dotnetnuke.com/Resources/Training/Training-Videos/Installation.aspx" target="new"&gt;Vedi Video Installazione&lt;/a&gt;</value>
   </data>
   <data name="InvalidQualifier.Text">
     <value xml:space="preserve">Qualificatore di oggetto (ObjectQualifier) deve iniziare con una lettera e non essere più lungo di 20 caratteri.</value>
@@ -316,10 +322,10 @@
     <value xml:space="preserve">Portal Alias ​​Portal [{0}] è già presente. Saltare questo passaggio.</value>
   </data>
   <data name="SqlTypeExpress.Text">
-    <value xml:space="preserve">SQL Express</value>
+    <value xml:space="preserve">SQL Server Express File </value>
   </data>
   <data name="SqlTypeServer.Text">
-    <value xml:space="preserve">SQL Server</value>
+    <value xml:space="preserve">SQL Server/SQL Server Express Database</value>
   </data>
   <data name="StandardDatabaseMsg.Text">
     <value xml:space="preserve">Nessuna connessione al database di default è stata  rilevata.
@@ -341,7 +347,7 @@ L'opzione per impostare il Database Standard  non è disponibile</value>
     <value xml:space="preserve">Template Mobile</value>
   </data>
   <data name="TemplateSolutions.Text">
-    <value xml:space="preserve">Solutions Template</value>
+    <value xml:space="preserve">Soluzione Template</value>
   </data>
   <data name="TestingDatabase.Text">
     <value xml:space="preserve">Verifica della connessione al database</value>
@@ -386,7 +392,7 @@ L'opzione per impostare il Database Standard  non è disponibile</value>
     <value xml:space="preserve">Inserire il nome che si desidera utilizzare per il tuo sito.</value>
   </data>
   <data name="WebsiteName.Required">
-    <value xml:space="preserve">Website name is required.</value>
+    <value xml:space="preserve">Il nome del sito è obbligatorio.</value>
   </data>
   <data name="WebsiteName.Text">
     <value xml:space="preserve">Nome Sito Web</value>

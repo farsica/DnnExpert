@@ -159,14 +159,17 @@ namespace DotNetNuke.Modules.Admin.Users
             if (searchText == Localization.GetString("Unauthorized"))
             {
                 Users = UserController.GetUnAuthorizedUsers(UsersPortalId, true, IsSuperUser);
+				totalRecords = Users.Count;
             }
             else if (searchText == Localization.GetString("Deleted"))
             {
                 Users = UserController.GetDeletedUsers(UsersPortalId);
+				totalRecords = Users.Count;
             }
             else if (searchText == Localization.GetString("OnLine"))
             {
                 Users = UserController.GetOnlineUsers(UsersPortalId);
+	            totalRecords = Users.Count;
             }
             else if (searchText == Localization.GetString("All"))
             {

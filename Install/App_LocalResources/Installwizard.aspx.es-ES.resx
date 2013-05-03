@@ -13,7 +13,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccountInfo.Text">
-    <value xml:space="preserve">Información de cuenta</value>
+    <value xml:space="preserve">Información de cuenta de acceso</value>
   </data>
   <data name="AccountInfoIntro.Text">
     <value xml:space="preserve">Introduzca la siguiente información para realizar la configuración de la instalación de DotNetNuke.</value>
@@ -165,6 +165,18 @@
   <data name="FileAndFolderPermissionCheck.Text">
     <value xml:space="preserve">Verificación de permisos de archivo y carpeta</value>
   </data>
+  <data name="FileAndFolderPermissionCheckFailed.Text">
+    <value xml:space="preserve">&lt;div class="permission"&gt;&lt;img alt="Imagen que muestra la configuración de seguridad de la carpeta raíz del web: Leer, Escribir y Modificar, para la cuenta ASPNET o NT AUTHORITY/SERVICIO DE RED." src="..\403-3.gif" align="right" hspace="10"/&gt;
+&lt;p&gt;&lt;b&gt;&lt;font color='red'&gt;Su sitio ha fallado las verificaciones de permisos.&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
+Utilize el Explorador de Windows para ver las carpetas de su sitio web ( {0} ). Vaya a las propiedades de la carpeta, y seleccione la pestaña Seguridad. Añada las cuentas y permisos necesarios.
+&lt;br/&gt;&lt;br/&gt;
+&lt;h3&gt;Si utiliza Windows 2000 - IIS5&lt;/h3&gt;
+&lt;p&gt;La cuenta ASPNET tiene que tener permisos de Lectura, Escritura y Modificación en la carpeta raíz de la web.&lt;/p&gt;
+&lt;h3&gt;Si utiliza Windows 2003, Windows Vista o Windows Server 2008 y  IIS6 o IIS7&lt;/h3&gt;
+&lt;p&gt;La cuenta NT AUTHORITY\SERVICIO DE RED tiene que tener permisos de Lectura, Escritura y Modificación en la carpeta raíz de la web.&lt;/p&gt;
+&lt;h3&gt;Si utiliza Windows 7 o Windows Server 2008 R2 y  IIS7.5&lt;/h3&gt;
+&lt;p&gt;La cuenta IIS AppPool\DefaultAppPool tiene que tener permisos de Lectura, Escritura y Modificación en la carpeta raíz de la web.&lt;/p&gt;&lt;p&gt;&lt;a class="dnnPrimaryAction" href=""&gt;Verificar de nuevo&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</value>
+  </data>
   <data name="FileAndFolderPermissionCheckTitle.Text">
     <value xml:space="preserve">Verificando los permisos de archivo y carpeta</value>
   </data>
@@ -180,6 +192,9 @@
   <data name="FolderDeleteCheck.Text">
     <value xml:space="preserve">Verificación de borrado de carpetas</value>
   </data>
+  <data name="HostWarning.Text">
+    <value xml:space="preserve">El nombre contiene carácteres no válidos (solo se permite a-Z, 0-9, - y . ).  Modifique el nombre que ha introducido.</value>
+  </data>
   <data name="IISVerificationFail.Text">
     <value xml:space="preserve">El grupo de aplicaciones de IIS tiene que ejecutarse en Modo Integrado</value>
   </data>
@@ -193,7 +208,7 @@
     <value xml:space="preserve">Faltan campos obligatorios</value>
   </data>
   <data name="Installation.Text">
-    <value xml:space="preserve">Instalación</value>
+    <value xml:space="preserve">Iniciar la instalación</value>
   </data>
   <data name="InstallationComplete.Text">
     <value xml:space="preserve">Instalación completa</value>
@@ -223,7 +238,7 @@
     <value xml:space="preserve">Instalación de DotNetNuke</value>
   </data>
   <data name="IntroDetail.Text">
-    <value xml:space="preserve">&lt;a class="dnnSecondaryAction" href="http://www.dotnetnuke.com/Resources/Training/Training-Videos/Installation.aspx" target="new"&gt;Ver vídeo de instalación&lt;/a&gt;</value>
+    <value xml:space="preserve">&lt;a class="videoLink" href="http://www.dotnetnuke.com/Resources/Training/Training-Videos/Installation.aspx" target="new"&gt;Ver el vídeo de instalación&lt;/a&gt;</value>
   </data>
   <data name="InvalidQualifier.Text">
     <value xml:space="preserve">El prefijo de objetos tiene que empezar con una letra y no puede tener más de 20 carácteres.</value>
@@ -316,10 +331,10 @@
     <value xml:space="preserve">El alias de portal [{0}] ja existe. Omitiendo este paso.</value>
   </data>
   <data name="SqlTypeExpress.Text">
-    <value xml:space="preserve">SQL Express</value>
+    <value xml:space="preserve">Arxivo SQL Server Express</value>
   </data>
   <data name="SqlTypeServer.Text">
-    <value xml:space="preserve">SQL Server</value>
+    <value xml:space="preserve">SQL Server/Base de datos SQL Server Express</value>
   </data>
   <data name="StandardDatabaseMsg.Text">
     <value xml:space="preserve">No se ha encontrado ninguna conexión por omisión válida. La configuración estándar no está disponible.</value>

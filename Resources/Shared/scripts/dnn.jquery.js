@@ -396,6 +396,7 @@
             $this.parent().css({ position: 'relative' });
             var tooltipHeight = helpSelector.height();
             var top = -(tooltipHeight + 30);
+            //Fariborz Khosravi
             if ($(document.body).css("direction") == "rtl")
                 $this.css({ position: 'absolute', left: '-29%', top: top + 'px' });
             else
@@ -525,7 +526,7 @@
                 label = $('label[for="' + $ch.attr('id') + '"]');
                 if (!label.length) label = false;
             }
-            var isRadCheckBox = $ch.hasClass('rtChk'); // rad checkbox is a special case, use jQuery eventPath.
+            var isRadCheckBox = $ch.hasClass('rtChk') || $ch.hasClass('rcbCheckBox'); // rad checkbox is a special case, use jQuery eventPath.
             /* Labe found, applying event hanlers */
             if (label) {
                 label.css('display', 'inline-block');
@@ -2122,13 +2123,32 @@
     };
 
     $.fn.dnnTagsInput = function (options) {
-
+        var onError = null;
+        var triggerOnError = function (handler) {
+            if (!onError) {
+                onError = setTimeout(function () {
+                    onError = null;
+                    if (handler) handler();
+                }, 0);
+            }
+        };
         var settings = jQuery.extend({
             interactive: true,
             defaultText: 'add a tag',
             minChars: 0,
             maxChars: 50,
             maxTags: 16,
+
+            onErrorLessThanMinChars: function () {
+                $.dnnAlert({ text: 'هر برچسب نمی تواند خالی باشد', title: 'خطا در برچسب ورودی' });
+            },
+            onErrorMoreThanMaxChars: function () {
+                $.dnnAlert({ text: 'طول هر برچسب نمی تواند بیشتر از 50 حرف باشد', title: 'خطا در برچسب ورودی' });
+            },
+            onErrorMoreThanMaxTags: function () {
+                $.dnnAlert({ text: 'حداکثر می توان 16 برچسب مشخص نمود', title: 'خطا در برچسب ورودی' });
+            },
+
             width: '45%',
             height: '28px',
             autocomplete: { selectFirst: false },
@@ -2181,7 +2201,6 @@
             $(data.holder).css({
                 'width': settings.width,
                 'min-height': settings.height,
-                'height': '100%',
                 'overflow': 'hidden'
             });
 
@@ -2229,10 +2248,23 @@
                             tagslist = new Array();
                         }
                         if ($(event.data.fake_input).val() != '' && $(event.data.fake_input).val() != d) {
-                            if ((event.data.minChars <= $(event.data.fake_input).val().length) && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length)) && (event.data.maxTags > tagslist.length))
-                                $(event.data.real_input).dnnAddTag($(event.data.fake_input).val(), { focus: true, unique: (settings.unique) });
-                            else
+                            if (event.data.minChars > $(event.data.fake_input).val().length) {
+                                if (event.data.onErrorLessThanMinChars)
+                                    triggerOnError(event.data.onErrorLessThanMinChars);
                                 $(this).val('');
+                            }
+                            else if (event.data.maxChars < $(event.data.fake_input).val().length) {
+                                if (event.data.onErrorMoreThanMaxChars)
+                                    triggerOnError(event.data.onErrorMoreThanMaxChars);
+                                $(this).val('');
+                            }
+                            else if (event.data.maxTags <= tagslist.length) {
+                                if (event.data.onErrorMoreThanMaxTags)
+                                    triggerOnError(event.data.onErrorMoreThanMaxTags);
+                                $(this).val('');
+                            }
+                            else
+                                $(event.data.real_input).dnnAddTag($(event.data.fake_input).val(), { focus: true, unique: (settings.unique) });
                         } else {
                             $(event.data.fake_input).val($(event.data.fake_input).attr('data-default'));
                             $(event.data.fake_input).css('color', settings.placeholderColor);
@@ -2249,10 +2281,17 @@
                         if (tagslist[0] == '') {
                             tagslist = new Array();
                         }
-                        if ((event.data.minChars <= $(event.data.fake_input).val().length) && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length)) && (event.data.maxTags > tagslist.length))
-                            $(event.data.real_input).dnnAddTag($(event.data.fake_input).val(), { focus: true, unique: (settings.unique) });
+                        if (event.data.minChars > $(event.data.fake_input).val().length) {
+                            $(this).blur();
+                        }
+                        else if (event.data.maxChars < $(event.data.fake_input).val().length) {
+                            $(this).blur();
+                        }
+                        else if (event.data.maxTags <= tagslist.length) {
+                            $(this).blur();
+                        }
                         else
-                            $(this).val('');
+                            $(event.data.real_input).dnnAddTag($(event.data.fake_input).val(), { focus: true, unique: (settings.unique) });
                         $(event.data.fake_input).dnnResetAutosize(settings);
                         return false;
                     } else if (event.data.autosize) {

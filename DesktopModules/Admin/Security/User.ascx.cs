@@ -350,6 +350,8 @@ namespace DotNetNuke.Modules.Admin.Users
                     displayNameReadOnly.Visible = true;
                     displayName.Visible = false;
                 }
+
+	            firstName.Required = lastName.Required = true;
             }
             else
             {

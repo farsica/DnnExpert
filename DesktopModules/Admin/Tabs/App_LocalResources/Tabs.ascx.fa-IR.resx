@@ -438,4 +438,7 @@
   <data name="lblAllowIndex.Text" xml:space="preserve">
     <value>امکان ایندکس شدن توسط موتورهای جستجو:</value>
   </data>
+  <data name="Search.Text" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
 </root>

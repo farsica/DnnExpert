@@ -232,10 +232,10 @@
     <value>مدخل فایل یا بانک اطلاعات در بخش Connection در فایل DotNetNuke.Install.Config الزامی می باشد</value>
   </data>
   <data name="SqlTypeExpress.Text" xml:space="preserve">
-    <value>SQL Express</value>
+    <value>فایل بانک اطلاعات SQL Server Express</value>
   </data>
   <data name="SqlTypeServer.Text" xml:space="preserve">
-    <value>SQL Server</value>
+    <value>بانک اطلاعات SQL Server/SQL Server Express</value>
   </data>
   <data name="StepFailed.Text" xml:space="preserve">
     <value>خطا در مرحله - {0}</value>

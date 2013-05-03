@@ -107,15 +107,8 @@
                                         <div id="ControlBar_SiteSelector">
                                             <p>
                                                 <%= GetString("Tool.SwitchSites.Text") %></p>
-                                            <select id="controlBar_SwitchSite">
-                                                <% var switchSites = LoadPortalsList();%>
-                                                <% foreach (var site in switchSites)
-                                                   { %>
-                                                <option value='<%= site[1] %>'>
-                                                    <%= site[0] %></option>
-                                                <% } %>
-                                            </select>
-                                            <input type="submit" value="<%= GetString("Tool.SwitchSites.Button") %>" id="controlBar_SwitchSiteButton" />
+											<dnn:DnnComboBox runat="server" ID="controlBar_SwitchSite" ClientIDMode="Static" Skin="DnnBlack"/>
+                                            <input type="submit" value="<%= GetString("Tool.SwitchSites.Button") %>" id="controlBar_SwitchSiteButton" class="dnnPrimaryAction" />
                                         </div>
                                     </li>
                                     <% if (ShowSwitchLanguagesPanel())
@@ -124,15 +117,8 @@
                                         <div id="ControlBar_LanguageSelector">
                                             <p>
                                                <%= GetString("Tool.SwitchLanguages.Text") %></p>
-                                            <select id="controlBar_SwitchLanguage">
-                                                <% var switchLanguages = LoadLanguagesList();%>
-                                                <% foreach (var language in switchLanguages)
-                                                   { %>
-                                                <option value='<%= language[1] %>' <%= language[2] %> >
-                                                    <%= language[0] %></option>
-                                                <% } %>
-                                            </select>
-                                            <input type="submit" value="<%= GetString("Tool.SwitchSites.Button") %>" id="controlBar_SwitchLanguageButton" />
+											<dnn:DnnComboBox runat="server" ID="controlBar_SwitchLanguage" ClientIDMode="Static" Skin="DnnBlack"/>
+                                            <input type="submit" value="<%= GetString("Tool.SwitchSites.Button") %>" id="controlBar_SwitchLanguageButton" class="dnnPrimaryAction" />
                                         </div>
                                     </li>
                                     <% } %>
@@ -175,6 +161,7 @@
                             <%= GetString("Tool.AddExistingModule.Text") %></a> </li>
                         <% if (UserController.GetCurrentUserInfo().IsSuperUser)
                            {%>
+						<li class="separator"></li>
                         <li><a href='<%= GetTabURL("Extensions", true) %>#moreExtensions'>
                             <%= GetString("Tool.FindModules.Text") %></a> </li>
                         <%   }
@@ -392,7 +379,8 @@
         categoryComboId: '<%= CategoryList.ClientID %>',
         portalComboId: '<%= SiteList.ClientID %>',
         pageComboId: '<%= PageList.ClientID %>',
-        visibilityComboId: '<%= VisibilityLst.ClientID %>',
+    	visibilityComboId: '<%= VisibilityLst.ClientID %>',
+    	makeCopyCheckboxId: 'ControlBar_Module_chkCopyModule',
 		
         yesText: '<%= DotNetNuke.UI.Utilities.ClientAPI.GetSafeJSString(Localization.GetString("Yes.Text", Localization.SharedResourceFile)) %>',
         noText: '<%= DotNetNuke.UI.Utilities.ClientAPI.GetSafeJSString(Localization.GetString("No.Text", Localization.SharedResourceFile)) %>',

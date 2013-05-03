@@ -27,7 +27,7 @@
 
             var afValue = base.getAntiForgeryValue();
             if (afValue) {
-                xhr.setRequestHeader("__RequestVerificationToken", afValue);
+                xhr.setRequestHeader("RequestVerificationToken", afValue);
             }
         };
 

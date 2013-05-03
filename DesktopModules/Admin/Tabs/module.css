@@ -198,4 +198,7 @@ p.dnnFormRequired span {
 .RadTreeView {
     overflow-x:auto
 }
+#searchKeyword {
+	width: 134px;
+}
 /* ===========   End Pages Module Styling   =========== */

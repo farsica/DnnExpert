@@ -26,6 +26,7 @@ using System.Web;
 using System.Web.UI;
 
 using DotNetNuke.Common;
+using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Security;
 using DotNetNuke.Services.FileSystem;
@@ -59,12 +60,23 @@ namespace DotNetNuke.Services.Exceptions
     {
         private void ManageError(string status)
         {
-            string strErrorMessage = HttpUtility.HtmlEncode(Request.QueryString["error"]);
-            string strLocalizedMessage = Localization.Localization.GetString(status + ".Error", Localization.Localization.GlobalResourceFile);
-            if (strLocalizedMessage != null)
+            string errorMode = Config.GetCustomErrorMode();
+
+            string errorMessage = HttpUtility.HtmlEncode(Request.QueryString["error"]);
+            string errorMessage2 = HttpUtility.HtmlEncode(Request.QueryString["error2"]);
+            string localizedMessage = Localization.Localization.GetString(status + ".Error", Localization.Localization.GlobalResourceFile);
+            if (localizedMessage != null)
             {
-                strLocalizedMessage = strLocalizedMessage.Replace("src=\"images/403-3.gif\"", "src=\"" + ResolveUrl("~/images/403-3.gif") + "\"");
-                ErrorPlaceHolder.Controls.Add(new LiteralControl(string.Format(strLocalizedMessage, strErrorMessage)));
+                localizedMessage = localizedMessage.Replace("src=\"images/403-3.gif\"", "src=\"" + ResolveUrl("~/images/403-3.gif") + "\"");
+
+                if (!string.IsNullOrEmpty(errorMessage2) && ( (errorMode=="Off") || ( (errorMode=="RemoteOnly") && (Request.IsLocal) ) ))
+                {
+                    ErrorPlaceHolder.Controls.Add(new LiteralControl(string.Format(localizedMessage, errorMessage2)));
+                }
+                else
+                {
+                    ErrorPlaceHolder.Controls.Add(new LiteralControl(string.Format(localizedMessage, errorMessage)));
+                }
             }
 
             int statusCode;
@@ -118,6 +130,7 @@ namespace DotNetNuke.Services.Exceptions
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
+            //Fariborz Khosravi
             if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
             {
                 DefaultStylesheet.Attributes["href"] = ResolveUrl("~/Portals/_default/default.rtl.css");
@@ -183,7 +196,7 @@ namespace DotNetNuke.Services.Exceptions
             }
             localizedMessage = Localization.Localization.GetString("Return.Text", Localization.Localization.GlobalResourceFile);
 
-            hypReturn.Text = string.Format("<img src=\"{0}/images/lt.gif\" border=\"0\" /> {1}", Globals.ApplicationPath, localizedMessage);
+            hypReturn.Text = localizedMessage;
         }
     }
 }

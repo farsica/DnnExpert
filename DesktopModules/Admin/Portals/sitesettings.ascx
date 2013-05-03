@@ -213,14 +213,12 @@
             <fieldset class="ssasSecuritySettings">
                 <div class="dnnFormItem">
                     <dnn:label id="plAdministrator" runat="server" controlname="cboAdministratorId" />
-                   <%-- <asp:DropDownList ID="cboAdministratorId" runat="server" DataTextField="FullName"
-                        DataValueField="UserId" />--%>
                     <dnn:DnnComboBox ID="cboAdministratorId" runat="server" DataTextField="FullName"
                         DataValueField="UserId" />
                 </div>
-                <div class="dnnFormItem">
-                    <dnn:label id="plTimeZone" runat="server" controlname="cboTimeZone" />
-                    <dnn:dnntimezonecombobox id="cboTimeZone" runat="server" />
+				<div class="dnnFormItem">
+                    <dnn:label id="plHideLoginControl" runat="server" controlname="enablePopUpsCheckBox" />
+                    <asp:CheckBox ID="chkHideLoginControl" runat="server" />
                 </div>
             </fieldset>
             <h2 id="dnnSitePanel-Payment" class="dnnFormSectionHead">
@@ -266,6 +264,10 @@
                 <a href="">
                     <%=LocalizeString("Usability")%></a></h2>
             <fieldset class="ssasUsabilitySettings">
+	            <div class="dnnFormItem">
+                    <dnn:label id="plTimeZone" runat="server" controlname="cboTimeZone" />
+                    <dnn:dnntimezonecombobox id="cboTimeZone" runat="server" />
+                </div>
                 <div class="dnnFormItem">
                     <dnn:label id="enablePopUpsLabel" runat="server" controlname="enablePopUpsCheckBox" />
                     <asp:CheckBox ID="enablePopUpsCheckBox" runat="server" />
@@ -436,7 +438,7 @@
 							<SelectedListBoxStyle Height="130px" Width="180px"  />
 						</dnn:duallistbox>--%>
                         <dnn:DnnComboBox CheckBoxes="true" id="ctlDesktopModules" runat="server" DataValueField="DesktopModuleID"
-                            DataTextField="FriendlyName" AutoPostBack="true" />
+                            DataTextField="FriendlyName" AutoPostBack="true"/>
                     </div>
                 </fieldset>
                 <h2 id="dnnSitePanel-ClientResourceManagement" class="dnnFormSectionHead">
@@ -501,6 +503,10 @@
                     <asp:ListItem Value="2" resourcekey="Public" />
                     <asp:ListItem Value="3" resourcekey="Verified" />
                 </asp:RadioButtonList>
+            </div>
+			<div class="dnnFormItem">
+                <dnn:label id="plEnableRegisterNotification" runat="server" controlname="chkEnableRegisterNotification" />
+                <asp:CheckBox runat="server" ID="chkEnableRegisterNotification" />
             </div>
             <div class="dnnFormItem">
                 <fieldset>

@@ -595,7 +595,6 @@ Thank you for registering at [Portal:PortalName]. Please read the following info
 
 Website Address: [Portal:URL]
 Username: [User:UserName]
-Password: [Membership:Password]
 
 Your account details will be reviewed by the website Administrator and you will receive a notification upon account activation.
 
@@ -708,7 +707,6 @@ We are pleased to advise that you have been added as a Registered User to [Porta
 
 Portal Website Address: [Portal:URL]
 Username: [User:UserName]
-Password: [Membership:Password]
 
 You can use the following link to complete your verified registration:
 
@@ -730,7 +728,6 @@ We are pleased to advise that you have been added as a Registered User to [Porta
 
 Portal Website Address: [Portal:URL]
 Username: [User:UserName]
-Password: [Membership:Password]
 
 Thank you, we appreciate your support...
 
@@ -1036,7 +1033,6 @@ Please login using the following information:
 
 Website Address: [Portal:URL]
 Username:   [User:Username]
-Password: [Membership:Password]
 
 Sincerely,
 [Portal:PortalName]</value>

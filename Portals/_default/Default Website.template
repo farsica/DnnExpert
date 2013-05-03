@@ -700,7 +700,7 @@
           &lt;div class=&quot;slides_container&quot;&gt;            
               &lt;div class=&quot;slide&quot;&gt;
                   &lt;div&gt;
-                      &lt;h5 class=&quot;SubHead&quot;&gt;What&#39;s new with 7.0&lt;/h5&gt;
+                      &lt;h5 class=&quot;SubHead&quot;&gt;[Tab.GettingStarted.LeftPane.Module.Title.0.Text]&lt;/h5&gt;
                       &lt;p style=&quot;width: 275px; height: 150px; background-color: black;&quot;&gt;
                           &lt;iframe id=&quot;whatsNewVideo&quot; width=&quot;275&quot; frameborder=&quot;0&quot; style=&quot;display: none;&quot; src=&quot;http://www.dotnetnuke.com/Resources/Video-Library/7.0/WhatsNew.aspx?v=7.0.0&quot;
                               onload=&quot;javascript:$(&#39;#whatsNewVideo&#39;).show()&quot;&gt;&lt;/iframe&gt;
@@ -711,7 +711,7 @@
                           &lt;a class=&quot;videolink&quot; target=&quot;_blank&quot; href=&quot;http://www.dotnetnuke.com/Resources/Video-Library/7.0/WhatsNew.aspx?v=7.0.0&quot;&gt;[Tab.GettingStarted.LeftPane.Module.Content.3.Text]&lt;/a&gt;&lt;/p&gt;
                   &lt;/div&gt;
                   &lt;div&gt;
-                      &lt;h5 class=&quot;SubHead&quot;&gt;Learn the basics of working with DNN&lt;/h5&gt;
+                      &lt;h5 class=&quot;SubHead&quot;&gt;[Tab.GettingStarted.LeftPane.Module.Title.1.Text]&lt;/h5&gt;
                       &lt;p style=&quot;width: 275px; height: 150px; background-color: black;&quot;&gt;
                           &lt;iframe id=&quot;introVideo&quot; width=&quot;275&quot; frameborder=&quot;0&quot; style=&quot;display: none;&quot; src=&quot;http://www.dotnetnuke.com/Resources/Video-Library/7.0/introduction.aspx?v=7.0.0&quot;
                               onload=&quot;javascript:$(&#39;#introVideo&#39;).show()&quot;&gt;&lt;/iframe&gt;
@@ -5118,11 +5118,11 @@
                     &lt;div class="pBio"&gt;
                     &lt;h3 data-bind="text: AboutMeText"&gt;&lt;/h3&gt;
                     &lt;span data-bind="text: EmptyAboutMeText, visible: Biography().length==0"&gt;&lt;/span&gt;
-					&lt;p data-bind="html: Biography"&gt;&lt;/p&gt;
+          &lt;p data-bind="html: Biography"&gt;&lt;/p&gt;
                     &lt;/div&gt;
                     &lt;div class="pAddress"&gt;
                     &lt;h3 data-bind="text: LocationText"&gt;&lt;/h3&gt;
-					&lt;span data-bind="text: EmptyLocationText, visible: Street().length==0 &amp;&amp; Location().length==0 &amp;&amp; Country().length==0 &amp;&amp; PostalCode().length==0"&gt;&lt;/span&gt;
+          &lt;span data-bind="text: EmptyLocationText, visible: Street().length==0 &amp;&amp; Location().length==0 &amp;&amp; Country().length==0 &amp;&amp; PostalCode().length==0"&gt;&lt;/span&gt;
                     &lt;p&gt;&lt;span data-bind="text: Street()"&gt;&lt;/span&gt;&lt;span data-bind="visible: Street().length &gt; 0"&gt;&lt;br/&gt;&lt;/span&gt;
                     &lt;span data-bind="text: Location()"&gt;&lt;/span&gt;&lt;span data-bind="visible: Location().length &gt; 0"&gt;&lt;br/&gt;&lt;/span&gt;
                     &lt;span data-bind="text: Country()"&gt;&lt;/span&gt;&lt;span data-bind="visible: Country().length &gt; 0"&gt;&lt;br/&gt;&lt;/span&gt;
@@ -5131,7 +5131,7 @@
                     &lt;/div&gt;
                     &lt;div class="pContact"&gt;
                     &lt;h3 data-bind="text: GetInTouchText"&gt;&lt;/h3&gt;
-					&lt;span data-bind="text: EmptyGetInTouchText, visible: Telephone().length==0 &amp;&amp; Email().length==0 &amp;&amp; Website().length==0 &amp;&amp; IM().length==0"&gt;&lt;/span&gt;
+          &lt;span data-bind="text: EmptyGetInTouchText, visible: Telephone().length==0 &amp;&amp; Email().length==0 &amp;&amp; Website().length==0 &amp;&amp; IM().length==0"&gt;&lt;/span&gt;
                     &lt;ul&gt;
                     &lt;li data-bind="visible: Telephone().length &gt; 0"&gt;&lt;strong&gt;&lt;span data-bind="text: TelephoneText"&gt;:&lt;/span&gt;&lt;/strong&gt; &lt;span data-bind="text: Telephone()"&gt;&lt;/span&gt;&lt;/li&gt;
                     &lt;li data-bind="visible: Email().length &gt; 0"&gt;&lt;strong&gt;&lt;span data-bind="text: EmailText"&gt;:&lt;/span&gt;&lt;/strong&gt; &lt;span data-bind="text: Email()"&gt;&lt;/span&gt;&lt;/li&gt;

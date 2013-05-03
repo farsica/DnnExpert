@@ -176,7 +176,9 @@ namespace DotNetNuke.Modules.Admin.AdvancedSettings
 
                 if (languages != null)
                 {
-                    foreach (XmlNode language in languages)
+	                var installedPackages = PackageController.GetPackagesByType("CoreLanguagePack");
+	                var installedLanguages = installedPackages.Select(package => LanguagePackController.GetLanguagePackByPackage(package.PackageID)).ToList();
+	                foreach (XmlNode language in languages)
                     {
                         string cultureCode = "";
                         string version = "";
@@ -194,6 +196,7 @@ namespace DotNetNuke.Modules.Admin.AdvancedSettings
                         }
 	                    if (!string.IsNullOrEmpty(cultureCode) && !string.IsNullOrEmpty(version) && version.Length == 6)
 	                    {
+		                    //Fariborz Khosravi
                             var myCIintl = Common.Globals.GetUICulture(null, cultureCode);
 		                    version = version.Insert(4, ".").Insert(2, ".");
 		                    var package = new PackageInfo {Owner = OwnerUpdateService, Name = "LanguagePack-" + myCIintl.Name, FriendlyName = myCIintl.NativeName};
@@ -202,6 +205,15 @@ namespace DotNetNuke.Modules.Admin.AdvancedSettings
 		                    Version ver = null;
 		                    Version.TryParse(version, out ver);
 		                    package.Version = ver;
+
+							if (
+								installedLanguages.Any(
+									l =>
+									LocaleController.Instance.GetLocale(l.LanguageID).Code.ToLowerInvariant().Equals(cultureCode.ToLowerInvariant()) 
+									&& installedPackages.First(p => p.PackageID == l.PackageID).Version >= ver))
+							{
+								continue;
+							}
 
 							if (packages.Any(p => p.Name == package.Name))
 							{

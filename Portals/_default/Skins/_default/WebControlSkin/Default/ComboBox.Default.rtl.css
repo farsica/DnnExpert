@@ -195,6 +195,7 @@ div.RadComboBoxDropDown_Default .rcbHeader {
 
 .RadComboBox_Default .rcbDisabled .rcbInputCell .rcbInput, .RadComboBoxDropDown_Default .rcbDisabled {
     color: #999;
+    padding: 8px;
 }
 
 .RadComboBoxDropDown_Default .rcbLoading {

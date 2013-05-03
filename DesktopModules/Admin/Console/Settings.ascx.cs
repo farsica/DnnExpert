@@ -234,8 +234,8 @@ namespace DesktopModules.Admin.Console
                 {
                     if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
                     {
-                        var tabPath = ((HiddenField)item.Controls[3]).Value;
-                        var visibility = ((DropDownList)item.Controls[5]).SelectedValue;
+	                    var tabPath = (item.FindControl("tabPath") as HiddenField).Value;
+						var visibility = (item.FindControl("tabVisibility") as DnnComboBox).SelectedValue;
 
                         var key = String.Format("TabVisibility{0}", tabPath.Replace("//","-"));
                         moduleController.UpdateModuleSetting(ModuleId, key, visibility);

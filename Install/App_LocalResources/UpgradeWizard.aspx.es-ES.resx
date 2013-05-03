@@ -49,6 +49,9 @@
   <data name="Next.Text">
     <value xml:space="preserve">Actualizar ahora</value>
   </data>
+  <data name="NoInstallationLog.Text">
+    <value xml:space="preserve">No hay ningún registro de instalación</value>
+  </data>
   <data name="Password.Help">
     <value xml:space="preserve">Introduzca la contraseña del superusuario.</value>
   </data>

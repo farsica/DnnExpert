@@ -1,4 +1,4 @@
-#region Copyright
+﻿#region Copyright
 // 
 // DotNetNuke® - http://www.dotnetnuke.com
 // Copyright (c) 2002-2013
@@ -58,8 +58,8 @@ namespace DotNetNuke.Services.Install
 {
     public partial class Install : Page
     {
-    	private static readonly ILog Logger = LoggerSource.Instance.GetLogger(typeof (Install));
-		#region "Private Methods"
+        private static readonly ILog Logger = LoggerSource.Instance.GetLogger(typeof(Install));
+        #region "Private Methods"
 
         private void ExecuteScripts()
         {
@@ -98,12 +98,13 @@ namespace DotNetNuke.Services.Install
                 string strError = Config.UpdateMachineKey();
                 if (String.IsNullOrEmpty(strError))
                 {
-					//send a new request to the application to initiate step 2
+                    //send a new request to the application to initiate step 2
                     Response.Redirect(HttpContext.Current.Request.RawUrl, true);
                 }
                 else
                 {
-					//403-3 Error - Redirect to ErrorPage
+                    //403-3 Error - Redirect to ErrorPage
+                    //403.3 means directory permissions issue
                     string strURL = "~/ErrorPage.aspx?status=403_3&error=" + strError;
                     HttpContext.Current.Response.Clear();
                     HttpContext.Current.Server.Transfer(strURL);
@@ -113,13 +114,13 @@ namespace DotNetNuke.Services.Install
             {
                 var synchConnectionString = new SynchConnectionStringStep();
                 synchConnectionString.Execute();
-                if(synchConnectionString.Status == StepStatus.AppRestart)
+                if (synchConnectionString.Status == StepStatus.AppRestart)
                 {
                     //send a new request to the application to initiate step 2
-                    Response.Redirect(HttpContext.Current.Request.RawUrl, true);                    
+                    Response.Redirect(HttpContext.Current.Request.RawUrl, true);
                 }
-               
-				//Start Timer
+
+                //Start Timer
                 Upgrade.Upgrade.StartTimer();
 
                 //Write out Header
@@ -148,14 +149,15 @@ namespace DotNetNuke.Services.Install
                     if (!installConfig.InstallCulture.Equals("en-us", StringComparison.InvariantCultureIgnoreCase))
                     {
                         var locale = LocaleController.Instance.GetLocale("en-US");
+						//Fariborz Khosravi
 						if(locale != null)
-                        Localization.Localization.RemoveLanguageFromPortal(0, locale.LanguageId);
+                        	Localization.Localization.RemoveLanguageFromPortal(0, locale.LanguageId);
                     }
 
-                    
+
                     var licenseConfig = (installConfig != null) ? installConfig.License : null;
                     bool IsProOrEnterprise = (File.Exists(HttpContext.Current.Server.MapPath("~\\bin\\DotNetNuke.Professional.dll")) || File.Exists(HttpContext.Current.Server.MapPath("~\\bin\\DotNetNuke.Enterprise.dll")));
-                    if (IsProOrEnterprise && licenseConfig !=null && !String.IsNullOrEmpty(licenseConfig.AccountEmail) && !String.IsNullOrEmpty(licenseConfig.InvoiceNumber))
+                    if (IsProOrEnterprise && licenseConfig != null && !String.IsNullOrEmpty(licenseConfig.AccountEmail) && !String.IsNullOrEmpty(licenseConfig.InvoiceNumber))
                     {
                         Upgrade.Upgrade.ActivateLicense();
                     }
@@ -166,6 +168,7 @@ namespace DotNetNuke.Services.Install
                         ClientResourceManager.AddConfiguration();
                     }
 
+                    //Fariborz Khosravi
                     Response.Write("<h2>پايان عمليات نصب</h2>");
                     Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>براي مشاهده پورتال کليک نماييد</a></h2><br/><br/>");
                     Response.Flush();
@@ -185,7 +188,7 @@ namespace DotNetNuke.Services.Install
                     Response.Write("<h2>خطا در بروزرساني: " + strProviderPath + "</h2>");
                     Response.Flush();
                 }
-				
+
                 //Write out Footer
                 HtmlUtils.WriteFooter(Response);
             }
@@ -193,6 +196,29 @@ namespace DotNetNuke.Services.Install
 
         private void UpgradeApplication()
         {
+            var databaseVersion = DataProvider.Instance().GetVersion();
+
+            //first update the InstallVersion app setting if needed
+            bool redirectNeeded;
+            string strError = Config.UpdateInstallVersion(databaseVersion, out redirectNeeded);
+
+            if (String.IsNullOrEmpty(strError))
+            {
+                if (redirectNeeded)
+                {
+                    // we've update web.config, so we need to restart the page
+                    Response.Redirect(HttpContext.Current.Request.RawUrl, true);
+                }
+            }
+            else
+            {
+                //403-3 Error - Redirect to ErrorPage
+                string strURL = "~/ErrorPage.aspx?status=403_3&error=" + strError;
+                HttpContext.Current.Response.Clear();
+                HttpContext.Current.Server.Transfer(strURL);
+            }
+
+
             //Start Timer
             Upgrade.Upgrade.StartTimer();
 
@@ -206,83 +232,71 @@ namespace DotNetNuke.Services.Install
             string strProviderPath = DataProvider.Instance().GetProviderPath();
             if (!strProviderPath.StartsWith("ERROR:"))
             {
-                string strDatabaseVersion;
-
                 //get current database version
-                IDataReader dr = DataProvider.Instance().GetDatabaseVersion();
-                if (dr.Read())
+                var strDatabaseVersion = Globals.FormatVersion(databaseVersion);
+
+                Response.Write("<h2>نسخه جاري بانک اطلاعات: " + strDatabaseVersion + "</h2>");
+                Response.Flush();
+
+                string ignoreWarning = Null.NullString;
+                string strWarning = Null.NullString;
+                if ((databaseVersion.Major == 3 && databaseVersion.Minor < 3) || (databaseVersion.Major == 4 && databaseVersion.Minor < 3))
                 {
-					//Call Upgrade with the current DB Version to upgrade an
-                    //existing DNN installation
-                    int majVersion = Convert.ToInt32(dr["Major"]);
-                    int minVersion = Convert.ToInt32(dr["Minor"]);
-                    int buildVersion = Convert.ToInt32(dr["Build"]);
-                    strDatabaseVersion = majVersion.ToString("00") + "." + minVersion.ToString("00") + "." + buildVersion.ToString("00");
+                    //Users and profile have not been transferred
+                    //Get the name of the data provider
+                    ProviderConfiguration objProviderConfiguration = ProviderConfiguration.GetProviderConfiguration("data");
 
-                    Response.Write("<h2>نسخه جاري بانک اطلاعات: " + strDatabaseVersion + "</h2>");
-                    Response.Flush();
+                    //Execute Special Script
+                    Upgrade.Upgrade.ExecuteScript(strProviderPath + "Upgrade." + objProviderConfiguration.DefaultProvider);
 
-                    string ignoreWarning = Null.NullString;
-                    string strWarning = Null.NullString;
-                    if ((majVersion == 3 && minVersion < 3) || (majVersion == 4 && minVersion < 3))
+                    if ((Request.QueryString["ignoreWarning"] != null))
                     {
-						//Users and profile have not been transferred
-						//Get the name of the data provider
-                        ProviderConfiguration objProviderConfiguration = ProviderConfiguration.GetProviderConfiguration("data");
-
-                        //Execute Special Script
-                        Upgrade.Upgrade.ExecuteScript(strProviderPath + "Upgrade." + objProviderConfiguration.DefaultProvider);
-
-                        if ((Request.QueryString["ignoreWarning"] != null))
-                        {
-                            ignoreWarning = Request.QueryString["ignoreWarning"].ToLower();
-                        }
-                        strWarning = Upgrade.Upgrade.CheckUpgrade();
+                        ignoreWarning = Request.QueryString["ignoreWarning"].ToLower();
                     }
-                    else
-                    {
-                        ignoreWarning = "true";
-                    }
-					
-                    //Check whether Upgrade is ok
-                    if (strWarning == Null.NullString || ignoreWarning == "true")
-                    {
-                        Response.Write("<br/><br/>");
-                        Response.Write("<h2>گزارش وضعيت بروزرساني</h2>");
-                        Response.Flush();
-                        //stop scheduler
-                        SchedulingProvider.Instance().Halt("Stopped by Upgrade Process");
-
-                        Upgrade.Upgrade.UpgradeDNN(strProviderPath, DataProvider.Instance().GetVersion());
-
-                        //Install optional resources if present
-                        Upgrade.Upgrade.InstallPackages("Module", true);
-                        Upgrade.Upgrade.InstallPackages("Skin", true);
-                        Upgrade.Upgrade.InstallPackages("Container", true);
-                        Upgrade.Upgrade.InstallPackages("Language", true);
-                        Upgrade.Upgrade.InstallPackages("Provider", true);
-                        Upgrade.Upgrade.InstallPackages("AuthSystem", true);
-                        Upgrade.Upgrade.InstallPackages("Package", true);
-
-			Response.Write("<h2>پايان عمليات بروزرساني</h2>");
-			Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>براي مشاهده پورتال کليک نماييد</a></h2><br/><br/>");
-                    }
-                    else
-                    {
-                        Response.Write("<h2>هشدار:</h2>" + strWarning.Replace(Environment.NewLine, "<br />"));
-
-                        Response.Write("<br/><br/><a href='Install.aspx?mode=upgrade&ignoreWarning=true'>براي شروع بروزرساني نرم افزار کليک نماييد.</a>");
-                    }
-                    Response.Flush();
+                    strWarning = Upgrade.Upgrade.CheckUpgrade();
                 }
-                dr.Close();
+                else
+                {
+                    ignoreWarning = "true";
+                }
+
+                //Check whether Upgrade is ok
+                if (strWarning == Null.NullString || ignoreWarning == "true")
+                {
+                    Response.Write("<br/><br/>");
+					Response.Write("<h2>گزارش وضعيت بروزرساني</h2>");
+                    Response.Flush();
+                    //stop scheduler
+                    SchedulingProvider.Instance().Halt("Stopped by Upgrade Process");
+
+                    Upgrade.Upgrade.UpgradeDNN(strProviderPath, DataProvider.Instance().GetVersion());
+
+                    //Install optional resources if present
+                    Upgrade.Upgrade.InstallPackages("Module", true);
+                    Upgrade.Upgrade.InstallPackages("Skin", true);
+                    Upgrade.Upgrade.InstallPackages("Container", true);
+                    Upgrade.Upgrade.InstallPackages("Language", true);
+                    Upgrade.Upgrade.InstallPackages("Provider", true);
+                    Upgrade.Upgrade.InstallPackages("AuthSystem", true);
+                    Upgrade.Upgrade.InstallPackages("Package", true);
+
+                    //Fariborz Khosravi
+					Response.Write("<h2>پايان عمليات بروزرساني</h2>");
+					Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>براي مشاهده پورتال کليک نماييد</a></h2><br/><br/>");
+                }
+                else
+                {
+                    Response.Write("<h2>هشدار:</h2>" + strWarning.Replace(Environment.NewLine, "<br />"));
+                    Response.Write("<br/><br/><a href='Install.aspx?mode=upgrade&ignoreWarning=true'>براي شروع بروزرساني نرم افزار کليک نماييد.</a>");
+                }
+                Response.Flush();
             }
             else
             {
                 Response.Write("<h2>خطا در بروزرساني: " + strProviderPath + "</h2>");
                 Response.Flush();
             }
-			
+
             //Write out Footer
             HtmlUtils.WriteFooter(Response);
         }
@@ -315,7 +329,7 @@ namespace DotNetNuke.Services.Install
                         intPortalId = Upgrade.Upgrade.AddPortal(node, true, 0);
                     }
                 }
-				
+
                 //delete the file
                 try
                 {
@@ -327,6 +341,7 @@ namespace DotNetNuke.Services.Install
 					//error removing the file
 					Logger.Error(ex);
 				}
+                //Fariborz Khosravi
                 Response.Write("<h2>پايان عمليات نصب</h2>");
                 Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>براي مشاهده پورتال کليک نماييد</a></h2><br/><br/>");
                 Response.Flush();
@@ -356,6 +371,7 @@ namespace DotNetNuke.Services.Install
             Upgrade.Upgrade.InstallPackages("AuthSystem", true);
             Upgrade.Upgrade.InstallPackages("Package", true);
 
+            //Fariborz Khosravi
             Response.Write("<h2>پايان عمليات نصب</h2>");
             Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>براي مشاهده پورتال کليک نماييد</a></h2><br/><br/>");
             Response.Flush();
@@ -366,18 +382,18 @@ namespace DotNetNuke.Services.Install
 
         private void NoUpgrade()
         {
-			//get path to script files
+            //get path to script files
             string strProviderPath = DataProvider.Instance().GetProviderPath();
             if (!strProviderPath.StartsWith("ERROR:"))
             {
                 string strDatabaseVersion;
-				//get current database version
+                //get current database version
                 try
                 {
                     IDataReader dr = DataProvider.Instance().GetDatabaseVersion();
                     if (dr.Read())
                     {
-						//Write out Header
+                        //Write out Header
                         HtmlUtils.WriteHeader(Response, "none");
                         string currentAssembly = DotNetNukeContext.Current.Application.Version.ToString(3);
                         string currentDatabase = dr["Major"] + "." + dr["Minor"] + "." + dr["Build"];
@@ -400,7 +416,7 @@ namespace DotNetNuke.Services.Install
                     }
                     else
                     {
-						//Write out Header
+                        //Write out Header
                         HtmlUtils.WriteHeader(Response, "noDBVersion");
                         Response.Write("<h2>نسخه جاري نرم افزار: " + DotNetNukeContext.Current.Application.Version.ToString(3) + "</h2>");
 
@@ -412,7 +428,7 @@ namespace DotNetNuke.Services.Install
                 }
                 catch (Exception ex)
                 {
-					//Write out Header
+                    //Write out Header
                     Logger.Error(ex);
                     HtmlUtils.WriteHeader(Response, "error");
                     Response.Write("<h2>نسخه جاري نرم افزار: " + DotNetNukeContext.Current.Application.Version.ToString(3) + "</h2>");
@@ -423,21 +439,21 @@ namespace DotNetNuke.Services.Install
             }
             else
             {
-				//Write out Header
+                //Write out Header
                 HtmlUtils.WriteHeader(Response, "error");
                 Response.Write("<h2>نسخه جاري نرم افزار: " + DotNetNukeContext.Current.Application.Version.ToString(3) + "</h2>");
 
                 Response.Write("<h2>" + strProviderPath + "</h2>");
                 Response.Flush();
             }
-			
-			//Write out Footer
+
+            //Write out Footer
             HtmlUtils.WriteFooter(Response);
         }
-		
-		#endregion
 
-		#region "Event Handlers"
+        #endregion
+
+        #region "Event Handlers"
 
         protected override void OnInit(EventArgs e)
         {
@@ -453,8 +469,8 @@ namespace DotNetNuke.Services.Install
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-			
-			//Get current Script time-out
+
+            //Get current Script time-out
             int scriptTimeOut = Server.ScriptTimeout;
 
             string mode = "";
@@ -462,7 +478,7 @@ namespace DotNetNuke.Services.Install
             {
                 mode = Request.QueryString["mode"].ToLower();
             }
-			
+
             //Disable Client side caching
             Response.Cache.SetCacheability(HttpCacheability.ServerAndNoCache);
 
@@ -473,26 +489,26 @@ namespace DotNetNuke.Services.Install
             }
             else
             {
-				//Set Script timeout to MAX value
+                //Set Script timeout to MAX value
                 Server.ScriptTimeout = int.MaxValue;
 
                 switch (Globals.Status)
                 {
                     case Globals.UpgradeStatus.Install:
                         InstallApplication();
-						
+
                         //Force an App Restart
                         Config.Touch();
                         break;
                     case Globals.UpgradeStatus.Upgrade:
                         UpgradeApplication();
-                        
-						//Force an App Restart
-						Config.Touch();
+
+                        //Force an App Restart
+                        Config.Touch();
                         break;
                     case Globals.UpgradeStatus.None:
                         //Check mode
-						switch (mode)
+                        switch (mode)
                         {
                             case "addportal":
                                 AddPortal();
@@ -509,8 +525,8 @@ namespace DotNetNuke.Services.Install
                         NoUpgrade();
                         break;
                 }
-				
-				//restore Script timeout
+
+                //restore Script timeout
                 Server.ScriptTimeout = scriptTimeOut;
             }
         }
@@ -525,7 +541,7 @@ namespace DotNetNuke.Services.Install
 
             return verified;
         }
-		
-		#endregion
+
+        #endregion
     }
 }

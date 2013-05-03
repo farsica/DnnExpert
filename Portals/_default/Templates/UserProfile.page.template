@@ -47,7 +47,7 @@
           <name>ContentPane</name>
           <modules>
             <module>
-              <title>Ù¾Ø±ÙˆÙØ§ÙŠÙ„ Ù…Ù†</title>
+              <title>ÑæİÇíá ãä</title>
               <alltabs>false</alltabs>
               <inheritviewpermissions>true</inheritviewpermissions>
               <header />
@@ -94,7 +94,7 @@
               <moduledefinition>ViewProfile</moduledefinition>
             </module>
             <module>
-              <title>Ù¾ÙŠØ§Ù… Ù‡Ø§ÙŠ Ù…Ù†</title>
+              <title>íÇã åÇí ãä</title>
               <alltabs>false</alltabs>
               <inheritviewpermissions>true</inheritviewpermissions>
               <header />
@@ -147,7 +147,7 @@
               <moduledefinition>Messaging</moduledefinition>
             </module>
             <module>
-              <title>Ù…Ø§Ú˜ÙˆÙ„ Ù‡Ø§ÙŠ Ù…Ù†</title>
+              <title>ãÇæá åÇí ãä</title>
               <alltabs>false</alltabs>
               <inheritviewpermissions>true</inheritviewpermissions>
               <header />

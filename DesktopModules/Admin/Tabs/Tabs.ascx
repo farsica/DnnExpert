@@ -13,8 +13,42 @@
 			    collapseText: '<%=DotNetNuke.UI.Utilities.ClientAPI.GetSafeJSString(Localization.GetString("CollapseAll", Localization.SharedResourceFile))%>',
 				targetArea: '#dnnTabsModule'
 			});
+
+		$("#btnPageSearch", $('#dnnTabsModule')).click(function(e) {
+			searchPages($("#searchKeyword", $('#dnnTabsModule')).val());
+		});
+		$("#searchKeyword", $('#dnnTabsModule')).keydown(function(e) {
+			if (e.which == 13) {
+				$("#btnPageSearch", $('#dnnTabsModule')).click();
+				e.preventDefault();
+			}
+		});
 	}
 
+	var searchPages = function(keyword) {
+		var tree = $find("<%=ctlPages.ClientID %>");
+		var nodes = tree.get_allNodes();
+		for (var i = 0; i < nodes.length; i++) {
+			var node = nodes[i];
+			if (node.get_value() == "-1") {
+				continue;
+			}
+			if (keyword == "") {
+				node.set_visible(true);
+				node.collapse();
+			} else if (node.get_text().toLowerCase().indexOf(keyword.toLowerCase()) > -1) {
+				node.set_visible(true);
+				var parent = node.get_parent();
+				while (parent.get_value() != "-1") {
+					parent.set_visible(true);
+					parent.expand();
+					parent = parent.get_parent();
+				}
+			} else {
+				node.set_visible(false);
+			}
+		}
+	};
 
 	$(document).ready(function () {
 		setUpTabsModule();
@@ -119,7 +153,10 @@
 				    </asp:RadioButtonList>
                 </div>
 			</div>		
-		</asp:Panel> 
+		</asp:Panel>
+		<div class="dnnFormItem">
+			<input id="searchKeyword" type="text" /> <a id="btnPageSearch" class="dnnSecondaryAction"><%=LocalizeString("Search") %></a>
+		</div>
 		<div class="dnnTreeExpand">
 			<asp:LinkButton ID="cmdExpandTree" runat="server" CommandName="Expand" />
 		</div>
@@ -182,7 +219,7 @@
 			<fieldset>
 				<div class="dnnFormItem">
 					<dnn:Label ID="lblName" runat="server" Suffix=":" CssClass="dnnFormRequired"  />
-					<asp:TextBox ID="txtName" runat="server" MaxLength="50" ValidationGroup="Page" />
+					<asp:TextBox ID="txtName" runat="server" MaxLength="200" ValidationGroup="Page" />
 					<asp:RequiredFieldValidator ID="valName" runat="server" EnableClientScript="True" Display="Dynamic" resourcekey="valName.ErrorMessage" ControlToValidate="txtName" CssClass="dnnFormMessage dnnFormError" ValidationGroup="Page"/>
 				</div>
 				<div class="dnnFormItem">
