@@ -151,7 +151,6 @@ namespace DotNetNuke.UI.ControlPanels
 
 		protected string PreviewPopup()
 		{
-			//Fariborz Khosravi
 			var previewUrl = string.Format("{0}/{3}?ctl={1}&previewTab={2}&TabID={2}", 
 										Globals.AddHTTP(PortalSettings.PortalAlias.HTTPAlias), 
 										"MobilePreview",

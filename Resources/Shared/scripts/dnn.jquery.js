@@ -396,7 +396,6 @@
             $this.parent().css({ position: 'relative' });
             var tooltipHeight = helpSelector.height();
             var top = -(tooltipHeight + 30);
-            //Fariborz Khosravi
             if ($(document.body).css("direction") == "rtl")
                 $this.css({ position: 'absolute', left: '-29%', top: top + 'px' });
             else
