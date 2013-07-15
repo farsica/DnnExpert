@@ -230,7 +230,7 @@ UPDATE {databaseOwner}{objectQualifier}ModuleControls SET HelpUrl = 'http://help
 UPDATE {databaseOwner}{objectQualifier}ModuleControls SET HelpUrl = 'http://help.dotnetnuke.com/070000/default.htm#Documentation/Using the Control Panel/Admin Console/Languages/SuperUsers/Verifying Resource Files.html' WHERE ControlSrc='DesktopModules/Admin/Languages/resourceverifier.ascx'
 UPDATE {databaseOwner}{objectQualifier}ModuleControls SET HelpUrl = 'http://help.dotnetnuke.com/070000/default.htm#Documentation/Using the Control Panel/Host Console/Extensions/Creating a New Extension.html' WHERE ControlSrc='DesktopModules/Admin/Extensions/ExtensionWizard.ascx'
 UPDATE {databaseOwner}{objectQualifier}ModuleControls SET HelpUrl = 'http://help.dotnetnuke.com/070000/default.htm#Documentation/Using the Control Panel/Host Console/Extensions/Creating a New Module.html' WHERE ControlSrc='DesktopModules/Admin/Extensions/Editors/EditModuleDefinition.ascx'
-UPDATE {databaseOwner}{objectQualifier}ModuleControls SET HelpUrl = 'http://help.dotnetnuke.com/070000/default.htm#Documentation/Using the Control Panel/Admin Console/Advanced Settings/About Advanced Settings.html' WHERE ControlSrc='DesktopModules/Admin/AdvancedSettings/AdvancedSettings.ascx'
+UPDATE {databaseOwner}{objectQualifier}ModuleControls SET HelpUrl = 'http://help.dotnetnuke.com/070000/default.htm#Documentation/#Using the Control Panel/Admin Console/Advanced Settings/About Advanced Settings.html' WHERE ControlSrc='DesktopModules/Admin/AdvancedSettings/AdvancedSettings.ascx'
 UPDATE {databaseOwner}{objectQualifier}ModuleControls SET HelpUrl = 'http://help.dotnetnuke.com/070000/default.htm#Documentation/Using the Control Panel/Admin Console/Languages/SuperUsers/Adding a New Language.html' WHERE ControlSrc='DesktopModules/Admin/Languages/EditLanguage.ascx'
 
 
@@ -279,7 +279,6 @@ BEGIN
 END
 GO
 
-
 /*****Journal Updates *****/
 IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.Columns WHERE TABLE_NAME='{objectQualifier}Journal' AND COLUMN_NAME='CommentsDisabled')
 	BEGIN
@@ -293,9 +292,6 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.Columns WHERE TABLE_NAME='{objec
 			ADD CommentsHidden bit NOT NULL CONSTRAINT DF_{objectQualifier}Journal_CommentsHidden DEFAULT 0
 	END
 GO
-
-
-
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}Journal_GetByKey]') AND OBJECTPROPERTY(id, N'IsPROCEDURE') = 1)
   DROP PROCEDURE {databaseOwner}{objectQualifier}Journal_GetByKey
 GO
@@ -323,7 +319,6 @@ GO
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}Journal_Comments_ToggleHidden]') AND OBJECTPROPERTY(id, N'IsPROCEDURE') = 1)
   DROP PROCEDURE {databaseOwner}{objectQualifier}Journal_Comments_ToggleHidden
 GO
-
 CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_GetByKey]
 	@PortalId int,
 	@ObjectKey nvarchar(255),
@@ -347,8 +342,6 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_GetByKey]
 				OR 
 				((@IncludeAllItems = 1) AND (j.ObjectKey = @ObjectKey AND j.ObjectKey IS NOT NULL AND @ObjectKey <> ''))
 GO
-
-
 CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForSummary]
 	@PortalId int,
 	@ModuleId int,
@@ -364,7 +357,6 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForSummary]
 	END
 	DECLARE @EndRow int
 	SET @EndRow = @RowIndex + @MaxRows - 1;
-
 	DECLARE @j TABLE(id int IDENTITY, journalid int, datecreated datetime)
 	IF EXISTS(SELECT * from {databaseOwner}[{objectQualifier}Journal_TypeFilters] WHERE ModuleId = @ModuleId)
 	INSERT INTO @j 
@@ -385,7 +377,6 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForSummary]
 				WHERE j.PortalId = @PortalId
 			) as j INNER JOIN {databaseOwner}[{objectQualifier}Journal] jt ON jt.JournalId = j.JournalId AND jt.PortalId = @PortalId
 			ORDER BY jt.DateCreated DESC, jt.JournalId DESC;
-
 	WITH journalItems  AS
 	(
 		SELECT	j.JournalId,
@@ -410,11 +401,8 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForSummary]
 	WHERE	((@IncludeAllItems = 0) AND (RowNumber BETWEEN @RowIndex AND @EndRow AND j.IsDeleted = @IsDeleted)) 
 			OR 
 			((@IncludeAllItems = 1) AND (RowNumber BETWEEN @RowIndex AND @EndRow ))
-
 	ORDER BY RowNumber ASC;
 GO
-
-
 CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForProfile]
 	@PortalId int,
 	@ModuleId int,
@@ -427,7 +415,6 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForProfile]
 	AS
 	DECLARE @EndRow int
 	SET @EndRow = @RowIndex + @MaxRows;
-
 	DECLARE @j TABLE(id int IDENTITY, journalid int, datecreated datetime)
 	IF EXISTS(SELECT * from {databaseOwner}[{objectQualifier}Journal_TypeFilters] WHERE ModuleId = @ModuleId)
 	INSERT INTO @j 
@@ -448,7 +435,6 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForProfile]
 				WHERE j.ProfileId = @ProfileId AND j.PortalId = @PortalId
 			) as j INNER JOIN {databaseOwner}[{objectQualifier}Journal] jt ON jt.JournalId = j.JournalId AND jt.PortalId = @PortalId
 			ORDER BY jt.DateCreated DESC, jt.JournalId DESC;
-
 	WITH journalItems  AS
 	(
 		SELECT	j.JournalId,
@@ -475,8 +461,6 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForProfile]
 			((@IncludeAllItems = 1) AND (RowNumber BETWEEN @RowIndex AND @EndRow))	
 	ORDER BY RowNumber ASC;
 GO
-
-
 CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForGroup]
 	@PortalId int,
 	@ModuleId int,
@@ -489,7 +473,6 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForGroup]
 	AS
 	DECLARE @EndRow int
 	SET @EndRow = @RowIndex + @MaxRows;
-	
 		DECLARE @j TABLE(id int IDENTITY, journalid int, datecreated datetime)
 	IF EXISTS(SELECT * from {databaseOwner}[{objectQualifier}Journal_TypeFilters] WHERE ModuleId = @ModuleId)
 	INSERT INTO @j 
@@ -512,7 +495,6 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForGroup]
 					WHERE j.PortalId = @PortalId
 			) as j INNER JOIN {databaseOwner}[{objectQualifier}Journal] jt ON jt.JournalId = j.JournalId AND jt.PortalId = @PortalId AND jt.GroupId = @GroupId
 			ORDER BY jt.DateCreated DESC, jt.JournalId DESC;
-			
 	WITH journalItems  AS
 	(
 		SELECT	j.JournalId,
@@ -538,11 +520,8 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_ListForGroup]
 	WHERE		((@IncludeAllItems = 0) AND (RowNumber BETWEEN @RowIndex AND @EndRow AND j.IsDeleted = @IsDeleted)) 
 				OR 
 				((@IncludeAllItems = 1) AND (RowNumber BETWEEN @RowIndex AND @EndRow))
-					
 	ORDER BY RowNumber ASC;
 GO
-
-
 CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_Get]
 	@PortalId int,
 	@CurrentUserId int,
@@ -567,9 +546,6 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_Get]
 				OR 
 				((@IncludeAllItems = 1) AND (j.JournalId = @JournalId))
 GO
-
-
-
 CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_Save]
 @PortalId int,
 @JournalId int,
@@ -605,10 +581,7 @@ INSERT INTO {databaseOwner}[{objectQualifier}Journal_Data]
 	(@JournalId, @JournalXML)
 END
 SELECT @JournalId
-
 GO
-
-
 CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_Update]
 @PortalId int,
 @JournalId int,
@@ -642,19 +615,15 @@ UPDATE {databaseOwner}[{objectQualifier}Journal]
 		CommentsHidden = @CommentsHidden,
 		CommentsDisabled = @CommentsDisabled
 	WHERE JournalId = @JournalId
-
 IF @SecuritySet IS NOT NULL AND @SecuritySet <> ''
 BEGIN
 DELETE FROM {databaseOwner}[{objectQualifier}Journal_Security] WHERE JournalId = @JournalId
-
 INSERT INTO {databaseOwner}[{objectQualifier}Journal_Security]
 	(JournalId, SecurityKey) 
 	SELECT @JournalId, string from {databaseOwner}[{objectQualifier}Journal_SplitText](@SecuritySet,',')
 END
-
 SELECT @JournalId
 GO
-
 CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_Comments_ToggleDisable]
 @PortalId int,
 @JournalId int,
@@ -663,9 +632,7 @@ AS
 UPDATE {databaseOwner}[{objectQualifier}Journal]
 	SET CommentsDisabled = @Disabled
 	WHERE PortalId = @PortalId AND JournalId = @JournalId
-
 GO
-
 CREATE PROCEDURE {databaseOwner}[{objectQualifier}Journal_Comments_ToggleHidden]
 @PortalId int,
 @JournalId int,
@@ -674,11 +641,7 @@ AS
 UPDATE {databaseOwner}[{objectQualifier}Journal]
 	SET CommentsHidden = @Hidden
 	WHERE PortalId = @PortalId AND JournalId = @JournalId
-
-
 GO
-
-
 /************************************************************/
 
 

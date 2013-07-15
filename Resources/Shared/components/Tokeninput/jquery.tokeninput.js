@@ -19,6 +19,7 @@
         minChars: 1,
         propertyToSearch: "name",
         jsonContainer: null,
+        supportModules: null,
 
         // Display settings
         hintText: "Type in a search term",
@@ -629,6 +630,7 @@
         }
 
         function show_dropdown() {
+            //Fariborz Khosravi
             if ($(document.body).css("direction") == "rtl")
                 dropdown.css("right", $(token_list).offset().right);
             else
@@ -789,6 +791,9 @@
                     ajax_params.dataType = settings.contentType;
                     if (settings.crossDomain) {
                         ajax_params.dataType = "jsonp";
+                    }
+                    if (settings.supportModules != null) {
+                        ajax_params.beforeSend = settings.supportModules;
                     }
 
                     // Attach the success callback

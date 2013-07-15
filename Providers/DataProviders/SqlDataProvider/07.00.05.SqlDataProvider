@@ -649,6 +649,7 @@ AS
 	SELECT  @NewMessageID
 GO
 
+
 /* Create GetPackage Procedure */
 /*******************************/
 

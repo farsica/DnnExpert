@@ -46,7 +46,7 @@
 			function megaHoverOver() {
 				hideAll();
 				var menuSelector = $(this).parent().find(opts.menuBorderSelector);
-				if ($.browser.msie && menuSelector.prev("iframe").length == 0) {
+				if (!$.support.cssFloat && menuSelector.prev("iframe").length == 0) {
 					var mask = $("<iframe frameborder=\"0\"></iframe>");
 					menuSelector.before(mask);
 					mask.css({
@@ -63,7 +63,7 @@
 
 			function hideAll() {
 				$controlPanel.find(opts.menuBorderSelector).stop().fadeTo('fast', 0, function () { //Fade to 0 opacity
-					if ($.browser.msie) $(this).prev("iframe").remove();
+					if (!$.support.cssFloat) $(this).prev("iframe").remove();
 					$(this).hide();  //after fading, hide it
 				});
 			}
@@ -122,11 +122,11 @@
 
 			//Hovering over a telerik dropdown will disable autohide
 			//need this to disable hide when the drop down expands beyond the menu body
-			$controlPanel.find(opts.persistOnMouseoverSelector).live('mouseover', function () {
+			$controlPanel.on('mouseover', opts.persistOnMouseoverSelector, function () {
 				canHide = false;
 			});
 
-			$controlPanel.find(opts.persistOnWaitForChangeSelector).live('click', function () {
+			$controlPanel.on('click', opts.persistOnWaitForChangeSelector, function () {
 				forceShow = true;
 				canHide = false;
 
@@ -138,7 +138,7 @@
 				}, 0);
 			});
 
-			$controlPanel.find(opts.persistOnFocusSelector).live('focus', function () {
+			$controlPanel.on('focus', opts.persistOnFocusSelector, function () {
 				canHide = false;
 			});
 

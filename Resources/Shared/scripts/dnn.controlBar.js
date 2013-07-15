@@ -1,6 +1,7 @@
 ﻿if (typeof dnn === 'undefined') dnn = {};
 dnn.controlBar = dnn.controlBar || {};
 dnn.controlBar.init = function (settings) {
+    dnn.controlBar.selectedPage = null,
     dnn.controlBar.selectedModule = null;
     dnn.controlBar.addNewModule = true;
     dnn.controlBar.addingModule = false;
@@ -18,10 +19,10 @@ dnn.controlBar.init = function (settings) {
     };
     dnn.controlBar.saveStatus = function () {
         var categoryComboVal = $find(settings.categoryComboId).get_value();
-        var siteComboVal = $find(settings.portalComboId).get_value();
-        var pageComboVal = $find(settings.pageComboId).get_value();
+        var selectedPageId = dnn.controlBar.selectedPage ? dnn.controlBar.selectedPage.id : '';
+        var selectedPageName = dnn.controlBar.selectedPage ? dnn.controlBar.selectedPage.name : '';
         var visibilityComboVal = $find(settings.visibilityComboId).get_value();
-        var persistValue = [dnn.controlBar.addNewModule, categoryComboVal, siteComboVal, pageComboVal, visibilityComboVal].join('|');
+        var persistValue = [dnn.controlBar.addNewModule, categoryComboVal, selectedPageId, selectedPageName, visibilityComboVal].join('|');
         dnn.dom.setCookie('ControlBarInitStatus', persistValue);
         dnn.controlBar.status = null;
     };
@@ -32,8 +33,8 @@ dnn.controlBar.init = function (settings) {
             dnn.controlBar.status = {
                 addNewModule: persits[0] == 'true',
                 category: persits[1],
-                site: persits[2],
-                page: persits[3],
+                pageId: persits[2],
+                pageName: persits[3],
                 visibility: persits[4]
             };
         }
@@ -155,72 +156,11 @@ dnn.controlBar.init = function (settings) {
             }
         });
     };
-    dnn.controlBar.getPageList = function (portal) {
-
-        var messageContainer = $('#ControlBar_ModuleListMessage_ExistingModule');
-        var loadingContainer = messageContainer.next();
-        var listContainer = loadingContainer.next();
-        var scrollContainer = listContainer.next();
-
-        messageContainer.show();
-        loadingContainer.hide();
-        listContainer.hide();
-        scrollContainer.hide();
-
-        $('p.ControlBar_ModuleListMessage_InitialMessage', messageContainer).show();
-        $('p.ControlBar_ModuleListMessage_NoResultMessage', messageContainer).hide();
-
-        if (!portal) {
-            var combo = $find(settings.pageComboId);
-            combo.clearItems();
-            var comboItem = new Telerik.Web.UI.RadComboBoxItem();
-            comboItem.set_text(settings.selectPageText);
-            comboItem.set_value("");
-            combo.get_items().add(comboItem);
-            comboItem.select();
-            return;
-        }
-
-        var service = dnn.controlBar.getService();
-        var serviceUrl = dnn.controlBar.getServiceUrl(service);
-        $.ajax({
-            url: serviceUrl + 'GetPageList',
-            type: 'GET',
-            data: 'portal=' + portal,
-            beforeSend: service.setModuleHeaders,
-            success: function (d) {
-                var combo = $find(settings.pageComboId);
-                combo.clearItems();
-                var comboItem = new Telerik.Web.UI.RadComboBoxItem();
-                comboItem.set_text(settings.selectPageText);
-                comboItem.set_value("");
-                combo.get_items().add(comboItem);
-                comboItem.select();
-                for (var i = 0; i < d.length; i++) {
-                    var txt = d[i].IndentedTabName;
-                    var val = d[i].TabID;
-
-                    comboItem = new Telerik.Web.UI.RadComboBoxItem();
-                    comboItem.set_text(txt);
-                    comboItem.set_value(val);
-                    combo.get_items().add(comboItem);
-                }
-
-                if (dnn.controlBar.status && !dnn.controlBar.status.addNewModule && dnn.controlBar.status.page) {
-                    combo.findItemByValue(dnn.controlBar.status.page).select();
-                    dnn.controlBar.getTabModules(dnn.controlBar.status.page);
-
-                }
-
-            },
-            error: function (xhr) {
-                dnn.controlBar.responseError(xhr);
-            }
-        });
-    };
-
     dnn.controlBar.addModule = function (module, page, pane, position, sort, visibility, addExistingModule, copyModule) {
-        var dataVar = { Module: module, Page: page, Pane: pane,
+        var dataVar = {
+            Module: module,
+            Page: page,
+            Pane: pane,
             Position: position, Sort: sort,
             Visibility: visibility,
             AddExistingModule: addExistingModule,
@@ -229,14 +169,12 @@ dnn.controlBar.init = function (settings) {
         var sharing = (dnn.getVar('moduleSharing') || 'false') == 'true';
 
         if (sharing && !dnn.controlBar.addNewModule) {
-            var selectedPortalId = $find(settings.portalComboId).get_value();
             var selectedTabId = page;
             var selectedModuleId = module;
 
             var parameters = {
                 ModuleId: selectedModuleId,
-                TabId: selectedTabId,
-                PortalId: selectedPortalId
+                TabId: selectedTabId
             };
 
             var moduleShareableUrl = $.dnnSF().getServiceRoot('internalservices') + 'ModuleService/GetModuleShareable';
@@ -531,7 +469,7 @@ dnn.controlBar.init = function (settings) {
 
                     //set data
                     dnn.controlBar.dragdropModule = $(this).data('module');
-                    dnn.controlBar.dragdropPage = $find(settings.pageComboId).get_value();
+                    dnn.controlBar.dragdropPage = dnn.controlBar.selectedPage? dnn.controlBar.selectedPage.id : null;
                     dnn.controlBar.dragdropVisibility = $find(settings.visibilityComboId).get_value();
                     dnn.controlBar.dragdropCopyModule = $('#ControlBar_Module_chkCopyModule').get(0).checked;
                     dnn.controlBar.dragdropAddExistingModule = !dnn.controlBar.addNewModule;
@@ -624,31 +562,26 @@ dnn.controlBar.init = function (settings) {
         }
     };
 
-    dnn.controlBar.ControlBar_Module_SiteList_Changed = function (sender, e) {
-        var item = e.get_item();
-        if (item) {
-            dnn.controlBar.getPageList(item.get_value());
-        }
-    };
-
-    dnn.controlBar.ControlBar_Module_PageList_Changed = function (sender, e) {
-        var item = e.get_item();
+    dnn.controlBar.ControlBar_Module_PageList_Changed = function (selectedNode) {
+        if (!selectedNode.key)
+            dnn.controlBar.selectedPage = null;
+        else
+            dnn.controlBar.selectedPage = { id: parseInt(selectedNode.key, 10), name: selectedNode.value };
+        
         var visibilityCombo = $find(settings.visibilityComboId);
-	    var makeCopyCheckbox = $("#" + settings.makeCopyCheckboxId);
-        if (item) {
-            var val = item.get_value();
-            if (val) {
-                dnn.controlBar.getTabModules(item.get_value());
+        var makeCopyCheckbox = $("#" + settings.makeCopyCheckboxId);
+        
+        if (dnn.controlBar.selectedPage) {
+                dnn.controlBar.getTabModules(dnn.controlBar.selectedPage.id);
                 visibilityCombo.enable();
 	            makeCopyCheckbox.attr("disabled", false).parent().removeClass("disabled");
                 if (dnn.controlBar.status && !dnn.controlBar.status.addNewModule) {
                     visibilityCombo.findItemByValue(dnn.controlBar.status.visibility).select();
                 }
-
-            } else {
-            	visibilityCombo.disable();
-            	makeCopyCheckbox.attr("disabled", true).parent().addClass("disabled");
-            }
+        }
+        else {
+            visibilityCombo.disable();
+            makeCopyCheckbox.attr("disabled", true).parent().addClass("disabled");
         }
     };
 
@@ -797,33 +730,23 @@ dnn.controlBar.init = function (settings) {
 
             return false;
         }
-
-        var portal = null;
+        
         if (dnn.controlBar.status && !dnn.controlBar.status.addNewModule) {
-            var selectedPortal = dnn.controlBar.status.site;
-            if (selectedPortal) {
-                $find(settings.portalComboId).findItemByValue(selectedPortal).select();
-                portal = selectedPortal;
+            var selectedPageId = dnn.controlBar.status.pageId;
+            if (selectedPageId) {
+                dnn.controlBar.selectedPage = { id: parseInt(selectedPageId, 10), name: dnn.controlBar.status.pageName };
+                dnn[settings.pagePickerId].selectedItem({ key: selectedPageId, value: dnn.controlBar.status.pageName });
+                var visibilityCombo = $find(settings.visibilityComboId);
+                var makeCopyCheckbox = $("#" + settings.makeCopyCheckboxId);
+                dnn.controlBar.getTabModules(selectedPageId);
+                visibilityCombo.enable();
+                makeCopyCheckbox.attr("disabled", false).parent().removeClass("disabled");
+                if (dnn.controlBar.status && !dnn.controlBar.status.addNewModule) {
+                    visibilityCombo.findItemByValue(dnn.controlBar.status.visibility).select();
+                }
             }
         }
-        else {
-            portal = $find(settings.portalComboId).get_value();
-        }
-
-        // check portal combobox has only one item or not
-        var portals = $find(settings.portalComboId).get_items();
-        var portalsCount = portals.get_count();
-        var hidePortalCombo = portalsCount < 3;
-        if (hidePortalCombo) {
-            // only one portal available
-            $('#ControlBar_SiteList > table').hide();
-            if (!portal) {
-                // portal not selected, select default one
-                portal = portals.getItem(1).get_value();
-            }
-        }
-
-        dnn.controlBar.getPageList(portal);
+    
         dnn.controlBar.addNewModule = false;
         toggleModulePane($('#ControlBar_Module_AddExistingModule'), true);
         $('#ControlBar_Action_Menu').addClass('onActionMenu');
@@ -849,7 +772,7 @@ dnn.controlBar.init = function (settings) {
         dnn.controlBar.addingModule = true;
 
         var module = dnn.controlBar.selectedModule;
-        var page = $find(settings.pageComboId).get_value();
+        var page = dnn.controlBar.selectedPage ? dnn.controlBar.selectedPage.id : -1;
         var pane = $(this).data('pane');
         var position = $(this).data('position');
         var visibility = $find(settings.visibilityComboId).get_value();
@@ -900,17 +823,22 @@ dnn.controlBar.init = function (settings) {
     });
 
     var toggleModulePane = function (pane, show) {
+        var paneVisible = pane.is(':visible');
         if (show) {
-            pane.animate({ height: 'show' }, 100, function () {
-                $('#Form').addClass("showModulePane");
-                $(window).resize();
-            });
+            if (!paneVisible) {
+                pane.animate({ height: 'show' }, 100, function() {
+                    $('#Form').addClass("showModulePane");
+                    $(window).resize();
+                });
+            }
 
         } else {
-            pane.animate({ height: 'hide' }, 100, function () {
-	            $('#Form').removeClass("showModulePane");
-                $(window).resize();
-            });
+            if (paneVisible) {
+                pane.animate({ height: 'hide' }, 100, function() {
+                    $('#Form').removeClass("showModulePane");
+                    $(window).resize();
+                });
+            }
         }
     };
 
@@ -1029,7 +957,7 @@ dnn.controlBar.init = function (settings) {
         });
     });
 
-    $('a.bookmark').live('click', function () {
+    $(document.body).on('click', 'a.bookmark', function () {
         var $this = $(this);
         if ($this.hasClass('hideBookmark')) return false;
 
@@ -1071,7 +999,7 @@ dnn.controlBar.init = function (settings) {
         }
     });
 
-    $('a.removeBookmark').live('click', function () {
+    $(document.body).on('click', 'a.removeBookmark', function () {
         var $this = $(this);
         var li = $this.parent();
         var tabname = li.attr('data-tabname');
@@ -1202,6 +1130,6 @@ $(function () {
 			if (combo != null && combo.get_dropDownVisible()) {
 				combo.hideDropDown();
 			}
-});
+        });
 	});
 });

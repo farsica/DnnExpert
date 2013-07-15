@@ -18,24 +18,12 @@
         html += "<div class='dnnFormItem'><div class='dnnLabel'><label for='bodytext'>" + opts.messageText + "</label></div><textarea rows='2' cols='20' id='bodytext' name='bodytext'/></div>";
 
         if (opts.showAttachments) {
-            html += "<div class='dnnFormItem'><label>" + opts.attachmentsText + "</label><div class='dnnLeft'><button type='button' id='fileFromSite' class='dnnTertiaryAction'><span>" + opts.browseText + "</span></button><div class='messageAttachments'><ul></ul></div></div></div>";
+            html += "<div class='dnnFormItem'><div class='dnnLabel'<label>" + opts.attachmentsText + "</label></div><div><button type='button' id='fileFromSite' class='dnnTertiaryAction'><span>" + opts.browseText + "</span></button><div class='fileUploadArea'><input id='uploadFileId' type='file' name='files[]' data-text='" + opts.uploadText + "' /></div><div class='messageAttachments'><ul></ul></div></div></div>";
+	        html += "<div class='itemUpload'><div class='fileupload-error dnnFormMessage dnnFormValidationSummary' style='display:none;'></div><div class='progress_bar_wrapper'><div class='progress_context' style='margin:10px 0px; display:none;'><div class='upload_file_name' style='margin:5px 0;'></div><div class='progress-bar green'><div style='width:0px;'><span></span> </div></div></div></div></div>";
             html += "<div id='userFileManager'></div>";
 
             opts.userFileManagerOptions.openTriggerSelector = '#fileFromSite';
-            opts.userFileManagerOptions.attachCallback = function (file) {
-                if ($.inArray(file.id, attachments) === -1) {
-                    attachments.push(file.id);
-                    composeMessageDialog.find('.messageAttachments ul').append('<li><a href="#" title="' + file.name + '">' + file.name + '</a><a href="#" class="removeAttachment" title="' + opts.removeText + '"></a></li>');
-                    composeMessageDialog.find('.messageAttachments li:last-child .removeAttachment').click(function () {
-                        var index = $.inArray(file.id, attachments);
-                        if (index !== -1) {
-                            attachments.splice(index, 1);
-                            $(this).parent().remove();
-                        }
-                        return false;
-                    });
-                }
-            };
+	        opts.userFileManagerOptions.attachCallback = attachFile;
         }
 
         html += "</fieldset>";
@@ -72,14 +60,28 @@
                 messageNode.remove();
             });
         };
+	    function attachFile(file) {
+            if ($.inArray(file.id, attachments) === -1) {
+                attachments.push(file.id);
+                composeMessageDialog.find('.messageAttachments ul').append('<li><a href="#" title="' + file.name + '">' + file.name + '</a><a href="#" class="removeAttachment" title="' + opts.removeText + '"></a></li>');
+                composeMessageDialog.find('.messageAttachments li:last-child .removeAttachment').click(function () {
+                    var index = $.inArray(file.id, attachments);
+                    if (index !== -1) {
+                        attachments.splice(index, 1);
+                        $(this).parent().remove();
+                    }
+                    return false;
+                });
+            }
+        };
         $wrap.delegate(opts.openTriggerSelector, 'click', function (e) {
-
-            e.preventDefault();
-            e.stopPropagation();
 
             if (opts.canTrigger && !opts.canTrigger()) {
                 return;
             }
+
+            e.preventDefault();
+            e.stopPropagation();
 
             var autoclose,
                 messageId = -1;
@@ -92,55 +94,67 @@
 
             composeMessageDialog = $("<div class='composeMessageDialog dnnForm dnnClear'/>").html(html).dialog(opts);
 
-            if (opts.showAttachments && !$wrap.data('fileManagerInitialized')) {
+	        if (opts.showAttachments && !$wrap.data('fileManagerInitialized')) {
                 // we only need to initialize this plugin once, doing so more than once will lead to multiple dialogs.
                 // this is because the #userFileManager element is never destroyed when the compose message dialog is closed.
-                composeMessageDialog.find('#userFileManager').userFileManager(opts.userFileManagerOptions);
+	        	composeMessageDialog.find('#userFileManager').userFileManager(opts.userFileManagerOptions);
+		        
                 $wrap.data('fileManagerInitialized', true);
             }
+	        
+            composeMessageDialog.find('.fileUploadArea').dnnUserFileUpload({
+				maxFileSize: opts.maxFileSize,
+				serverErrorMessage: opts.serverErrorText,
+				addImageServiceUrl: opts.servicesFramework.getServiceRoot('CoreMessaging') + 'FileUpload/UploadFile',
+				beforeSend: opts.servicesFramework.setModuleHeaders,
+				callback: attachFile,
+				complete: function() {
+					composeMessageDialog.find('.fileUploadArea input:file').data("wrapper").get(0).childNodes[0].nodeValue = opts.uploadText;
+				}
+			});
 
-            composeMessageDialog.find('#to').tokenInput(opts.serviceurlbase + "Search", {
-                // We can set the tokenLimit here
-                theme: "facebook",
-                resultsFormatter: function (item) {
-                    if (item.id.startsWith("user-")) {
-                        return "<li class='user'><img src='" + item.iconfile + "' title='" + item.name + "' height='25px' width='25px' /><span>" + item.name + "</span></li>";
-                    } else if (item.id.startsWith("role-")) {
-                        return "<li class='role'><img src='" + item.iconfile + "' title='" + item.name + "' height='25px' width='25px' /><span>" + item.name + "</span></li>";
-                    }
-                    return "<li>" + item[this.propertyToSearch] + "</li>"; // Default formatter
-                },
-                minChars: 2,
-                preventDuplicates: true,
-                hintText: '',
-                noResultsText: opts.noResultsText,
-                searchingText: opts.searchingText,
-                onAdd: function (item) {
-                    if (item.id.startsWith("user-")) {
-                        users.push(item.id.substring(5));
-                    } else if (item.id.startsWith("role-")) {
-                        roles.push(item.id.substring(5));
-                    }
-                    updateSendButtonStatus();
-                },
-                onDelete: function (item) {
-                    var array = item.id.startsWith("user-") ? users : roles,
-                        id = item.id.substring(5),
-                        index = $.inArray(id, array);
+	        composeMessageDialog.find('#to').tokenInput(opts.serviceurlbase + "Search", {
+				// We can set the tokenLimit here
+				theme: "facebook",
+				resultsFormatter: function (item) {
+					if (item.id.startsWith("user-")) {
+						return "<li class='user'><img src='" + item.iconfile + "' title='" + item.name + "' height='25px' width='25px' /><span>" + item.name + "</span></li>";
+					} else if (item.id.startsWith("role-")) {
+						return "<li class='role'><img src='" + item.iconfile + "' title='" + item.name + "' height='25px' width='25px' /><span>" + item.name + "</span></li>";
+					}
+					return "<li>" + item[this.propertyToSearch] + "</li>"; // Default formatter
+				},
+				minChars: 2,
+				preventDuplicates: true,
+				hintText: '',
+				noResultsText: opts.noResultsText,
+				searchingText: opts.searchingText,
+				onAdd: function (item) {
+					if (item.id.startsWith("user-")) {
+						users.push(item.id.substring(5));
+					} else if (item.id.startsWith("role-")) {
+						roles.push(item.id.substring(5));
+					}
+					updateSendButtonStatus();
+				},
+				onDelete: function (item) {
+					var array = item.id.startsWith("user-") ? users : roles,
+						id = item.id.substring(5),
+						index = $.inArray(id, array);
 
-                    if (index !== -1) {
-                        array.splice(index, 1);
-                    }
-                    updateSendButtonStatus();
-                },
-                onError: function (xhr, status) {
-                    displayMessage(composeMessageDialog, opts.autoSuggestErrorText + status);
-                }
-            });
+					if (index !== -1) {
+						array.splice(index, 1);
+					}
+					updateSendButtonStatus();
+				},
+				onError: function (xhr, status) {
+					displayMessage(composeMessageDialog, opts.autoSuggestErrorText + status);
+				}
+			});
 
-            composeMessageDialog.find('#subject').keyup(function () {
-                updateSendButtonStatus();
-            });
+			composeMessageDialog.find('#subject').keyup(function () {
+				updateSendButtonStatus();
+			});
 
             var prePopulatedRecipients = opts.onPrePopulate(this);
 
@@ -191,6 +205,11 @@
                     if (prePopulatedRecipients != null) {
                         composeMessageDialog.find('#subject').focus();
                     }
+	                
+					composeMessageDialog.find('.fileUploadArea input').dnnFileInput();
+                },
+                close: function(event, ui) {
+	                composeMessageDialog.destroy();
                 },
                 buttons: [
                     {
@@ -246,6 +265,7 @@
                     }
                 ],
                 close: function () {
+	                composeMessageDialog.remove();
                     if (autoclose != null) {
                         clearInterval(autoclose);
                     }
@@ -271,6 +291,7 @@
         messageText: 'Your Message',
         attachmentsText: 'Attachment(s)',
         browseText: 'Browse',
+        uploadText: 'Choose File',
         removeText: 'Remove attachment',
         sendText: 'Send',
         cancelText: 'Cancel',

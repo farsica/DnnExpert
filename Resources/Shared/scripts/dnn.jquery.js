@@ -9,9 +9,7 @@
         };
 
         $wrap.each(function () {
-            var showEvent = null,
-                cookieId;
-
+            var showEvent, cookieId;
             if (this.id) {
                 cookieId = 'dnnTabs-' + this.id;
                 if (opts.selected === -1) {
@@ -23,30 +21,35 @@
                         opts.selected = 0;
                     }
                 }
-            }
-
-            showEvent = (function (cookieId) {
-                return function (event, ui) {
-                    dnn.dom.setCookie(cookieId, ui.index, opts.cookieDays, '/', '', false, opts.cookieMilleseconds);
+                showEvent = (function (cid) {
+                    return function (event, ui) {
+                        dnn.dom.setCookie(cid, ui.newTab.index(), opts.cookieDays, '/', '', false, opts.cookieMilleseconds);
+                    };
+                })(cookieId);
+            } else {
+                showEvent = function() {
                 };
-            })(cookieId);
-
+            }
+            
             $wrap.tabs({
-                show: showEvent,
-                selected: opts.selected,
+                activate: showEvent,
+                active: opts.selected,
                 disabled: opts.disabled,
                 fx: {
                     opacity: opts.opacity,
                     duration: opts.duration
                 }
             });
+            
+            if (window.location.hash) {
+                $('a[href="' + window.location.hash + '"]', $wrap).trigger('click');
+            }
 
             // page validation integration - select tab that contain tripped validators
-            if (typeof Page_ClientValidate != "undefined" && $.isFunction(Page_ClientValidate)) {
-                $wrap.find(opts.validationTriggerSelector).click(function (e) {
-                    if (!Page_ClientValidate(opts.validationGroup)) {
+            if (typeof window.Page_ClientValidate != "undefined" && $.isFunction(window.Page_ClientValidate)) {
+                $wrap.find(opts.validationTriggerSelector).click(function () {
+                    if (!window.Page_ClientValidate(opts.validationGroup)) {
                         var invalidControl = $wrap.find(opts.invalidItemSelector).eq(0);
-
                         var $parent = invalidControl.closest(".ui-tabs-panel");
                         if ($parent.length > 0) {
                             var tabId = $parent.attr("id");
@@ -78,7 +81,6 @@
     $.fn.dnnConfirm = function (options) {
         var opts = $.extend({}, $.fn.dnnConfirm.defaultOptions, options),
         $wrap = this;
-
         $wrap.each(function () {
             var $this = $(this),
                 defaultAction = $this.attr('href'),
@@ -95,11 +97,8 @@
                         $dnnDialog.dialog("close");
                         return true;
                     }
-
-                    e.preventDefault();
-
                     $dnnDialog.dialog({
-                        open: function (e) {
+                        open: function () {
                             $('.ui-dialog-buttonpane').find('button:contains("' + opts.noText + '")').addClass('dnnConfirmCancel');
                         },
                         position: 'center',
@@ -135,10 +134,11 @@
                         ]
                     });
                     $dnnDialog.dialog('open');
+                    e.preventDefault();
+                    return false;
                 });
             }
         });
-
         return $wrap;
     };
 
@@ -200,42 +200,56 @@
 
         $wrap.each(function () {
             var $this = $(this);
-
+            if (typeof(opts.onExpand) === "function") {
+                $this.bind('onExpand', opts.onExpand);
+            }
+            if (typeof(opts.onHide) === "function") {
+                $this.bind('onHide', opts.onHide);
+            }
             // wire up click event to perform slide toggle
             $this.find(opts.clickToToggleSelector).click(function (e) {
-                e.preventDefault();
-
                 var toggle = $(this).toggleClass(opts.toggleClass).parent().next(opts.regionToToggleSelector).slideToggle(function () {
                     var id = $(toggle.context.parentNode).attr("id");
                     var cookieId = id ? id.replace(/[^a-zA-Z0-9\-]+/g, "") : '';
-                    if (cookieId)
-                        dnn.dom.setCookie(cookieId, $(this).is(':visible'), opts.cookieDays, '/', '', false, opts.cookieMilleseconds);
+                    var visible = $(this).is(':visible');
+                    if (cookieId) {
+                        dnn.dom.setCookie(cookieId, visible, opts.cookieDays, '/', '', false, opts.cookieMilleseconds);
+                    }
+                    if (visible) {
+                        $(this).trigger("onExpand");
+                    }
+                    else {
+                        $(this).trigger("onHide");
+                    }
                 });
 
-                //stop event from called again
+                e.preventDefault();
                 e.stopImmediatePropagation();
+                return false;
             });
 
             function collapsePanel($clicker, $region) {
                 $clicker.removeClass(opts.toggleClass);
                 $region.hide();
+                $this.trigger("onHide");
             }
 
             function expandPanel($clicker, $region) {
                 $clicker.addClass(opts.toggleClass);
                 $region.show();
+                $this.trigger("onExpand");
             }
 
             // walk over each selector and expand or collapse as necessary
             $this.find(opts.sectionHeadSelector).each(function (indexInArray, valueOfElement) {
-                var $this = $(valueOfElement),
-                    elementId = $this.attr("id"),
-            	    cookieId = elementId ? elementId.replace(/[^a-zA-Z0-9\-]+/g, "") : '',
+                var $self = $(valueOfElement),
+                    elementId = $self.attr("id"),
+                    cookieId = elementId ? elementId.replace(/[^a-zA-Z0-9\-]+/g, "") : '',
                     cookieValue = cookieId ? dnn.dom.getCookie(cookieId) : '',
-                    $clicker = $this.find(opts.clickToToggleIsolatedSelector),
-                    $region = $this.next(opts.regionToToggleSelector),
-                    $parentSeparator = $this.parents(opts.panelSeparatorSelector),
-                    groupPanelIndex = $parentSeparator.find(opts.sectionHeadSelector).index($this)
+                    $clicker = $self.find(opts.clickToToggleIsolatedSelector),
+                    $region = $self.next(opts.regionToToggleSelector),
+                    $parentSeparator = $self.parents(opts.panelSeparatorSelector),
+                    groupPanelIndex = $parentSeparator.find(opts.sectionHeadSelector).index($self);
 
                 if (cookieValue == "false") { // cookie explicitly set to false
                     collapsePanel($clicker, $region);
@@ -252,9 +266,9 @@
             });
 
             // page validation integration - expand collapsed panels that contain tripped validators
-            $this.find(opts.validationTriggerSelector).click(function (e) {
-                if (typeof Page_ClientValidate != "undefined" && $.isFunction(Page_ClientValidate)) {
-                    if (!Page_ClientValidate(opts.validationGroup)) {
+            $this.find(opts.validationTriggerSelector).click(function () {
+                if (typeof window.Page_ClientValidate != "undefined" && $.isFunction(window.Page_ClientValidate)) {
+                    if (!window.Page_ClientValidate(opts.validationGroup)) {
                         $this.find(opts.invalidItemSelector).each(function () {
                             var $parent = $(this).closest(opts.regionToToggleSelector);
                             if ($parent.is(':hidden')) {
@@ -264,9 +278,7 @@
                     }
                 }
             });
-
         });
-
         return $wrap;
     };
 
@@ -387,29 +399,33 @@
         $wrap = this;
 
         $wrap.each(function () {
-            var $this = $(this);
-            var dnnFormHelp = $this.prev();
-            dnnFormHelp.click(function (e) {
+            var $this = $(this),
+                dnnFormHelp = $this.prev();
+            if ($this.data('initialized')) return;
+            dnnFormHelp.on('click', function (e) {
                 e.preventDefault();
             });
             var helpSelector = $this.find(opts.helpSelector);
             $this.parent().css({ position: 'relative' });
-            var tooltipHeight = helpSelector.height();
-            var top = -(tooltipHeight + 30);
+            //Fariborz Khosravi
             if ($(document.body).css("direction") == "rtl")
-                $this.css({ position: 'absolute', left: '-29%', top: top + 'px' });
+                $this.css({ position: 'absolute', left: '-29%' });
             else
-                $this.css({ position: 'absolute', right: '-29%', top: top + 'px' });
+                $this.css({ position: 'absolute', right: '-29%' });
             var hoverOnToolTip = false, hoverOnPd = false;
+            
             dnnFormHelp.hoverIntent({
                 over: function () {
                     hoverOnPd = true;
-                    helpSelector.show();
+                    var tooltipHeight = helpSelector.height();
+                    var top = -(tooltipHeight + 30);
+                    helpSelector.parent().css({ top: top + 'px' });
+                    helpSelector.css('visibility', 'visible');
                 },
                 out: function () {
                     hoverOnPd = false;
                     if (!$this.hasClass(opts.pinnedClass) && !hoverOnToolTip) {
-                        helpSelector.hide();
+                        helpSelector.css('visibility', 'hidden');
                     }
                 },
                 timeout: 200,
@@ -419,25 +435,30 @@
             helpSelector.hover(function () { hoverOnToolTip = true; }, function () {
                 hoverOnToolTip = false;
                 if (!$this.hasClass(opts.pinnedClass) && !hoverOnPd) {
-                    helpSelector.hide();
+                    helpSelector.css('visibility', 'hidden');
                 }
             });
 
             var pinHelper = helpSelector.find(opts.pinSelector);
-            pinHelper.click(function (e) {
+            
+            pinHelper.on('click', function (e) {
                 e.preventDefault();
                 if ($this.hasClass(opts.pinnedClass)) {
-                    helpSelector.css({ "left": '0px', "top": '0px' }).hide().draggable('destroy');
+                    helpSelector.css({ "left": '0', "top": '0' })
+                        .css('visibility', 'hidden')
+                        .draggable('destroy');
                     $this.removeClass(opts.pinnedClass);
                 }
                 else {
+                    
                     $this.addClass(opts.pinnedClass);
                     if ($.isFunction($().draggable)) {
                         helpSelector.draggable();
                     }
                 }
-
             });
+
+            $this.data('initialized', 1);
         });
 
         return $wrap;
@@ -452,28 +473,23 @@
 })(jQuery);
 
 (function ($) {
-    var CB = function (e) {
-        if (!e) var e = window.event;
+    var cb = function (e) {
+        if (!e) e = window.event;
         e.cancelBubble = true;
         if (e.stopPropagation) e.stopPropagation();
     };
 
     /* DNN customized checkbox/radiobox */
     $.fn.dnnCheckbox = function (options) {
-
-        /* Default settings */
         var settings = {
             cls: 'dnnCheckbox'  /* checkbox  */
         };
-
-        /* Processing settings */
         settings = $.extend(settings, options || {});
-
-        /* Adds check/uncheck & disable/enable events */
+        
         var addEvents = function (object) {
-            var checked = object.checked;
-            var disabled = object.disabled;
-            var $object = $(object);
+            var checked = object.checked,
+                disabled = object.disabled,
+                $object = $(object);
 
             if (object.stateInterval)
                 clearInterval(object.stateInterval);
@@ -485,57 +501,54 @@
                     if (object.checked != checked)
                         $object.trigger((checked = !!object.checked) ? 'check' : 'uncheck');
                 },
-                10 /* in miliseconds. Low numbers this can decrease performance on slow computers, high will increase responce time */
+                10 /* in miliseconds.*/
             );
             return $object;
         };
 
         return this.each(function () {
+        	var ch = this;
+	        
+			if ($(ch).data("checkBoxWrapped")) {
+				return;
+			}
+	        $(ch).data("checkBoxWrapped", true);
 
-            var ch = this; /* Reference to DOM Element*/
-            /* Check we needs to add customization or not*/
             if ($(this).hasClass('normalCheckBox') || $(this).hasClass('normalRadioButton')) return;
             var parentCheckBoxHolder = $(this).closest('.normalCheckBox');
             var parentRadioButtonHolder = $(this).closest('.normalRadioButton');
             if (parentCheckBoxHolder.length || parentRadioButtonHolder.length) return;
-
-            var $ch = addEvents(ch); /* Adds custom events and returns, jQuery enclosed object */
-
-
-
-            /* Removing wrapper if already applied  */
+            var $ch = addEvents(ch); 
             if (ch.wrapper) ch.wrapper.remove();
-
-            /* Creating wrapper for checkbox and assigning "hover" event */
             ch.wrapper = $('<span class="' + settings.cls + '"><span class="mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFAAAAAAAApWe5zwAAAAF0Uk5TAEDm2GYAAAAMSURBVHjaYmAACDAAAAIAAU9tWeEAAAAASUVORK5CYII=" /></span></span>');
             ch.wrapperInner = ch.wrapper.children('span:eq(0)');
             ch.wrapper.hover(
-                function (e) { ch.wrapperInner.addClass(settings.cls + '-hover'); CB(e); },
-                function (e) { ch.wrapperInner.removeClass(settings.cls + '-hover'); CB(e); }
+                function (e) { ch.wrapperInner.addClass(settings.cls + '-hover'); cb(e); },
+                function (e) { ch.wrapperInner.removeClass(settings.cls + '-hover'); cb(e); }
             );
-
-            /* Wrapping checkbox */
+            
             $ch.css({ position: 'absolute', zIndex: -1, visibility: 'hidden' }).after(ch.wrapper);
-
-            /* Trying to find "our" label */
-            var label = false, parentLabel = false;
+            
+            var label, parentLabel = false;
             label = $ch.closest('label');
-            if (!label.length) label = false; else parentLabel = true;
+            if (!label.length)
+                label = false;
+            else
+                parentLabel = true;
+            
             if (!label && $ch.attr('id')) {
                 label = $('label[for="' + $ch.attr('id') + '"]');
                 if (!label.length) label = false;
             }
-            var isRadCheckBox = $ch.hasClass('rtChk') || $ch.hasClass('rcbCheckBox'); // rad checkbox is a special case, use jQuery eventPath.
-            /* Labe found, applying event hanlers */
+            
             if (label) {
                 label.css('display', 'inline-block');
-
                 if (!parentLabel) {
                     label.click(function (e) {
                         $ch.triggerHandler('focus');
-                        !isRadCheckBox ? ch.click() : $ch.trigger('click', [e]);
+                        ch.click();
                         $ch.trigger('change', [e]);
-                        CB(e);
+                        cb(e);
                         return false;
                     });
                 }
@@ -546,28 +559,25 @@
 
                         $this.click(function (e) {
                             $ch.triggerHandler('focus');
-                            !isRadCheckBox ? ch.click() : $ch.trigger('click', [e]);
+                            ch.click();
                             $ch.trigger('change', [e]);
-                            CB(e);
+                            cb(e);
                             return false;
                         });
                     });
                 }
             }
-
             if (!parentLabel) {
                 ch.wrapper.click(function (e) {
-                	$ch.triggerHandler('focus');
-                	!isRadCheckBox ? ch.click() : $ch.trigger('click', [e]);
+                    $ch.triggerHandler('focus');
+                    ch.click();
                     $ch.trigger('change', [e]);
-                    CB(e);
+                    cb(e);
                     return false;
                 });
             }
-            if (isRadCheckBox) { // stop event propagation for checkbox in rad control.
-		        $ch.click(function(e) { CB(e); });
-	        }
-	        $ch.bind('disable', function () { ch.wrapperInner.addClass(settings.cls + '-disabled'); }).bind('enable', function () { ch.wrapperInner.removeClass(settings.cls + '-disabled'); });
+
+            $ch.bind('disable', function () { ch.wrapperInner.addClass(settings.cls + '-disabled'); }).bind('enable', function () { ch.wrapperInner.removeClass(settings.cls + '-disabled'); });
             $ch.bind('check', function () { ch.wrapper.addClass(settings.cls + '-checked'); }).bind('uncheck', function () { ch.wrapper.removeClass(settings.cls + '-checked'); });
 
             /* Applying checkbox state */
@@ -589,47 +599,39 @@
     };
 
     $.fn.dnnHelperTip = function (options) {
-
-        /* Default settings */
         var settings = {
             cls: 'dnnHelperTip',
             helpContent: "This is hover helper tooltip",
             holderId: '',
             show: false // immediately show tooltip after call
         };
-
-        /* Processing settings */
         settings = $.extend(settings, options || {});
         return this.each(function () {
-            var pd = this;
-            var $pd = $(this);
-
-            /* Removing tooltip if already applied  */
+            var pd = this,
+                $pd = $(this);
             if (pd.tooltipWrapper) pd.tooltipWrapper.remove();
-
-            /* Creating tooltip wrapper for selected dom and assigning "hover" event */
+            
             pd.tooltipWrapper = $('<div class="' + settings.cls + '" data-tipholder="' + settings.holderId + '"> <div class="dnnFormHelpContent dnnClear"><span class="dnnHelpText">' + settings.helpContent + '</span></div></div>');
             $('body').append(pd.tooltipWrapper);
             pd.tooltipWrapper.css({ position: 'absolute' });
             pd.tooltipWrapperInner = $('.dnnFormHelpContent', pd.tooltipWrapper);
 
             var tooltipHeight = pd.tooltipWrapperInner.height();
-            pd.tooltipWrapperInner.css({ left: '-10px', top: -(tooltipHeight + 30) + 'px' })
-
+            pd.tooltipWrapperInner.css({ left: '-10px', top: -(tooltipHeight + 30) + 'px' });
             var hoverOnPd = false;
             $pd.hover(
                 function () {
                     hoverOnPd = true;
                     setTimeout(function () {
                         if (hoverOnPd)
-                            pd.tooltipWrapperInner.show();
+                            pd.tooltipWrapperInner.css('visibility', 'visible');
                     }, 400);
                 },
                 function () {
                     hoverOnPd = false;
                     setTimeout(function () {
                         if (!hoverOnPd)
-                            pd.tooltipWrapperInner.hide();
+                            pd.tooltipWrapperInner.css('visibility', 'hidden');
                     }, 400);
 
                 });
@@ -637,7 +639,7 @@
             if (settings.show) {
                 hoverOnPd = true;
                 setTimeout(function () {
-                    pd.tooltipWrapperInner.show();
+                    pd.tooltipWrapperInner.css('visibility', 'visible');
                 }, 400);
             }
 
@@ -651,8 +653,8 @@
     };
 
     $.fn.dnnProgressbar = function () {
-        var $pd = $(this);
-        var pd = this;
+        var $pd = $(this),
+            pd = this;
 
         if (pd.tooltipWrapper) pd.tooltipWrapper.remove();
         pd.tooltipWrapper = $('<div class="dnnTooltip"> <div class="dnnFormHelpContent dnnClear"><span class="dnnHelpText"></span></div></div>').insertAfter($pd);
@@ -665,14 +667,14 @@
             over: function () {
                 hoverOnPd = true;
                 var val = $(this).children(':first').progressbar('value');
-	            pd.update(val);
-                pd.tooltipWrapperInner.show();
+                pd.update(val);
+                pd.tooltipWrapperInner.css('visibility', 'visible');
 
             },
             out: function () {
                 hoverOnPd = false;
                 if (!hoverOnToolTip) {
-                    pd.tooltipWrapperInner.hide();
+                    pd.tooltipWrapperInner.css('visibility', 'hidden');
                 }
             },
             timeout: 200,
@@ -686,22 +688,20 @@
             }
         });
 
-	    pd.update = function(value) {
-	    	pd.tooltipWrapperInner.find('span').html(value + ' %');
-		    var pdTop = $pd.position().top,
+        pd.update = function (value) {
+            pd.tooltipWrapperInner.find('span').html(value + ' %');
+            var pdTop = $pd.position().top,
 			    tooltipHeight = pd.tooltipWrapperInner.height();
 
-		    pdTop -= (tooltipHeight + 10);
-		    var pdLeft = value > 50 ? (value - 4) + '%' : value > 0 ? (value - 2) + '%' : '10px';
-		    pd.tooltipWrapper.css({ position: 'absolute', left: pdLeft, top: pdTop + 'px' });
-	    };
+            pdTop -= (tooltipHeight + 10);
+            var pdLeft = value > 50 ? (value - 4) + '%' : value > 0 ? (value - 2) + '%' : '10px';
+            pd.tooltipWrapper.css({ position: 'absolute', left: pdLeft, top: pdTop + 'px' });
+        };
 
         return this;
     };
 
     $.fn.dnnSpinner = function (options) {
-
-        // set default options
         var opt = $.extend({
             type: 'range',
             typedata: '',
@@ -730,8 +730,6 @@
         opt.typedata = otypedata;
 
         var inputControl = this;
-
-        // validate if the object is a input of text type.
         if (!inputControl.is(':text'))
             return inputControl;
 
@@ -741,8 +739,7 @@
         else {
             inputControl.addClass('dnnSpinnerInput');
         }
-
-        // create the Spinner Control body.
+        
         var strContainerDiv = '';
         strContainerDiv += '<div class="dnnSpinner">';
         strContainerDiv += '<div class="dnnSpinnerDisplay"></div>';
@@ -750,22 +747,16 @@
         strContainerDiv += '<a class="dnnSpinnerTopButton"></a>';
         strContainerDiv += '<a class="dnnSpinnerBotButton"></a>';
         strContainerDiv += '</div></div>';
-
-        // add the above created control to page
         var objContainerDiv = $(strContainerDiv).insertAfter(inputControl);
-
-        // hide the input control and place within the Spinner Control body
         inputControl.insertAfter($("div.dnnSpinnerDisplay", objContainerDiv));
         $("div.dnnSpinnerDisplay", objContainerDiv).click(function () {
             if (opt.type == 'range') {
                 var displayCtrl = $(this);
-                // show inner input
                 var innerInput = $('input[type="text"]', displayCtrl);
                 if (innerInput.length < 1) {
                     var originalVal = displayCtrl.html();
                     innerInput = $('<input type="text" />').val(originalVal);
                     displayCtrl.html(innerInput);
-
                     innerInput.blur(function () {
                         var newVal = $(this).val();
                         if (newVal > opt.typedata.max) {
@@ -774,7 +765,6 @@
                         if (newVal < opt.typedata.min) {
                             newVal = opt.typedata.min;
                         }
-
                         $(this).remove();
                         selectedValue = parseInt(newVal);
                         inputControl.val(newVal);
@@ -786,9 +776,9 @@
                             event.preventDefault();
                             return false;
                         }
+                        return true;
                     });
                 }
-
                 innerInput.focus();
             }
 
@@ -798,7 +788,6 @@
 
         switch (opt.type) {
             case 'range':
-                // set default value;
                 if (opt.defaultVal < opt.typedata.min || opt.defaultVal > opt.typedata.max) {
                     opt.defaultVal = opt.typedata.min;
                 }
@@ -808,9 +797,7 @@
                 inputControl.val(opt.defaultVal.toFixed(opt.typedata.decimalplaces));
                 ($("div.dnnSpinnerDisplay", objContainerDiv)).html(opt.defaultVal.toFixed(opt.typedata.decimalplaces));
                 var selectedValue = opt.defaultVal;
-
                 if ((opt.typedata.max - opt.typedata.min) > opt.typedata.interval) {
-                    // attach events;
                     $("a.dnnSpinnerTopButton", objContainerDiv).click(function () {
 
                         if ((selectedValue + opt.typedata.interval) <= opt.typedata.max || opt.looping) {
@@ -890,15 +877,11 @@
 
                 break;
         };
-
-        // return the selected input control for the chainability
         return inputControl;
     };
 })(jQuery);
 
-// dnn customised jquery autocompleter
 (function ($) {
-    "use strict";
     $.fn.dnnAutocomplete = function (options) {
         var url;
         if (arguments.length > 1) {
@@ -919,16 +902,13 @@
         });
     };
 
-    /**
-     * Store default options
-     * @type {object}
-     */
     $.fn.dnnAutocomplete.defaults = {
-        inputClass: 'acInput',
-        loadingClass: 'acLoading',
-        resultsClass: 'acResults',
-        selectClass: 'acSelect',
+        inputClass: 'dnn_acInput',
+        loadingClass: 'dnn_acLoading',
+        resultsClass: 'dnn_acResults',
+        selectClass: 'dnn_acSelect',
         queryParamName: 'q',
+        contentTypeParamName: 'contentTypeId',
         extraParams: {},
         remoteDataType: false,
         lineSeparator: '\n',
@@ -936,7 +916,7 @@
         minChars: 2,
         maxItemsToShow: 10,
         delay: 400,
-        useCache: true,
+        useCache: false,
         maxCacheLength: 10,
         matchSubset: true,
         matchCase: false,
@@ -965,12 +945,6 @@
         moduleId: null // dnn Module Id context if needed
     };
 
-    /**
-     * Sanitize result
-     * @param {Object} result
-     * @returns {Object} object with members value (String) and data (Object)
-     * @private
-     */
     var sanitizeResult = function (result) {
         var value, data;
         var type = typeof result;
@@ -983,7 +957,7 @@
         } else if (type === 'object') {
             value = result.value;
             data = result.data;
-        }
+        } else value = '';
         value = String(value);
         if (typeof data !== 'object') {
             data = {};
@@ -994,13 +968,6 @@
         };
     };
 
-    /**
-     * Sanitize integer
-     * @param {mixed} value
-     * @param {Object} options
-     * @returns {Number} integer
-     * @private
-     */
     var sanitizeInteger = function (value, stdValue, options) {
         var num = parseInt(value, 10);
         options = options || {};
@@ -1010,18 +977,10 @@
         return num;
     };
 
-    /**
-     * Create partial url for a name/value pair
-     */
     var makeUrlParam = function (name, value) {
         return [name, encodeURIComponent(value)].join('=');
     };
 
-    /**
-     * Build an url
-     * @param {string} url Base url
-     * @param {object} [params] Dictionary of parameters
-     */
     var makeUrl = function (url, params) {
         var urlAppend = [];
         $.each(params, function (index, value) {
@@ -1030,16 +989,10 @@
         if (urlAppend.length) {
             url += url.indexOf('?') === -1 ? '?' : '&';
             url += urlAppend.join('&');
-        }
+        }        
         return url;
     };
-    /**
-     * Default sort filter
-     * @param {object} a
-     * @param {object} b
-     * @param {boolean} matchCase
-     * @returns {number}
-     */
+
     var sortValueAlpha = function (a, b, matchCase) {
         a = String(a.value);
         b = String(b.value);
@@ -1056,98 +1009,25 @@
         return 0;
     };
 
-    /**
-     * dnnAutocompleter class
-     * @param {object} $elem jQuery object with one input tag
-     * @param {object} options Settings
-     * @constructor
-     */
     $.dnnAutocompleter = function ($elem, options) {
 
-        /**
-         * Assert parameters
-         */
         if (!$elem || !($elem instanceof $) || $elem.length !== 1 || $elem.get(0).tagName.toUpperCase() !== 'INPUT') {
             throw new Error('Invalid parameter for dnnAutocompleter, jQuery object with one element with INPUT tag expected.');
         }
 
-        /**
-         * @constant Link to this instance
-         * @type object
-         * @private
-         */
         var self = this;
-
-        /**
-         * @property {object} Options for this instance
-         * @public
-         */
         this.options = options;
-
-        /**
-         * @property object Cached data for this instance
-         * @private
-         */
         this.cacheData_ = {};
-
-        /**
-         * @property {number} Number of cached data items
-         * @private
-         */
         this.cacheLength_ = 0;
-
-        /**
-         * @property {string} Class name to mark selected item
-         * @private
-         */
         this.selectClass_ = 'jquery-autocomplete-selected-item';
-
-        /**
-         * @property {number} Handler to activation timeout
-         * @private
-         */
         this.keyTimeout_ = null;
-
-        /**
-         * @property {number} Handler to finish timeout
-         * @private
-         */
         this.finishTimeout_ = null;
-
-        /**
-         * @property {number} Last key pressed in the input field (store for behavior)
-         * @private
-         */
         this.lastKeyPressed_ = null;
-
-        /**
-         * @property {string} Last value processed by the autocompleter
-         * @private
-         */
         this.lastProcessedValue_ = null;
-
-        /**
-         * @property {string} Last value selected by the user
-         * @private
-         */
         this.lastSelectedValue_ = null;
-
-        /**
-         * @property {boolean} Is this autocompleter active (showing results)?
-         * @see showResults
-         * @private
-         */
         this.active_ = false;
-
-        /**
-         * @property {boolean} Is this autocompleter allowed to finish on blur?
-         * @private
-         */
         this.finishOnBlur_ = true;
 
-        /**
-         * Sanitize options
-         */
         this.options.minChars = sanitizeInteger(this.options.minChars, $.fn.dnnAutocomplete.defaults.minChars, { min: 0 });
         this.options.maxItemsToShow = sanitizeInteger(this.options.maxItemsToShow, $.fn.dnnAutocomplete.defaults.maxItemsToShow, { min: 0 });
         this.options.maxCacheLength = sanitizeInteger(this.options.maxCacheLength, $.fn.dnnAutocomplete.defaults.maxCacheLength, { min: 1 });
@@ -1159,36 +1039,16 @@
             this.options.preventDefaultTab = this.options.preventDefaultTab ? 1 : 0;
         }
 
-        /**
-         * Init DOM elements repository
-         */
         this.dom = {};
-
-        /**
-         * Store the input element we're attached to in the repository
-         */
         this.dom.$elem = $elem;
-
-        /**
-         * Switch off the native autocomplete and add the input class
-         */
         this.dom.$elem.attr('autocomplete', 'off').addClass(this.options.inputClass);
-
-        /**
-         * Create DOM element to hold results, and force absolute position
-         */
         this.dom.$results = $('<div></div>').hide().addClass(this.options.resultsClass).css({
             position: 'absolute'
         });
         $('body').append(this.dom.$results);
-
-        /**
-         * Attach keyboard monitoring to $elem
-         */
         $elem.keydown(function (e) {
             self.lastKeyPressed_ = e.keyCode;
             switch (self.lastKeyPressed_) {
-
                 case self.options.delimiterKeyCode: // comma = 188
                     if (self.options.useDelimiter && self.active_) {
                         self.selectCurrent();
@@ -1263,31 +1123,22 @@
                     self.activate();
 
             }
+            return true;
         });
 
-        /**
-         * Finish on blur event
-         * Use a timeout because instant blur gives race conditions
-         */
         var onBlurFunction = function () {
             self.deactivate(true);
-        }
+        };
         $elem.blur(function () {
             if (self.finishOnBlur_) {
                 self.finishTimeout_ = setTimeout(onBlurFunction, 200);
             }
         });
-        /**
-         * Catch a race condition on form submit
-         */
+
         $elem.parents('form').on('submit', onBlurFunction);
 
     };
 
-    /**
-     * Position output DOM elements
-     * @private
-     */
     $.dnnAutocompleter.prototype.position = function () {
         var offset = this.dom.$elem.offset();
         var height = this.dom.$results.outerHeight();
@@ -1306,10 +1157,6 @@
         this.dom.$results.css(position);
     };
 
-    /**
-     * Read from cache
-     * @private
-     */
     $.dnnAutocompleter.prototype.cacheRead = function (filter) {
         var filterLength, searchLength, search, maxPos, pos;
         if (this.options.useCache) {
@@ -1340,10 +1187,6 @@
         return false;
     };
 
-    /**
-     * Write to cache
-     * @private
-     */
     $.dnnAutocompleter.prototype.cacheWrite = function (filter, data) {
         if (this.options.useCache) {
             if (this.cacheLength_ >= this.options.maxCacheLength) {
@@ -1359,22 +1202,11 @@
         return false;
     };
 
-    /**
-     * Flush cache
-     * @public
-     */
     $.dnnAutocompleter.prototype.cacheFlush = function () {
         this.cacheData_ = {};
         this.cacheLength_ = 0;
     };
 
-    /**
-     * Call hook
-     * Note that all called hooks are passed the autocompleter object
-     * @param {string} hook
-     * @param data
-     * @returns Result of called hook, false if hook is undefined
-     */
     $.dnnAutocompleter.prototype.callHook = function (hook, data) {
         var f = this.options[hook];
         if (f && $.isFunction(f)) {
@@ -1383,9 +1215,6 @@
         return false;
     };
 
-    /**
-     * Set timeout to activate autocompleter
-     */
     $.dnnAutocompleter.prototype.activate = function () {
         var self = this;
         if (this.keyTimeout_) {
@@ -1396,9 +1225,6 @@
         }, this.options.delay);
     };
 
-    /**
-     * Activate autocompleter immediately
-     */
     $.dnnAutocompleter.prototype.activateNow = function () {
         var value = this.beforeUseConverter(this.dom.$elem.val());
         if (value !== this.lastProcessedValue_ && value !== this.lastSelectedValue_) {
@@ -1406,11 +1232,6 @@
         }
     };
 
-    /**
-     * Get autocomplete data for a given value
-     * @param {string} value Value to base autocompletion on
-     * @private
-     */
     $.dnnAutocompleter.prototype.fetchData = function (value) {
         var self = this;
         var processResults = function (results, filter) {
@@ -1431,37 +1252,32 @@
         }
     };
 
-    /**
-     * Get remote autocomplete data for a given value
-     * @param {string} filter The filter to base remote data on
-     * @param {function} callback The function to call after data retrieval
-     * @private
-     */
     $.dnnAutocompleter.prototype.fetchRemoteData = function (filter, callback) {
         var data = this.cacheRead(filter);
         if (data) {
             callback(data);
         } else {
             var self = this;
-            var ajaxCallback = function (data) {
+            var ajaxCallback = function (d) {
                 var parsed = false;
-                if (data !== false) {
-                    parsed = self.parseRemoteData(data);
+                if (d !== false) {
+                    parsed = self.parseRemoteData(d);
                     self.cacheWrite(filter, parsed);
                 }
                 self.dom.$elem.removeClass(self.options.loadingClass);
                 callback(parsed);
             };
+            
             this.dom.$elem.addClass(this.options.loadingClass);
-            var services = self.options.moduleId ? $.dnnSF(self.options.moduleId) : null;
-
+            // DNN service framework attached if needed
+            var services = self.options.moduleId ? ($.dnnSF ? $.dnnSF(self.options.moduleId) : null) : null;
             $.ajax({
                 url: this.makeUrl(filter),
                 beforeSend: services ? services.setModuleHeaders : null,
                 success: ajaxCallback,
-                error: function (jqXHR, textStatus, errorThrown) {
+                error: function (jqXhr, textStatus, errorThrown) {
                     if ($.isFunction(self.options.onError)) {
-                        self.options.onError(jqXHR, textStatus, errorThrown);
+                        self.options.onError(jqXhr, textStatus, errorThrown);
                     } else {
                         ajaxCallback(false);
                     }
@@ -1473,12 +1289,6 @@
         }
     };
 
-    /**
-     * Create or update an extra parameter for the remote request
-     * @param {string} name Parameter name
-     * @param {string} value Parameter value
-     * @public
-     */
     $.dnnAutocompleter.prototype.setExtraParam = function (name, value) {
         var index = $.trim(String(name));
         if (index) {
@@ -1492,25 +1302,13 @@
         }
     };
 
-    /**
-     * Build the url for a remote request
-     * If options.queryParamName === false, append query to url instead of using a GET parameter
-     * @param {string} param The value parameter to pass to the backend
-     * @returns {string} The finished url with parameters
-     */
     $.dnnAutocompleter.prototype.makeUrl = function (param) {
-        var self = this;
         var url = this.options.url;
         var params = {};
         params[this.options.queryParamName] = param;
         return makeUrl(url, params);
     };
 
-    /**
-     * Parse data received from server
-     * @param remoteData Data received from remote server
-     * @returns {array} Parsed data
-     */
     $.dnnAutocompleter.prototype.parseRemoteData = function (remoteData) {
         var data = remoteData;
         if (typeof data['d'] != 'undefined') {
@@ -1519,13 +1317,6 @@
         return data;
     };
 
-    /**
-     * Filter result
-     * @param {Object} result
-     * @param {String} filter
-     * @returns {boolean} Include this result
-     * @private
-     */
     $.dnnAutocompleter.prototype.filterResult = function (result, filter) {
         if (!result.value) {
             return false;
@@ -1547,18 +1338,13 @@
         return true;
     };
 
-    /**
-     * Filter results
-     * @param results
-     * @param filter
-     */
     $.dnnAutocompleter.prototype.filterResults = function (results, filter) {
         var filtered = [];
         var i, result;
 
         for (i = 0; i < results.length; i++) {
             result = sanitizeResult(results[i]);
-            if (this.filterResult(result, filter)) {
+            if (this.filterResult(result, filter)) {                           
                 filtered.push(result);
             }
         }
@@ -1571,16 +1357,11 @@
         return filtered;
     };
 
-    /**
-     * Sort results
-     * @param results
-     * @param filter
-     */
     $.dnnAutocompleter.prototype.sortResults = function (results, filter) {
         var self = this;
         var sortFunction = this.options.sortFunction;
         if (!$.isFunction(sortFunction)) {
-            sortFunction = function (a, b, f) {
+            sortFunction = function (a, b) {
                 return sortValueAlpha(a, b, self.options.matchCase);
             };
         }
@@ -1590,12 +1371,6 @@
         return results;
     };
 
-    /**
-     * Convert string before matching
-     * @param s
-     * @param a
-     * @param b
-     */
     $.dnnAutocompleter.prototype.matchStringConverter = function (s, a, b) {
         var converter = this.options.matchStringConverter;
         if ($.isFunction(converter)) {
@@ -1604,12 +1379,6 @@
         return s;
     };
 
-    /**
-     * Convert string before use
-     * @param s
-     * @param a
-     * @param b
-     */
     $.dnnAutocompleter.prototype.beforeUseConverter = function (s, a, b) {
         s = this.getValue();
         var converter = this.options.beforeUseConverter;
@@ -1619,27 +1388,17 @@
         return s;
     };
 
-    /**
-     * Enable finish on blur event
-     */
     $.dnnAutocompleter.prototype.enableFinishOnBlur = function () {
         this.finishOnBlur_ = true;
     };
 
-    /**
-     * Disable finish on blur event
-     */
     $.dnnAutocompleter.prototype.disableFinishOnBlur = function () {
         this.finishOnBlur_ = false;
     };
 
-    /**
-     * Create a results item (LI element) from a result
-     * @param result
-     */
-    $.dnnAutocompleter.prototype.createItemFromResult = function (result) {
+    $.dnnAutocompleter.prototype.createItemFromResult = function (result, filter) {
         var self = this;
-        var $li = $('<li>' + this.showResult(result.value, result.data) + '</li>');
+        var $li = $('<li>' + this.showResult(result.value, result.data, filter) + '</li>');
         $li.data({ value: result.value, data: result.data })
             .click(function () {
                 self.selectItem($li);
@@ -1650,19 +1409,10 @@
         return $li;
     };
 
-    /**
-     * Get all items from the results list
-     * @param result
-     */
     $.dnnAutocompleter.prototype.getItems = function () {
         return $('>ul>li', this.dom.$results);
     };
 
-    /**
-     * Show all results
-     * @param results
-     * @param filter
-     */
     $.dnnAutocompleter.prototype.showResults = function (results, filter) {
         var numResults = results.length;
         var self = this;
@@ -1672,7 +1422,7 @@
         if (numResults) {
             for (i = 0; i < numResults; i++) {
                 result = results[i];
-                $li = this.createItemFromResult(result);
+                $li = this.createItemFromResult(result, filter);
                 $ul.append($li);
                 if (first === false) {
                     first = String(result.value);
@@ -1701,17 +1451,25 @@
                 this.focusItem($first);
             }
             this.active_ = true;
+
+            //Select the first one as default
+            this.focusNext();
+
         } else {
             this.hideResults();
             this.active_ = false;
         }
     };
 
-    $.dnnAutocompleter.prototype.showResult = function (value, data) {
+    $.dnnAutocompleter.prototype.showResult = function (value, data, filter) {
         if ($.isFunction(this.options.showResult)) {
             return this.options.showResult(value, data);
         } else {
-            return value;
+            // add highlight keywords
+            var regex = new RegExp('(' + filter + ')', 'gi');
+            return value.replace(regex, function ($0, $1) {
+                return ('<b>' + $1 + '</b>');
+            });
         }
     };
 
@@ -1867,42 +1625,35 @@
         }
     };
 
-    /**
-     * Move caret to position
-     * @param {Number} pos
-     */
     $.dnnAutocompleter.prototype.setCaret = function (pos) {
         this.selectRange(pos, pos);
     };
 
-    /**
-     * Get caret position
-     */
     $.dnnAutocompleter.prototype.getCaret = function () {
-        var elem = this.dom.$elem;
-        if ($.browser.msie) {
+        var elem = this.dom.$elem, s, e, range;
+        if (!$.support.cssFloat) {
             // ie
             var selection = document.selection;
             if (elem[0].tagName.toLowerCase() != 'textarea') {
                 var val = elem.val();
-                var range = selection.createRange().duplicate();
+                range = selection.createRange().duplicate();
                 range.moveEnd('character', val.length);
-                var s = (range.text == '' ? val.length : val.lastIndexOf(range.text));
+                s = (range.text == '' ? val.length : val.lastIndexOf(range.text));
                 range = selection.createRange().duplicate();
                 range.moveStart('character', -val.length);
-                var e = range.text.length;
+                e = range.text.length;
             } else {
-                var range = selection.createRange();
-                var stored_range = range.duplicate();
-                stored_range.moveToElementText(elem[0]);
-                stored_range.setEndPoint('EndToEnd', range);
-                var s = stored_range.text.length - range.text.length;
-                var e = s + range.text.length;
+                range = selection.createRange();
+                var storedRange = range.duplicate();
+                storedRange.moveToElementText(elem[0]);
+                storedRange.setEndPoint('EndToEnd', range);
+                s = storedRange.text.length - range.text.length;
+                e = s + range.text.length;
             }
         } else {
             // ff, chrome, safari
-            var s = elem[0].selectionStart;
-            var e = elem[0].selectionEnd;
+            s = elem[0].selectionStart;
+            e = elem[0].selectionEnd;
         }
         return {
             start: s,
@@ -1910,10 +1661,6 @@
         };
     };
 
-    /**
-     * Set the value that is currently being autocompleted
-     * @param {String} value
-     */
     $.dnnAutocompleter.prototype.setValue = function (value) {
         if (this.options.useDelimiter) {
             // set the substring between the current delimiters
@@ -1926,10 +1673,6 @@
         this.dom.$elem.val(value).blur();
     };
 
-    /**
-     * Get the value currently being autocompleted
-     * @param {String} value
-     */
     $.dnnAutocompleter.prototype.getValue = function () {
         var val = this.dom.$elem.val();
         if (this.options.useDelimiter) {
@@ -1940,9 +1683,6 @@
         }
     };
 
-    /**
-     * Get the offsets of the value currently being autocompleted
-     */
     $.dnnAutocompleter.prototype.getDelimiterOffsets = function () {
         var val = this.dom.$elem.val();
         if (this.options.useDelimiter) {
@@ -1961,13 +1701,12 @@
             end: end
         };
     };
-
 })(jQuery);
 
 (function ($) {
     // dnn customized tags
     var delimiter = new Array();
-    var tags_callbacks = new Array();
+    var tagsCallbacks = new Array();
     $.fn.dnnDoAutosize = function (o) {
         var minWidth = $(this).data('minwidth'),
             maxWidth = $(this).data('maxwidth'),
@@ -1994,10 +1733,8 @@
     };
 
     $.fn.dnnResetAutosize = function (options) {
-        // alert(JSON.stringify(options));
         var minWidth = $(this).data('minwidth') || options.minInputWidth || $(this).width(),
             maxWidth = $(this).data('maxwidth') || options.maxInputWidth || ($(this).closest('.dnnTagsInput').width() - options.inputPadding),
-            val = '',
             input = $(this),
             testSubject = $('<tester/>').css({
                 position: 'absolute',
@@ -2015,7 +1752,6 @@
             testSubject.attr('id', testerId);
             testSubject.appendTo('body');
         }
-
         input.data('minwidth', minWidth);
         input.data('maxwidth', maxWidth);
         input.data('tester_id', testerId);
@@ -2026,22 +1762,23 @@
         options = jQuery.extend({ focus: false, callback: true }, options);
         this.each(function () {
             var id = $(this).attr('id');
-
             var tagslist = $(this).val().split(delimiter[id]);
             if (tagslist[0] == '') {
                 tagslist = new Array();
             }
-
             value = jQuery.trim(value);
-
+            var skipTag;
             if (options.unique) {
-                var skipTag = $(this).dnnTagExist(value);
+                skipTag = $(this).dnnTagExist(value);
                 if (skipTag == true) {
                     //Marks fake input as not_valid to let styling it
                     $('#' + id + '_tag').addClass('dnnTagsInvalid');
                 }
+                else
+                    $('#' + id + '_tag').removeClass('dnnTagsInvalid');
             } else {
-                var skipTag = false;
+                skipTag = false;
+                $('#' + id + '_tag').removeClass('dnnTagsInvalid');
             }
 
             if (value != '' && skipTag != true) {
@@ -2065,20 +1802,18 @@
                 }
 
                 $.fn.dnnTagsInput.updateTagsField(this, tagslist);
-
-                if (options.callback && tags_callbacks[id] && tags_callbacks[id]['onAddTag']) {
-                    var f = tags_callbacks[id]['onAddTag'];
+                var f;
+                if (options.callback && tagsCallbacks[id] && tagsCallbacks[id]['onAddTag']) {
+                    f = tagsCallbacks[id]['onAddTag'];
                     f.call(this, value);
                 }
-                if (tags_callbacks[id] && tags_callbacks[id]['onChange']) {
+                if (tagsCallbacks[id] && tagsCallbacks[id]['onChange']) {
                     var i = tagslist.length;
-                    var f = tags_callbacks[id]['onChange'];
+                    f = tagsCallbacks[id]['onChange'];
                     f.call(this, $(this), tagslist[i - 1]);
                 }
             }
-
         });
-
         return false;
     };
 
@@ -2086,21 +1821,17 @@
         value = unescape(value);
         this.each(function () {
             var id = $(this).attr('id');
-
             var old = $(this).val().split(delimiter[id]);
-
             $('#' + id + '_tagsinput .tag').remove();
-            str = '';
-            for (i = 0; i < old.length; i++) {
+            var str = '';
+            for (var i = 0; i < old.length; i++) {
                 if (old[i] != value) {
                     str = str + delimiter[id] + old[i];
                 }
             }
-
             $.fn.dnnTagsInput.importTags(this, str);
-
-            if (tags_callbacks[id] && tags_callbacks[id]['onRemoveTag']) {
-                var f = tags_callbacks[id]['onRemoveTag'];
+            if (tagsCallbacks[id] && tagsCallbacks[id]['onRemoveTag']) {
+                var f = tagsCallbacks[id]['onRemoveTag'];
                 f.call(this, value);
             }
         });
@@ -2109,14 +1840,13 @@
     };
 
     $.fn.dnnTagExist = function (val) {
-        var id = $(this).attr('id');
-        var tagslist = $(this).val().split(delimiter[id]);
-        return (jQuery.inArray(val, tagslist) >= 0); //true when tag exists, false when not
+        var id = $(this).attr('id'),
+            tagslist = $(this).val().split(delimiter[id]);
+        return (jQuery.inArray(val, tagslist) >= 0); 
     };
 
-    // clear all existing tags and import new ones from a string
     $.fn.dnnImportTags = function (str) {
-        id = $(this).attr('id');
+        var id = $(this).attr('id');
         $('#' + id + '_tagsinput .tag').remove();
         $.fn.dnnTagsInput.importTags(this, str);
     };
@@ -2133,35 +1863,38 @@
         };
         var settings = jQuery.extend({
             interactive: true,
-            defaultText: 'add a tag',
+            defaultText: 'Add a tag',
             minChars: 0,
             maxChars: 50,
             maxTags: 16,
 
-            onErrorLessThanMinChars: function () {
-                $.dnnAlert({ text: 'هر برچسب نمی تواند خالی باشد', title: 'خطا در برچسب ورودی' });
+            onErrorLessThanMinChars: function () { // can be customised by module dev
+                $.dnnAlert({ text: 'You can only input more than 0 chars per tag', title: 'Input Tag Error' });
             },
-            onErrorMoreThanMaxChars: function () {
-                $.dnnAlert({ text: 'طول هر برچسب نمی تواند بیشتر از 50 حرف باشد', title: 'خطا در برچسب ورودی' });
+            onErrorMoreThanMaxChars: function () { // can be customised by module dev
+                $.dnnAlert({ text: 'You can only input less than 50 chars per tag', title: 'Input Tag Error' });
             },
-            onErrorMoreThanMaxTags: function () {
-                $.dnnAlert({ text: 'حداکثر می توان 16 برچسب مشخص نمود', title: 'خطا در برچسب ورودی' });
+            onErrorMoreThanMaxTags: function () { // can be customised by module dev
+                $.dnnAlert({ text: 'You can only provide no more than 16 tags', title: 'Input Tag Error' });
             },
 
             width: '45%',
-            height: '28px',
             autocomplete: { selectFirst: false },
             'hide': true,
             'delimiter': ',',
             'unique': true,
             removeWithBackspace: true,
-            placeholderColor: '#666666',
+            placeholderColor: '#999',
+            normalColor: '#666',
             autosize: true,
             comfortZone: 20,
             inputPadding: 6 * 2
+
         }, options);
 
         this.each(function () {
+            var instance = $(this).data('dnnTagInput');
+            if (instance) return this;
             if (settings.hide) {
                 $(this).hide();
             }
@@ -2169,7 +1902,6 @@
             if (!id || delimiter[$(this).attr('id')]) {
                 id = $(this).attr('id', 'tags' + new Date().getTime()).attr('id');
             }
-
             var data = jQuery.extend({
                 pid: id,
                 real_input: '#' + id,
@@ -2178,62 +1910,79 @@
                 fake_input: '#' + id + '_tag'
             }, settings);
 
+            $(this).data('dnnTagInput', data);
+
             delimiter[id] = data.delimiter;
 
             if (settings.onAddTag || settings.onRemoveTag || settings.onChange) {
-                tags_callbacks[id] = new Array();
-                tags_callbacks[id]['onAddTag'] = settings.onAddTag;
-                tags_callbacks[id]['onRemoveTag'] = settings.onRemoveTag;
-                tags_callbacks[id]['onChange'] = settings.onChange;
+                tagsCallbacks[id] = new Array();
+                tagsCallbacks[id]['onAddTag'] = settings.onAddTag;
+                tagsCallbacks[id]['onRemoveTag'] = settings.onRemoveTag;
+                tagsCallbacks[id]['onChange'] = settings.onChange;
             }
 
-            var markup = '<div id="' + id + '_tagsinput" class="dnnTagsInput"><div id="' + id + '_addTag">';
+            var markup = '<div id="' + id + '_tagsinput" class="dnnTagsInput">';
+            markup += '<div id="' + id + '_addTag">';
 
             if (settings.interactive) {
-                markup = markup + '<input id="' + id + '_tag" value="" data-default="' + settings.defaultText + '" />';
+                markup += '<input id="' + id + '_tag" value="" data-default="' + settings.defaultText + '" autocomplete="off" />';
             }
 
-            markup = markup + '</div><div class="dnnTagsClear"></div></div>';
+            markup += '</div>';
+            markup = markup + '<div class="dnnTagsClear"></div></div>';
 
             $(markup).insertAfter(this);
 
             $(data.holder).css({
                 'width': settings.width,
-                'min-height': settings.height,
-                'overflow': 'hidden'
+                'min-height': settings.height
             });
 
             if ($(data.real_input).val() != '') {
                 $.fn.dnnTagsInput.importTags($(data.real_input), $(data.real_input).val());
             }
             if (settings.interactive) {
-                $(data.fake_input).val($(data.fake_input).attr('data-default'));
-                $(data.fake_input).css('color', settings.placeholderColor);
-                $(data.fake_input).dnnResetAutosize(settings);
+                // placeholder stuff
+                var placeholderSupported = ('placeholder' in $(data.fake_input)[0]);
+                if (placeholderSupported)
+                    $(data.fake_input).attr('placeholder', $(data.fake_input).attr('data-default'));
+                else {
+                    $(data.fake_input).val($(data.fake_input).attr('data-default'));
+                    $(data.fake_input).css('color', settings.placeholderColor);
+                }
 
+                $(data.fake_input).dnnResetAutosize(settings);
                 $(data.holder).bind('click', data, function (event) {
                     $(event.data.real_input).triggerHandler('focus');
                     $(event.data.fake_input).triggerHandler('focus');
+                    return false;
                 });
-
                 $(data.fake_input).bind('focus', data, function (event) {
                     if ($(event.data.fake_input).val() == $(event.data.fake_input).attr('data-default')) {
                         $(event.data.fake_input).val('');
                     }
-                    $(event.data.fake_input).css('color', '#000000');
+                    $(event.data.fake_input).css('color', settings.normalColor);
                 });
-
                 if (settings.autocomplete_url != undefined) {
-                    autocomplete_options = { source: settings.autocomplete_url };
-                    for (attrname in settings.autocomplete) {
-                        autocomplete_options[attrname] = settings.autocomplete[attrname];
-                    }
-
                     if ($.dnnAutocompleter !== undefined) {
+                        if (settings.advanced && settings.advanced.length) {
+                            settings.autocomplete.advanced = settings.advanced;
+                        }
+
                         $(data.fake_input).dnnAutocomplete(settings.autocomplete_url, settings.autocomplete);
-                        $(data.fake_input).bind('result', data, function (event, data, formatted) {
-                            if (data) {
-                                $('#' + id).dnnAddTag(data, { focus: true, unique: (settings.unique) });
+                        $(data.fake_input).bind('result', data, function (event, tag) {
+                            if (tag) {
+                                var tagslist = $(event.data.real_input).val().split(delimiter[id]);
+                                if (tagslist[0] == '') {
+                                    tagslist = new Array();
+                                }
+                                if (event.data.maxTags <= tagslist.length) {
+                                    if (event.data.onErrorMoreThanMaxTags)
+                                        triggerOnError(event.data.onErrorMoreThanMaxTags);
+                                    $(data.fake_input).val('');
+                                }
+                                else
+                                    $(event.data.real_input).dnnAddTag(tag, { focus: true, unique: (settings.unique) });
                             }
                         });
                     }
@@ -2250,17 +1999,17 @@
                             if (event.data.minChars > $(event.data.fake_input).val().length) {
                                 if (event.data.onErrorLessThanMinChars)
                                     triggerOnError(event.data.onErrorLessThanMinChars);
-                                $(this).val('');
+                                $(data.fake_input).val('');
                             }
                             else if (event.data.maxChars < $(event.data.fake_input).val().length) {
                                 if (event.data.onErrorMoreThanMaxChars)
                                     triggerOnError(event.data.onErrorMoreThanMaxChars);
-                                $(this).val('');
+                                $(data.fake_input).val('');
                             }
                             else if (event.data.maxTags <= tagslist.length) {
                                 if (event.data.onErrorMoreThanMaxTags)
                                     triggerOnError(event.data.onErrorMoreThanMaxTags);
-                                $(this).val('');
+                                $(data.fake_input).val('');
                             }
                             else
                                 $(event.data.real_input).dnnAddTag($(event.data.fake_input).val(), { focus: true, unique: (settings.unique) });
@@ -2281,31 +2030,38 @@
                             tagslist = new Array();
                         }
                         if (event.data.minChars > $(event.data.fake_input).val().length) {
-                            $(this).blur();
+                            if (event.data.onErrorLessThanMinChars)
+                                triggerOnError(event.data.onErrorLessThanMinChars);
+                            $(data.fake_input).val('');
                         }
                         else if (event.data.maxChars < $(event.data.fake_input).val().length) {
-                            $(this).blur();
+                            if (event.data.onErrorMoreThanMaxChars)
+                                triggerOnError(event.data.onErrorMoreThanMaxChars);
+                            $(data.fake_input).val('');
                         }
                         else if (event.data.maxTags <= tagslist.length) {
-                            $(this).blur();
+                            if (event.data.onErrorMoreThanMaxTags)
+                                triggerOnError(event.data.onErrorMoreThanMaxTags);
+                            $(data.fake_input).val('');
                         }
                         else
                             $(event.data.real_input).dnnAddTag($(event.data.fake_input).val(), { focus: true, unique: (settings.unique) });
+
                         $(event.data.fake_input).dnnResetAutosize(settings);
                         return false;
                     } else if (event.data.autosize) {
                         $(event.data.fake_input).dnnDoAutosize(settings);
-
                     }
+                    return true;
                 });
                 //Delete last tag on backspace
                 data.removeWithBackspace && $(data.fake_input).bind('keydown', function (event) {
                     if (event.keyCode == 8 && $(this).val() == '') {
                         event.preventDefault();
-                        var last_tag = $(this).closest('.dnnTagsInput').find('.tag:last').text();
-                        var id = $(this).attr('id').replace(/_tag$/, '');
-                        last_tag = last_tag.replace(/[\s]+$/, '');
-                        $('#' + id).dnnRemoveTag(escape(last_tag));
+                        var lastTag = $(this).closest('.dnnTagsInput').find('.tag:last').text();
+                        var lastTagId = $(this).attr('id').replace(/_tag$/, '');
+                        lastTag = lastTag.replace(/[\s]+$/, '');
+                        $('#' + lastTagId).dnnRemoveTag(escape(lastTag));
                         $(this).trigger('focus');
                     }
                 });
@@ -2319,9 +2075,10 @@
                         }
                     });
                 }
-            } // if settings.interactive
-        });
 
+            } // if settings.interactive
+            return this;
+        });
         return this;
     };
 
@@ -2330,19 +2087,18 @@
         $(obj).val(tagslist.join(delimiter[id]));
     };
 
-    $.fn.dnnTagsInput.importTags = function (obj, val) {
+    $.fn.dnnTagsInput.importTags = function(obj, val) {
         $(obj).val('');
         var id = $(obj).attr('id');
         var tags = val.split(delimiter[id]);
-        for (i = 0; i < tags.length; i++) {
+        for (var i = 0; i < tags.length; i++) {
             $(obj).dnnAddTag(tags[i], { focus: false, callback: false });
         }
-        if (tags_callbacks[id] && tags_callbacks[id]['onChange']) {
-            var f = tags_callbacks[id]['onChange'];
+        if (tagsCallbacks[id] && tagsCallbacks[id]['onChange']) {
+            var f = tagsCallbacks[id]['onChange'];
             f.call(obj, obj, tags[i]);
         }
     };
-
 })(jQuery);
 
 (function ($) {
@@ -2456,14 +2212,13 @@
     };
 
     // fix telerik custom datepicker popup arrow position       
-    $.dnnRadPickerHack = function (sender) {
+    $.dnnRadPickerHack = function () {
         //when click this icon, hide error info
         var hideErrorInfo = function () {
             $(this).toggleErrorMessage({ show: false, removeErrorMessage: false });
         };
-
         var dnnRadPickerPopupFix = function () {
-            if (!$.browser.msie || $.browser.version >= 9) {
+            if ($.support.cssFloat) {
                 var id = $(this).attr('id');
                 var popupId = id.replace('popupButton', 'calendar_wrapper');
                 var popupElement = $('#' + popupId);
@@ -2485,10 +2240,8 @@
                 }
             }
 
-            $(this).toggleErrorMessage({ show: false });
+            $(this).toggleErrorMessage({ show: false, removeErrorMessage: false });
         };
-
-
         $('.RadPicker_Default a.rcCalPopup').unbind('click', dnnRadPickerPopupFix).bind('click', dnnRadPickerPopupFix);
         $('.RadPicker_Default .riTextBox').unbind('focus', hideErrorInfo).bind('focus', hideErrorInfo);
     };
@@ -2507,15 +2260,15 @@
 
     //fix combobox scroll
     $.dnnComboBoxScroll = function (sender) {
-        if (!$.browser.msie || $.browser.version >= 9) {
+        if ($.support.cssFloat) {
             $(('#' + sender._clientStateFieldID + ' .rcbScroll').replace('ClientState', 'DropDown')).jScrollPane();
         }
     };
 
     // fix grid issues 
     $.dnnGridCreated = function (sender) {
-        var clientID = sender.ClientID;
-        var $grid = $('#' + clientID);
+        var clientId = sender.ClientID;
+        var $grid = $('#' + clientId);
         $('input.rgSortDesc, input.rgSortAsc', $grid).click(function () {
             var href = $(this).parent().find('a').get(0).href;
             window.location = href;
@@ -2526,13 +2279,13 @@
             $grid.dnnHelperTipDestroy();
             $('.rgRow, .rgAltRow', $grid).each(function () {
                 var info = "Here is some text will show up and explian more about this information";
-                $(this).dnnHelperTip({ helpContent: info, holderId: clientID });
+                $(this).dnnHelperTip({ helpContent: info, holderId: clientId });
             });
         }
 
-        var grid = $find(clientID);
+        var grid = $find(clientId);
 
-        // fix a bug while using customised checkbox - remove onclick event then attach onchange
+        // while using customised checkbox - remove onclick event then attach onchange
         var headerCheck = $('.rgCheck', $grid);
         if (headerCheck.length) {
             headerCheck.each(function () {
@@ -2542,7 +2295,7 @@
                 checkbox.onclick = null;
             });
 
-            // fix when use customised scrollbar and customised checkbox, the row cannot be correctly selected
+            // when use customised scrollbar and customised checkbox, the row cannot be correctly selected
             $('.rgDataDiv input[type="checkbox"]', $grid).change(function () {
                 var masterTable = grid.get_masterTableView();
                 var rowIndex = $(this).closest('tr').get(0).rowIndex;
@@ -2564,45 +2317,38 @@
             $(window).bind(
                 'resize',
                 function () {
-                    if ($.browser.msie) {
-                        // IE fires multiple resize events while you are dragging the browser window which
-                        // causes it to crash if you try to update the scrollpane on every one. So we need
-                        // to throttle it to fire a maximum of once every 50 milliseconds...
-                        if (!throttleTimeout) {
-                            throttleTimeout = setTimeout(
-                                function () {
-                                    api.reinitialise();
-                                    throttleTimeout = null;
-                                },
-                                50
-                            );
+                    if (!$.support.cssFloat) {
+                        if (throttleTimeout) {
+                            clearTimeout(throttleTimeout);
+                            throttleTimeout = null;
                         }
+                        throttleTimeout = setTimeout(
+                            function () {
+                                api.reinitialise();
+                                throttleTimeout = null;
+                            },
+                            50
+                        );
                     } else {
                         api.reinitialise();
                     }
                 }
             );
-
             if (window.__rgDataDivScrollTopPersistArray && window.__rgDataDivScrollTopPersistArray.length) {
                 var y = window.__rgDataDivScrollTopPersistArray.pop();
                 api.scrollToY(y);
             }
         });
-
     };
-
 })(jQuery);
 
 (function ($) {
-
     var types = ['DOMMouseScroll', 'mousewheel'];
-
     if ($.event.fixHooks) {
         for (var i = types.length; i;) {
             $.event.fixHooks[types[--i]] = $.event.mouseHooks;
         }
     }
-
     $.event.special.mousewheel = {
         setup: function () {
             if (this.addEventListener) {
@@ -2634,10 +2380,13 @@
             return this.unbind("mousewheel", fn);
         }
     });
-
-
+    
     function handler(event) {
-        var orgEvent = event || window.event, args = [].slice.call(arguments, 1), delta = 0, returnValue = true, deltaX = 0, deltaY = 0;
+        var orgEvent = event || window.event,
+            args = [].slice.call(arguments, 1),
+            delta = 0,
+            deltaX = 0,
+            deltaY = 0;
         event = $.event.fix(orgEvent);
         event.type = "mousewheel";
 
@@ -2660,46 +2409,52 @@
 
         // Add event and delta to the front of the arguments
         args.unshift(event, delta, deltaX, deltaY);
-
         return ($.event.dispatch || $.event.handle).apply(this, args);
     }
 
 })(jQuery);
 
-
 (function ($) {
-    $.fn.dnnFileInput = function () {
+	$.fn.dnnFileInput = function (options) {
+        var opts = $.extend({}, $.fn.dnnFileInput.defaultOptions, options);
+
         return this.each(function () {
             var $ctrl = $(this);
             if (this.wrapper)
                 return;
 
-            //if this.wrapper is undefined, then we check if parent node is a wrapper
-            if (this.parentNode && this.parentNode.tagName.toLowerCase() == 'span' && this.parentNode.className == 'dnnInputFileWrapper') {
+            // if this.wrapper is undefined, then we check if parent node is a wrapper
+            if (this.parentNode && this.parentNode.tagName.toLowerCase() == 'span' && $ctrl.parent().hasClass('dnnInputFileWrapper')) {
                 return;
             }
 
-            this.wrapper = $("<span class='dnnInputFileWrapper'></span>");
-            $ctrl.wrap(this.wrapper);
+            this.wrapper = $("<span class='dnnInputFileWrapper " + opts.buttonClass + "'></span>");
             var text = $ctrl.data('text');
             text = text || 'Choose File';
-            var btn = $("<span class='dnnSecondaryAction'>" + text + "</span>");
-            btn.insertBefore($ctrl);
+            this.wrapper.text(text);
+            $ctrl.wrap(this.wrapper);
+	        $ctrl.data("wrapper", $ctrl.parent());
 
-            $ctrl.change(function () {
-                var val = $(this).val();
-                if (val != '') {
-                    var lastIdx = val.lastIndexOf('\\') + 1;
-                    val = val.substring(lastIdx, val.length);
-                } else {
-                    val = text;
-                }
-                $(this).prev().html(val);
-            });
+            if (opts.showSelectedFileNameAsButtonText) {
+                $ctrl.change(function () {
+                    var val = $(this).val();
+                    if (val != '') {
+                        var lastIdx = val.lastIndexOf('\\') + 1;
+                        val = val.substring(lastIdx, val.length);
+                    } else {
+                        val = text;
+                    }
+                    $(this).data("wrapper").get(0).childNodes[0].nodeValue = val;
+                });
+            }
         });
     };
-})(jQuery);
 
+    $.fn.dnnFileInput.defaultOptions = {
+        buttonClass: 'dnnSecondaryAction',
+        showSelectedFileNameAsButtonText: true
+    };
+})(jQuery);
 
 (function ($) {
     var supportAjaxUpload = function () {
@@ -2707,11 +2462,10 @@
         return !!(xhr && ('upload' in xhr) && ('onprogress' in xhr.upload));
     };
     $.fn.dnnFileUpload = function (settings) {
-
         return this.each(function () {
             // set scope and settings, service
             var scope = $(this).attr('id');
-            dnn.dnnFileUpload.setSettings(scope, settings);
+            window.dnn.dnnFileUpload.setSettings(scope, settings);
             var service = $.dnnSF();
 
             // hide progress
@@ -2738,7 +2492,7 @@
                 dropZone: $('#' + settings.dropZoneId),
                 replaceFileInput: false,
                 submit: function (e, data) {
-                    data.formData = { folder: settings.folder, filter: settings.fileFilter };
+                    data.formData = { folder: settings.folder, filter: settings.fileFilter, overwrite: 'true' };
                     return true;
                 },
                 progressall: function (e, data) {
@@ -2758,7 +2512,7 @@
                         $(img).css({ 'max-width': 180, 'max-height': 150 }).insertBefore($('#' + settings.dropZoneId + ' span'));
                     });
                     var src;
-                    var testContent = $('pre', data.result);
+                    var testContent = $('<pre>' + data.result + '</pre>');
                     if (testContent.length) {
                         src = testContent.text();
                     }
@@ -2784,7 +2538,7 @@
                                     var txt = d[i].Text;
                                     var val = d[i].Value;
 
-                                    var comboItem = new Telerik.Web.UI.RadComboBoxItem();
+                                    var comboItem = new window.Telerik.Web.UI.RadComboBoxItem();
                                     comboItem.set_text(txt);
                                     comboItem.set_value(val);
                                     combo.get_items().add(comboItem);
@@ -2800,6 +2554,11 @@
                             }
                         });
                     }
+                },
+                fail: function (e, data) {
+                    $('#' + settings.progressBarId).parent().hide();
+                    var resp = JSON.parse(data.jqXHR.responseText);
+                    alert(resp.Message);
                 }
             });
 
@@ -2830,19 +2589,19 @@
         });
     };
 
-    if (typeof dnn === 'undefined') dnn = {};
-    dnn.dnnFileUpload = dnn.dnnFileUpload || {};
-    dnn.dnnFileUpload.settings = {};
-    dnn.dnnFileUpload.setSettings = function (scope, settings) {
-        dnn.dnnFileUpload.settings[scope] = settings;
+    if (typeof window.dnn === 'undefined') window.dnn = {};
+    window.dnn.dnnFileUpload = window.dnn.dnnFileUpload || {};
+    window.dnn.dnnFileUpload.settings = {};
+    window.dnn.dnnFileUpload.setSettings = function (scope, settings) {
+        window.dnn.dnnFileUpload.settings[scope] = settings;
     };
-    dnn.dnnFileUpload.getSettings = function (sender) {
+    window.dnn.dnnFileUpload.getSettings = function (sender) {
         var senderId = sender.get_id();
         var scope = $('#' + senderId).closest('.dnnFileUploadScope').attr('id');
-        return dnn.dnnFileUpload.settings[scope];
+        return window.dnn.dnnFileUpload.settings[scope];
     };
-    dnn.dnnFileUpload.Folders_Changed = function (sender, e) {
-        var settings = dnn.dnnFileUpload.getSettings(sender);
+    window.dnn.dnnFileUpload.Folders_Changed = function (sender, e) {
+        var settings = window.dnn.dnnFileUpload.getSettings(sender);
         if (!settings) return;
 
         var item = e.get_item();
@@ -2862,8 +2621,7 @@
                     for (var i = 0; i < d.length; i++) {
                         var txt = d[i].Text;
                         var val = d[i].Value;
-
-                        var comboItem = new Telerik.Web.UI.RadComboBoxItem();
+                        var comboItem = new window.Telerik.Web.UI.RadComboBoxItem();
                         comboItem.set_text(txt);
                         comboItem.set_value(val);
                         combo.get_items().add(comboItem);
@@ -2871,17 +2629,14 @@
                             comboItem.select();
                         }
                     }
-
-
                 },
                 error: function () {
                 }
             });
-
         }
     };
-    dnn.dnnFileUpload.Files_Changed = function (sender, e) {
-        var settings = dnn.dnnFileUpload.getSettings(sender);
+    window.dnn.dnnFileUpload.Files_Changed = function (sender, e) {
+        var settings = window.dnn.dnnFileUpload.getSettings(sender);
         if (!settings) return;
 
         var item = e.get_item();
@@ -2919,14 +2674,6 @@
 })(jQuery);
 
 (function ($) {
-
-    $.detectScroll = function () {
-        var divs = document.getElementsByTagName('div');
-        return $.grep(divs, function (n) {
-            return $(n).hasClass('dnnScroll');
-        });
-    };
-
     /* BELOW jscrollPane code */
     $.fn.jScrollPane = function (settings) {
         // JScrollPane "class" - public methods are available through $('selector').data('jsp')
@@ -4241,29 +3988,67 @@
         });
     };
 })(jQuery);
+
 (function ($) {
-
-    /* Start customised controls */
-    var dnnInitCustomisedCtrls = function () {
-        $('input[type="checkbox"]').dnnCheckbox();
-        $('input[type="radio"]').dnnCheckbox({ cls: 'dnnRadiobutton' });
-        $('.dnnTooltip').dnnTooltip();
-        var divs = $.detectScroll();
-        for (var i = 0; i < divs.length; i++)
-            $(divs[i]).jScrollPane();
-
-
-        $('input[type="text"], input[type="password"]').unbind('focus', inputFocusFix).bind('focus', inputFocusFix);
-        $(':file').dnnFileInput();
-
+    $.fn.onEnter = function (fn) {
+        return this.each(function () {
+            var $this = $(this);
+            $this.bind('onEnter', fn);
+            $this.keydown(function (e) {
+                if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    $this.trigger('onEnter');
+                }
+            });
+        });
     };
+})(jQuery);
 
+(function ($) {
+    $.extend({
+        onAjaxError: function (jqXhr, textStatus, errorThrown) {
+            var title, text;
+            if (jqXhr && jqXhr.status === 401) {
+                dnnModal.show('../Login.aspx' + '?popUp=true', true, 300, 650, true, '');
+                return;
+            }
+            if (jqXhr && jqXhr.responseText && jqXhr.statusText) {
+                try {
+                    title = jqXhr.statusText + " (" + jqXhr.status + ")";
+                    text = JSON.parse(jqXhr.responseText).Message;
+                }
+                catch (e) {
+                    text = errorThrown;
+                }
+            }
+            $.dnnAlert({ title: title || "Error", text: text || "Unknown error" });
+        }
+    });
+})(jQuery);
+
+// please keep this func at last of this file, thanks
+(function ($) { 
+    /* Start customised controls */
     var inputFocusFix = function () {
         var errorMsg = $(this).next();
         if (errorMsg.hasClass('dnnFormError'))
             errorMsg.hide();
     };
-
+    var throttle = null;
+    var dnnInitCustomisedCtrls = function () {
+        if (throttle != null) {
+            clearTimeout(throttle);
+            throttle = null;
+        }
+        throttle = setTimeout(function() {
+            $('input[type="checkbox"]').dnnCheckbox();
+            $('input[type="radio"]').dnnCheckbox({ cls: 'dnnRadiobutton' });
+            $('.dnnTooltip').dnnTooltip();
+            $('input[type="text"], input[type="password"]').unbind('focus', inputFocusFix).bind('focus', inputFocusFix);
+            $(':file').dnnFileInput();
+        }, 200);
+    };
     var saveRgDataDivScrollTop = function () {
         window.__rgDataDivScrollTopPersistArray = [];
         $('.rgDataDiv').each(function () {
@@ -4276,12 +4061,9 @@
             }
         });
     };
-
     window.__rgDataDivScrollTopPersistArray = [];
-    $(window).ajaxComplete(dnnInitCustomisedCtrls);
-
+    $(document).ajaxComplete(dnnInitCustomisedCtrls);
     Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(saveRgDataDivScrollTop);
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(dnnInitCustomisedCtrls);
     $(dnnInitCustomisedCtrls);
-
 })(jQuery);

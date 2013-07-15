@@ -1518,7 +1518,6 @@ BEGIN
 END
 GO
 
-
 /* FIXING BUG: NEBULA-24561 - Blog - Unable to "like" comments  */
 /* existing errors in SPROC */
 /****************************************************************/
@@ -1570,7 +1569,6 @@ GO
 			END
 		END
 GO
-
 
 /*****              SqlDataProvider                     *****/
 /************************************************************/
