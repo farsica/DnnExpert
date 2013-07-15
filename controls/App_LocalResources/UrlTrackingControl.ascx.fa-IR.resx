@@ -39,8 +39,8 @@
 	<resheader name="Writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-  <data name="Url.Text">
-    <value>آدرس وب سایت</value>
+  <data name="URL.Text">
+    <value>آدرس URL وب سایت</value>
   </data>
   <data name="TrackingUrl.Text">
     <value>رهگیری آدرس وب</value>

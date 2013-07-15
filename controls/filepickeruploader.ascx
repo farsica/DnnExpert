@@ -3,18 +3,18 @@
 <asp:Panel runat="server" ID="dnnFileUploadScope" CssClass="dnnFileUploadScope">
     <div class="dnnLeft">
         <div class="dnnFormItem dnnFileUploadFolder">
-            <span>Folder</span><dnn:DnnComboBox runat="server" ID="FoldersComboBox" OnClientSelectedIndexChanged="dnn.dnnFileUpload.Folders_Changed"/>
+            <span><%= FolderLabel  %></span><dnn:DnnComboBox runat="server" ID="FoldersComboBox" OnClientSelectedIndexChanged="dnn.dnnFileUpload.Folders_Changed"/>
         </div>
         <div class="dnnFormItem">
-            <span>File</span><dnn:DnnComboBox runat="server" ID="FilesComboBox" OnClientSelectedIndexChanged="dnn.dnnFileUpload.Files_Changed" DataTextField="Text" DataValueField="Value"/>
+            <span><%= FileLabel  %></span><dnn:DnnComboBox runat="server" ID="FilesComboBox" OnClientSelectedIndexChanged="dnn.dnnFileUpload.Files_Changed" DataTextField="Text" DataValueField="Value"/>
         </div>
         <div class="dnnFormItem">
-            <input type="file" name="postfile" multiple data-text="Upload File" />
+            <input type="file" name="postfile" multiple data-text="<%= UploadFileLabel  %>" />
         </div>
     </div>
     <div class="dnnLeft">
         <asp:Panel id="dnnFileUploadDropZone" runat="server" CssClass="dnnFileUploadDropZone">
-            <span>Drop File(s) Here</span>
+            <span><%= DropFileLabel  %></span>
         </asp:Panel>
     </div>
     <div class="dnnClear"></div>
@@ -27,25 +27,25 @@
     <asp:HiddenField runat="server" ID="dnnFileUploadFileId" />
 </asp:Panel>
 <script type="text/javascript">
-    (function($){
-        var initDnnFileUploader = function(){
+    (function($) {
+        var initDnnFileUploader = function() {
             var settings = {
-                fileFilter:   '<%= FileFilter %>',
-			    required: <%= Required? "true":"false" %>,
-			    foldersComboId: '<%= FoldersComboBox.ClientID %>',
-			    filesComboId: '<%= FilesComboBox.ClientID %>',
-			    folder: '<%= FolderPath %>',
-			    filePathId: '<%= dnnFileUploadFilePath.ClientID %>',
-			    fileIdId:'<%= dnnFileUploadFileId.ClientID %>',
-			    progressBarId: '<%= dnnFileUploadProgressBar.ClientID %>',
-			    dropZoneId: '<%= dnnFileUploadDropZone.ClientID %>'
-			};
-		    $('#<%= dnnFileUploadScope.ClientID %>').dnnFileUpload(settings);
-		}
+                fileFilter: '<%= FileFilter %>',
+                required: <%= Required? "true":"false" %>,
+                foldersComboId: '<%= FoldersComboBox.ClientID %>',
+                filesComboId: '<%= FilesComboBox.ClientID %>',
+                folder: '<%= FolderPath %>',
+                filePathId: '<%= dnnFileUploadFilePath.ClientID %>',
+                fileIdId: '<%= dnnFileUploadFileId.ClientID %>',
+                progressBarId: '<%= dnnFileUploadProgressBar.ClientID %>',
+                dropZoneId: '<%= dnnFileUploadDropZone.ClientID %>'
+            };
+            $('#<%= dnnFileUploadScope.ClientID %>').dnnFileUpload(settings);
+        };
         $(initDnnFileUploader);
 
         // microsoft ajax registered - to fix microsoft ajax update panel post back
-        if(typeof Sys != 'undefined')
+        if(typeof Sys != 'undefined') 
             Sys.WebForms.PageRequestManager.getInstance().add_endRequest(initDnnFileUploader);
 
     })(jQuery);

@@ -117,76 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="plFirstName.Text" xml:space="preserve">
-    <value>First Name:</value>
+  <data name="DropFile.Text" xml:space="preserve">
+    <value>فایل های مورد نظر را در این بخش قرار دهید</value>
   </data>
-  <data name="plLastName.Text" xml:space="preserve">
-    <value>Last Name:</value>
+  <data name="File.Text" xml:space="preserve">
+    <value>فایل</value>
   </data>
-  <data name="plUserName.Text" xml:space="preserve">
-    <value>User Name:</value>
+  <data name="Folder.Text" xml:space="preserve">
+    <value>پوشه</value>
   </data>
-  <data name="plUserName.Help" xml:space="preserve">
-    <value>Choose a User Name.  If the user name already exists you will get an opportunity to select an alternate name.</value>
-  </data>
-  <data name="plPassword.Text" xml:space="preserve">
-    <value>Password:</value>
-  </data>
-  <data name="plPassword.Help" xml:space="preserve">
-    <value>Choose a Password</value>
-  </data>
-  <data name="plConfirm.Text" xml:space="preserve">
-    <value>Confirm:</value>
-  </data>
-  <data name="plConfirm.Help" xml:space="preserve">
-    <value>Re-Enter your Password to confirm the typing</value>
-  </data>
-  <data name="plEmail.Text" xml:space="preserve">
-    <value>Email Address:</value>
-  </data>
-  <data name="valFirstName.Text" xml:space="preserve">
-    <value>&lt;br&gt;First Name Is Required.</value>
-  </data>
-  <data name="valLastName.Text" xml:space="preserve">
-    <value>&lt;br&gt;Last Name Is Required.</value>
-  </data>
-  <data name="valUsername.Text" xml:space="preserve">
-    <value>&lt;br&gt;Username Is Required.</value>
-  </data>
-  <data name="valPassword.Text" xml:space="preserve">
-    <value>&lt;br&gt;Password Is Required.</value>
-  </data>
-  <data name="valConfirm1.Text" xml:space="preserve">
-    <value>&lt;br&gt;Password Confirmation Is Required.</value>
-  </data>
-  <data name="valConfirm2.Text" xml:space="preserve">
-    <value>&lt;br&gt;Password Values Entered Do Not Match.</value>
-  </data>
-  <data name="valEmail1.Text" xml:space="preserve">
-    <value>&lt;br&gt;Email Is Required.</value>
-  </data>
-  <data name="valEmail2.Text" xml:space="preserve">
-    <value>&lt;br&gt;Email Must be Valid.</value>
-  </data>
-  <data name="plFirstName.Help" xml:space="preserve">
-    <value>Enter your First Name</value>
-  </data>
-  <data name="plLastName.Help" xml:space="preserve">
-    <value>Enter your Last Name</value>
-  </data>
-  <data name="plEmail.Help" xml:space="preserve">
-    <value>Enter your Email Address</value>
-  </data>
-  <data name="plWebsite.Text" xml:space="preserve">
-    <value>Website:</value>
-  </data>
-  <data name="plWebsite.Help" xml:space="preserve">
-    <value>Enter your Website Address</value>
-  </data>
-  <data name="plIM.Text" xml:space="preserve">
-    <value>Instant Messenger ID:</value>
-  </data>
-  <data name="plIM.Help" xml:space="preserve">
-    <value>Enter your Instant Messenger (Skype, Yahoo, Google, etc) ID</value>
+  <data name="UploadFile.Text" xml:space="preserve">
+    <value>آپلود فایل</value>
   </data>
 </root>
