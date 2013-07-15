@@ -189,11 +189,11 @@
   <data name="Organization.Text" xml:space="preserve">
     <value>شرکت:</value>
   </data>
-  <data name="Url.Help" xml:space="preserve">
+  <data name="URL.Help" xml:space="preserve">
     <value>این گزینه آدرس وب مربوط به تولید کننده را نمایش می دهد.</value>
   </data>
-  <data name="Url.Text" xml:space="preserve">
-    <value>آدرس وب:</value>
+  <data name="URL.Text" xml:space="preserve">
+    <value>آدرس URL:</value>
   </data>
   <data name="FriendlyName.Required" xml:space="preserve">
     <value>وارد نمودن نام کاربرپسند برای پلاگین الزامی است</value>

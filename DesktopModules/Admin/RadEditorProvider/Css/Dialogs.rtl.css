@@ -1,0 +1,162 @@
+﻿html, body, form
+{
+	direction: rtl;
+}
+
+.reBottomcell table
+{
+	float: left !important;
+	margin: 4px 0 0 10px;
+}
+
+.rightAlignedInputLabel, .reToolbar
+{
+	float: right;
+}
+
+.reBottomcell table td
+{
+	padding-right: 4px;
+}
+
+.UploadPanel
+{
+	padding-right: 12px;
+}
+
+.filesize
+{
+	width: 70px;
+}
+
+.filemanagergrid td
+{
+	text-align: right;
+}
+
+.reBottomcell
+{
+	text-align: left;
+}
+
+.reBottomcell .radfdSkinnedFormButton, .reBottomcell .radfdSkinnedFormButton
+{
+	margin-left: 12px;
+}
+
+.ImageProperties .radfd_skipme, .TableWizard .radfd_skipme
+{
+	border-width: 1px !important;
+	border-left: 0 !important;
+}
+
+.ConstrainProportions button
+{
+	background-position: 0 -732px;
+}
+
+.ConstrainProportions.toggle button
+{
+	background-position: -20px -732px;
+}
+
+.propertyLabel
+{
+	text-align: left !important;
+}
+
+.imagePreviewer .RadTabStrip_Default_rtl, .ManagerDialog .RadTabStrip_Default_rtl, .LinkManager .rtsLevel.rtsLevel1
+{
+	direction: ltr !important;
+}
+
+.imagePreviewer .RadTabStrip_Default_rtl .rtsUL, .ManagerDialog .RadTabStrip_Default_rtl .rtsUL, .LinkManager .RadTabStrip_Default_rtl .rtsUL
+{
+	position: relative !important;
+	left: -10px !important;
+}
+
+.LinkManager .reDropdown
+{
+	position: relative;
+}
+
+.reControlsLayout
+{
+	direction: rtl !important;
+	padding: 4px;
+}
+
+.reControlsLayout *
+{
+	direction: rtl;
+}
+.reSplitButton span
+{
+	float: right !important;
+	margin-right: 2px !important;
+}
+.reToolWrapper .reDropdown
+{
+	background-position: -24px -360px !important;
+}
+.reToolWrapper .reDropdown:hover
+{
+	background-position: -1988px 0 !important;
+}
+.reToolWrapper .reDropdown span
+{
+	margin-left: 15px;
+	text-align: right;
+}
+.reDropDownBody .reTlbVertical ul.reToolbar
+{
+	float: left !important;
+}
+
+x:-moz-any-link, fieldset table td
+{
+	direction: rtl !important;
+}
+x:-moz-any-link, fieldset legend
+{
+	margin-right: 5px;
+}
+x:-moz-any-link, .reTableWizardSpinBox a span, x:-moz-any-link, .reSpinBox a
+{
+	text-indent: 99999px;
+}
+
+* + html fieldset table
+{
+	direction: rtl;
+}
+* + html fieldset legend
+{
+	margin-right: 5px;
+}
+* + html .reTableWizardSpinBox a span, * + html .reSpinBox a
+{
+	text-indent: -99999px;
+}
+.rfeUploadInfoPanel dt
+{
+    float:right;
+}
+.rfeUploadInfoPanel dd
+{
+    direction:ltr;
+}
+.RadUpload .ruFakeInput
+{
+    margin-right:0;
+    margin-left:-1px;
+}
+.RadWindow .rwDialogText
+{
+    text-align:right;
+}
+.rtsLI .rtsAfter
+{
+    background-position:0 -182px !important;
+}

@@ -336,4 +336,16 @@
   <data name="ProfileProperties_DisplayName.Text" xml:space="preserve">
     <value>نام مستعار:</value>
   </data>
+  <data name="Address.Text" xml:space="preserve">
+    <value>جزئیات آدرس</value>
+  </data>
+  <data name="Contact Info.Text" xml:space="preserve">
+    <value>اطلاعات تماس</value>
+  </data>
+  <data name="Name.Text" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="Preferences.Text" xml:space="preserve">
+    <value>اولویت ها</value>
+  </data>
 </root>

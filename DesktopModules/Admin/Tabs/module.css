@@ -201,4 +201,41 @@ p.dnnFormRequired span {
 #searchKeyword {
 	width: 134px;
 }
+
+div.um-page-url-container-updatable,
+div.um-page-url-container {
+    background: none repeat scroll 0 0 #E3E3E5;
+    display: inline-block;
+    padding: 8px;
+    position: relative;
+    white-space: normal;
+    width: 45%;
+    max-width: 445px;
+    margin: 0 0 14px 0;
+}
+
+.dnnFormItem div.um-page-url-container input[type="text"],
+.dnnFormItem div.um-page-url-container-updatable input[type="text"] {
+    margin-bottom: 0;
+}
+
+.dnnFormItem div.um-page-url-container input[type="text"].um-alias-caption,
+.dnnFormItem div.um-page-url-container-updatable input[type="text"].um-alias-caption {
+    width: 130px;
+    background: #d8d8d8;
+}
+
+.dnnFormItem div.um-page-url-container input[type="text"].um-page-url-textbox {
+    width: 248px;
+}
+
+.dnnFormItem div.um-page-url-container-updatable input[type="text"].um-page-url-textbox {
+    width: 156px;
+}
+
+.dnnFormItem div.um-page-url-container-updatable a.dnnSecondaryAction {
+    margin: 0;
+}
+
 /* ===========   End Pages Module Styling   =========== */
+

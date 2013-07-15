@@ -459,7 +459,7 @@ namespace DesktopModules.Admin.Console
 
                 //const string contentHtml = "<div>" + "<a href=\"{0}\"><img src=\"{1}\" alt=\"{3}\" width=\"16px\" height=\"16px\"/><img src=\"{2}\" alt=\"{3}\" width=\"32px\" height=\"32px\"/></a>" + "<h3>{3}</h3>" + "<div>{4}</div>" + "</div>";
 
-			    var tabUrl = Globals.NavigateURL(tab.TabID);
+			    var tabUrl = tab.FullUrl;
                 if (ProfileUserId > -1)
                 {
                     tabUrl = Globals.NavigateURL(tab.TabID, "", "UserId=" + ProfileUserId.ToString(CultureInfo.InvariantCulture));

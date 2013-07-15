@@ -751,6 +751,7 @@ namespace DotNetNuke.Modules.Admin.Authentication
 			UserValidStatus validStatus = UserValidStatus.VALID;
 			string strMessage = Null.NullString;
 			DateTime expiryDate = Null.NullDate;
+		    bool okToShowPanel = true;
 
 			validStatus = UserController.ValidateUser(objUser, PortalId, ignoreExpiring);
 
@@ -764,6 +765,22 @@ namespace DotNetNuke.Modules.Admin.Authentication
 			switch (validStatus)
 			{
 				case UserValidStatus.VALID:
+                    //check if the user is an admin/host and validate their IP
+                    if (Host.EnableIPChecking)
+                    {
+                        bool isAdminUser = objUser.IsSuperUser || PortalSettings.UserInfo.IsInRole(PortalSettings.AdministratorRoleName); ;
+                        if (isAdminUser) 
+                        {
+                            if (IPFilterController.Instance.IsIPBanned(Request.UserHostAddress))
+                            {
+                                new PortalSecurity().SignOut();
+                                AddModuleMessage("IPAddressBanned", ModuleMessage.ModuleMessageType.RedError, true);
+                                okToShowPanel = false;
+                                break;
+                            }
+                        }
+                    }
+
 					//Set the Page Culture(Language) based on the Users Preferred Locale
 					if ((objUser.Profile != null) && (objUser.Profile.PreferredLocale != null))
 					{
@@ -806,6 +823,9 @@ namespace DotNetNuke.Modules.Admin.Authentication
 					pnlProceed.Visible = false;
 					break;
 				case UserValidStatus.UPDATEPROFILE:
+					//Save UserID in ViewState so that can update profile later.
+					UserId = objUser.UserID;
+
 					//When the user need update its profile to complete login, we need clear the login status because if the logrin is from
 					//3rd party login provider, it may call UserController.UserLogin because they doesn't check this situation.
 					new PortalSecurity().SignOut();
@@ -814,7 +834,7 @@ namespace DotNetNuke.Modules.Admin.Authentication
 					PageNo = 3;
 					break;
 			}
-			ShowPanel();
+		    if (okToShowPanel) ShowPanel();
 		}
 
         private bool UserNeedsVerification()

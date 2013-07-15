@@ -391,7 +391,7 @@
     <value>Specify whether or not this page should be forced to use a secure connection (SSL). This option will only be enabled if the administrator has Enabled SSL in the site settings.</value>
   </data>
   <data name="lblPermanentRedirect.Help" xml:space="preserve">
-    <value>Check this box if you want to notify the client that this page should be considered as permanently moved.  This would allow SearchEngines to modify their urls to directly link to the resource.  This is ignored if the LinkType is None.</value>
+    <value>Check this box if you want to notify the client that this page should be considered as permanently moved.  This would allow SearchEngines to modify their URLs to directly link to the resource.  This is ignored if the LinkType is None.</value>
   </data>
   <data name="lblSitemapPriority.Help" xml:space="preserve">
     <value>Enter the desired priority (between 0 and 1.0).  This helps determine how this page is ranked in Google with respect to other pages on your site (0.5 is the default).</value>
@@ -418,7 +418,7 @@
     <value>Pages:</value>
   </data>
   <data name="PathDuplicateWithAlias.Text" xml:space="preserve">
-    <value>There has a site domain same with your page path.</value>
+    <value>There is a site domain identical to your page path.</value>
   </data>
   <data name="ExceededQuota.Text" xml:space="preserve">
     <value>It's not allowed to add page because adding a page will exceed the Page Quota for this site. Please contact your hosting provider for inquiries related to increasing your Page Quota.</value>
@@ -433,10 +433,10 @@
     <value>Priority is Required</value>
   </data>
   <data name="lblAllowIndex.Help" xml:space="preserve">
-    <value>Whether allow this page to be indexed by search spider.</value>
+    <value>This setting controls whether a page should be indexed by search crawlers. It uses the INDEX/NOINDEX values for ROBOTS meta tag.</value>
   </data>
   <data name="lblAllowIndex.Text" xml:space="preserve">
-    <value>Allow Indexed:</value>
+    <value>Allow Indexing:</value>
   </data>
   <data name="Search.Text" xml:space="preserve">
     <value>Search</value>

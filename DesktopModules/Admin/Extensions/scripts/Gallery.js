@@ -486,7 +486,9 @@ Gallery.prototype.showExtensions = function (callback) {
 
 
     if (this.pagedExtensions.length > 0) {
-        $("#eTmpl").tmpl(this.pagedExtensions).appendTo(this.extensionList).fadeIn(this.animationSpeed);
+    	var extensions = $("#eTmpl").tmpl(this.pagedExtensions);
+    	extensions.appendTo(this.extensionList).hide();
+    	this.extensionList.children().fadeIn(this.animationSpeed);
     }
     this.pagedExtensions = [];
     if (callback) callback(this);

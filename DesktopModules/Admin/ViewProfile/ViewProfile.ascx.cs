@@ -111,7 +111,7 @@ namespace DotNetNuke.Modules.Admin.Users
                     template = Localization.GetString("DefaultTemplate", LocalResourceFile);
                 }
 			    var editUrl = Globals.NavigateURL(ModuleContext.PortalSettings.ActiveTab.TabID, "Profile", "userId=" + ProfileUserId, "pageno=1");
-                var profileUrl = Globals.NavigateURL(ModuleContext.PortalSettings.ActiveTab.TabID, "Profile", "userId=" + ProfileUserId, "pageno=3");
+                var profileUrl = Globals.NavigateURL(ModuleContext.PortalSettings.ActiveTab.TabID, "Profile", "userId=" + ProfileUserId, "pageno=2");
 
                 if (template.Contains("[BUTTON:EDITPROFILE]"))
                 {
@@ -184,7 +184,7 @@ namespace DotNetNuke.Modules.Admin.Users
                     var clientName = Localization.GetSafeJSString(property.PropertyName);
                     sb.Append("self['" + clientName + "'] = ko.observable(");
                     sb.Append("\"");
-                    value = Localization.GetSafeJSString(value);
+                    value = Localization.GetSafeJSString(Server.HtmlDecode(value));
 
                     if(property.DataType == dataType.EntryID)
                     {

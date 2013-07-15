@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accessibility.Text" xml:space="preserve">
+    <value>دسترسی</value>
+  </data>
+  <data name="Cancel.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="CreateGroup.Text" xml:space="preserve">
+    <value>ایجاد گروه</value>
+  </data>
+  <data name="CreateGroupButton.Text" xml:space="preserve">
+    <value>ایجاد گروه</value>
+  </data>
+  <data name="Description.Text" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="documents.Text" xml:space="preserve">
+    <value>مستندات</value>
+  </data>
+  <data name="GroupName.Required" xml:space="preserve">
+    <value>نام گروه الزامی است.</value>
+  </data>
+  <data name="GroupName.Text" xml:space="preserve">
+    <value>نام گروه</value>
+  </data>
+  <data name="GroupPicture.Help" xml:space="preserve">
+    <value>لطفا یک تصویر برای آپلود انتخاب نمایید، حداکثر اندازه قابل قبول 2.5 مگابایت می باشد.</value>
+  </data>
+  <data name="GroupPicture.Text" xml:space="preserve">
+    <value>تصویر گروه</value>
+  </data>
+  <data name="GroupViewTemplate.Text" xml:space="preserve">
+    <value>&lt;div class="GroupViewTop"&gt;
+    &lt;div class="dgdAvatar dnnLeft"&gt;&lt;img src="[groupitem:PhotoURL]" alt="[groupitem:GroupName]" /&gt;&lt;/div&gt;
+    &lt;div class="GroupViewHeader"&gt;
+        &lt;h1&gt;[groupitem:GroupName]&lt;/h1&gt;
+        &lt;p&gt;[groupitem:GroupDescription]&lt;/p&gt;
+    &lt;/div&gt;
+&lt;div class="dnnRight dnnClear"&gt;
+[IsOwner]
+[GROUPEDITBUTTON] 
+[/IsOwner]
+[IsMember]
+[IsNotOwner]
+ &lt;a href="#" id="LeaveGroup-[groupitem:RoleId]"&gt;{resx:LeaveGroup}&lt;/a&gt;
+[/IsNotOwner]
+[/IsMember]
+[IsNotMember]
+ &lt;a href="#" id="JoinGroup-[groupitem:RoleId]"&gt;{resx:JoinGroup}&lt;/a&gt;
+[/IsNotMember]
+[IsPendingMember]
+ &lt;i&gt;در انتظار عضویت&lt;/i&gt;
+[/IsPendingMember]
+&lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="Join.Text" xml:space="preserve">
+    <value>اشتراک</value>
+  </data>
+  <data name="members.Text" xml:space="preserve">
+    <value>اعضاء</value>
+  </data>
+  <data name="photos.Text" xml:space="preserve">
+    <value>تصاویر</value>
+  </data>
+  <data name="posts.Text" xml:space="preserve">
+    <value>مطالب</value>
+  </data>
+  <data name="Private.Help" xml:space="preserve">
+    <value>(فقط قابل مشاهده توسط اعضا(</value>
+  </data>
+  <data name="Private.Text" xml:space="preserve">
+    <value>خصوصی</value>
+  </data>
+  <data name="Public.Help" xml:space="preserve">
+    <value>(قابل مشاهده و عضویت برای همه(</value>
+  </data>
+  <data name="Public.Text" xml:space="preserve">
+    <value>عمومی</value>
+  </data>
+  <data name="Remove.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="RequiredFields.Text" xml:space="preserve">
+    <value>مشخص نمودن فیلدهای الزامی</value>
+  </data>
+  <data name="GroupListTemplate.Text" xml:space="preserve">
+    <value>&lt;div class="dgdGroupQuickInfoWrap dnnClear"&gt;
+                    &lt;div class="dgdAvatar dnnLeft"&gt;&lt;a href="[groupviewurl]"&gt;&lt;img src="[groupitem:PhotoURL]" alt="[groupitem:GroupName]" /&gt;&lt;/a&gt;&lt;/div&gt;
+                    &lt;div class="dgdGroupQuickInfo dnnLeft"&gt;
+                        &lt;h3&gt;&lt;a href="[groupviewurl]" title="[groupitem:GroupName]"&gt;[groupitem:GroupName]&lt;/a&gt;&lt;/h3&gt;
+                        &lt;p&gt;[groupitem:GroupDescription]&lt;/p&gt;
+                        &lt;ul&gt;
+                            &lt;li class="posts-icn"&gt;[groupitem:stat_status] {resx:posts}&lt;/li&gt;
+                            &lt;li class="member-icn"&gt;[groupitem:UserCount] {resx:members}&lt;/li&gt;
+                            &lt;li class="photo-icn"&gt;[groupitem:stat_photo] {resx:photos}&lt;/li&gt;
+                            &lt;li class="docs-icn"&gt;[groupitem:stat_file] {resx:documents}&lt;/li&gt;
+                            [IsNotMember]
+                            &lt;li class="join-group-icn"&gt;&lt;a href="#" title="" class="dnnTertiaryAction" id="groupJoin-[groupitem:RoleId]"&gt;{resx:Join}&lt;/a&gt;&lt;/li&gt;[/IsNotMember] 
+[IsPendingMember]&lt;li class="join-group-icn"&gt;&lt;a href="#" title="" class="dnnDisabled"&gt;{resx:Pending}&lt;/a&gt;&lt;/li&gt;[/IsPendingMember]
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;</value>
+  </data>
+  <data name="GroupNameInvalid.Text" xml:space="preserve">
+    <value>نام وارد شده در حال استفاده می باشد.</value>
+  </data>
+  <data name="GroupPendingNotification.Body" xml:space="preserve">
+    <value>&lt;b&gt;نام گروه:&lt;/b&gt; &lt;a href="[groupitem:URL]" target="_blank"&gt;[groupitem:GroupName]&lt;/a&gt;&lt;br /&gt;&lt;b&gt;توضیحات:&lt;/b&gt; [groupitem:Description]&lt;br /&gt;&lt;b&gt;نوع گروه: &lt;/b&gt; [groupitem:GroupType]&lt;br /&gt;&lt;b&gt;ایجاد کننده:&lt;/b&gt; [groupitem:GroupCreatorName]&lt;br /&gt;</value>
+  </data>
+  <data name="GroupPendingNotification.Subject" xml:space="preserve">
+    <value>گروه [groupitem:GroupName] در انتظار تاییدمی باشد.</value>
+  </data>
+  <data name="GroupApprovedNotification.Body" xml:space="preserve">
+    <value>تبریک! گروه شما تایید گردید! برای دسترسی به گروه خود بر روی لینک زیر کلیک نمایید.&lt;br /&gt;&lt;br /&gt;&lt;a href="[groupitem:URL]"&gt;[groupitem:GroupName]&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;</value>
+  </data>
+  <data name="GroupApprovedNotification.Subject" xml:space="preserve">
+    <value>گروه [groupitem:GroupName] تایید گردید.</value>
+  </data>
+  <data name="GroupCreatedNotification.Body" xml:space="preserve">
+    <value>&lt;b&gt;نام گروه:&lt;/b&gt; &lt;a href="[groupitem:URL]"&gt;[groupitem:GroupName]&lt;/a&gt;&lt;br /&gt;&lt;b&gt;توضیحات:&lt;/b&gt; [groupitem:Description]&lt;br /&gt;&lt;b&gt;نوع گروه: &lt;/b&gt; [groupitem:GroupType]&lt;br /&gt;&lt;b&gt;ایجاد کننده:&lt;/b&gt; [groupitem:GroupCreatorName]&lt;br /&gt;
+</value>
+  </data>
+  <data name="GroupCreatedNotification.Subject" xml:space="preserve">
+    <value>گروه [groupitem:GroupName] ایجاد گردیده است.</value>
+  </data>
+  <data name="GroupRejectedNotification.Body" xml:space="preserve">
+    <value>شما درخواست ایجاد گروه &lt;b&gt;[groupitem:GroupName]&lt;/b&gt; را کرده اید. متاسفانه بایستی به عرض شما برسانیم که در حال حاضر امکان تایید درخواست شما میسر نمی باشد.</value>
+  </data>
+  <data name="GroupRejectedNotification.Subject" xml:space="preserve">
+    <value>درخواست گروه جدید شما پذیرفته نشده است.</value>
+  </data>
+  <data name="CreateNewGroup.Text" xml:space="preserve">
+    <value>ایجاد گروه جدید</value>
+  </data>
+  <data name="GroupIdNotFound.Text" xml:space="preserve">
+    <value>گروه مورد نظر در دسترس نمی باشد.  </value>
+  </data>
+  <data name="NoGroupsFound.Text" xml:space="preserve">
+    <value>گروهی یافت نگردید.</value>
+  </data>
+  <data name="Sample_RoleDescription.Text" xml:space="preserve">
+    <value>این توضیحات مربوط به گروه تستی می باشد. این گروه وجود خارجی ندارد. علت مشاهده این متن به خاطر این است که ماژول برای نخستین بار راه اندازی شده و یا شما مدیر پورتال بوده و بدون شناسه گروه وارد این صفحه شده اید.</value>
+  </data>
+  <data name="Sample_RoleName.Text" xml:space="preserve">
+    <value>شبکه اجتماعی تستی</value>
+  </data>
+  <data name="SetupHeader.Text" xml:space="preserve">
+    <value>راه اندازی شبکه های اجتماعی</value>
+  </data>
+  <data name="SetupIntro.Text" xml:space="preserve">
+    <value>ماژول شبکه های اجتماعی برای کاربران امکان دسترسی، مشاهده و ایجاد گروه جدید را فراهم می آورد. بهترین راه پیکربندی ماژول، ایجاد یک صفحه برای نمایش لیست گروه ها و صفحه ای دیگر برای مشاهده جزئیات گروه می باشد. برای پیکربندی ماژول می توان از طریق دکمه تنظیمات ماژول و یا دکمه تنظیم خودکار که در پایین موجود می باشد استفاده نمایید.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;در صورت عدم آشنایی کافی پیشنهاد می شود از دکمه تنظیم خودکار استفاده نمایید.&lt;/b&gt;</value>
+  </data>
+  <data name="RejectGroup.Text" xml:space="preserve">
+    <value>عدم پذیرش گروه</value>
+  </data>
+  <data name="MembersMustBeApproved.Text" xml:space="preserve">
+    <value>&lt;b&gt;بازبینی اعضاء جدید&lt;/b&gt; کاربران بایستی ابتدا درخواست عضویت در گروه را کرده و سپس این درخواست توسط مدیر گروه تایید گردد.</value>
+  </data>
+  <data name="GroupMemberApprovedNotification.Body" xml:space="preserve">
+    <value>درخواست عضویت شما در گروه &lt;a href="[groupitem:URL]"&gt;[groupitem:GroupName]&lt;/a&gt; تایید گردید.</value>
+  </data>
+  <data name="GroupMemberApprovedNotification.Subject" xml:space="preserve">
+    <value>به گروه [groupitem:GroupName] خوش آمدید!</value>
+  </data>
+  <data name="GroupMemberPendingNotification.Body" xml:space="preserve">
+    <value>&lt;a href="[ProfileUrl]" target="_blank"&gt;[DisplayName]&lt;/a&gt; درخواست عضویت در گروه [groupitem:GroupName] کرده است.</value>
+  </data>
+  <data name="GroupMemberPendingNotification.Subject" xml:space="preserve">
+    <value>[DisplayName] تمایل به عضویت در گروه [groupitem:GroupName] دارد</value>
+  </data>
+  <data name="GroupMemberRejectedNotification.Body" xml:space="preserve">
+    <value>متاسفانه درخواست شما برای عضویت در گروه &lt;a href="[groupitem:URL]"&gt;[groupitem:GroupName]&lt;/a&gt; تایید نگردید.</value>
+  </data>
+  <data name="GroupMemberRejectedNotification.Subject" xml:space="preserve">
+    <value>پاسخ داده شده به شما جهت درخواست عضویت در گروه [groupitem:GroupName]</value>
+  </data>
+  <data name="LeaveGroup.Text" xml:space="preserve">
+    <value>خروج از گروه</value>
+  </data>
+  <data name="Pending.Text" xml:space="preserve">
+    <value>در انتظار عضویت</value>
+  </data>
+  <data name="RejectMember.Text" xml:space="preserve">
+    <value>عدم پذیرش</value>
+  </data>
+  <data name="EditGroup.Text" xml:space="preserve">
+    <value>ویرایش گروه</value>
+  </data>
+  <data name="GroupEditUrl.Text" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;ویرایش گروه&lt;/a&gt;</value>
+  </data>
+  <data name="JoinGroup.Text" xml:space="preserve">
+    <value>عضویت در گروه</value>
+  </data>
+  <data name="AutoConfigure.Text" xml:space="preserve">
+    <value>پیکربندی خودکار</value>
+  </data>
+  <data name="SearchButton.Text" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="GroupSearch.Required" xml:space="preserve">
+    <value>وجود شرایط جستجو الزامی می باشد.</value>
+  </data>
+  <data name="GroupName.Invalid" xml:space="preserve">
+    <value>نام وارد شده نامعتبر می باشد - نقش ها فقط می توانند شامل حروف الفبا اعداد و فاصله خالی باشند</value>
+  </data>
+</root>

@@ -1,3 +1,4 @@
+.dnnEditLogTypes .eltContent select{width:15%;}
 .dnnLogViewer, .dnnEditLogTypes{margin:2em auto;}
 .dnnlvOptions { float: right; }
 .dnnlvOptions > .dnnLabel { display: block; width: auto;margin-right: 10px;margin-top: 5px;}
@@ -15,7 +16,7 @@
 .dnnlvFilter .rcbArrowCell .rcbArrowCellRight a{display:none;}
 .dnnlvLegend{ margin: 20px 10px 10px 0;}
 .dnnlvLegend h3{margin-top:0;padding-top:0; font-size: 16px; color: #666;}
-.dnnlvLegend .dnnLeft{ width: 200px; }
+.dnnlvLegend .dnnLeft{ width: 250px; }
 .dnnlvLegend .dnnLeft div.lvlItem{ color: #666;padding: 8px;clear: both; }
 .dnnlvLegend div.lvlItem span{ display: block;float: right;margin-left: 10px;}
 .dnnlvContent{margin-top:1em;}

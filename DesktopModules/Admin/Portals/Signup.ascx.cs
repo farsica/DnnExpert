@@ -110,14 +110,15 @@ namespace DotNetNuke.Modules.Admin.Portals
                 if (!Page.IsPostBack)
                 {
                     BindTemplates();
+                    // load template description
+                    cboTemplate_SelectedIndexChanged(null, null);
 
                     if (UserInfo.IsSuperUser)
                     {
                         rowType.Visible = true;
-	                    var useCurrentEnabled = MembershipProvider.Instance().PasswordRetrievalEnabled;
-						useCurrentPanel.Visible = useCurrentEnabled;
-						useCurrent.Checked = useCurrentEnabled;
-						adminUserPanel.Visible = !useCurrentEnabled;
+                        useCurrentPanel.Visible = true;
+                        useCurrent.Checked = true;
+                        adminUserPanel.Visible = false;
 
                         optType.SelectedValue = "P";
                     }
@@ -421,7 +422,16 @@ namespace DotNetNuke.Modules.Admin.Portals
                             if (useCurrent.Checked)
                             {
                                 adminUser = UserInfo;
-                                adminUser.Membership.Password = UserController.GetPassword(ref adminUser, String.Empty);
+                                intPortalId = objPortalController.CreatePortal(txtPortalName.Text,
+                                                                           adminUser.UserID,
+                                                                           txtDescription.Text,
+                                                                           txtKeyWords.Text,
+                                                                           template,
+                                                                           homeDir,
+                                                                           strPortalAlias,
+                                                                           strServerPath,
+                                                                           strChildPath,
+                                                                           blnChild);
                             }
                             else
                             {
@@ -447,9 +457,7 @@ namespace DotNetNuke.Modules.Admin.Portals
                                                         }
                                                 };
 
-
-                            }
-							intPortalId = objPortalController.CreatePortal(txtPortalName.Text,
+                                intPortalId = objPortalController.CreatePortal(txtPortalName.Text,
                                                                            adminUser,
                                                                            txtDescription.Text,
                                                                            txtKeyWords.Text,
@@ -459,6 +467,8 @@ namespace DotNetNuke.Modules.Admin.Portals
                                                                            strServerPath,
                                                                            strChildPath,
                                                                            blnChild);
+                            }
+							
                         }
                         catch (Exception ex)
                         {
@@ -511,6 +521,14 @@ namespace DotNetNuke.Modules.Admin.Portals
                             }
                             var objEventLog = new EventLogController();
                             objEventLog.AddLog(objPortalController.GetPortal(intPortalId), PortalSettings, UserId, "", EventLogController.EventLogType.PORTAL_CREATED);
+
+                            // mark default language as published if content localization is enabled
+                            bool ContentLocalizationEnabled = PortalController.GetPortalSettingAsBoolean("ContentLocalizationEnabled", PortalId, false);
+                            if (ContentLocalizationEnabled)
+                            {
+                                LocaleController lc = new LocaleController();
+                                lc.PublishLanguage(intPortalId, objPortal.DefaultLanguage, true);
+                            }
 
                             //Redirect to this new site
                             if (message == Null.NullString)
@@ -591,17 +609,17 @@ namespace DotNetNuke.Modules.Admin.Portals
                     
                     if (!String.IsNullOrEmpty(template.Description))
                     {
-                        lblTemplateDescription.Visible = true;
+                        rowTemplateDescription.Visible = true;
                         lblTemplateDescription.Text = Server.HtmlDecode(template.Description);
                     }
                     else
                     {
-                        lblTemplateDescription.Visible = false;
+                        rowTemplateDescription.Visible = false;
                     }
                 }
                 else
                 {
-                    lblTemplateDescription.Visible = false;
+                    rowTemplateDescription.Visible = false;
                 }
             }
             catch (Exception exc) //Module failed to load

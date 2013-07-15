@@ -1064,10 +1064,76 @@
   <data name="plHideLoginControl.Text" xml:space="preserve">
     <value>عدم نمایش کنترل ورود به سیستم؟</value>
   </data>
+  <data name="MembershipManagement.Text" xml:space="preserve">
+    <value>مدیریت عضویت در پورتال</value>
+  </data>
+  <data name="plEnableBannedList.Text" xml:space="preserve">
+    <value>فعال بودن لیست رمزهای عبور ممنوعه</value>
+  </data>
+  <data name="plEnableBannedList.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، رمزهای عبور وارد شده توسط کاربران، با توجه به لیست ممنوعه بررسی خواهند شد.</value>
+  </data>
+  <data name="plEnableIPChecking.Text" xml:space="preserve">
+    <value>فعال بودن بررسی آدرس IP</value>
+  </data>
+  <data name="plEnableIPChecking.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، در زمان ورود به سیستم، آدرس IP کاربر بررسی خواهد شد.</value>
+  </data>
+  <data name="CharacterSubListLabel.Help" xml:space="preserve">
+    <value>این گزینه نشانگر حرف مورد استفاده برای اتصال آدرس های URL می باشد.</value>
+  </data>
+  <data name="CharacterSubListLabel.Text" xml:space="preserve">
+    <value>حرف رابط:</value>
+  </data>
+  <data name="ExtensionLabel.Help" xml:space="preserve">
+    <value>این گزینه نشانگر پسوند مورد استفاده به همراه پیشوند آن می باشد. مقدار پیش فرض ".aspx" می باشد.</value>
+  </data>
+  <data name="ExtensionLabel.Text" xml:space="preserve">
+    <value>پسوند مورد استفاده (مقدار پیش فرض ".aspx" می باشد):</value>
+  </data>
+  <data name="enable.Text" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="manageAliasesLabel.Help" xml:space="preserve">
+    <value>این گزینه نشانگر اسامی مستعار پورتال می باشد.</value>
+  </data>
+  <data name="manageAliasesLabel.Text" xml:space="preserve">
+    <value>مدیریت اسامی مستعار:</value>
+  </data>
+  <data name="redirectOldProfileUrlsLabel.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، آدرس های قدیمی پروفایل به آدرس های جدید منتقل خواهند شد.</value>
+  </data>
+  <data name="redirectOldProfileUrlsLabel.Text" xml:space="preserve">
+    <value>انتقال آدرس های URL قدیمی پروفایل؟</value>
+  </data>
+  <data name="verifyProfileUrlsLabel.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، آدرس های پروفایل وارد شده توسط کاربران، اعتبارسنجی خواهند شد.</value>
+  </data>
+  <data name="verifyProfileUrlsLabel.Text" xml:space="preserve">
+    <value>اعتبارسنجی آدرس های URL پروفایل کاربر:</value>
+  </data>
   <data name="plEnableRegisterNotification.Help" xml:space="preserve">
     <value>درصورت انتخاب این گزینه، در زمان عضویت کاربر جدید، به مدیر پورتال توسط پست الکترونیک اطلاع رسانی خواهد شد.</value>
   </data>
   <data name="plEnableRegisterNotification.Text" xml:space="preserve">
     <value>دریافت پیام اطلاع رسانی در زمان عضویت کاربر جدید:</value>
+  </data>
+  <data name="FileVersionSettings.Text" xml:space="preserve">
+    <value>تنظیمات نسخه فایل</value>
+  </data>
+  <data name="plFileVersionEnabled.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، تاریخچه تغییرات نسخه های فایل ذخیره خواهند شد.</value>
+  </data>
+  <data name="plFileVersionEnabled.Text" xml:space="preserve">
+    <value>فعال بودن تاریخچه نسخه فایل؟</value>
+  </data>
+  <data name="plMaxVersions.Help" xml:space="preserve">
+    <value>این گزینه نشانگر تعداد حداکثر نسخه هایی می باشد که بایستی نگهداری شوند.</value>
+  </data>
+  <data name="plMaxVersions.Text" xml:space="preserve">
+    <value>حداکثر تعداد نسخ قابل نگهداری</value>
+  </data>
+  <data name="versionSize.Error" xml:space="preserve">
+    <value>تعداد نسخه های قابل نگهداری بایستی بین 5 تا 25 باشد.</value>
   </data>
 </root>

@@ -192,4 +192,7 @@
   <data name="Never.Text" xml:space="preserve">
     <value>هیچ وقت</value>
   </data>
+  <data name="OptionUnavailable.Text" xml:space="preserve">
+    <value>تنظیم مجدد رمز عبور غیر فعال می باشد.</value>
+  </data>
 </root>

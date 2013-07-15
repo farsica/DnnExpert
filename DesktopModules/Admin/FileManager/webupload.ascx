@@ -17,8 +17,7 @@
         </div>
         <div id="foldersRow" runat="server" visible="false" class="dnnFormItem">
             <dnn:Label ID="plFolder" runat="server" ControlName="ddlFolders" />
-         <%--   <asp:DropDownList ID="ddlFolders" runat="server" />--%>
-            <dnn:DnnComboBox ID="ddlFolders" runat="server" />
+            <dnn:DnnFolderDropDownList ID="ddlFolders" runat="server" />
         </div>
         <div id="unzipRow" runat="server" visible="false" class="dnnFormItem">
             <dnn:Label ID="Label1" runat="server" ControlName="chkUnzip" resourcekey="Decompress" />

@@ -234,4 +234,10 @@
   <data name="Password.Help" xml:space="preserve">
     <value>لطفا رمز عبور را وارد نمایید</value>
   </data>
+  <data name="VanityUrl.Help" xml:space="preserve">
+    <value>این گزینه نشانگر آدرس URL سفارشی برای پروفایل شما می باشد.</value>
+  </data>
+  <data name="VanityUrl.Text" xml:space="preserve">
+    <value>آدرس URL پروفایل:</value>
+  </data>
 </root>

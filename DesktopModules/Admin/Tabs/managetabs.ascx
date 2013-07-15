@@ -7,8 +7,11 @@
 <%@ Register TagPrefix="dnn" TagName="Audit" Src="~/controls/ModuleAuditControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="ModuleLocalization" Src="~/Admin/Modules/ModuleLocalization.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="TabLocalization" Src="~/DesktopModules/Admin/Tabs/TabLocalization.ascx" %>
+<%@ Register tagPrefix="dnnext" Namespace="DotNetNuke.ExtensionPoints" Assembly="DotNetNuke"%>
+<%@ Register TagPrefix="dnn" Src="~/DesktopModules/Admin/Languages/CLControl.ascx" TagName="CLControl" %>
+
 <div class="dnnForm dnnPageSettings dnnClear" id="tabSettingsForm">
-	<ul class="dnnAdminTabNav dnnClear" id="">
+	<ul class="dnnAdminTabNav dnnClear" id="TabStrip">
 		<li id="settingTab" runat="server"><a href="#dnnPageDetails"><%=LocalizeString("PageDetails")%></a></li>
         <li id="copyTab" runat="server"><a href="#dnnCopyPage"><%=LocalizeString("CopyPage")%></a></li>
 		<li id="permissionsTab" runat="server"><a href="#dnnPermissions"><%=LocalizeString("Permissions")%></a></li>
@@ -17,7 +20,6 @@
 	</ul>
 	<div id="dnnPageDetails" class="dnnPageDetails dnnClear">
 	   <div class="psdContent dnnClear">
-			<%--<div class="dnnFormItem dnnFormHelp dnnClear"><p class="dnnFormRequired"><span><%=LocalizeString("RequiredFields")%></span></p></div>--%>
 		   <fieldset>
 				<div class="dnnFormItem">
 					<dnn:Label ID="plTabName" runat="server" ResourceKey="TabName" Suffix=":" HelpKey="TabNameHelp" ControlName="txtTabName" CssClass="dnnFormRequired"  />
@@ -27,7 +29,18 @@
 				<div class="dnnFormItem">
 					<dnn:Label ID="plTitle" runat="server" ResourceKey="Title" Suffix=":" HelpKey="TitleHelp" ControlName="txtTitle" />
 					<asp:TextBox ID="txtTitle" runat="server" MaxLength="200" />
-				</div>    
+				</div>
+				<asp:Panel cssClass="dnnFormItem" id="pageUrlPanel" runat="Server">
+					<dnn:Label ID="urlLabel" runat="server" ControlName="urlTextBox" />
+                    <div id="UrlContainer" runat="server">
+                        <asp:TextBox ID="PortalAliasCaption" runat="server" CssClass="um-alias-caption" ReadOnly="True" MaxLength="200" />
+                        <asp:TextBox ID="urlTextBox" runat="server" CssClass="um-page-url-textbox" MaxLength="200" />
+                    </div>
+				</asp:Panel>
+				<asp:Panel cssClass="dnnFormItem" id="doNotRedirectPanel" runat="Server">
+					<dnn:Label ID="doNotRedirectLabel" runat="server" ControlName="doNotRedirectCheckBox" />
+					<asp:CheckBox ID="doNotRedirectCheckBox" runat="server" />
+				</asp:Panel>    
 				<div class="dnnFormItem">
 					<dnn:Label ID="plDescription" runat="server" ResourceKey="Description" Suffix=":" HelpKey="DescriptionHelp" ControlName="txtDescription" />
 					<asp:TextBox ID="txtDescription" runat="server" MaxLength="500" TextMode="MultiLine" Rows="2" />
@@ -42,14 +55,12 @@
 				</div>    
 				<div class="dnnFormItem">
 					<dnn:Label ID="plParentTab" runat="server" ResourceKey="ParentTab" ControlName="cboParentTab" />
-					<%--<asp:DropDownList ID="cboParentTab" runat="server" DataTextField="IndentedTabName" DataValueField="TabId" />--%>
-                    <dnn:DnnComboBox ID="cboParentTab" runat="server" DataTextField="IndentedTabName" DataValueField="TabId" />
+                    <dnn:DnnPageDropDownList ID="cboParentTab" runat="server" />
 				</div>    
 				<div id="insertPositionRow" class="dnnFormItem" runat="server">
                     <div>
 					<dnn:Label ID="plInsertPosition" runat="server" ResourceKey="InsertPosition" ControlName="cboPositionTab" />
 					<asp:RadioButtonList ID="rbInsertPosition" runat="server" CssClass="dnnFormRadioButtons" RepeatDirection="Horizontal" AutoPostBack="true" RepeatLayout="Flow" />
-					<%--<asp:DropDownList ID="cboPositionTab" CssClass="dnnPositionTab" runat="server" DataTextField="LocalizedTabName" DataValueField="TabId" />--%>
                     </div>
                     <div class="dnnFormItem">
                     <div class="dnnLabel"></div>
@@ -58,16 +69,14 @@
 				</div>    
 				<div id="templateRow1" class="dnnFormItem" runat="server" visible="false">
 					<dnn:label id="plFolder" runat="server" controlname="cboFolders" />
-					<%--<asp:DropDownList ID="cboFolders" Runat="server" AutoPostBack="true" />--%>
-                    <dnn:DnnComboBox ID="cboFolders" Runat="server" AutoPostBack="true" CausesValidation="False" />
+                    <dnn:DnnFolderDropDownList ID="cboFolders" runat="server" AutoPostBack="True" />
 				</div>    
 				<div  id="templateRow2" class="dnnFormItem" runat="server" visible="false">
 					<dnn:label id="plTemplate" runat="server" controlname="cboTemplate" />
-					<%--<asp:dropdownlist id="cboTemplate" runat="server" />--%>
                     <dnn:DnnComboBox id="cboTemplate" runat="server" />
 				</div>    
 				<div class="dnnFormItem">
-					<dnn:Label ID="plMenu" runat="server" ResourceKey="Menu" Suffix="?" HelpKey="MenuHelp" ControlName="chkMenu" />
+					<dnn:Label ID="plMenu" runat="server" ResourceKey="Menu" HelpKey="MenuHelp" ControlName="chkMenu" />
 					<asp:CheckBox ID="chkMenu" runat="server" />
 				</div>    
 			</fieldset>
@@ -79,8 +88,7 @@
 				<div id="copyPanel" runat="server">
 					<div class="dnnFormItem">
 						<dnn:Label ID="plCopyPage" runat="server" ResourceKey="CopyModules" Suffix=":" HelpKey="CopyModulesHelp" ControlName="cboCopyPage" />
-						<%--<asp:DropDownList ID="cboCopyPage" runat="server" DataTextField="IndentedTabName" DataValueField="TabId" AutoPostBack="True" />--%>
-                        <dnn:DnnComboBox ID="cboCopyPage" runat="server" DataTextField="IndentedTabName" DataValueField="TabId" AutoPostBack="True" CausesValidation="False" />
+                        <dnn:DnnPageDropDownList ID="cboCopyPage" runat="server" AutoPostBack="True" CausesValidation="False" />
 					</div>    	
 					<div id="modulesRow" runat="server" class="dnnFormItem">
 						<dnn:Label ID="plModules" runat="server" ResourceKey="CopyContent" Suffix=":" HelpKey="CopyContentHelp" ControlName="grdModules" />
@@ -165,12 +173,15 @@
 					<dnn:Label ID="publishPageLabel" runat="server" ControlName="publishPageButton"></dnn:Label>
 					<dnn:CommandButton ID="publishPageButton" runat="server" IconKey="Save" ResourceKey="Publish" />
 				</div>
-				<div id="readyForTranslationRow" runat="server" visible="false" class="dnnFormItem">
-					<asp:Label ID="readyToTranslateLabel" runat="server" resourceKey="readyToTranslateLabel" />
-                    <ul class="dnnActions dnnClear">
-                        <li><asp:LinkButton ID="readyForTranslationButton" runat="server" ResourceKey="ReadyForTranslation"  CssClass="dnnSecondaryAction"/></li>                        
-                    </ul>
-				</div>
+
+                <dnn:CLControl ID="CLControl1" runat="server" />
+                <ul class="dnnActions dnnClear">
+                    <li><asp:LinkButton ID="cmdUpdateLocalization" runat="server" CssClass="dnnPrimaryAction" resourcekey="cmdUpdateLocalization" OnClick="cmdUpdateLocalization_Click"></asp:LinkButton></li>
+                    <li><asp:LinkButton runat="server" ID="MakeTranslatable" CssClass="dnnSecondaryAction" resourcekey="MakeTranslatable" OnClick="MakeTranslatable_Click"></asp:LinkButton></li>
+                    <li><asp:LinkButton runat="server" ID="MakeNeutral" CssClass="dnnSecondaryAction" resourcekey="MakeNeutral" OnClick="MakeNeutral_Click"></asp:LinkButton></li>
+                    <li><asp:LinkButton runat="server" ID="AddMissing" CssClass="dnnSecondaryAction" resourcekey="AddMissingLanguages" OnClick="AddMissing_Click"></asp:LinkButton></li>
+                    <li><asp:LinkButton ID="readyForTranslationButton" runat="server" ResourceKey="ReadyForTranslation"  CssClass="dnnSecondaryAction"/></li>
+                </ul>
                 <div id="sendTranslationMessageRow" runat="server" visible="false" class="dnnFormItem">                    
                     <asp:Label ID="TranslationCommentLabel" runat="server" resourcekey="TranslationComment" EnableViewState="False" />		            
 			        <div class="dnnFormItem">
@@ -181,14 +192,6 @@
 		                <li><asp:LinkButton id="cmdCancelTranslation" runat="server" CssClass="dnnSecondaryAction" resourcekey="cmdCancel" /></li>
 	                </ul>
                 </div>
-				<div id="localizedTabsRow" runat="server" class="dnnFormItem">
-					<asp:Label ID="localizedTabsLabel" runat="server" resourcekey="LocalizedTabs" EnableViewState="False" />
-					<dnn:TabLocalization id="tabLocalization" runat="server" />
-				</div>
-				<div id="localizedModulesRow" runat="server" class="dnnFormItem">
-					<asp:Label ID="localizedModulesLabel" runat="server" resourcekey="LocalizedModules" EnableViewState="False" />
-					<dnn:ModuleLocalization id="moduleLocalization" runat="server" />
-				</div>
 			</fieldset>   
 		</div>
    </div>
@@ -209,13 +212,15 @@
 				<div id="tabSkinSettings">
 					<div class="dnnFormItem">
 						<dnn:Label ID="plSkin" ControlName="pageSkinCombo" runat="server" />
-						<%--<asp:DropDownList ID="pageSkinCombo" runat="Server" DataTextField="Key" DataValueField ="Value" />--%>
                         <dnn:DnnComboBox ID="pageSkinCombo" runat="Server" DataTextField="Key" DataValueField ="Value" />
 					</div>
 					<div class="dnnFormItem">
 						<dnn:Label ID="plContainer" ControlName="pageContainerCombo" runat="server" />
-						<%--<asp:DropDownList ID="pageContainerCombo" runat="Server" DataTextField="Key" DataValueField ="Value" />--%>
                         <dnn:DnnComboBox ID="pageContainerCombo" runat="Server" DataTextField="Key" DataValueField ="Value" />
+                    </div>
+					<div class="dnnFormItem">
+						<dnn:Label ID="plCustomStylesheet" ControlName="txtCustomStylesheet" runat="server" />
+                        <asp:TextBox runat="server" ID="txtCustomStylesheet"></asp:TextBox>
                     </div>
                     <div class="dnnFormItem">
                         <div class="dnnLabel"></div>
@@ -246,7 +251,6 @@
 				<legend></legend>
 				<div class="dnnFormItem">
 					<dnn:Label ID="lblCacheProvider" runat="server" ControlName="cboCacheProvider" ResourceKey="CacheProvider" HelpKey="CacheProvider.Help"></dnn:Label>
-					<%--<asp:DropDownList ID="cboCacheProvider" runat="server" AutoPostBack="true" DataValueField="Key" DataTextField="Key" />--%>
                     <dnn:DnnComboBox ID="cboCacheProvider" runat="server" AutoPostBack="true" DataValueField="Key" DataTextField="Key" CausesValidation="False" />
 				</div>        
 				<div id="CacheStatusRow" runat="server" visible="false" class="dnnFormItem">
@@ -281,6 +285,7 @@
 					<asp:CompareValidator ID="valMaxVaryByCount" ControlToValidate="txtMaxVaryByCount" Operator="DataTypeCheck" Type="Integer" Runat="server" Display="Dynamic" resourcekey="valCacheTime.ErrorMessage" />
 				</div>        
 			</fieldset>
+            <dnnext:EditPagePanelExtensionControl runat="server" ID="AdvancedSettingExtensionControl" Module="ManageTabs" Group="AdvancedSettings"/>
 			<h2 id="dnnPanel-TabsOtherSettings" class="dnnFormSectionHead"><a href="" class=""><%=LocalizeString("OtherSettings")%></a></h2>
 			<fieldset>
 				<legend></legend>
@@ -331,12 +336,12 @@
 </div>
 <dnn:audit id="ctlAudit" runat="server" />
 <script language="javascript" type="text/javascript">
-/*globals jQuery, window, Sys */
-(function ($, Sys) {
-    function setUpDnnManageTabs() {
-        $('#tabSettingsForm').dnnTabs().dnnPanels();
-        $('#dnnAdvancedSettings .dnnFormExpandContent a').dnnExpandAll({
-            expandText: '<%=Localization.GetSafeJSString("ExpandAll", Localization.SharedResourceFile)%>',
+    /*globals jQuery, window, Sys */
+    (function ($, Sys) {
+        function setUpDnnManageTabs() {
+            $('#tabSettingsForm').dnnTabs().dnnPanels();
+            $('#dnnAdvancedSettings .dnnFormExpandContent a').dnnExpandAll({
+                expandText: '<%=Localization.GetSafeJSString("ExpandAll", Localization.SharedResourceFile)%>',
             collapseText: '<%=Localization.GetSafeJSString("CollapseAll", Localization.SharedResourceFile)%>',
             targetArea: '#dnnAdvancedSettings'
         });
@@ -367,6 +372,18 @@
             alertOkText: '<%= Localization.GetSafeJSString("Ok.Text", Localization.SharedResourceFile)%>',
             useComboBox: true
         });
+
+        $("ul.dnnAdminTabNav > li > a").click(function (e) {
+            if ($(this).parent().attr("id").indexOf("propertiesTab") > -1) {
+                $("ul.dnnMainActions, div.dnnModuleAuditControl").hide();
+            } else {
+                $("ul.dnnMainActions, div.dnnModuleAuditControl").show();
+            }
+        });
+
+        if ($("ul.dnnAdminTabNav > li.ui-tabs-active").attr("id").indexOf("propertiesTab") > -1) {
+            $("ul.dnnMainActions, div.dnnModuleAuditControl").hide();
+        }
     }
 
     $(document).ready(function () {
@@ -378,9 +395,12 @@
             $('#' + activeTab + ' a').click();
         }
 
+        $('#<%= MakeNeutral.ClientID %>').dnnConfirm({ text: '<%= Localization.GetSafeJSString("MakeNeutral.Confirm", LocalResourceFile) %>', yesText: '<%= Localization.GetSafeJSString("Yes.Text", Localization.SharedResourceFile) %>', noText: '<%= Localization.GetSafeJSString("No.Text", Localization.SharedResourceFile) %>', title: '<%= Localization.GetSafeJSString("Confirm.Text", Localization.SharedResourceFile) %>' });
+
+
         Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
             setUpDnnManageTabs();
         });
     });
-} (jQuery, window.Sys));
+}(jQuery, window.Sys));
 </script>

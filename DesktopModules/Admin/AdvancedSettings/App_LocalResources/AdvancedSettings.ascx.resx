@@ -139,7 +139,7 @@
     <value>Authentication Systems</value>
   </data>
   <data name="AuthSystemsDetail.Text" xml:space="preserve">
-    <value>DotNetNuke supports multiple Authentication Systems which is the method by which a user logs into the website. DotNetNuke comes with a default Authentication System which can be used separately or in tandem with other systems. Please select the optional Authentication Systems you wish to install for use on your website. Remember, you can install any of the Authentication Systems listed here at a later time.</value>
+    <value>Please select the optional Authentication Systems you wish to install for use on your website. Remember, you can install any of the Authentication Systems listed here at a later time.</value>
   </data>
   <data name="NoAuthSystems.Text" xml:space="preserve">
     <value>There are no authentication system to install.</value>
@@ -151,10 +151,10 @@
     <value>&lt;b&gt;&lt;font color='red'&gt;Error Installing Provider:&lt;/font&gt;&lt;/b&gt;&lt;br/&gt;{0}</value>
   </data>
   <data name="ModulesDetail.Text" xml:space="preserve">
-    <value>DotNetNuke is very powerful and extensible, and one way of extending the functionality is through Modules. There are many different types of Modules, each managing a different type of site content or site administrative task. Here you can see any Modules which are installed by default and select the optional Modules you wish to install for use in your website. Remember, you can choose to install any of the Modules listed here at a later stage once installation is completed.</value>
+    <value>There are many different types of Modules, each managing a different type of site content or site administrative task. Here you can see any Modules which are installed by default and select the optional Modules you wish to install for use in your website. Remember, you can choose to install any of the Modules listed here at a later stage once installation is completed.</value>
   </data>
   <data name="ProvidersDetail.Text" xml:space="preserve">
-    <value>Another way of extending the functionality of the DotNetNuke application is through Providers, which is functionality from another product which is ‘wrapped’ for use in DotNetNuke. Please select the optional Providers you wish to install for use on your website. Remember, you can choose to install any of the Provider listed here at a later stage once installation is completed.</value>
+    <value>Please select the optional Providers you wish to install for use on your website. Remember, you can choose to install any of the Provider listed here at a later stage once installation is completed.</value>
   </data>
   <data name="NoModules.Text" xml:space="preserve">
     <value>There are no optional modules to install.</value>
@@ -170,5 +170,14 @@
   </data>
   <data name="SkinEditor.Title" xml:space="preserve">
     <value>Skin Basics</value>
+  </data>
+  <data name="Description.Header" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Name.Header" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Version.Header" xml:space="preserve">
+    <value>Version</value>
   </data>
 </root>

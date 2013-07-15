@@ -4,7 +4,6 @@
 <%@ Register TagPrefix="dnn" Assembly="DotNetNuke" Namespace="DotNetNuke.UI.WebControls"%>
 <%@ Register TagPrefix="dnn" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls"%>
 <div class="dnnForm dnnPortalSignup dnnClear" id="dnnPortalSignup">
-	<%--<div class="dnnFormItem dnnFormHelp dnnClear"><p class="dnnFormRequired"><span><%=LocalizeString("RequiredFields")%></span></p></div>--%>
     <fieldset>
         <asp:label id="lblInstructions" runat="server" Visible="false" />
         <div id="validationPanel" runat="Server" Visible="false" class="dnnFormItem">
@@ -47,8 +46,11 @@
         <div class="dnnFormItem">
             <dnn:label id="plTemplate" runat="server" controlname="cboTemplate" />
             <dnn:DnnComboBox id="cboTemplate"  runat="server" AutoPostBack="true" CausesValidation="False" />
-            <div class="dnnLabel"></div>
-			<asp:Label id="lblTemplateDescription" runat="server" />
+        </div>
+        <div id="rowTemplateDescription" class="dnnFormItem" runat="server" Visible="False">
+            <div class="dnnLabel">&nbsp;</div>
+            <div class="dnnFormMessage dnnFormInfo suTemplateInfo">
+			<asp:Label id="lblTemplateDescription" runat="server" /></div>
         </div>
         <div id="useCurrentPanel" runat="server" class="dnnFormItem">
             <dnn:label id="useCurrentLabel" runat="server" controlname="useCurrent" />

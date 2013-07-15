@@ -35,7 +35,7 @@ using Telerik.Web.UI.Upload;
 
 //
 // DotNetNuke® - http://www.dotnetnuke.com
-// Copyright (c) 2002-2009
+// Copyright (c) 2002-2013
 // by DotNetNuke Corporation
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -78,24 +78,20 @@ namespace DotNetNuke.Modules.Admin.Languages
 
         protected bool IsDefaultLanguage(string code)
         {
-            bool returnValue = false;
-            if (code == PortalDefault)
-            {
-                returnValue = true;
-            }
-            return returnValue;
+            return code == PortalDefault;
+
         }
 
         protected bool IsLanguageEnabled(string Code)
         {
-            Locale enabledLanguage = null;
+            Locale enabledLanguage;
             return LocaleController.Instance.GetLocales(ModuleContext.PortalId).TryGetValue(Code, out enabledLanguage);
         }
 
         private void PublishLanguage(string cultureCode, bool publish)
         {
             Dictionary<string, Locale> enabledLanguages = LocaleController.Instance.GetLocales(PortalId);
-            Locale enabledlanguage = null;
+            Locale enabledlanguage;
             if (enabledLanguages.TryGetValue(cultureCode, out enabledlanguage))
             {
                 enabledlanguage.IsPublished = publish;
@@ -205,7 +201,10 @@ namespace DotNetNuke.Modules.Admin.Languages
             Server.ScriptTimeout = timeout;
 
             int languageCounter = 0;
+            if (chkAllPagesTranslatable.Checked)
+            {
             ProcessLanguage(pageList, LocaleController.Instance.GetLocale(PortalDefault), languageCounter, languageCount);
+            }
             PublishLanguage(PortalDefault, true);
 
             PortalController.UpdatePortalSetting(PortalId, "ContentLocalizationEnabled", "True");

@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 using DotNetNuke.Common;
 using DotNetNuke.Entities.Modules;
@@ -35,7 +36,7 @@ using Telerik.Web.UI.Upload;
 
 //
 // DotNetNuke® - http://www.dotnetnuke.com
-// Copyright (c) 2002-2009
+// Copyright (c) 2002-2013
 // by DotNetNuke Corporation
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -86,12 +87,7 @@ namespace DotNetNuke.Modules.Admin.Languages
 
         protected bool IsDefaultLanguage(string code)
         {
-            bool returnValue = false;
-            if (code == PortalDefault)
-            {
-                returnValue = true;
-            }
-            return returnValue;
+            return code == PortalDefault;
         }
 
         protected bool IsLanguageEnabled(string Code)
@@ -177,7 +173,12 @@ namespace DotNetNuke.Modules.Admin.Languages
             pageCreationProgressArea.Localization.UploadedFiles = Localization.GetString("Progress", LocalResourceFile);
             pageCreationProgressArea.Localization.CurrentFileName = Localization.GetString("Processing", LocalResourceFile);
 
-            localizeLabel.Text = String.Format(Localization.GetString("localize", LocalResourceFile), Locale, _PortalDefault);
+            List<TabInfo> pageList = new TabController().GetCultureTabList(PortalId);
+            PagesToLocalize.Text = pageList.Count.ToString(CultureInfo.InvariantCulture);
+            if (pageList.Count == 0)
+            {
+                updateButton.Enabled = false;
+            }
         }
 
         protected void cancelButton_Click(object sender, EventArgs e)

@@ -151,7 +151,7 @@
     <value>پیش فرض</value>
   </data>
   <data name="Url.Text" xml:space="preserve">
-    <value>آدرس لینک</value>
+    <value>آدرس URL لینک</value>
   </data>
   <data name="UrlHelp.Text" xml:space="preserve">
     <value>در صورتی که تمایل دارید این صفحه به عنوان لینکی به سایر وب سایت ها عمل نماید، می توانید آدرس مورد نظر را مشخص نمایید. توجه نمایید که این فیلد اختیاری می باشد.</value>
@@ -535,7 +535,7 @@
     <value>شما در حال انتشار این صفحه می باشید. این امر موجب مشخص شدن تمام ماژول ها به عنوان ترجمه شده و کپی شدن دسترسی های مشاهده از زبان پیش فرض پورتال می گردد. آیا از ادامه عملیات اطمینان دارید؟</value>
   </data>
   <data name="ReadyForTranslation.Text" xml:space="preserve">
-    <value>آماده برای ترجمه</value>
+    <value>اطلاع رسانی به ترجمه کنندگان</value>
   </data>
   <data name="NewContentMessage.Body" xml:space="preserve">
     <value>صفحه زیر دارای محتوای جدید نیازمند ترجمه می باشد&lt;br/&gt; صفحه: &lt;a href='{1}'&gt;{0}&lt;/a&gt;&lt;br/&gt;{2}</value>
@@ -548,12 +548,6 @@
   </data>
   <data name="publishPageLabel.Text" xml:space="preserve">
     <value>انتشار صفحه</value>
-  </data>
-  <data name="readyToTranslateLabel.Help" xml:space="preserve">
-    <value>برای مشخص نمودن این صفحه به عنوان "آماده برای ترجمه" بر روی لینک زیر کلیک نمایید. این کار موجب کپی شدن محتوای ماژول به نسخه متناظر در زبان زیر مجموعه و ارسال پیغام به کاربرانی است که دارای نقش مترجم صفحه را دارند.</value>
-  </data>
-  <data name="readyToTranslateLabel.Text" xml:space="preserve">
-    <value>برای مشخص نمودن این صفحه به عنوان "آماده برای ترجمه" بر روی لینک زیر کلیک نمایید. این کار موجب کپی شدن محتوای ماژول به نسخه متناظر در زبان زیر مجموعه و ارسال پیغام به کاربرانی است که دارای نقش مترجم صفحه را دارند.</value>
   </data>
   <data name="CacheSettings.Text" xml:space="preserve">
     <value>تنظیمات حافظه موقت</value>
@@ -577,10 +571,10 @@
     <value>کپی صفحه</value>
   </data>
   <data name="TranslationComment.Text" xml:space="preserve">
-    <value>لطفا توضیحات مربوط به ترجمه را وارد نمایید</value>
+    <value>ارسال اطلاع رسانی به ترجمه کنندگان</value>
   </data>
   <data name="cmdSubmit.Text" xml:space="preserve">
-    <value>ثبت</value>
+    <value>ارسال</value>
   </data>
   <data name="PathDuplicateWithAlias.Text" xml:space="preserve">
     <value>پورتالی مشابه با مسیر صفحه مشخص شده موجود می باشد.</value>
@@ -602,5 +596,53 @@
   </data>
   <data name="plAllowIndex.Text" xml:space="preserve">
     <value>امکان ایندکس شدن توسط موتورهای جستجو:</value>
+  </data>
+  <data name="UrlManagement.Text" xml:space="preserve">
+    <value>مدیریت آدرس URL</value>
+  </data>
+  <data name="cmdUpdateLocalization.Text" xml:space="preserve">
+    <value>بروزرسانی بومی سازی</value>
+  </data>
+  <data name="MakeNeutral.Confirm" xml:space="preserve">
+    <value>درصورت ادامه، همه نسخه های ترجمه شده صفحه، حذف خواهند شد. فقط نسخه زبان پیش فرض باقی خواهد ماند. آیا از ادامه عملیات اطمینان دارید؟</value>
+  </data>
+  <data name="MakeNeutral.Text" xml:space="preserve">
+    <value>تبدیل صفحه به زبان عمومی</value>
+  </data>
+  <data name="MakeTranslatable.Text" xml:space="preserve">
+    <value>افزودن امکان قابل ترجمه شدن صفحه</value>
+  </data>
+  <data name="AddMissingLanguages.Text" xml:space="preserve">
+    <value>افزودن زبان های بجا مانده</value>
+  </data>
+  <data name="plCustomStylesheet.Help" xml:space="preserve">
+    <value>این گزینه نشانگر فایل استایل می باشد که برای این صفحه بارگزاری خواهد شد. فایل بایستی در شاخه اصلی و یا یک از پوشه های زیر مجموعه پورتال قرار داشته باشد.</value>
+  </data>
+  <data name="plCustomStylesheet.Text" xml:space="preserve">
+    <value>استایل صفحه</value>
+  </data>
+  <data name="urlLabel.Help" xml:space="preserve">
+    <value>این گزینه نشانگر آدرس URL صفحه می باشد.</value>
+  </data>
+  <data name="urlLabel.Text" xml:space="preserve">
+    <value>آدرس URL صفحه:</value>
+  </data>
+  <data name="doNotRedirectLabel.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، این صفحه در محدوده هیچ فرمولی قرار نخواهد گرفت.</value>
+  </data>
+  <data name="doNotRedirectLabel.Text" xml:space="preserve">
+    <value>عدم انتقال:</value>
+  </data>
+  <data name="UrlPathCleaned.Error" xml:space="preserve">
+    <value>آدرس URL وارده برای صفحه، شامل حروف غیر مجاز می باشد که حذف خواهند شد، درصورت تمایل به استفاده از آدرس ویرایش شده، بر روی دکمه بروزرسانی کلیک نمایید.</value>
+  </data>
+  <data name="UrlPathNotUnique.Error" xml:space="preserve">
+    <value>آدرس URL صفحه در دسترس نمی باشد. درصورت تمایل به استفاده از مقدار پیشنهادی، بر روی دکمه بروزرسانی کلیک نمایید.</value>
+  </data>
+  <data name="UpdateUrlButton.Caption" xml:space="preserve">
+    <value>بروزرسانی</value>
+  </data>
+  <data name="UpdateUrlButton.Tooltip" xml:space="preserve">
+    <value>بروزرسانی آدرس URL</value>
   </data>
 </root>

@@ -24,8 +24,12 @@ using System;
 
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Users;
+using DotNetNuke.Security.Membership;
 using DotNetNuke.Security.Roles;
+using DotNetNuke.Services.Mail;
+using DotNetNuke.UI.Skins.Controls;
 using DotNetNuke.Web.UI.WebControls;
+using DotNetNuke.Services.Localization;
 
 #endregion
 
@@ -290,15 +294,30 @@ namespace DotNetNuke.Modules.Admin.Users
             }
             if (Request.IsAuthenticated != true) return;
 
-			//Get the Membership Information from the property editors
-            User.Membership = (UserMembership)membershipForm.DataSource;
+            if (MembershipProviderConfig.PasswordRetrievalEnabled || MembershipProviderConfig.PasswordResetEnabled)
+            {
+                UserController.ResetPasswordToken(User);
+            }
+            bool canSend = Mail.SendMail(User, MessageType.PasswordReminder, PortalSettings) == string.Empty;
+            var message = String.Empty;
+            if (canSend)
+            {
+                //Get the Membership Information from the property editors
+                User.Membership = (UserMembership)membershipForm.DataSource;
 
-            User.Membership.UpdatePassword = true;
+                User.Membership.UpdatePassword = true;
 
-            //Update User
-            UserController.UpdateUser(PortalId, User);
+                //Update User
+                UserController.UpdateUser(PortalId, User);
 
-            OnMembershipPasswordUpdateChanged(EventArgs.Empty);
+                OnMembershipPasswordUpdateChanged(EventArgs.Empty); 
+            }
+            else
+            {
+                message = Localization.GetString("OptionUnavailable", LocalResourceFile);
+                UI.Skins.Skin.AddModuleMessage(this, message, ModuleMessage.ModuleMessageType.YellowWarning);
+            }
+			
         }
 
         /// -----------------------------------------------------------------------------

@@ -199,16 +199,16 @@
     <value>تنظیم مورد نظر اضافه گردید.</value>
   </data>
   <data name="LogEntry.Text" xml:space="preserve">
-    <value>مدخل گزارش</value>
+    <value> مدخل</value>
   </data>
   <data name="LogEntries.Text" xml:space="preserve">
-    <value>مداخل گزارش</value>
+    <value> مدخل</value>
   </data>
   <data name="Occurence.Text" xml:space="preserve">
     <value>رخداد</value>
   </data>
   <data name="Occurences.Text" xml:space="preserve">
-    <value>رخدادها</value>
+    <value>رخداد</value>
   </data>
   <data name="In.Text" xml:space="preserve">
     <value>در</value>

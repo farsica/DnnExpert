@@ -23,6 +23,7 @@
 using System;
 using System.Collections;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 
@@ -38,6 +39,7 @@ using DotNetNuke.Services.FileSystem;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Skins;
 using DotNetNuke.UI.Skins.Controls;
+using DotNetNuke.Web.Common;
 
 #endregion
 
@@ -198,7 +200,7 @@ namespace DotNetNuke.Modules.Admin.FileManager
         /// -----------------------------------------------------------------------------
         private void CheckSecurity()
         {
-            if (!ModulePermissionController.HasModulePermission(ModuleConfiguration.ModulePermissions, "CONTENT") && !UserController.GetCurrentUserInfo().IsInRole("Administrators"))
+            if (!ModulePermissionController.HasModulePermission(ModuleConfiguration.ModulePermissions, "CONTENT,EDIT") && !UserController.GetCurrentUserInfo().IsInRole("Administrators"))
             {
                 Response.Redirect(Globals.NavigateURL("Access Denied"), true);
             }
@@ -218,42 +220,20 @@ namespace DotNetNuke.Modules.Admin.FileManager
         /// -----------------------------------------------------------------------------
         private void LoadFolders()
         {
-            ddlFolders.Items.Clear();
-            
             var user = UserController.GetCurrentUserInfo();
 
             var folders = FolderManager.Instance.GetFolders(FolderPortalID, "ADD", user.UserID);
-
-            foreach (FolderInfo folder in folders)
-            {
-				if (FolderPermissionController.CanAddFolder(folder))
-				{
-					var FolderItem = new ListItem();
-					if (folder.FolderPath == Null.NullString)
-					{
-						if (IsHostMenu)
-						{
-							FolderItem.Text = Localization.GetString("HostRoot", LocalResourceFile);
-						}
-						else
-						{
-							FolderItem.Text = Localization.GetString("PortalRoot", LocalResourceFile);
-						}
-					}
-					else
-					{
-						FolderItem.Text = PathUtils.Instance.RemoveTrailingSlash(folder.DisplayPath);
-					}
-					FolderItem.Value = folder.FolderPath;
-                    ddlFolders.AddItem(FolderItem.Text, FolderItem.Value);
-				}
-            }
-            
+            ddlFolders.Services.Parameters.Add("permission", "ADD");
             if (!String.IsNullOrEmpty(DestinationFolder))
             {
-                if (ddlFolders.FindItemByText(DestinationFolder) != null)
+                ddlFolders.SelectedFolder = folders.SingleOrDefault(f => f.FolderPath == DestinationFolder);
+            }
+            else
+            {
+                var rootFolder = folders.SingleOrDefault(f => f.FolderPath == "");
+                if (rootFolder != null)
                 {
-                    ddlFolders.FindItemByText(DestinationFolder).Selected = true;
+                    ddlFolders.SelectedItem = new ListItem() {Text = SharedConstants.RootFolder, Value = rootFolder.FolderID.ToString()};
                 }
             }
         }
@@ -375,10 +355,8 @@ namespace DotNetNuke.Modules.Admin.FileManager
                 var postedFile = cmdBrowse.PostedFile;
 
                 //Get localized Strings
-                var strInvalid = Localization.GetString("InvalidExt", LocalResourceFile);
-
+                Localization.GetString("InvalidExt", LocalResourceFile);
                 var strFileName = Path.GetFileName(postedFile.FileName);
-                var strExtension = Path.GetExtension(strFileName);
                 if (!String.IsNullOrEmpty(postedFile.FileName))
                 {
                     switch (FileType)
@@ -386,7 +364,7 @@ namespace DotNetNuke.Modules.Admin.FileManager
                         case UploadType.File: //content files
                             try
                             {
-                                var folder = FolderManager.Instance.GetFolder(FolderPortalID, ddlFolders.SelectedValue);
+                                var folder = FolderManager.Instance.GetFolder(ddlFolders.SelectedItemValueAsInt);
                                 var fileManager = Services.FileSystem.FileManager.Instance;
                                 var file = fileManager.AddFile(folder, strFileName, postedFile.InputStream, true, true, postedFile.ContentType);
                                 if (chkUnzip.Checked && file.Extension == "zip")
@@ -397,7 +375,7 @@ namespace DotNetNuke.Modules.Admin.FileManager
                             catch (PermissionsNotMetException exc)
                             {
                                 Logger.Warn(exc);
-                                strMessage += "<br />" + string.Format(Localization.GetString("InsufficientFolderPermission"), ddlFolders.SelectedValue);
+                                strMessage += "<br />" + string.Format(Localization.GetString("InsufficientFolderPermission"), ddlFolders.SelectedItemValueAsInt);
                             }
                             catch (NoSpaceAvailableException exc)
                             {
@@ -427,7 +405,7 @@ namespace DotNetNuke.Modules.Admin.FileManager
                 }
                 else if (String.IsNullOrEmpty(strMessage))
                 {
-                    UI.Skins.Skin.AddModuleMessage(this, String.Format(Localization.GetString("FileUploadSuccess", LocalResourceFile), strFileName), ModuleMessage.ModuleMessageType.GreenSuccess);
+                    Skin.AddModuleMessage(this, String.Format(Localization.GetString("FileUploadSuccess", LocalResourceFile), strFileName), ModuleMessage.ModuleMessageType.GreenSuccess);
                 }
                 else
                 {

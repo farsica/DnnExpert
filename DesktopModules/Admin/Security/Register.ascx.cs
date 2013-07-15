@@ -30,13 +30,16 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 
 using DotNetNuke.Common;
 using DotNetNuke.Common.Lists;
 using DotNetNuke.Common.Utilities;
+using DotNetNuke.Entities.Host;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Entities.Users.Internal;
+using DotNetNuke.Framework;
 using DotNetNuke.Security;
 using DotNetNuke.Security.Membership;
 using DotNetNuke.Security.Permissions;
@@ -45,9 +48,11 @@ using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Skins.Controls;
 using DotNetNuke.Entities.Profile;
+using DotNetNuke.Web.Client.ClientResourceManagement;
 using DotNetNuke.Web.UI.WebControls;
 using DotNetNuke.UI.WebControls;
 using System.Web.UI.WebControls;
+using DotNetNuke.Entities.Users.Membership;
 
 #endregion
 
@@ -55,6 +60,9 @@ namespace DotNetNuke.Modules.Admin.Users
 {
     public partial class Register : UserUserControlBase
     {
+        protected const string PasswordStrengthTextBoxCssClass = "password-strength";
+        protected const string ConfirmPasswordTextBoxCssClass = "password-confirm";
+
         private readonly List<AuthenticationLoginBase> _loginControls = new List<AuthenticationLoginBase>();
 
         #region Protected Properties
@@ -63,16 +71,11 @@ namespace DotNetNuke.Modules.Admin.Users
         {
             get
             {
-                var authenticationType = Null.NullString;
-                if (ViewState["AuthenticationType"] != null)
-                {
-                    authenticationType = Convert.ToString(ViewState["AuthenticationType"]);
-                }
-                return authenticationType;
+                return ViewState.GetValue("AuthenticationType", Null.NullString);
             }
             set
             {
-                ViewState["AuthenticationType"] = value;
+                ViewState.SetValue("AuthenticationType", value, Null.NullString);
             }
         }
 
@@ -249,16 +252,11 @@ namespace DotNetNuke.Modules.Admin.Users
         {
             get
             {
-                var userToken = "";
-                if (ViewState["UserToken"] != null)
-                {
-                    userToken = Convert.ToString(ViewState["UserToken"]);
-                }
-                return userToken;
+                return ViewState.GetValue("UserToken", string.Empty);
             }
             set
             {
-                ViewState["UserToken"] = value;
+                ViewState.SetValue("UserToken", value, string.Empty);
             }
         }
 
@@ -279,6 +277,51 @@ namespace DotNetNuke.Modules.Admin.Users
             {
                 formItem.ValidationExpression = regexValidator;
             }
+            userForm.Items.Add(formItem);
+        }
+
+        private void AddPasswordStrengthField(string dataField, string dataMember, bool required)
+        {
+            DnnFormItemBase formItem;
+
+            if (Host.EnableStrengthMeter)
+            {
+                formItem = new DnnFormPasswordItem
+                {
+                    TextBoxCssClass = PasswordStrengthTextBoxCssClass,
+                    ContainerCssClass = "password-strength-container"
+                };
+            }
+            else
+            {
+                formItem = new DnnFormTextBoxItem
+                {
+                    TextMode = TextBoxMode.Password,
+                    TextBoxCssClass = PasswordStrengthTextBoxCssClass,
+                };
+            }
+
+            formItem.ID = dataField;
+            formItem.DataField = dataField;
+            formItem.DataMember = dataMember;
+            formItem.Visible = true;
+            formItem.Required = required;
+
+            userForm.Items.Add(formItem);
+        }
+
+        private void AddPasswordConfirmField(string dataField, string dataMember, bool required)
+        {
+            var formItem = new DnnFormTextBoxItem
+            {
+                ID = dataField,
+                DataField = dataField,
+                DataMember = dataMember,
+                Visible = true,
+                Required = required,
+                TextMode = TextBoxMode.Password,
+                TextBoxCssClass = ConfirmPasswordTextBoxCssClass,
+            };
             userForm.Items.Add(formItem);
         }
 
@@ -470,24 +513,18 @@ namespace DotNetNuke.Modules.Admin.Users
                 }
             }
 
-            ////Validate Exclude Terms
-            //if (!String.IsNullOrEmpty(ExcludeTerms))
-            //{
-            //    string[] excludeTerms = ExcludeTerms.Split(',');
-            //    foreach (string term in excludeTerms)
-            //    {
-            //        var trimmedTerm = term.Trim().ToLowerInvariant();
-            //        if (User.Username.ToLowerInvariant().Contains(trimmedTerm))
-            //        {
-            //            CreateStatus = UserCreateStatus.InvalidUserName;
-            //        }
-            //        if (User.DisplayName.ToLowerInvariant().Contains(trimmedTerm))
-            //        {
-            //            CreateStatus = UserCreateStatus.InvalidDisplayName;
-            //        }
-            //    }
-            //}
+            //Validate banned password
+            var settings = new MembershipPasswordSettings(User.PortalID);
 
+            if (settings.EnableBannedList)
+            {
+                var m = new MembershipPasswordController();
+                if (m.FoundBannedPassword(User.Membership.Password) || User.Username==User.Membership.Password)
+                {
+                    CreateStatus = UserCreateStatus.BannedPasswordUsed;
+                }
+
+            }
             //Validate Profanity
             if (UseProfanityFilter)
             {
@@ -575,6 +612,12 @@ namespace DotNetNuke.Modules.Admin.Users
         {
             base.OnInit(e);
 
+            jQuery.RequestDnnPluginsRegistration();
+
+            ClientResourceManager.RegisterScript(Page, "~/Resources/Shared/scripts/dnn.jquery.extensions.js");
+            ClientResourceManager.RegisterScript(Page, "~/Resources/Shared/scripts/dnn.jquery.tooltip.js");
+            ClientResourceManager.RegisterScript(Page, "~/DesktopModules/Admin/Security/Scripts/dnn.PasswordComparer.js");
+
             if (RegistrationFormType == 0)
             {
                 //UserName
@@ -589,10 +632,11 @@ namespace DotNetNuke.Modules.Admin.Users
                 //Password
                 if (!RandomPassword)
                 {
-                    AddField("Password", "Membership", true, String.Empty, TextBoxMode.Password);
+                    AddPasswordStrengthField("Password", "Membership", true);
+
                     if (RequirePasswordConfirm)
                     {
-                        AddField("PasswordConfirm", "Membership", true, String.Empty, TextBoxMode.Password);
+                        AddPasswordConfirmField("PasswordConfirm", "Membership", true);
                     }
                 }
 
@@ -658,8 +702,10 @@ namespace DotNetNuke.Modules.Admin.Users
                             AddField("Email", String.Empty, true, EmailValidator, TextBoxMode.SingleLine);
                             break;
                         case "Password":
+                            AddPasswordStrengthField(trimmedField, "Membership", true);
+                            break;
                         case "PasswordConfirm":
-                            AddField(trimmedField, "Membership", true, String.Empty, TextBoxMode.Password);
+                            AddPasswordConfirmField(trimmedField, "Membership", true);
                             break;
                         case "PasswordQuestion":
                         case "PasswordAnswer":
@@ -777,6 +823,34 @@ namespace DotNetNuke.Modules.Admin.Users
             }
         }
 
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+
+            var confirmPasswordOptions = new DnnConfirmPasswordOptions()
+            {
+                FirstElementSelector = "." + PasswordStrengthTextBoxCssClass,
+                SecondElementSelector = "." + ConfirmPasswordTextBoxCssClass,
+                ContainerSelector = ".dnnRegistrationForm",
+                UnmatchedCssClass = "unmatched",
+                MatchedCssClass = "matched"
+            };
+
+            var optionsAsJsonString = Json.Serialize(confirmPasswordOptions);
+            var script = string.Format("dnn.initializePasswordComparer({0});{1}", optionsAsJsonString, Environment.NewLine);
+
+            if (ScriptManager.GetCurrent(Page) != null)
+            {
+                // respect MS AJAX
+                ScriptManager.RegisterStartupScript(Page, GetType(), "ConfirmPassword", script, true);
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(GetType(), "ConfirmPassword", script, true);
+            }
+
+        }
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Response.Redirect(RedirectURL, true);
@@ -794,7 +868,7 @@ namespace DotNetNuke.Modules.Admin.Users
                 {
                     AddLocalizedModuleMessage(UserController.GetUserCreateStatus(CreateStatus), ModuleMessage.ModuleMessageType.RedError, true);
                     userForm.DataBind();
-                }                
+                }
             }
         }
 

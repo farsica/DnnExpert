@@ -17,7 +17,7 @@
     max-width: 100%;
     margin-bottom: 1em;
 }
-.dnnHSRadioButtons, .dnnhsSMTPSettings .dnnHSRadioButtons {
+.dnnHSRadioButtons, .dnnhsSMTPSettings .dnnHSRadioButtons .dnnHSRadioButtons {
     display: block;
     overflow: hidden;
 }
@@ -70,6 +70,7 @@
 }
 .dnnForm.dnnHostSettings .dnnRequestFilter input {
     margin-left: 2%;
+    min-width: 16px;
 }
 .dnnForm.dnnHostSettings .dnnRequestFilter .dnnFormWarning {
     max-width: 100%;
@@ -91,7 +92,26 @@
     width: 250px;
 }
 /* ===========   End Host Settings Module Styling   =========== */
+.dnnLabel{
+    width: 25%;
+}
 
+.dnnFormItem .dnnFormGroup .dnnLabel {
+    width: auto;
+    padding-top: 10px;
+}
+
+.dnnFormItem .dnnFormGroup a.dnnFormHelp {
+    position: relative;
+}
+
+.dnnFormItem .dnnFormGroup select.dnnCharacterList {
+    width: 150px;
+}
+
+.dnnFormItem .dnnFormGroup .dnnExtensionsList {
+    width: 150px;
+}
 /* clean some form style */
 .dnnLabel + span {
     display: inline-block !important;
@@ -147,4 +167,21 @@ a.CommandButton{
 }
 a[id$='IncrementCrmVersionButton']{
     margin-right: 25px;
+}
+.asContentFriendlyUrls > .dnnFormItem > .dnnCheckbox {
+    padding-right: 10px;
+}
+
+.asContentIPFilters .dnnGrid td a {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.asContentIPFilters div.dnnGrid{
+    border: none;
+}
+.asContentIPFilters .dnnGrid td a img,
+.asContentIPFilters .dnnGrid td a input[type="image"] {
+    display: block;
 }

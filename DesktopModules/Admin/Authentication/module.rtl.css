@@ -216,3 +216,14 @@ ul.buttonList .windowslive a span {
     width: 30%;
     text-align: left;
 }
+div.dnnCaptcha
+{
+	width: 70% !important;
+	margin-right: 30%;
+	padding-right: 22px;
+}
+span.dnnFormMessage.dnnFormError.dnnCaptcha
+{
+	left: 24%;
+	bottom: -55px;
+}

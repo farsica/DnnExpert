@@ -132,14 +132,11 @@
   <data name="UserDoesNotExist.Text" xml:space="preserve">
     <value>کاربر مورد نظر موجود نمی باشد</value>
   </data>
-  <data name="VerificationSuccess.Text" xml:space="preserve">
-    <value>حساب کاربری شما با موفقیت تایید گردید</value>
-  </data>
   <data name="Email.Text" xml:space="preserve">
     <value>آدرس پست الکترونیک:</value>
   </data>
   <data name="cmdPassword.Text" xml:space="preserve">
-    <value>بازیابی رمز عبور</value>
+    <value>تنظیم مجدد رمز عبور</value>
   </data>
   <data name="cmdRegister.Text" xml:space="preserve">
     <value>عضویت</value>

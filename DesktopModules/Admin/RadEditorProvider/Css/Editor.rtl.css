@@ -1,0 +1,83 @@
+﻿.reWrapper_center, .reRightVerticalSide, .reLeftVerticalSide, .reWrapper_corner
+{
+	visibility: hidden;
+}
+
+.reToolZone
+{
+	background-color: transparent !important;
+}
+
+.reResizeCell div
+{
+	visibility: hidden !important;
+}
+
+.reToolbar
+{
+	float: right !important;
+}
+
+.reDropDownBody .reTlbVertical .reToolbar
+{
+	float: left !important;
+}
+.reDropDownBody .reTlbVertical .reToolbar .reTool_text
+{
+	padding-right: 5px;
+}
+* + html .reDropDownBody .reTlbVertical .reToolbar .reTool_text
+{
+	width: 198px;
+	padding-right: 0;
+}
+* + html .reDropDownBody .reTlbVertical .reToolbar li
+{
+	float: right !important;
+}
+.reDropDownBody .reTlbVertical .reToolbar .reTool_text:hover
+{
+	background: #e7f1ff;
+}
+
+
+.reDropDownBody span
+{
+	float: right !important;
+	margin-right: 4px;
+}
+
+.reDropDownBody .reButton_text
+{
+	float: right !important;
+	text-align: right !important;
+	width: 100px !important;
+	margin-right: 0;
+}
+
+.reDropDownBody .reTool_text
+{
+	background-image: none !important;
+}
+
+.reDropdown
+{
+	background-position: left -92px !important;
+	padding-left: 3px !important;
+	padding-right: 1px !important;
+}
+
+.reSplitButton span
+{
+	float: right !important;
+	margin-right: 2px !important;
+}
+
+.reToolbar .reDropdown, .reToolbar .reTool_disabled.reDropdown:hover, .reToolbarWrapper .reToolbar .reDropdown:hover
+{
+	background-position: -24px -360px !important;
+}
+.reToolbarWrapper .reToolbar .reDropdown:hover
+{
+	background-position: -1988px 0 !important;
+}

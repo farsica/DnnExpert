@@ -1,0 +1,38 @@
+﻿body
+{
+    background-color: #FFF !important; 
+    background-image: none !important;
+	padding:3px;
+	margin: 0px;	
+	word-wrap: break-word;
+	direction: rtl;
+	overflow: auto;
+}
+table td{
+    border: 1px dotted #bbb !important;
+    padding: 3px !important;
+}
+.RadEWrongWord
+{
+	background-color: yellow;
+}
+.RadEDomMouseOver
+{
+	background-color:#ffc;	
+}
+form
+{
+	background-color:#efefef;
+	border:1px dashed #555;
+}
+table
+{
+	border-right: #999 1px dashed;
+	border-bottom: #999 1px dashed;
+}
+table th
+{
+	padding: 1px;
+	border-top: #000 1px dashed;
+	border-left: #000 1px dashed;
+}

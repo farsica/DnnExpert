@@ -25,7 +25,7 @@ using System.Web.UI.WebControls;
 
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
-using DotNetNuke.HttpModules.Config;
+using DotNetNuke.Entities.Urls.Config;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.WebControls;
 

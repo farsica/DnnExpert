@@ -352,7 +352,7 @@ namespace DotNetNuke.Modules.Admin.Users
 
             if (!String.IsNullOrEmpty(Filter))
             {
-                parameters.Add("&filter=" + filter);
+                parameters.Add("filter=" + filter);
             }
                 
             return Globals.NavigateURL(TabId, "", parameters.ToArray());

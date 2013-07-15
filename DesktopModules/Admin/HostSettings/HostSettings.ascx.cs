@@ -42,6 +42,7 @@ using DotNetNuke.Data;
 using DotNetNuke.Entities.Controllers;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Portals;
+using DotNetNuke.Entities.Urls;
 using DotNetNuke.Framework;
 using DotNetNuke.Framework.Providers;
 using DotNetNuke.Security;
@@ -67,6 +68,7 @@ namespace DotNetNuke.Modules.Admin.Host
     using System.Globalization;
     using System.Web;
     using Web.Client;
+    using DotNetNuke.Services.Search.Internals;
 
     /// -----------------------------------------------------------------------------
     /// <summary>
@@ -132,7 +134,7 @@ namespace DotNetNuke.Modules.Admin.Host
 
         private void BindFriendlyUrlsRequestFilters()
         {
-            chkUseFriendlyUrls.Checked = Entities.Host.Host.UseFriendlyUrls;
+            FriendlyUrlsExtensionControl.BindAction(-1, -1, -1);
             chkEnableRequestFilters.Checked = Entities.Host.Host.EnableRequestFilters;
         }
 
@@ -180,6 +182,7 @@ namespace DotNetNuke.Modules.Admin.Host
             chkJQueryDebugVersion.Checked = jQuery.UseDebugScript;
             chkJQueryUseHosted.Checked = jQuery.UseHostedScript;
             txtJQueryHostedUrl.Text = jQuery.HostedUrl;
+	        txtJQueryMigrateHostedUrl.Text = jQuery.HostedMigrateUrl;
             txtJQueryUIHostedUrl.Text = jQuery.HostedUIUrl;
         }
 
@@ -378,6 +381,14 @@ namespace DotNetNuke.Modules.Admin.Host
             txtBatch.Text = Entities.Host.Host.MessageSchedulerBatchSize.ToString();
 			txtAsyncTimeout.Text = Entities.Host.Host.AsyncTimeout.ToString();
 
+            chkBannedList.Checked = Entities.Host.Host.EnableBannedList;
+            chkStrengthMeter.Checked = Entities.Host.Host.EnableStrengthMeter;
+            chkIPChecking.Checked = Entities.Host.Host.EnableIPChecking;
+            chkEnablePasswordHistory.Checked = Entities.Host.Host.EnablePasswordHistory;
+            txtResetLinkValidity.Text = Entities.Host.Host.MembershipResetLinkValidity.ToString();
+            txtNumberPasswords.Text = Entities.Host.Host.MembershipNumberPasswords.ToString();
+
+
             ViewState["SelectedSchedulerMode"] = cboSchedulerMode.SelectedItem.Value;
             ViewState["SelectedLogBufferEnabled"] = chkLogBuffer.Checked;
             ViewState["SelectedUsersOnlineEnabled"] = chkUsersOnline.Checked;
@@ -496,7 +507,7 @@ namespace DotNetNuke.Modules.Admin.Host
             {
                 logText = Localization.GetString("LogEmpty", LocalResourceFile);
             }
-            txtLogContents.Text = logText.Replace("\n", "<br>");
+            txtLogContents.Text = logText;
             txtLogContents.Visible = true;
             objStreamReader.Close();
         }
@@ -510,8 +521,6 @@ namespace DotNetNuke.Modules.Admin.Host
             jQuery.RequestDnnPluginsRegistration();
             ddlLogs.SelectedIndexChanged += OnLogFileIndexChanged;
         }
-
-        
 
         /// -----------------------------------------------------------------------------
         /// <summary>
@@ -544,10 +553,11 @@ namespace DotNetNuke.Modules.Admin.Host
                 if (!Page.IsPostBack)
                 {
                     BindData();
+                    BindSearchIndex();
 
                     if(Request.QueryString["smtpwarning"] != null)
                     {
-                        UI.Skins.Skin.AddModuleMessage(this, Localization.GetString("SmtpServerWarning", LocalResourceFile), ModuleMessage.ModuleMessageType.YellowWarning);
+                        Skin.AddModuleMessage(this, Localization.GetString("SmtpServerWarning", LocalResourceFile), ModuleMessage.ModuleMessageType.YellowWarning);
                     }
                 }
             }
@@ -555,6 +565,18 @@ namespace DotNetNuke.Modules.Admin.Host
             {
                 Exceptions.ProcessModuleLoadException(this, exc);
             }
+        }
+
+        private void BindSearchIndex()
+        {
+            var folder = HostController.Instance.GetString("SearchFolder", @"App_Data\Search");
+            var indexFolder = Path.Combine(Globals.ApplicationMapPath, folder);
+            lblSearchIndexPath.Text = indexFolder;
+
+            var minWordLength = HostController.Instance.GetInteger("Search_MinKeyWordLength", 3);
+            var maxWordLength = HostController.Instance.GetInteger("Search_MaxKeyWordLength", 255);
+            txtIndexWordMinLength.Text = minWordLength.ToString(CultureInfo.InvariantCulture);
+            txtIndexWordMaxLength.Text = maxWordLength.ToString(CultureInfo.InvariantCulture);
         }
 
         private void EnableCompositeFilesChanged(object sender, EventArgs e)
@@ -814,7 +836,6 @@ namespace DotNetNuke.Modules.Admin.Host
                     // end of code copied to smtpServerSettings.Update()
                     HostController.Instance.Update("FileExtensions", txtFileExtensions.Text, false);
                     HostController.Instance.Update("UseCustomErrorMessages", chkUseCustomErrorMessages.Checked ? "Y" : "N", false);
-                    HostController.Instance.Update("UseFriendlyUrls", chkUseFriendlyUrls.Checked ? "Y" : "N", false);
                     HostController.Instance.Update("EnableRequestFilters", chkEnableRequestFilters.Checked ? "Y" : "N", false);
                     HostController.Instance.Update("ControlPanel", cboControlPanel.SelectedItem.Value, false);
                     HostController.Instance.Update("SchedulerMode", cboSchedulerMode.SelectedItem.Value, false);
@@ -840,6 +861,7 @@ namespace DotNetNuke.Modules.Admin.Host
                     HostController.Instance.Update("jQueryDebug", chkJQueryDebugVersion.Checked ? "Y" : "N", false);
                     HostController.Instance.Update("jQueryHosted", chkJQueryUseHosted.Checked ? "Y" : "N", false);
                     HostController.Instance.Update("jQueryUrl", txtJQueryHostedUrl.Text, false);
+					HostController.Instance.Update("jQueryMigrateUrl", txtJQueryMigrateHostedUrl.Text, false);
                     HostController.Instance.Update("jQueryUIUrl", txtJQueryUIHostedUrl.Text, false);
 					HostController.Instance.Update("EnableMsAjaxCDN", chkMsAjaxCdn.Checked ? "Y" : "N", false);
 					HostController.Instance.Update("EnableTelerikCDN", chkTelerikCdn.Checked ? "Y" : "N", false);
@@ -850,7 +872,16 @@ namespace DotNetNuke.Modules.Admin.Host
                     HostController.Instance.Update(ClientResourceSettings.MinifyCssKey, chkCrmMinifyCss.Checked.ToString(CultureInfo.InvariantCulture));
                     HostController.Instance.Update(ClientResourceSettings.MinifyJsKey, chkCrmMinifyJs.Checked.ToString(CultureInfo.InvariantCulture));
 
+                    HostController.Instance.Update("EnableBannedList", chkBannedList.Checked ? "Y" : "N", false);
+                    HostController.Instance.Update("EnableStrengthMeter", chkStrengthMeter.Checked ? "Y" : "N", false);
+                    HostController.Instance.Update("EnableIPChecking", chkIPChecking.Checked ? "Y" : "N", false);
+                    HostController.Instance.Update("EnablePasswordHistory", chkEnablePasswordHistory.Checked ? "Y" : "N", false);
+                    HostController.Instance.Update("MembershipResetLinkValidity", txtResetLinkValidity.Text, false);
+                    HostController.Instance.Update("MembershipNumberPasswords", txtNumberPasswords.Text, false);
+
+                    FriendlyUrlsExtensionControl.SaveAction(-1, -1, -1);
                     UpdateSchedule();
+                    UpdateSearchIndexConfiguration();
 
                     // TODO: Remove after refactor: this code/functionality has been copied to ..\AdvancedSettings\SmtpServerSettings.aspx) 
                     var redirectUrl = Request.RawUrl;
@@ -866,12 +897,58 @@ namespace DotNetNuke.Modules.Admin.Host
                 }
                 finally
                 {
-                    DataCache.ClearHostCache(false);
+                    //TODO: this is temporary until the AUM Caching is moved into the core.
+                    //DataCache.ClearHostCache(false);
+                    DataCache.ClearCache();
                 }
             }
         }
 
         #endregion
 
+        protected void CompactSearchIndex(object sender, EventArgs e)
+        {
+            SearchHelper.Instance.SetSearchReindexRequestTime(true);
+        }
+
+        protected void HostSearchReindex(object sender, EventArgs e)
+        {
+            SearchHelper.Instance.SetSearchReindexRequestTime(-1);
+        }
+
+        protected void GetSearchIndexStatistics(object sender, EventArgs e)
+        {
+            var searchStatistics = InternalSearchController.Instance.GetSearchStatistics();
+            pnlSearchGetMoreButton.Visible = false;
+            pnlSearchStatistics.Visible = true;
+            lblSearchIndexDbSize.Text = ((searchStatistics.IndexDbSize/1024f)/1024f).ToString("N") + " MB";
+            lblSearchIndexLastModifedOn.Text = DateUtils.CalculateDateForDisplay(searchStatistics.LastModifiedOn);
+            lblSearchIndexTotalActiveDocuments.Text = searchStatistics.TotalActiveDocuments.ToString(CultureInfo.InvariantCulture);
+            lblSearchIndexTotalDeletedDocuments.Text = searchStatistics.TotalDeletedDocuments.ToString(CultureInfo.InvariantCulture);
+        }
+
+        protected void UpdateSearchIndexConfiguration()
+        {
+            int newMinLength;
+            if (int.TryParse(txtIndexWordMinLength.Text, out newMinLength))
+            {
+                var oldMinLength = HostController.Instance.GetInteger("Search_MinKeyWordLength", 3);
+                if (newMinLength != oldMinLength)
+                {
+                    HostController.Instance.Update("Search_MinKeyWordLength", txtIndexWordMinLength.Text);
+                }
+            }
+
+            int newMaxLength;
+            if (int.TryParse(txtIndexWordMaxLength.Text, out newMaxLength))
+            {
+                var oldMaxLength = HostController.Instance.GetInteger("Search_MaxKeyWordLength", 255);
+                if (newMaxLength != oldMaxLength)
+                {
+                    HostController.Instance.Update("Search_MaxKeyWordLength", txtIndexWordMaxLength.Text);
+                }
+            }
+
+        }
     }
 }

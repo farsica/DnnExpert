@@ -400,7 +400,7 @@
     <value>Site Alias:</value>
   </data>
   <data name="plPortalAlias.Help" xml:space="preserve">
-    <value>The Site Alias is the url used to reach the site.</value>
+    <value>The Site Alias is the URL used to reach the site.</value>
   </data>
   <data name="plExpiryDate.Text" xml:space="preserve">
     <value>Expiry Date:</value>
@@ -604,7 +604,7 @@
     <value>Search Results Page:</value>
   </data>
   <data name="portalAliasModeButtonListLabel.Help" xml:space="preserve">
-    <value>This setting determines how the site responds to urls which are defined as alias, but are not the default-alias. None - no additional action is taken,  Canonical - the alias url is handled as a Canaonical url, Redirect - redirected to default alias. </value>
+    <value>This setting determines how the site responds to URLs which are defined as alias, but are not the default-alias. None - no additional action is taken,  Canonical - the alias URL is handled as a Canaonical URL, Redirect - redirected to default alias. </value>
   </data>
   <data name="portalAliasModeButtonListLabel.Text" xml:space="preserve">
     <value>SiteAlias Mapping Mode:</value>
@@ -616,7 +616,7 @@
     <value>Redirect</value>
   </data>
   <data name="plAutoAddPortalAlias.Help" xml:space="preserve">
-    <value>This setting determines how the site responds to urls which are mapped to the site but are not currently in the list of aliases. Setting is effective in single-siteconfiguration only. Select this option to automatically map new url.</value>
+    <value>This setting determines how the site responds to URLs which are mapped to the site but are not currently in the list of aliases. Setting is effective in single-siteconfiguration only. Select this option to automatically map new URL.</value>
   </data>
   <data name="plAutoAddPortalAlias.Text" xml:space="preserve">
     <value>Auto Add Site Alias:</value>
@@ -1064,10 +1064,76 @@ The host-level settings are currently set as follows:
   <data name="plHideLoginControl.Text" xml:space="preserve">
     <value>Hide Login Control?</value>
   </data>
+  <data name="MembershipManagement.Text" xml:space="preserve">
+    <value>Membership Management</value>
+  </data>
+  <data name="plEnableBannedList.Text" xml:space="preserve">
+    <value>Enable password banned list</value>
+  </data>
+  <data name="plEnableBannedList.Help" xml:space="preserve">
+    <value>Sets whether passwords are checked against a list of banned items</value>
+  </data>
+  <data name="plEnableIPChecking.Text" xml:space="preserve">
+    <value>Enable IP address checking</value>
+  </data>
+  <data name="plEnableIPChecking.Help" xml:space="preserve">
+    <value>Sets whether IP address is checked during login</value>
+  </data>
+  <data name="CharacterSubListLabel.Help" xml:space="preserve">
+    <value>Select the character to use to concatenate URLs.</value>
+  </data>
+  <data name="CharacterSubListLabel.Text" xml:space="preserve">
+    <value>Character:</value>
+  </data>
+  <data name="ExtensionLabel.Help" xml:space="preserve">
+    <value>Enter the extension, including the period prefix.  The default extension is .aspx.</value>
+  </data>
+  <data name="ExtensionLabel.Text" xml:space="preserve">
+    <value>Extension to use (default is .aspx):</value>
+  </data>
+  <data name="enable.Text" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="manageAliasesLabel.Help" xml:space="preserve">
+    <value>In this section you can manage the site's aliases.</value>
+  </data>
+  <data name="manageAliasesLabel.Text" xml:space="preserve">
+    <value>Manage Alias(es):</value>
+  </data>
+  <data name="redirectOldProfileUrlsLabel.Help" xml:space="preserve">
+    <value>Check this box to force old style profile URLs to be redirected to custom URLs.</value>
+  </data>
+  <data name="redirectOldProfileUrlsLabel.Text" xml:space="preserve">
+    <value>Redirect Old Profile URLs:</value>
+  </data>
+  <data name="verifyProfileUrlsLabel.Help" xml:space="preserve">
+    <value>Check this box to verify the profile URLs entered by users.</value>
+  </data>
+  <data name="verifyProfileUrlsLabel.Text" xml:space="preserve">
+    <value>Verify User Profile URLs:</value>
+  </data>
   <data name="plEnableRegisterNotification.Help" xml:space="preserve">
     <value>Whether enable website administrator to receive email notification during new user registration.</value>
   </data>
   <data name="plEnableRegisterNotification.Text" xml:space="preserve">
     <value>Receive user registration notification:</value>
+  </data>
+  <data name="FileVersionSettings.Text" xml:space="preserve">
+    <value>File Version Settings</value>
+  </data>
+  <data name="plFileVersionEnabled.Help" xml:space="preserve">
+    <value>Set whether or not file versioning is enabled or disabled for the site</value>
+  </data>
+  <data name="plFileVersionEnabled.Text" xml:space="preserve">
+    <value>File Versioning enabled?</value>
+  </data>
+  <data name="plMaxVersions.Help" xml:space="preserve">
+    <value>Set the number of file versions to keep</value>
+  </data>
+  <data name="plMaxVersions.Text" xml:space="preserve">
+    <value>Maximum number of file versions kept</value>
+  </data>
+  <data name="versionSize.Error" xml:space="preserve">
+    <value>The number of versions kept must be in the range 5 to 25.</value>
   </data>
 </root>

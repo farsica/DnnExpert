@@ -25,11 +25,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Web;
 
 using DotNetNuke.Common;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Portals;
+using DotNetNuke.Entities.Portals.Internal;
 using DotNetNuke.Framework;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
@@ -97,8 +99,7 @@ namespace DotNetNuke.Modules.Admin.Sitemap
         private bool IsChildPortal(PortalSettings ps, HttpContext context)
         {
             var isChild = false;
-            var aliasController = new PortalAliasController();
-            var arr = aliasController.GetPortalAliasArrayByPortalID(ps.PortalId);
+            var arr = TestablePortalAliasController.Instance.GetPortalAliasesByPortalId(ps.PortalId).ToList();
             var serverPath = Globals.GetAbsoluteServerPath(context.Request);
 
             if (arr.Count > 0)

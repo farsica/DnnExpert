@@ -12,8 +12,8 @@
     <div class="dnnFormItem" id="divCaptcha1" runat="server" visible="false">
         <asp:label id="plCaptcha" AssociatedControlID="ctlCaptcha" runat="server" resourcekey="Captcha" CssClass="dnnFormLabel" />
     </div>
-    <div class="dnnFormItem" id="divCaptcha2" runat="server" visible="false">
-        <dnn:captchacontrol id="ctlCaptcha" captchawidth="130" captchaheight="40" runat="server" errorstyle-cssclass="dnnFormMessage dnnFormError" />
+    <div class="dnnFormItem dnnCaptcha" id="divCaptcha2" runat="server" visible="false">
+        <dnn:captchacontrol id="ctlCaptcha" captchawidth="130" captchaheight="40" runat="server" errorstyle-cssclass="dnnFormMessage dnnFormError dnnCaptcha" />
     </div>
     <div class="dnnFormItem">
         <asp:label id="lblLogin" runat="server" AssociatedControlID="cmdLogin" CssClass="dnnFormLabel" />

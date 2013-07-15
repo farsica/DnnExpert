@@ -112,57 +112,88 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cmdReIndex.Text" xml:space="preserve">
+  <data name="StopWords.Text" xml:space="preserve">
+    <value>درنظر نگرفتن لغات</value>
+  </data>
+  <data name="Synonyms.Text" xml:space="preserve">
+    <value>مترادف ها</value>
+  </data>
+  <data name="ModifiedBy.Text" xml:space="preserve">
+    <value>بروزرسانی کننده</value>
+  </data>
+  <data name="ModifiedOn.Text" xml:space="preserve">
+    <value>تاریخ بروزرسانی</value>
+  </data>
+  <data name="SynonymsTags.Text" xml:space="preserve">
+    <value>برچسب های مترادف</value>
+  </data>
+  <data name="AddSynonymsGroup.Text" xml:space="preserve">
+    <value>افزودن گروه مترادف ها</value>
+  </data>
+  <data name="SynonymsTagDuplicated.Text" xml:space="preserve">
+    <value>در یک گروه دیگر درحال استفاده می باشد</value>
+  </data>
+  <data name="SynonymsTagRequired.Text" xml:space="preserve">
+    <value>انتخاب حداقل یک برچسب مترادف الزامی می باشد</value>
+  </data>
+  <data name="AddStopWords.Text" xml:space="preserve">
+    <value>افزودن لغت</value>
+  </data>
+  <data name="NoStopWords.Text" xml:space="preserve">
+    <value>برای تنظیمات پورتال/زبان انتخاب شده، لغتی که نبایستی درنظر گرفته شود، یافت نشد</value>
+  </data>
+  <data name="lblStopwordsCultureList.Help" xml:space="preserve">
+    <value>این گزینه نشانگر زبان انتخابی برای جستجوی لغاتی است که نبایستی در نظر گرفته شوند</value>
+  </data>
+  <data name="lblStopwordsCultureList.Text" xml:space="preserve">
+    <value>انتخاب زبان:</value>
+  </data>
+  <data name="Actions.Text" xml:space="preserve">
+    <value>عملیات</value>
+  </data>
+  <data name="introIgnoreWords.Text" xml:space="preserve">
+    <value>در زمان جستجو، ممکن است نیاز باشد تا برای نتیجه بهتر و صحیح تر، برخی لغات درنظر گرفته نشوند. این تنظیم امکان افزودن اینگونه لغات را فراهم می آورد.</value>
+  </data>
+  <data name="introSynonyms.Text" xml:space="preserve">
+    <value>در خیلی از اوقات در زمان جستجو دقیقا نمی دانیم به دنبال چه چیزی هستیم؛ به عنوان مثال گاهی به دنبال عبارات مترادف یک عبارت می گردیم. این تنظیم امکان ایجاد رابطه بین این مترادف ها را فراهم می آورد.</value>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>عمومی</value>
+  </data>
+  <data name="btnReIndex.Text" xml:space="preserve">
     <value>ایندکس گذاری مجدد محتوا</value>
   </data>
-  <data name="ControlTitle_.Text" xml:space="preserve">
-    <value>مدیریت جستجو</value>
+  <data name="MessageReIndexWarning.Text" xml:space="preserve">
+    <value>&lt;b&gt;Re-Index&lt;/b&gt; deletes existing content from the Index Store and then re-indexes everything. Re-Indexing is done as part of search crawler(s) scheduled job. The search crawler(s) should be run manually under Host &gt; Schedule to re-index immediately. Re-indexing is done for the current site only.
+&lt;b&gt;Caution&lt;/b&gt; - This should be done during non-peak hours as the process can be CPU intensive.</value>
   </data>
-  <data name="SearchSettingsHelp" xml:space="preserve">
-    <value>مدیریت جستجو امکان پیکربندی تنظیمات جستجو را برای پورتال فراهم می آورد.</value>
+  <data name="ReIndexConfirmationCancel.Text" xml:space="preserve">
+    <value>انصراف</value>
   </data>
-  <data name="plMaxWordLength.Text" xml:space="preserve">
-    <value>حداکثر طول کلمات:</value>
+  <data name="ReIndexConfirmationMessage.Text" xml:space="preserve">
+    <value>ایندکس گذاری مجدد موجب حذف ایندکس های موجود می شود. ایندکس گذاری مجدد توسط موتور جستجوی پورتال انجام شده و چگونگی انجام شدن به تنظیمات آن بستگی دارد. آیا از ادامه عملیات اطمینان دارید؟</value>
   </data>
-  <data name="plMaxWordLength.Help" xml:space="preserve">
-    <value>لطفا حداکثر طول کلماتی که امکان ایندکس شدن را بایستی دارا باشند را مشخص نمایید.</value>
+  <data name="ReIndexConfirmationTitle.Text" xml:space="preserve">
+    <value>تایید ایندکس گذاری مجدد</value>
   </data>
-  <data name="plMinWordLength.Text" xml:space="preserve">
-    <value>حداقل طول کلمات:</value>
+  <data name="ReIndexConfirmationYes.Text" xml:space="preserve">
+    <value>ادامه</value>
   </data>
-  <data name="plMinWordLength.Help" xml:space="preserve">
-    <value>لطفا حداقل طول کلماتی که امکان ایندکس شدن را بایستی دارا باشند را مشخص نمایید.</value>
+  <data name="lblSynonymsCultureList.Help" xml:space="preserve">
+    <value>این گزینه نشانگر زبان مورد نظر برای گروه های مترادف می باشد.</value>
   </data>
-  <data name="plIncludeCommon.Text" xml:space="preserve">
-    <value>شامل کلمات عمومی:</value>
+  <data name="lblSynonymsCultureList.Text" xml:space="preserve">
+    <value>انتخاب زبان:</value>
   </data>
-  <data name="plIncludeCommon.Help" xml:space="preserve">
-    <value>با انتخاب این گزینه کلمات عمومی نیز برای جستجو ایندکس می گردند.</value>
+  <data name="DefaultStopwordGroup.Text" xml:space="preserve">
+    <value>با,تا,در,من,تو,او,ما,شما,ایشان,وی,کی,کجا,این,آن,اینجا,آنجا,جا,بر,تر,پر</value>
   </data>
-  <data name="plIncludeNumeric.Text" xml:space="preserve">
-    <value>شامل اعداد:</value>
-  </data>
-  <data name="plIncludeNumeric.Help" xml:space="preserve">
-    <value>با انتخاب این گزینه اعداد نیز برای جستجو ایندکس می گردند.</value>
-  </data>
-  <data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;h1&gt;درباره بخش مدیریت جستجو&lt;/h1&gt;&lt;p&gt;مدیران پورتال می توانند تنظیمات مربوط به مدیریت جستجو را مشخص نمایند.&lt;/p&gt;</value>
-  </data>
-  <data name="Indexed.Text" xml:space="preserve">
-    <value>محتوا مجددا ایندکس گذاری شد.</value>
-  </data>
-  <data name="SearchWordLength.Text" xml:space="preserve">
-    <value>حداقل طول کلمه بایستی کوچکتر یا مساوی حداکثر طول مشخص شده باشد.</value>
-  </data>
-  <data name="SearchWordMinLength.Text" xml:space="preserve">
-    <value>حداقل طول کلمات بایستی حداقل 1 کاراکتر باشد.</value>
-  </data>
-  <data name="SearchWordMaxMinLength.Text" xml:space="preserve">
-    <value>حداکثر طول کلمات بایستی حداقل 1 کاراکتر باشد.</value>
+  <data name="DefaultSynonymGroup.Text" xml:space="preserve">
+    <value>dnn,dotnetnuke</value>
   </data>
 </root>

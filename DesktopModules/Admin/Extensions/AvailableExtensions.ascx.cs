@@ -317,7 +317,7 @@ namespace DotNetNuke.Modules.Admin.Extensions
         {
             base.OnLoad(e);
 
-            //cmdInstall.Click += cmdInstall_Click;
+            languagePacks.ModuleContext.Configuration = ModuleContext.Configuration;
             extensionTypeRepeater.ItemDataBound += extensionTypeRepeater_ItemDataBound;
 
         }

@@ -15,7 +15,7 @@
 .dnnlvFilter .rcbArrowCell .rcbArrowCellRight a{display:none;}
 .dnnlvLegend{ margin: 20px 0 10px 10px;}
 .dnnlvLegend h3{margin-top:0;padding-top:0; font-size: 16px; color: #666;}
-.dnnlvLegend .dnnLeft{ width: 200px; }
+.dnnlvLegend .dnnLeft{ width: 250px; }
 .dnnlvLegend .dnnLeft div.lvlItem{ color: #666;padding: 8px;clear: both; }
 .dnnlvLegend div.lvlItem span{ display: block;float: left;margin-right: 10px;}
 .dnnlvContent{margin-top:1em;}

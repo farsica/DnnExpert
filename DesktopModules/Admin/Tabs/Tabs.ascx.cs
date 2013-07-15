@@ -482,12 +482,19 @@ namespace DesktopModules.Admin.Tabs
             var objTab = objTabController.GetTab(int.Parse(e.Node.Value), PortalId, false);
             if (objTab != null && TabPermissionController.CanManagePage(objTab))
             {
-                //Check for invalid 
-                if (!IsValidTabName(e.Text) || !IsValidTabPath(objTab, Globals.GenerateTabPath(objTab.ParentId, e.Text)))
+                //Check for invalid
+	            string invalidType;
+                if (!TabController.IsValidTabName(e.Text, out invalidType))
                 {
+					ShowErrorMessage(string.Format(Localization.GetString(invalidType, LocalResourceFile), e.Text));
                     e.Node.Text = objTab.TabName;
                     e.Text = objTab.TabName;
                 }
+				else if (!IsValidTabPath(objTab, Globals.GenerateTabPath(objTab.ParentId, e.Text)))
+				{
+					e.Node.Text = objTab.TabName;
+					e.Text = objTab.TabName;
+				}
                 else
                 {
                     objTab.TabName = e.Text;
@@ -547,10 +554,12 @@ namespace DesktopModules.Admin.Tabs
             strValue = strValue.Replace(Environment.NewLine, "\n");
             strValue = strValue.Replace("\n" + "\n", "\n").Trim();
 
-            if (!IsValidTabName(strValue))
-            {
-                return;
-            }
+			string invalidType;
+			if (!TabController.IsValidTabName(strValue, out invalidType))
+			{
+				ShowErrorMessage(string.Format(Localization.GetString(invalidType, LocalResourceFile), strValue));
+				return;
+			}
 
             var pages = strValue.Split(char.Parse("\n"));
             var parentId = Convert.ToInt32(((LinkButton)sender).CommandArgument);
@@ -650,9 +659,11 @@ namespace DesktopModules.Admin.Tabs
 
                 //All validations have been done in the Page.Validate()
 
-                //Check for invalid 
-                if (!IsValidTabName(tab.TabName))
+                //Check for invalid
+	            string invalidType;
+                if (!TabController.IsValidTabName(tab.TabName, out invalidType))
                 {
+					ShowErrorMessage(string.Format(Localization.GetString(invalidType, LocalResourceFile), tab.TabName));
                     return;
                 }
 
@@ -1361,9 +1372,11 @@ namespace DesktopModules.Admin.Tabs
 
             tab.TabPath = Globals.GenerateTabPath(tab.ParentId, tab.TabName);
 
-            //Check for invalid 
-            if (!IsValidTabName(tab.TabName))
+            //Check for invalid
+	        string invalidType;
+			if (!TabController.IsValidTabName(tab.TabName, out invalidType))
             {
+				ShowErrorMessage(string.Format(Localization.GetString(invalidType, LocalResourceFile), tab.TabName));
                 return Null.NullInteger;
             }
 
@@ -1442,24 +1455,6 @@ namespace DesktopModules.Admin.Tabs
             }
 
             return Null.NullInteger;
-        }
-
-        private bool IsValidTabName(string tabName)
-        {
-            var valid = true;
-
-            if (string.IsNullOrEmpty(tabName.Trim()))
-            {
-                ShowErrorMessage(Localization.GetString("EmptyTabName", LocalResourceFile));
-                valid = false;
-            }
-            else if (Regex.IsMatch(tabName, "^AUX$|^CON$|^LPT[1-9]$|^CON$|^COM[1-9]$|^NUL$|^SITEMAP$|^LINKCLICK$|^KEEPALIVE$|^DEFAULT$|^ERRORPAGE$", RegexOptions.IgnoreCase))
-            {
-                valid = false;
-                ShowErrorMessage(string.Format(Localization.GetString("InvalidTabName", LocalResourceFile), tabName));
-            }
-
-            return valid;
         }
 
         private bool IsValidTabPath(TabInfo tab, string newTabPath)

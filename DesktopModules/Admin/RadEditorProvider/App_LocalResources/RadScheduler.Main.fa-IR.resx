@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ReservedResource" xml:space="preserve">
+    <value>لطفا این کلید را حذف ننمایید.</value>
+  </data>
+  <data name="AdvancedAllDayEvent" xml:space="preserve">
+    <value>تمام روز</value>
+  </data>
+  <data name="AdvancedDaily" xml:space="preserve">
+    <value>روزانه</value>
+  </data>
+  <data name="AdvancedDay" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="AdvancedDays" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="AdvancedSubject" xml:space="preserve">
+    <value>موضوع</value>
+  </data>
+  <data name="AdvancedDescription" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="AdvancedEndAfter" xml:space="preserve">
+    <value>اتمام پس از</value>
+  </data>
+  <data name="AdvancedEndByThisDate" xml:space="preserve">
+    <value>اتمام در</value>
+  </data>
+  <data name="AdvancedEvery" xml:space="preserve">
+    <value>هر</value>
+  </data>
+  <data name="AdvancedEveryWeekday" xml:space="preserve">
+    <value>هر روز هفته</value>
+  </data>
+  <data name="AdvancedFirst" xml:space="preserve">
+    <value>اولین</value>
+  </data>
+  <data name="AdvancedFourth" xml:space="preserve">
+    <value>چهارمین</value>
+  </data>
+  <data name="AdvancedFrom" xml:space="preserve">
+    <value>زمان شروع</value>
+  </data>
+  <data name="AdvancedHourly" xml:space="preserve">
+    <value>ساعتی</value>
+  </data>
+  <data name="AdvancedHours" xml:space="preserve">
+    <value>ساعت</value>
+  </data>
+  <data name="AdvancedLast" xml:space="preserve">
+    <value>آخرین</value>
+  </data>
+  <data name="AdvancedMaskDay" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="AdvancedMaskWeekday" xml:space="preserve">
+    <value>روز هفته</value>
+  </data>
+  <data name="AdvancedMaskWeekendDay" xml:space="preserve">
+    <value>روز آخر هفته</value>
+  </data>
+  <data name="AdvancedMonthly" xml:space="preserve">
+    <value>ماهانه</value>
+  </data>
+  <data name="AdvancedMonths" xml:space="preserve">
+    <value>ماه</value>
+  </data>
+  <data name="AdvancedMoreDetails" xml:space="preserve">
+    <value>جزئیات بیشتر</value>
+  </data>
+  <data name="AdvancedNoEndDate" xml:space="preserve">
+    <value>فاقد تاریخ پایان</value>
+  </data>
+  <data name="AdvancedOccurrences" xml:space="preserve">
+    <value>تکرار</value>
+  </data>
+  <data name="AdvancedOf" xml:space="preserve">
+    <value>از</value>
+  </data>
+  <data name="AdvancedOfEvery" xml:space="preserve">
+    <value>از هر</value>
+  </data>
+  <data name="AdvancedRange" xml:space="preserve">
+    <value>محدوده تکرار:</value>
+  </data>
+  <data name="AdvancedRecurEvery" xml:space="preserve">
+    <value>تکرار در هر</value>
+  </data>
+  <data name="AdvancedRecurrence" xml:space="preserve">
+    <value>تکرار</value>
+  </data>
+  <data name="AdvancedRecurringAppointment" xml:space="preserve">
+    <value>وظایف قابل تکرار</value>
+  </data>
+  <data name="AdvancedReset" xml:space="preserve">
+    <value>تنظیم مجدد استثناءها</value>
+  </data>
+  <data name="AdvancedSecond" xml:space="preserve">
+    <value>دومین</value>
+  </data>
+  <data name="AdvancedThe" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AdvancedThird" xml:space="preserve">
+    <value>سومین</value>
+  </data>
+  <data name="AdvancedTo" xml:space="preserve">
+    <value>زمان پایان</value>
+  </data>
+  <data name="AdvancedWeekly" xml:space="preserve">
+    <value>هفتگی</value>
+  </data>
+  <data name="AdvancedWeeks" xml:space="preserve">
+    <value>هفته در</value>
+  </data>
+  <data name="AdvancedYearly" xml:space="preserve">
+    <value>سالانه</value>
+  </data>
+  <data name="AllDay" xml:space="preserve">
+    <value>تمام روز</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="ConfirmCancel" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="ConfirmDeleteText" xml:space="preserve">
+    <value>آیا از حذف این قرار ملاقات اطمینان دارید؟</value>
+  </data>
+  <data name="ConfirmDeleteTitle" xml:space="preserve">
+    <value>تایید حذف</value>
+  </data>
+  <data name="ConfirmOK" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="ConfirmRecurrenceDeleteOccurrence" xml:space="preserve">
+    <value>فقط حذف این رخداد.</value>
+  </data>
+  <data name="ConfirmRecurrenceDeleteSeries" xml:space="preserve">
+    <value>حذف ردیف ها</value>
+  </data>
+  <data name="ConfirmRecurrenceDeleteTitle" xml:space="preserve">
+    <value>حذف قرار ملاقات قابل تکرار</value>
+  </data>
+  <data name="ConfirmRecurrenceEditOccurrence" xml:space="preserve">
+    <value>فقط ویرایش این رخداد.</value>
+  </data>
+  <data name="ConfirmRecurrenceEditSeries" xml:space="preserve">
+    <value>ویرایش ردیف ها</value>
+  </data>
+  <data name="ConfirmRecurrenceEditTitle" xml:space="preserve">
+    <value>ویرایش قرار ملاقات قابل تکرار</value>
+  </data>
+  <data name="ConfirmRecurrenceResizeOccurrence" xml:space="preserve">
+    <value>فقط تغییر اندازه این رخداد.</value>
+  </data>
+  <data name="ConfirmRecurrenceResizeSeries" xml:space="preserve">
+    <value>تغییر اندازه ردیف ها.</value>
+  </data>
+  <data name="ConfirmRecurrenceResizeTitle" xml:space="preserve">
+    <value>تغییر اندازه قرار ملاقات قابل تکرار</value>
+  </data>
+  <data name="ConfirmRecurrenceMoveOccurrence" xml:space="preserve">
+    <value>فقط انتقال این رخداد.</value>
+  </data>
+  <data name="ConfirmRecurrenceMoveSeries" xml:space="preserve">
+    <value>انتقال ردیف ها.</value>
+  </data>
+  <data name="ConfirmRecurrenceMoveTitle" xml:space="preserve">
+    <value>انتقال یک قرار ملاقات قابل تکرار</value>
+  </data>
+  <data name="HeaderDay" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="HeaderMonth" xml:space="preserve">
+    <value>ماه</value>
+  </data>
+  <data name="HeaderTimeline" xml:space="preserve">
+    <value>گاهشمار</value>
+  </data>
+  <data name="HeaderMultiDay" xml:space="preserve">
+    <value>چند روزه</value>
+  </data>
+  <data name="HeaderNextDay" xml:space="preserve">
+    <value>روز بعد</value>
+  </data>
+  <data name="HeaderPrevDay" xml:space="preserve">
+    <value>روز قبلی</value>
+  </data>
+  <data name="HeaderToday" xml:space="preserve">
+    <value>امروز</value>
+  </data>
+  <data name="HeaderWeek" xml:space="preserve">
+    <value>هفته</value>
+  </data>
+  <data name="Show24Hours" xml:space="preserve">
+    <value>نمایش 24 ساعته...</value>
+  </data>
+  <data name="ShowAdvancedForm" xml:space="preserve">
+    <value>گزینه ها</value>
+  </data>
+  <data name="ShowBusinessHours" xml:space="preserve">
+    <value>نمایش ساعات کاری ...</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>بیشتر ...</value>
+  </data>
+  <data name="AdvancedCalendarOK" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="AdvancedCalendarCancel" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="AdvancedCalendarToday" xml:space="preserve">
+    <value>امروز</value>
+  </data>
+  <data name="AdvancedSubjectRequired" xml:space="preserve">
+    <value>لطفا موضوع قرار ملاقات را مشخص نمایید</value>
+  </data>
+  <data name="AdvancedStartTimeBeforeEndTime" xml:space="preserve">
+    <value>زمان شروع بایستی قبل از زمان پایان باشد</value>
+  </data>
+  <data name="AdvancedStartTimeRequired" xml:space="preserve">
+    <value>وارد نمودن زمان شروع الزامی است</value>
+  </data>
+  <data name="AdvancedStartDateRequired" xml:space="preserve">
+    <value>وارد نمودن تاریخ شروع الزامی است</value>
+  </data>
+  <data name="AdvancedEndTimeRequired" xml:space="preserve">
+    <value>وارد نمودن زمان پایان الزامی است</value>
+  </data>
+  <data name="AdvancedEndDateRequired" xml:space="preserve">
+    <value>وارد نمودن تاریخ پایان الزامی است</value>
+  </data>
+  <data name="AdvancedInvalidNumber" xml:space="preserve">
+    <value>عدد نامعتبر</value>
+  </data>
+  <data name="AdvancedWorking" xml:space="preserve">
+    <value>در حال انجام...</value>
+  </data>
+  <data name="AdvancedDone" xml:space="preserve">
+    <value>انجام شده</value>
+  </data>
+  <data name="AdvancedNewAppointment" xml:space="preserve">
+    <value>قرار ملاقات جدید</value>
+  </data>
+  <data name="AdvancedEditAppointment" xml:space="preserve">
+    <value>ویرایش قرار ملاقات</value>
+  </data>
+  <data name="AdvancedClose" xml:space="preserve">
+    <value>بستن</value>
+  </data>
+  <data name="ConfirmResetExceptionsTitle" xml:space="preserve">
+    <value>تایید تنظیم مجدد استثناءها</value>
+  </data>
+  <data name="ConfirmResetExceptionsText" xml:space="preserve">
+    <value>آیا از حذف همه استثناءهای قابل تکرار موجود، اطمینان دارید؟</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>ذخیره</value>
+  </data>
+  <data name="ContextMenuAddAppointment" xml:space="preserve">
+    <value>قرار ملاقات جدید</value>
+  </data>
+  <data name="ContextMenuAddRecurringAppointment" xml:space="preserve">
+    <value>قرار ملاقات قابل تکرار جدید</value>
+  </data>
+  <data name="ContextMenuDelete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="ContextMenuEdit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="ContextMenuGoToToday" xml:space="preserve">
+    <value>انتقال به امروز</value>
+  </data>
+  <data name="Reminder" xml:space="preserve">
+    <value>یادآور</value>
+  </data>
+  <data name="Reminders" xml:space="preserve">
+    <value>یادآور</value>
+  </data>
+  <data name="ReminderDueIn" xml:space="preserve">
+    <value>due in</value>
+  </data>
+  <data name="ReminderOverdue" xml:space="preserve">
+    <value>overdue</value>
+  </data>
+  <data name="ReminderMinute" xml:space="preserve">
+    <value>دقیقه</value>
+  </data>
+  <data name="ReminderMinutes" xml:space="preserve">
+    <value>دقیقه</value>
+  </data>
+  <data name="ReminderHour" xml:space="preserve">
+    <value>ساعت</value>
+  </data>
+  <data name="ReminderHours" xml:space="preserve">
+    <value>ساعت</value>
+  </data>
+  <data name="ReminderDay" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="ReminderDays" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="ReminderWeek" xml:space="preserve">
+    <value>هفته</value>
+  </data>
+  <data name="ReminderWeeks" xml:space="preserve">
+    <value>هفته</value>
+  </data>
+  <data name="ReminderNone" xml:space="preserve">
+    <value>هیچکدام</value>
+  </data>
+  <data name="ReminderSnooze" xml:space="preserve">
+    <value>Snooze</value>
+  </data>
+  <data name="ReminderDismiss" xml:space="preserve">
+    <value>Dismiss</value>
+  </data>
+  <data name="ReminderDismissAll" xml:space="preserve">
+    <value>Dismiss همه</value>
+  </data>
+  <data name="ReminderOpenItem" xml:space="preserve">
+    <value>بازکردن آیتم</value>
+  </data>
+  <data name="ReminderSnoozeHint" xml:space="preserve">
+    <value>Click Snooze to be reminded again in:</value>
+  </data>
+  <data name="ReminderBeforeStart" xml:space="preserve">
+    <value>قبل از شروع</value>
+  </data>
+</root>

@@ -150,7 +150,7 @@
   <data name="Type.Text" xml:space="preserve">
     <value>Log Type</value>
   </data>
-  <data name="UserName.Text" xml:space="preserve">
+  <data name="Username.Text" xml:space="preserve">
     <value>Username</value>
   </data>
   <data name="Portal.Text" xml:space="preserve">

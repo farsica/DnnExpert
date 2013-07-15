@@ -59,6 +59,9 @@
     width: 40%;
     display: inline-block;
 }
+.dnnEditExtension .dnnForm .dnnFormItem > span.dnnCheckbox {
+	width: auto;
+}
 
 /* ===========   Extensions Module Styling   =========== */
 

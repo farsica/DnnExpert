@@ -165,6 +165,9 @@
   <data name="InvalidCode.Text" xml:space="preserve">
     <value>کد فعال سازی وارد شده نامعتبر می باشد</value>
   </data>
+  <data name="IPAddressBanned.Text" xml:space="preserve">
+    <value>امکان ورود به سیستم با این آدرس IP امکان پذیر نمی باشد.</value>
+  </data>
   <data name="LoginFailed.Text" xml:space="preserve">
     <value>خطا در ورود به سیستم. لطفا بخاطر داشته باشید که رمز عبور نسبت به کوچک/بزرگی حروف حساس می باشد.</value>
   </data>

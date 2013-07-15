@@ -77,12 +77,6 @@ p.dnnFormRequired span {
 .dnnGrid td input.dnnFormInput {
     width: 42%;
 }
-.ssasPortalAlias .dnnFormItem span.CommandButton {
-    clear: both;
-    overflow: hidden;
-    display: block;
-    margin-right: 26%;
-}
 .dnnPortalSignup .dnnFormMessage.dnnFormWarning {
     max-width: 100%;
 }
@@ -128,6 +122,26 @@ fieldset .dnnForm {
     width: inherit;
 }
 /* ===========   End Admin Settings Module Styling   =========== */
+.dnnLabel{
+    width: 25%;
+}
+
+.dnnFormItem .dnnFormGroup .dnnLabel {
+    width: auto;
+    padding-top: 10px;
+}
+
+.dnnFormItem .dnnFormGroup a.dnnFormHelp {
+    position: relative;
+}
+
+.dnnFormItem .dnnFormGroup select.dnnCharacterList {
+    width: 150px;
+}
+
+.dnnFormItem .dnnFormGroup .dnnExtensionsList {
+    width: 150px;
+}
 
 /* clean some form style */
 span.CommandButton input[type="image"]{
@@ -158,4 +172,48 @@ a.CommandButton{
 
 a[id$='IncrementCrmVersionButton']{
     margin-right: 25px;
+}
+.asContentFriendlyUrls > .dnnFormItem > .dnnCheckbox {
+    padding-right: 10px;
+}
+
+.ssasPortalAlias .dnnFormItem div.dnnFormGroup {
+    width: 68.5%;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.ssasPortalAlias .dnnFormItem .dnnFormGroup .dnnAliasesHeader {
+    clear: both;
+    overflow: hidden;
+    display: block;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.ssasPortalAlias .dnnFormItem .dnnGridItem input[type="text"],
+.ssasPortalAlias .dnnFormItem .dnnGridAltItem input[type="text"]{
+    margin-bottom: 0px;
+    width: 90%;
+}
+
+.ssasPortalAlias .dnnFormItem .dnnFormGroup .dnnAliasesHeader .dnnSecondaryAction {
+    margin-bottom: 0px;
+}
+
+.suTemplateInfo {
+    width:379px; display:inline-block
+}
+
+.dnnLanguageCombo {
+    width: 450px;
+    float: right;
+}
+
+.ssasPortalAlias .dnnGridItem .dnnLabel  {
+    float: none;
+    padding-top: 0px;
+    padding-left: 0px;
+    margin-left: 0px;
+  
 }

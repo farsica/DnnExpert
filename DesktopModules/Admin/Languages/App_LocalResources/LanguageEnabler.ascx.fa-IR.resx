@@ -202,7 +202,7 @@
     <value>ایجاد بسته زبان</value>
   </data>
   <data name="EnabledPublishedMessage.Text" xml:space="preserve">
-    <value>&lt;em&gt;قبل از اینکه بتوان یک زبان را مورد استفاده قرار داد بایستی آن را ابتدا فعال نمود؛ همچنین قبل از اینکه بتوان آن را غیر فعال نمود ابتدا بایستی از حالت استفاده خارج شود&lt;/em&gt;</value>
+    <value>- &lt;em&gt;قبل از اینکه بتوان یک زبان را مورد استفاده قرار داد بایستی آن را ابتدا فعال نمود؛ همچنین قبل از اینکه بتوان آن را غیر فعال نمود ابتدا بایستی از حالت استفاده خارج شود&lt;/em&gt;</value>
   </data>
   <data name="EnableLocalization.Text" xml:space="preserve">
     <value>فعال نمودن محتوای بومی شده</value>
@@ -224,9 +224,6 @@
   </data>
   <data name="LanguageSettings.Text" xml:space="preserve">
     <value>تنظیمات زبان</value>
-  </data>
-  <data name="TimeZones.Text" xml:space="preserve">
-    <value>ویرایشگر منطقه زمانی</value>
   </data>
   <data name="LocalizePages.Text" xml:space="preserve">
     <value>تعداد صفحات</value>
@@ -262,7 +259,7 @@
     <value>انتشار صفحاتی که در این زبان به عنوان ترجمه شده مشخص شده اند</value>
   </data>
   <data name="Publish.Confirm" xml:space="preserve">
-    <value>همه صفحات ترجمه شده در زبان {0} منتشر شده اند.</value>
+    <value>آیا همه صفحات ترجمه شده در زبان {0} منتشر شوند؟</value>
   </data>
   <data name="allowUserCulture.Help" xml:space="preserve">
     <value>درصورت انتخاب این گزینه، کاربران می توانند زبانی متفاوت از زبان محتویات پورتال را برای نمایش تاریخ و موارد وابسته انتخاب نمایند.</value>
@@ -272,5 +269,59 @@
   </data>
   <data name="InstallAvailabeLanguage.Text" xml:space="preserve">
     <value>نصب زبان های موجود</value>
+  </data>
+  <data name="DisableLocalization.Text" xml:space="preserve">
+    <value>غیر فعال بودن محتوای بومی شده</value>
+  </data>
+  <data name="ContentLocalization.Tab" xml:space="preserve">
+    <value>بومی سازی محتوا</value>
+  </data>
+  <data name="Languages.Tab" xml:space="preserve">
+    <value>زبان ها</value>
+  </data>
+  <data name="Settings.Tab" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="LocalizablePages.Text" xml:space="preserve">
+    <value>تعداد صفحات قابل بومی سازی</value>
+  </data>
+  <data name="cmdDeleteTranslation.Text" xml:space="preserve">
+    <value>حذف همه ترجمه های این زبان</value>
+  </data>
+  <data name="DeleteTranslations.Confirm" xml:space="preserve">
+    <value>آیا از &lt;b&gt;حذف&lt;/b&gt; نهایی همه ترجمه های مربوط به زبان "&lt;b&gt;{0}&lt;/b&gt;"، اطمینان دارید؟</value>
+  </data>
+  <data name="MakeNeutral.Text" xml:space="preserve">
+    <value>تبدیل صفحه به زبان عمومی</value>
+  </data>
+  <data name="MakeTranslatable.Text" xml:space="preserve">
+    <value>فعال کردن قابلیت ترجمه صفحه</value>
+  </data>
+  <data name="ChildrenExistWhenConvertingToNeutral.Text" xml:space="preserve">
+    <value>به علت وجود صفحات زیر مجموعه، امکان تبدیل این صفحه به زبان عمومی نمی باشد.</value>
+  </data>
+  <data name="AddMissingLanguages.Text" xml:space="preserve">
+    <value>افزودن زبان هایی که موجود نمی باشند</value>
+  </data>
+  <data name="Page.Help" xml:space="preserve">
+    <value>این گزینه نشانگر صفحه مورد نظر برای نمایش در پایین می باشد</value>
+  </data>
+  <data name="Page.Text" xml:space="preserve">
+    <value>انتخاب صفحه:</value>
+  </data>
+  <data name="DisableLocalization.Confirm" xml:space="preserve">
+    <value>آیا از غیر فعال کردن بومی سازی محتوا برای پورتال، اطمینان دارید؟ این امر موجب &lt;b&gt;حذف&lt;/b&gt; همه صفحات ترجمه شده می شود و قابل بازگشت نیز &lt;b&gt;نخواهد بود&lt;/b&gt;.</value>
+  </data>
+  <data name="MakeNeutral.Confirm" xml:space="preserve">
+    <value>این امر موجب حذف همه ترجمه های صفحه شده و فقط نسخه مربوط به زبان پیش فرض باقی خواهد ماند. آیا از ادامه عملیات اطمینان دارید؟</value>
+  </data>
+  <data name="plUrl.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، پارامترهای زبان در آدرس های URL درج خواهد شد.</value>
+  </data>
+  <data name="plUrl.Text" xml:space="preserve">
+    <value>فعال بودن پارامترهای زبان در آدرس های URL؟</value>
+  </data>
+  <data name="NeutralMessage.Text" xml:space="preserve">
+    <value>این صفحه برای زبان عمومی می باشد؛ این بدان معنی است که در همه زبان ها وجود خواهد داشت. صفحات زبان های عمومی را نمی توان ترجمه نمود.</value>
   </data>
 </root>

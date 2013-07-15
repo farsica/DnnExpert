@@ -227,15 +227,15 @@
 					<asp:TextBox ID="txtTitle" runat="server" />
 				</div>
 				<div class="dnnFormItem">
-					<dnn:Label ID="lblVisible" runat="server" suffix="?" />
+					<dnn:Label ID="lblVisible" runat="server" />
 					<asp:CheckBox ID="chkVisible" runat="server" />
 				</div>
 				<div class="dnnFormItem">
-					<dnn:Label ID="lblDisabledPage" runat="server" suffix="?" />
+					<dnn:Label ID="lblDisabledPage" runat="server" />
 					<asp:CheckBox ID="chkDisabled" runat="server" />
 				</div>
 				<div class="dnnFormItem">
-					<dnn:Label ID="lblPageSSL" runat="server" suffix="?" />
+					<dnn:Label ID="lblPageSSL" runat="server" />
 					<asp:CheckBox ID="chkSecure" runat="server" />
 				</div> 
 				<div class="dnnFormItem">

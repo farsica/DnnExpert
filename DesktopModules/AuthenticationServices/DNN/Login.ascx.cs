@@ -162,7 +162,15 @@ namespace DotNetNuke.Modules.Admin.Authentication
                     try
                     {
                         UserController.VerifyUser(verificationCode.Replace(".", "+").Replace("-", "/").Replace("_", "="));
-                        UI.Skins.Skin.AddModuleMessage(this, Localization.GetString("VerificationSuccess", LocalResourceFile), ModuleMessage.ModuleMessageType.GreenSuccess);
+
+	                    if (Request.IsAuthenticated)
+	                    {
+							Response.Redirect(Globals.NavigateURL(PortalSettings.HomeTabId, string.Empty, "VerificationSuccess=true"), true);
+	                    }
+	                    else
+	                    {
+		                    UI.Skins.Skin.AddModuleMessage(this, Localization.GetString("VerificationSuccess", LocalResourceFile), ModuleMessage.ModuleMessageType.GreenSuccess);
+	                    }
                     }
                     catch (UserAlreadyVerifiedException)
                     {

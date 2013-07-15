@@ -112,16 +112,16 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="cmdExport.Text" xml:space="preserve">
     <value>Export الگو</value>
   </data>
   <data name="valFileName.ErrorMessage" xml:space="preserve">
-    <value>نام فایل الگو الزامی است</value>
+    <value>نام فایل الگو الزامی می باشد</value>
   </data>
   <data name="plTemplateName.Text" xml:space="preserve">
     <value>نام فایل الگو:</value>
@@ -139,10 +139,10 @@
     <value>لطفا نام فایل الگو که بایستی ایجاد گردد را مشخص نمایید.</value>
   </data>
   <data name="plContent.Text" xml:space="preserve">
-    <value>شامل محتوا:</value>
+    <value>شامل محتوا؟</value>
   </data>
   <data name="plContent.Help" xml:space="preserve">
-    <value>در صورت انتخاب این گزینه، محتوا نیز در فایل الگو اضافه خواهد شد.</value>
+    <value>در صورت انتخاب این گزینه، محتوای همه ماژول ها در فایل الگو اضافه خواهد شد.</value>
   </data>
   <data name="plDescription.Text" xml:space="preserve">
     <value>توضیحات الگو:</value>
@@ -151,7 +151,7 @@
     <value>لطفا توضیحات مربوط به فایل الگو را وارد نمایید.</value>
   </data>
   <data name="valDescription.ErrorMessage" xml:space="preserve">
-    <value>توضیحات الگو الزامی است</value>
+    <value>توضیحات الگو الزامی می باشد</value>
   </data>
   <data name="ControlTitle_template.Text" xml:space="preserve">
     <value>Export الگو</value>
@@ -164,5 +164,89 @@
   </data>
   <data name="PortalSetup.Text" xml:space="preserve">
     <value>نصب پورتال</value>
+  </data>
+  <data name="ErrorPages.Text" xml:space="preserve">
+    <value>انتخاب حداقل یک صفحه الزامی می باشد.</value>
+  </data>
+  <data name="lblFiles.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، همه فایل ها و پوشه های پورتال در زمان ایجاد الگوی جدید منظور خواهند شد.</value>
+  </data>
+  <data name="lblFiles.Text" xml:space="preserve">
+    <value>شامل فایل ها؟</value>
+  </data>
+  <data name="lblMultilanguage.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، اگر در پورتال مورد نظر امکان چند زبانگی فعال باشد، در الگوی ایجاد شده نیز این مورد منظور خواهد شد؛ در غیر اینصورت الگو فقط برای زبان پیش فرض پورتال ایجاد خواهد شد.</value>
+  </data>
+  <data name="lblMultilanguage.Text" xml:space="preserve">
+    <value>Export بصورت پورتال چند زبانه؟</value>
+  </data>
+  <data name="lblPages.Help" xml:space="preserve">
+    <value>این گزینه نشانگر صفحاتی است که بایستی در الگوی ایجاد شده منظور گردند.&lt;br /&gt;&lt;b&gt;نکته: &lt;/b&gt;در زمان ایجاد پورتال جدید بوسیله الگو، توجه داشته باشید که همه صفحات و یا صفحات مدیریتی را انتخاب کرده باشید؛ در غیر اینصورت صفحات مدیریتی در پورتال جدید ایجاد نشده و منوی صفحات موجود در پانل مدیریت خالی خواهد بود. </value>
+  </data>
+  <data name="lblPages.Text" xml:space="preserve">
+    <value>صفحاتی  که بایستی Export شوند:</value>
+  </data>
+  <data name="lblProfile.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، تعاریف مشخصات پروفایل نیز در زمان ایجاد الگوی جدید منظور خواهند شد.</value>
+  </data>
+  <data name="lblProfile.Text" xml:space="preserve">
+    <value>شامل مشخصات پروفایل؟</value>
+  </data>
+  <data name="lblRoles.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، در زمان ایجاد الگوی جدید، نقش های امنیتی نیز منظور خواهند شد.</value>
+  </data>
+  <data name="lblRoles.Text" xml:space="preserve">
+    <value>شامل نقش های امنیتی؟</value>
+  </data>
+  <data name="Settings.Text" xml:space="preserve">
+    <value>تنظیمات پیشرفته</value>
+  </data>
+  <data name="lblLanguages.Help" xml:space="preserve">
+    <value>این گزینه نشانگر زبان هایی است که بایستی در زمان Export منظور گردند.</value>
+  </data>
+  <data name="lblLanguages.Text" xml:space="preserve">
+    <value>Export صفحات زبان های انتخابی:</value>
+  </data>
+  <data name="ErrorAncestorPages.Text" xml:space="preserve">
+    <value>برای منظور شدن هر صفحه زیر مجموعه، بایستی همه صفحات والد تا شاخه اصلی را انتخاب نمود.</value>
+  </data>
+  <data name="lblModules.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، دسترسی های ماژول نیز در الگوی ایجاد شده منظور خواهند شد. در این حالت، ممکن است نقش های امنیتی مرتبط با ماژول نیز در Export منظور گردند.</value>
+  </data>
+  <data name="lblModules.Text" xml:space="preserve">
+    <value>شامل دسترسی های ماژول؟</value>
+  </data>
+  <data name="lblNote.Text" xml:space="preserve">
+    <value>نکته: زبان پیش فرض ({0}) همیشه Export خواهد شد</value>
+  </data>
+  <data name="BasicSettings.Text" xml:space="preserve">
+    <value>تنظیمات پایه</value>
+  </data>
+  <data name="lblAdminOnly.Text" xml:space="preserve">
+    <value>قابل نمایش فقط برای مدیران پورتال</value>
+  </data>
+  <data name="lblDisabled.Text" xml:space="preserve">
+    <value>صفحه غیر فعال می باشد</value>
+  </data>
+  <data name="lblEveryone.Text" xml:space="preserve">
+    <value>صفحه برای همه قابل مشاهده می باشد</value>
+  </data>
+  <data name="lblHidden.Text" xml:space="preserve">
+    <value>صفحه در منو نمایش داده نمی شود</value>
+  </data>
+  <data name="lblHome.Text" xml:space="preserve">
+    <value>صفحه اصلی پورتال</value>
+  </data>
+  <data name="lblRegistered.Text" xml:space="preserve">
+    <value>قابل نمایش برای اعضاء</value>
+  </data>
+  <data name="lblSecure.Text" xml:space="preserve">
+    <value>قابل نمایش فقط برای نقش های</value>
+  </data>
+  <data name="DefaultLanguage.Text" xml:space="preserve">
+    <value>زبان پیش فرض پورتال انتخاب شده {0} می باشد</value>
+  </data>
+  <data name="lblNoteSingleLanguage.Text" xml:space="preserve">
+    <value>نکته: زبان پیش فرض &lt;b&gt;{0}&lt;/b&gt; می باشد</value>
   </data>
 </root>

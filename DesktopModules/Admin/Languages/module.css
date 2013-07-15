@@ -98,8 +98,8 @@
     width: 900px;
 }
 .enableLocalizationProgress .RadUploadProgressArea .ruShadow {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     border-bottom: none;
 }
 .enableLocalizationProgress .RadUploadProgressArea .ruShadow > div {
@@ -153,7 +153,7 @@
     margin-top: 25px;
 }
 .RadGrid_Default{
-    width: 90% !important;
+    width: 100% !important;
 }
 
 .RadComboBox + table{
@@ -185,3 +185,15 @@ input.txtFileName + span{
 		border-color:#686450 #bcb691 #bcb691 #686450;border-width:1px;border-style: solid;margin:0;font-family:Helvetica, Arial, Verdana, sans-serif;display: inline-block;
         text-align: left;color: #a3a3a3;font-size: 13px;word-wrap: break-word;}
 .dnnLanguageEditor .dnnGrid span.dnnTextArea{ min-height: 80px;max-height: 108px;overflow: auto;}
+
+.ssLanguages{ }
+.ssContentLocalization{ }
+.ssSettings{ }
+.cmdDeleteTranslation { }
+
+.clControl {
+    background-color: rgb(201, 201, 201);
+    height: 60px;
+    padding-top: 17px;
+}
+

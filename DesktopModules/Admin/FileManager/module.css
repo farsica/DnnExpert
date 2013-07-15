@@ -194,6 +194,11 @@ A.FileManagerTreeNode:active, A.FileManagerTreeNodeSelected:active
     margin-right: 8px;
 }
 
+.DNNTree div span img {
+    height: 16px;
+    width: 16px;
+}
+
 div#FileGridOverLay {
     background-color: #ccc;
 }

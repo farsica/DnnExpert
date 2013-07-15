@@ -198,4 +198,13 @@
   <data name="ComparePasswordsValidator.ErrorMessage" xml:space="preserve">
     <value>رمز عبور و تاییدیه آن بایستی یکسان باشند</value>
   </data>
+  <data name="UpdateUserName.Text" xml:space="preserve">
+    <value>نکته: این کاربر در {0} سایت عضویت دارد</value>
+  </data>
+  <data name="ViewSiteList.Text" xml:space="preserve">
+    <value>مشاهده لیست پورتال ها</value>
+  </data>
+  <data name="HideSiteList.Text" xml:space="preserve">
+    <value>عدم نمایش لیست پورتال ها</value>
+  </data>
 </root>

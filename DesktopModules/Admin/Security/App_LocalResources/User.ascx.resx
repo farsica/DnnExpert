@@ -198,4 +198,13 @@
   <data name="ComparePasswordsValidator.ErrorMessage" xml:space="preserve">
     <value>The Password and Confirmation Password must match</value>
   </data>
+  <data name="UpdateUserName.Text" xml:space="preserve">
+    <value>Note: This user is registered in {0} sites</value>
+  </data>
+  <data name="ViewSiteList.Text" xml:space="preserve">
+    <value>View list of sites</value>
+  </data>
+  <data name="HideSiteList.Text" xml:space="preserve">
+    <value>Hide list of sites</value>
+  </data>
 </root>

@@ -151,7 +151,7 @@
     <value>Default</value>
   </data>
   <data name="Url.Text" xml:space="preserve">
-    <value>Link Url</value>
+    <value>Link URL</value>
   </data>
   <data name="UrlHelp.Text" xml:space="preserve">
     <value>If you would like this page to behave as a navigation link to another resource, you can specify the Link URL value here. Please note that this field is optional.</value>
@@ -367,7 +367,7 @@
     <value>Add to End</value>
   </data>
   <data name="plPermanentRedirect.Help" xml:space="preserve">
-    <value>Check this box if you want to notify the client that this page should be considered as permanently moved.  This would allow SearchEngines to modify their urls to directly link to the resource.  This is ignored if the LinkType is None.</value>
+    <value>Check this box if you want to notify the client that this page should be considered as permanently moved.  This would allow SearchEngines to modify their URLs to directly link to the resource.  This is ignored if the LinkType is None.</value>
   </data>
   <data name="plPermanentRedirect.Text" xml:space="preserve">
     <value>Permanently Redirect?</value>
@@ -535,7 +535,7 @@
     <value>You are about to publish this page.  This action will mark all the modules as translated and will automatically copy all the View permissions from the master/default language.  Are you sure you want to do this?</value>
   </data>
   <data name="ReadyForTranslation.Text" xml:space="preserve">
-    <value>Ready for Translation</value>
+    <value>Notify Translators</value>
   </data>
   <data name="NewContentMessage.Body" xml:space="preserve">
     <value>The following page has new content ready for translation&lt;br/&gt;
@@ -550,12 +550,6 @@ Page: &lt;a href='{1}'&gt;{0}&lt;/a&gt;&lt;br/&gt;{2}</value>
   </data>
   <data name="publishPageLabel.Text" xml:space="preserve">
     <value>Publish Page</value>
-  </data>
-  <data name="readyToTranslateLabel.Help" xml:space="preserve">
-    <value>Click the link below to mark this page "Ready for Translation".  This will copy the module content to the sub-language versions of the page and send messages to any user in a Page Translation role.</value>
-  </data>
-  <data name="readyToTranslateLabel.Text" xml:space="preserve">
-    <value>Click the link below to mark this page "Ready for Translation".  This will copy the module content to the sub-language versions of the page and send messages to any user in a Page Translation role.</value>
   </data>
   <data name="CacheSettings.Text" xml:space="preserve">
     <value>Cache Settings</value>
@@ -579,13 +573,13 @@ Page: &lt;a href='{1}'&gt;{0}&lt;/a&gt;&lt;br/&gt;{2}</value>
     <value>Copy Page</value>
   </data>
   <data name="TranslationComment.Text" xml:space="preserve">
-    <value>Enter Translation Comment</value>
+    <value>Send notification to Translators</value>
   </data>
   <data name="cmdSubmit.Text" xml:space="preserve">
-    <value>Submit</value>
+    <value>Send</value>
   </data>
   <data name="PathDuplicateWithAlias.Text" xml:space="preserve">
-    <value>There has a site domain same with your page path.</value>
+    <value>There is a site domain identical to your page path.</value>
   </data>
   <data name="CopyDesignToChildren.Confirm" xml:space="preserve">
     <value>Skin and container will be replaced for all children of this page. Are you sure you want to continue?</value>
@@ -600,9 +594,57 @@ Page: &lt;a href='{1}'&gt;{0}&lt;/a&gt;&lt;br/&gt;{2}</value>
     <value>Priority is Required</value>
   </data>
   <data name="plAllowIndex.Help" xml:space="preserve">
-    <value>Whether allow this page to be indexed by search spider.</value>
+    <value>This setting controls whether a page should be indexed by search crawlers. It uses the INDEX/NOINDEX values for ROBOTS meta tag.</value>
   </data>
   <data name="plAllowIndex.Text" xml:space="preserve">
-    <value>Allow Indexed:</value>
+    <value>Allow Indexing:</value>
+  </data>
+  <data name="UrlManagement.Text" xml:space="preserve">
+    <value>URL Management</value>
+  </data>
+  <data name="cmdUpdateLocalization.Text" xml:space="preserve">
+    <value>Update Localization</value>
+  </data>
+  <data name="MakeNeutral.Confirm" xml:space="preserve">
+    <value>This will delete all translated version of the page. Only the default culture version of the page will remain. Are you sure you want to do this?</value>
+  </data>
+  <data name="MakeNeutral.Text" xml:space="preserve">
+    <value>Convert page to Neutral Language</value>
+  </data>
+  <data name="MakeTranslatable.Text" xml:space="preserve">
+    <value>Make Page Translatable</value>
+  </data>
+  <data name="AddMissingLanguages.Text" xml:space="preserve">
+    <value>Add Missing Languages</value>
+  </data>
+  <data name="plCustomStylesheet.Help" xml:space="preserve">
+    <value>A stylesheet that will only be loaded for this page. The file must be located in the home directory or a sub folder of the current website.</value>
+  </data>
+  <data name="plCustomStylesheet.Text" xml:space="preserve">
+    <value>Page Stylesheet</value>
+  </data>
+  <data name="urlLabel.Help" xml:space="preserve">
+    <value>You can enter a custom URL for the page.</value>
+  </data>
+  <data name="urlLabel.Text" xml:space="preserve">
+    <value>Page URL:</value>
+  </data>
+  <data name="doNotRedirectLabel.Help" xml:space="preserve">
+    <value>Check this box to ensure that this page is excluded from any rules that may end up in a redirect.</value>
+  </data>
+  <data name="doNotRedirectLabel.Text" xml:space="preserve">
+    <value>Do Not Redirect:</value>
+  </data>
+  <data name="UrlPathCleaned.Error" xml:space="preserve">
+    <value>The submitted Page URL contains illegal characters, which have been removed.  You can click Update again to accept the modified URL.</value>
+  </data>
+  <data name="UrlPathNotUnique.Error" xml:space="preserve">
+    <value>The submitted Page URL is not available.  If you wish to accept the suggested alternative, please click Update.</value>
+  </data>
+  <data name="UpdateUrlButton.Caption" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="UpdateUrlButton.Tooltip" xml:space="preserve">
+    <value>Update URL</value>
   </data>
 </root>

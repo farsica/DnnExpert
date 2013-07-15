@@ -153,4 +153,7 @@
   <data name="TotalPages.Text" xml:space="preserve">
     <value>صفحات</value>
   </data>
+  <data name="PagesToLocalizeLabel.Text" xml:space="preserve">
+    <value>تعداد صفحاتی که بایستی بومی سازی شوند</value>
+  </data>
 </root>

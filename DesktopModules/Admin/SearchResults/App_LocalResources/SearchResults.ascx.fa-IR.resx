@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,80 +59,230 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-  <data name="Relevance.Text" xml:space="preserve">
-    <value> - درصد تطابق: </value>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>پیشرفته</value>
   </data>
-  <data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;h1&gt;درباره بخش مشاهده نتیجه جستجو&lt;/h1&gt;&lt;p&gt;این ماژول امکان مشاهده نتیجه جستجوی در پورتال را فراهم می آورد.&lt;/p&gt;</value>
+  <data name="Date.Text" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="lblAdvancedDates.Help" xml:space="preserve">
+    <value>این گزینه نشانگر فیلتر زمانی مورد استفاده برای محدود کردن نتایج جستجو می باشد.</value>
+  </data>
+  <data name="lblAdvancedDates.Text" xml:space="preserve">
+    <value>آخرین تاریخ ویرایش:</value>
+  </data>
+  <data name="lblAdvancedScope.Help" xml:space="preserve">
+    <value>این گزینه فیلتر مورد استفاده برای محدود کردن نتایج جستجو می باشد.</value>
+  </data>
+  <data name="lblAdvancedScope.Text" xml:space="preserve">
+    <value>فیلتر:</value>
+  </data>
+  <data name="lblAdvancedTags.Help" xml:space="preserve">
+    <value>این گزینه نشانگر برچسب های مورد استفاده برای محدود کردن نتایج جستجو می باشد.</value>
+  </data>
+  <data name="lblAdvancedTags.Text" xml:space="preserve">
+    <value>فیلتر بوسیله برچسب ها:</value>
   </data>
   <data name="NoResults.Text" xml:space="preserve">
-    <value>نتیجه ای برای جستجوی عبارت &lt;b&gt;&lt;i&gt;{0}&lt;/i&gt;&lt;/b&gt; یافت نگردید.</value>
+    <value>نتیجه ای یافت نشد</value>
   </data>
-  <data name="Results.Text" xml:space="preserve">
-    <value>نتایج جستجو برای عبارت &lt;b&gt;&lt;i&gt;{0}&lt;/i&gt;&lt;/b&gt;</value>
+  <data name="optionAll.Text" xml:space="preserve">
+    <value>همه</value>
   </data>
-  <data name="NoSearch.Text" xml:space="preserve">
-    <value>عبارتی برای جستجو مشخص نشده است.</value>
+  <data name="optionDay.Text" xml:space="preserve">
+    <value>1 روز</value>
   </data>
-  <data name="ModuleHidden.Text" xml:space="preserve">
-    <value>این ماژول در صورتی که عبارت جستجو در پارامترهای صفحه نیامده باشد، برای کاربران عادی نمایش داده نخواهد شد.</value>
+  <data name="optionMonth.Text" xml:space="preserve">
+    <value>30 روز</value>
+  </data>
+  <data name="optionQuarter.Text" xml:space="preserve">
+    <value>90 روز</value>
+  </data>
+  <data name="optionWeek.Text" xml:space="preserve">
+    <value>7 روز</value>
+  </data>
+  <data name="optionYear.Text" xml:space="preserve">
+    <value>1 سال</value>
+  </data>
+  <data name="Relevance.Text" xml:space="preserve">
+    <value>تطابق</value>
+  </data>
+  <data name="ResultPerPage.Text" xml:space="preserve">
+    <value>تعداد نتایج در هر صفحه:</value>
+  </data>
+  <data name="Source.Text" xml:space="preserve">
+    <value>منبع:</value>
+  </data>
+  <data name="Tags.Text" xml:space="preserve">
+    <value>برچسب ها:</value>
+  </data>
+  <data name="btnClear.Text" xml:space="preserve">
+    <value>حذف حالت پیشرفته</value>
+  </data>
+  <data name="btnSearch.Text" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="lblAdvancedExactSearch.Help" xml:space="preserve">
+    <value>این گزینه نشانگر کلیدواژه های مورد نظر می باشد که نتایج جستجو بایستی دقیقا شامل آنها باشند.</value>
+  </data>
+  <data name="lblAdvancedExactSearch.Text" xml:space="preserve">
+    <value>جستجوی دقیق:</value>
+  </data>
+  <data name="linkAdvancedTip.Text" xml:space="preserve">
+    <value>راهنمای جستجو</value>
+  </data>
+  <data name="AdvancedSearchHint.Text" xml:space="preserve">
+    <value>&lt;table class="dnnSearchResult-hint-tbl dnnTableDisplay"&gt;
+
+                
+				&lt;tr&gt;
+                    &lt;th style="width: 150px"&gt;&lt;span&gt;نوع&lt;/span&gt;
+                    &lt;/th&gt;
+                    &lt;th style="width: 250px"&gt;&lt;span&gt;مثال&lt;/span&gt;
+                    &lt;/th&gt;
+                    &lt;th&gt;&lt;span&gt;نکات&lt;/span&gt;
+                    &lt;/th&gt;
+				&lt;/tr&gt;
+         
+
+                &lt;tr&gt;
+                    &lt;td&gt;فازی&lt;/td&gt;
+                    &lt;td&gt;سلام&lt;b&gt;~&lt;/b&gt;&lt;/td&gt;
+                    &lt;td&gt;عباراتی که به لغت "&lt;i&gt;سلام&lt;/i&gt;" نزدیک هستند، به عنوان مثال "&lt;i&gt;کلام&lt;/i&gt;"&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;شامل عبارت&lt;/td&gt;
+                    &lt;td&gt;سوز*&lt;/td&gt;
+                    &lt;td&gt;عباراتی که با لغت "&lt;i&gt;سوز&lt;/i&gt;" شروع می شوند، به عنوان مثال "&lt;i&gt;سوزناک&lt;/i&gt;" و همچنین خود لغت "&lt;i&gt;سوز&lt;/i&gt;"&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;عین لغت&lt;/td&gt;
+                    &lt;td&gt;فرسیکا&lt;/td&gt;
+                    &lt;td&gt;عباراتی که دقیقا شامل لغت "&lt;i&gt;فرسیکا&lt;/i&gt;" هستند&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;عین عبارت&lt;/td&gt;
+                    &lt;td&gt;"مرجع متخصصین دی ان ان"&lt;/td&gt;
+                    &lt;td&gt;عباراتی که دقیقا شامل عبارت "&lt;i&gt;مرجع متخصصین دی ان ان&lt;/i&gt;" هستند&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;یا&lt;/td&gt;
+                    &lt;td&gt;پورتال سوئیت&lt;/td&gt;
+                    &lt;td&gt;مواردی که شامل لغات "&lt;i&gt;پورتال&lt;/i&gt;" یا "&lt;i&gt;سوئیت&lt;/i&gt;" و یا هر دو هستند.&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;&lt;/td&gt;
+                    &lt;td&gt;پورتال &lt;b&gt;یا&lt;/b&gt; سوئیت&lt;/td&gt;
+                    &lt;td&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;و&lt;/td&gt;
+                    &lt;td&gt;+پورتال +سازمانی&lt;/td&gt;
+                    &lt;td&gt;مواردی که شامل لغات "&lt;i&gt;پورتال&lt;/i&gt;" و "&lt;i&gt;سازمانی&lt;/i&gt;" هستند&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;&lt;/td&gt;
+                    &lt;td&gt;پورتال &lt;b&gt;و&lt;/b&gt; سازمانی&lt;/td&gt;
+                    &lt;td&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;ترکیبی&lt;/td&gt;
+                    &lt;td&gt;(فنآوری &lt;b&gt;یا&lt;/b&gt; خلاقیت) &lt;b&gt;و&lt;/b&gt; فرسیکا&lt;/td&gt;
+                    &lt;td&gt;مواردی که شامل لغت "&lt;i&gt;فرسیکا&lt;/i&gt;" بوده و همچنین بایستی شامل لغات "&lt;i&gt;فنآوری&lt;/i&gt;"  و/یا "&lt;i&gt;خلاقیت&lt;/i&gt;" باشند&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;</value>
+  </data>
+  <data name="LastModified.Text" xml:space="preserve">
+    <value>آخرین تاریخ بروزرسانی:</value>
+  </data>
+  <data name="AddTag.Text" xml:space="preserve">
+    <value>افزودن برچسب</value>
+  </data>
+  <data name="AllFeaturesSelected.Text" xml:space="preserve">
+    <value>همه</value>
+  </data>
+  <data name="Author.Text" xml:space="preserve">
+    <value>نویسنده:</value>
+  </data>
+  <data name="Comments.Text" xml:space="preserve">
+    <value>نظرات:</value>
+  </data>
+  <data name="Likes.Text" xml:space="preserve">
+    <value>لینک ها:</value>
+  </data>
+  <data name="Views.Text" xml:space="preserve">
+    <value>مشاهده:</value>
+  </data>
+  <data name="CurrentPageIndex.Text" xml:space="preserve">
+    <value>صفحه:</value>
+  </data>
+  <data name="ResultsCount.Text" xml:space="preserve">
+    <value>تعداد نتایج {0}</value>
   </data>
 </root>

@@ -217,13 +217,13 @@
     <value>Control Type:</value>
   </data>
   <data name="ModuleControlInfo_HelpURL.Help" xml:space="preserve">
-    <value>You can provide a Help Url for this control. This will appear on the Actions menu.</value>
+    <value>You can provide a Help URL for this control. This will appear on the Actions menu.</value>
   </data>
   <data name="ModuleControlInfo_HelpURL.Text" xml:space="preserve">
     <value>Help URL:</value>
   </data>
   <data name="ModuleControlInfo_IconFile.Help" xml:space="preserve">
-    <value>The url to the Icon for this control</value>
+    <value>The URL to the Icon for this control</value>
   </data>
   <data name="ModuleControlInfo_IconFile.Text" xml:space="preserve">
     <value>Icon File:</value>

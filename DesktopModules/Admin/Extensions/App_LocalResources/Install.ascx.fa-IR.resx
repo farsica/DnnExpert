@@ -258,4 +258,16 @@
   <data name="FileSizeRestriction.Text" xml:space="preserve">
     <value>حداکثر اندازه فایل قابل آپلود در پورتال {0} مگابایت می باشد.</value>
   </data>
+  <data name="AzureCompact.Text" xml:space="preserve">
+    <value>نصب، بدون بررسی هماهنگی با SQL Azure؟</value>
+  </data>
+  <data name="AzureCompactHelp.Text" xml:space="preserve">
+    <value>پورتال در حال حاضر از بانک اطلاعات SQL Azure استفاده می نماید ولی بسته انتخابی برای نصب، با SQL Azure هماهنگی ندارد. درصورت نصب ماژولی که با SQL Azure هماهنگی نداشته باشد، امکان ایجاد نسخه پشتیبان از بانک اطلاعات و استفاده مجدد از آن امکان پذیر نبوده و در زمان اجرای عملیات، خطای نامشخص نمایش داده خواهد شد.</value>
+  </data>
+  <data name="AzureCompactMessage.Text" xml:space="preserve">
+    <value>بسته انتخابی با SQL Azure هماهنگی ندارد.</value>
+  </data>
+  <data name="AzureCompactWarning.Text" xml:space="preserve">
+    <value>هشدار: شما اقدام به نصب بسته، بدون بررسی هماهنگی آن با Sql Azure، نموده اید.</value>
+  </data>
 </root>

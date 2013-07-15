@@ -504,12 +504,6 @@
   <data name="FriendlyUrl.Text" xml:space="preserve">
     <value>تنظیمات آدرس های کاربرپسند</value>
   </data>
-  <data name="plUseFriendlyUrls.Text" xml:space="preserve">
-    <value>فعال بودن آدرس های کاربرپسند؟</value>
-  </data>
-  <data name="plUseFriendlyUrls.Help" xml:space="preserve">
-    <value>لطفا برای فعال بودن آدرس های کاربرپسند و استفاده از آن در سیستم، این گزینه را انتخاب نمایید.</value>
-  </data>
   <data name="RequestFilter.Text" xml:space="preserve">
     <value>تنظیمات فیلتر درخواست های دریافتی</value>
   </data>
@@ -616,7 +610,7 @@
     <value>درصورتی که تمایل دارید سیستم وجود نسخه جدید را بررسی نماید، این گزینه را انتخاب نمایید.</value>
   </data>
   <data name="UpgradeNever.Text" xml:space="preserve">
-    <value>هرگز</value>
+    <value>غیر فعال</value>
   </data>
   <data name="plAvailable.Text" xml:space="preserve">
     <value>آیا نسخه جدید برنامه موجود است؟</value>
@@ -653,9 +647,6 @@
   </data>
   <data name="Deflate.Text" xml:space="preserve">
     <value>فشرده سازی با الگوریتم Deflate</value>
-  </data>
-  <data name="GZip.Text" xml:space="preserve">
-    <value>فشرده سازی با الگوریتم GZip</value>
   </data>
   <data name="NoCompression.Text" xml:space="preserve">
     <value>بدون فشرده سازی</value>
@@ -972,6 +963,36 @@
   <data name="plBatch.Text" xml:space="preserve">
     <value>تعداد پیام های ارسال شده در هر ارسال گروهی:</value>
   </data>
+  <data name="MembershipManagement.Text" xml:space="preserve">
+    <value>مدیریت عضویت در پورتال</value>
+  </data>
+  <data name="plResetLinkValidity.Text" xml:space="preserve">
+    <value>بازه زمانی اعتبار لینک تنظیم مجدد رمز عبور (برحسب دقیقه)</value>
+  </data>
+  <data name="plNumberPasswords.Text" xml:space="preserve">
+    <value>تعداد رمزهای عبوری که بایستی نگهداشته شود</value>
+  </data>
+  <data name="plNumberPasswords.Help" xml:space="preserve">
+    <value>این گزینه نشانگر تعداد رمزهای عبور می باشد که برای استفاده مجدد بایستی بررسی شوند.</value>
+  </data>
+  <data name="plEnableBannedList.Text" xml:space="preserve">
+    <value>فعال بودن لیست رمزهای عبور ممنوعه</value>
+  </data>
+  <data name="plEnableBannedList.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، رمزهای عبور وارد شده توسط کاربران، با توجه به لیست ممنوعه بررسی خواهند شد.</value>
+  </data>
+  <data name="plEnableStrengthMeter.Text" xml:space="preserve">
+    <value>بررسی طول رمز عبور</value>
+  </data>
+  <data name="plEnableStrengthMeter.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، طول رمز عبور وارد شده توسط کاربران بررسی خواهد شد.</value>
+  </data>
+  <data name="plEnableIPChecking.Text" xml:space="preserve">
+    <value>بررسی آدرس IP</value>
+  </data>
+  <data name="plEnableIPChecking.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، آدرس IP کاربر در زمان ورود به سیستم بررسی خواهد شد.</value>
+  </data>
   <data name="CdnSettings.Text" xml:space="preserve">
     <value>تنظیمات سرویس CDN</value>
   </data>
@@ -1003,6 +1024,148 @@
     <value>این گزینه نشانگر بازه زمانی بر حسب ثانیه برای توابع Asynchronous Postbacks می باشد، اگر در طی این بازه زمانی پاسخی از سمت سرور دریافت نگردد منجر به بروز خطا می گردد. عدد وارد شده بایستی در بازه 90 تا 9999 باشد.</value>
   </data>
   <data name="plAsyncTimeout.Text" xml:space="preserve">
-    <value>بازه زمانی توابع Async Postback (بر حسب ثانیه):</value>
+    <value>بازه زمانی معتبر:</value>
+  </data>
+  <data name="plEnablePasswordHistory.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، آخرین رمزهای عبور استفاده ذخیره شده و در زمان تغییر رمز عبور، بررسی می شود که رمز عبور جدید قبلا استفاده نشده باشد.</value>
+  </data>
+  <data name="plEnablePasswordHistory.Text" xml:space="preserve">
+    <value>ذخیره آخرین رمز های عبور استفاده شده و جلوگیری از استفاده مجدد از آنها.</value>
+  </data>
+  <data name="plResetLinkValidity.Help" xml:space="preserve">
+    <value>این گزینه نشانگر بازه زمانی اعتبار لینک تنظیم مجدد رمز عبور می باشد. (برحسب دقیقه)</value>
+  </data>
+  <data name="valResetLink.Error" xml:space="preserve">
+    <value>بازه زمانی اعتبار لینک تنظیم مجدد بایستی بزرگتر از 0 باشد</value>
+  </data>
+  <data name="AlwaysUse.Text" xml:space="preserve">
+    <value>همه آدرس های URL.</value>
+  </data>
+  <data name="CharacterSubListLabel.Help" xml:space="preserve">
+    <value>این گزینه نشانگر حرف مورد استفاده برای اتصال آدرس های URL می باشد.</value>
+  </data>
+  <data name="CharacterSubListLabel.Text" xml:space="preserve">
+    <value>حرف رابط:</value>
+  </data>
+  <data name="ExtensionLabel.Help" xml:space="preserve">
+    <value>این گزینه نشانگر پسوند مورد استفاده به همراه پیشوند آن می باشد. مقدار پیش فرض ".aspx" می باشد.</value>
+  </data>
+  <data name="ExtensionLabel.Text" xml:space="preserve">
+    <value>پسوند مورد استفاده (مقدار پیش فرض ".aspx" می باشد):</value>
+  </data>
+  <data name="PageOnly.Text" xml:space="preserve">
+    <value>فقط صفحات بدون پارامتر.</value>
+  </data>
+  <data name="EmptyString.Text" xml:space="preserve">
+    <value>&lt;&lt;رشته خالی&gt;&gt;</value>
+  </data>
+  <data name="Never.Text" xml:space="preserve">
+    <value>غیر فعال</value>
+  </data>
+  <data name="IPFilters.Text" xml:space="preserve">
+    <value>فیلتر آدرس های IP برای ورود به سیستم</value>
+  </data>
+  <data name="plJQueryMigrateHostUrl.Help" xml:space="preserve">
+    <value>این گزینه نشانگر آدرس URL پلاگین jQuery Migrate می باشد. درصورت خالی بودن این فیلد، از نسخه موجود در پورتال استفاده خواهد شد.</value>
+  </data>
+  <data name="plJQueryMigrateHostUrl.Text" xml:space="preserve">
+    <value>آدرس URL پلاگین jQuery Migrate:</value>
+  </data>
+  <data name="lblSearchIndexPath.Help" xml:space="preserve">
+    <value>این گزینه نشانگر مکان ذخیره ایندکس می باشد. این مکان را با ایجاد تنظیم "Search_IndexFolder" در بانک اطلاعات بصورت دستی می توان تغییر داد. پیشنهاد می شود قبل از تغییرات ابتدا App Pool را متوقف نمایید. محتوای پوشه قدیمی نیز بایستی بصورت دستی در پوشه جدید کپی شده و یا بایستی بر روی دکمه ایندکس گذاری مجدد کلیک گردد. </value>
+  </data>
+  <data name="lblSearchIndexPath.Text" xml:space="preserve">
+    <value>مسیر ایندکس جستجو:</value>
+  </data>
+  <data name="SearchIndex.Text" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="btnCompactSearchIndex.Text" xml:space="preserve">
+    <value>فشرده سازی ایندکس</value>
+  </data>
+  <data name="MessageIndexWarning.Text" xml:space="preserve">
+    <value>&lt;b&gt;فشرده سازی&lt;/b&gt; فایل ایندکس موجب آزاد شدن فضای رزرو شده توسط موارد حذفی می شود. فشرده سازی فقط زمانی پیشنهاد می شود که تعداد "مستندات حذف شده" زیاد باشد. فشرده سازی ممکن است نیازمند فضای فیزیکی به میزان 2 برابر فضای موجود برای پردازش اطلاعات باشد.
+&lt;b&gt;ایندکس گذاری مجدد&lt;/b&gt; فقط توسط مدیران ارشد امکان پذیر می باشد. این امر موجب حذف ایندکس های موجود شده و مجددا ایندکس ها ایجاد خواهند شد.
+هر دو عملیات فشرده سازی و ایندکس گذاری مجدد توسط موتور جستجوی پورتال انجام می شوند.
+
+&lt;b&gt;احتیاط&lt;/b&gt; - فشرده سازی یا ایندکس گذاری مجدد بایستی در زمانی انجام شوند که فشار زیادی بر روی سرور نباشد تا پردازشگر سرور برای انجام فرامین دچار مشکل نگردد.</value>
+  </data>
+  <data name="btnHostSearchReindex.Text" xml:space="preserve">
+    <value>ایندکس گذاری مجدد محتوای صفحات مدیریت ارشد</value>
+  </data>
+  <data name="CompactIndexConfirmationCancel.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="CompactIndexConfirmationMessage.Text" xml:space="preserve">
+    <value>فشرده سازی ایندکس ممکن است نیازمند استفاده زیاد از حافظه سرور باشد و همچنین ممکن است نیازمند فضای فیزیکی به میزان 2 برابر فضای موجود برای پردازش اطلاعات باشد. عملیات فشرده سازی توسط موتور جستجوی پورتال انجام شده و چگونگی انجام شدن به تنظیمات آن بستگی دارد. آیا از ادامه عملیات اطمینان دارید؟</value>
+  </data>
+  <data name="CompactIndexConfirmationTitle.Text" xml:space="preserve">
+    <value>تایید فشرده سازی</value>
+  </data>
+  <data name="CompactIndexConfirmationYes.Text" xml:space="preserve">
+    <value>ادامه</value>
+  </data>
+  <data name="lblGetMoreInformation.Text" xml:space="preserve">
+    <value>اطلاعات بیشتر</value>
+  </data>
+  <data name="lblIndexWordMaxLength.Help" xml:space="preserve">
+    <value>این نشانگر حداکثر طول لغات که بایستی ایندکس شوند، می باشد.</value>
+  </data>
+  <data name="lblIndexWordMaxLength.Text" xml:space="preserve">
+    <value>حداکثر طول لغات:</value>
+  </data>
+  <data name="lblIndexWordMinLength.Help" xml:space="preserve">
+    <value>این نشانگر حداقل طول لغات که بایستی ایندکس شوند، می باشد.</value>
+  </data>
+  <data name="lblIndexWordMinLength.Text" xml:space="preserve">
+    <value>حداقل طول لغات:</value>
+  </data>
+  <data name="lblSearchIndexActiveDocuments.Help" xml:space="preserve">
+    <value>این گزینه نشانگر تعداد مستندات فعال در فایل های ایندکس می باشد.</value>
+  </data>
+  <data name="lblSearchIndexActiveDocuments.Text" xml:space="preserve">
+    <value>مستندات فعال:</value>
+  </data>
+  <data name="lblSearchIndexDeletedDocuments.Help" xml:space="preserve">
+    <value>این گزینه نشانگر تعداد مستندات حذف شده در فایل های ایندکس می باشد.</value>
+  </data>
+  <data name="lblSearchIndexDeletedDocuments.Text" xml:space="preserve">
+    <value>مستندات حذف شده:</value>
+  </data>
+  <data name="lblSearchIndexLastModifiedOn.Help" xml:space="preserve">
+    <value>این گزینه نشانگر تاریخ آخرین بروزرسانی فایل های ایندکس می باشد.</value>
+  </data>
+  <data name="lblSearchIndexLastModifiedOn.Text" xml:space="preserve">
+    <value>تاریخ آخرین بروزرسانی:</value>
+  </data>
+  <data name="ReIndexConfirmationCancel.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="ReIndexConfirmationMessage.Text" xml:space="preserve">
+    <value>ایندکس گذاری مجدد موجب حذف ایندکس های موجود می شود. ایندکس گذاری مجدد توسط موتور جستجوی پورتال انجام شده و چگونگی انجام شدن به تنظیمات آن بستگی دارد. آیا از ادامه عملیات اطمینان دارید؟</value>
+  </data>
+  <data name="ReIndexConfirmationTitle.Text" xml:space="preserve">
+    <value>تایید ایندکس گذاری مجدد</value>
+  </data>
+  <data name="ReIndexConfirmationYes.Text" xml:space="preserve">
+    <value>ادامه</value>
+  </data>
+  <data name="valIndexWordMaxLengthCompare.Error" xml:space="preserve">
+    <value>عدد وارد شده بایستی بزرگتر از حداقل مشخص شده باشد</value>
+  </data>
+  <data name="valIndexWordMaxLengthRequired.Error" xml:space="preserve">
+    <value>حداکثر طول ایندکس لغات الزامی می باشد</value>
+  </data>
+  <data name="valIndexWordMinLengthCompare.Error" xml:space="preserve">
+    <value>عدد وارد شده بایستی یک عدد صحیح و بزرگتر از 0 باشد</value>
+  </data>
+  <data name="valIndexWordMinLengthRequired.Error" xml:space="preserve">
+    <value>حداقل طول ایندکس لغات الزامی می باشد</value>
+  </data>
+  <data name="lblSearchIndexDbSize.Help" xml:space="preserve">
+    <value>این گزینه نشانگر اندازه نهایی فایل های ایندکس در بانک اطلاعات می باشد.</value>
+  </data>
+  <data name="lblSearchIndexDbSize.Text" xml:space="preserve">
+    <value>اندازه ایندکس جستجو:</value>
   </data>
 </root>

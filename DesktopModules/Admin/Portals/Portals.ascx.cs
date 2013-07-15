@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections;
+using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.UI.WebControls;
@@ -30,6 +31,7 @@ using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Entities.Portals;
+using DotNetNuke.Entities.Portals.Internal;
 using DotNetNuke.Security;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
@@ -183,20 +185,15 @@ namespace DotNetNuke.Modules.Admin.Portals
             var str = new StringBuilder();
             try
             {
-                var objPortalAliasController = new PortalAliasController();
-                var arr = objPortalAliasController.GetPortalAliasArrayByPortalID(portalID);
-                PortalAliasInfo objPortalAliasInfo;
-                int i;
-                for (i = 0; i <= arr.Count - 1; i++)
+                var arr = TestablePortalAliasController.Instance.GetPortalAliasesByPortalId(portalID).ToList();
+                foreach ( PortalAliasInfo portalAliasInfo in arr)
                 {
-                    objPortalAliasInfo = (PortalAliasInfo) arr[i];
-
-                    var httpAlias = Globals.AddHTTP(objPortalAliasInfo.HTTPAlias);
+                    var httpAlias = Globals.AddHTTP(portalAliasInfo.HTTPAlias);
                     var originalUrl = HttpContext.Current.Items["UrlRewrite:OriginalUrl"].ToString().ToLowerInvariant();
 
                     httpAlias = Globals.AddPort(httpAlias, originalUrl);
 
-                    str.Append("<a href=\"" + httpAlias + "\">" + objPortalAliasInfo.HTTPAlias + "</a>" + "<BR>");
+                    str.Append("<a href=\"" + httpAlias + "\">" + portalAliasInfo.HTTPAlias + "</a>" + "<BR>");
                 }
             }
             catch (Exception exc) //Module failed to load

@@ -115,6 +115,8 @@ namespace DotNetNuke.Modules.Admin.AdvancedSettings
             providersGrid.ItemDataBound += OnProvidersGridItemDataBound;
             modulesGrid.ItemDataBound += OnModulesGridItemDataBound;
 
+            languagePacks.ModuleContext.Configuration = ModuleContext.Configuration;
+
             //Hide Update button in SkinDesigner
             HideUpdateButtonInSkinDesigner();
 
@@ -140,9 +142,14 @@ namespace DotNetNuke.Modules.Admin.AdvancedSettings
             {
                 if (!Page.IsPostBack)
                 {
+                    Localization.LocalizeDataGrid(ref authSystemsGrid, LocalResourceFile);
+                    Localization.LocalizeDataGrid(ref providersGrid, LocalResourceFile);
+                    Localization.LocalizeDataGrid(ref modulesGrid, LocalResourceFile);
+
                     BindGrid("AuthSystem", authSystemsGrid, divNoAuthSystems);
                     BindGrid("Provider", providersGrid, divNoProviders);
                     BindGrid("Module", modulesGrid, divNoModules);
+
                 }
             }
             catch (Exception exc)

@@ -5,16 +5,22 @@
 
 <dnn:DnnFormEditor id="userForm" runat="Server" FormMode="Short">
     <Items>
-        <dnn:DnnFormLiteralItem ID="userNameReadOnly" runat="server" DataField="Username" />
+        <dnn:DnnFormLiteralItem ID="userNameReadOnly" runat="server"  DataField="Username" />
         <dnn:DnnFormTextBoxItem ID="userName" runat="server" DataField="Username" Required="true"/>
-        <dnn:DnnFormTextBoxItem ID="firstName" runat="server" DataField="FirstName" />
-        <dnn:DnnFormTextBoxItem ID="lastName" runat="server" DataField="LastName" />
+        <dnn:DnnFormTextBoxItem ID="renameUserName" runat="server" DataField="Username" Visible="false" />                 
+        <dnn:DnnFormTextBoxItem ID="firstName" runat="server" DataField="FirstName" Required="true" />
+        <dnn:DnnFormTextBoxItem ID="lastName" runat="server" DataField="LastName" Required="true" />
         <dnn:DnnFormTextBoxItem ID="displayName" runat="server" DataField="DisplayName" Required="true" />
         <dnn:DnnFormLiteralItem ID="displayNameReadOnly" runat="server" DataField="DisplayName" />
         <dnn:DnnFormTextBoxItem ID="email" runat="server" DataField="Email" Required="true" />
    </Items>
 </dnn:DnnFormEditor>
-<asp:panel id="pnlAddUser" runat="server" visible="False" CssClass="dnnForm">
+<div class="dnnFormGroup dnnFormItem dnnFormShort" id="renameUserPortals" runat="server" Visible="False">
+    <dnn:Label ID="numSites" runat="server"></dnn:Label>
+    <dnn:DnnComboBox CheckBoxes="false" id="cboSites" runat="server" Width="100" DataMember="PortalName" Visible="False"></dnn:DnnComboBox>
+</div>
+
+<asp:panel id="pnlAddUser" runat="server" visible="False" CssClass="dnnForm dnnFormPassword">
     <div id="AuthorizeNotify" runat="server" >
         <div class="dnnFormItem">
             <dnn:label id="plAuthorize" runat="server" controlname="chkAuthorize" />
@@ -39,15 +45,17 @@
         </div>
         <div class="dnnFormItem">
             <dnn:label id="plPassword" runat="server" controlname="txtPassword" cssclass="dnnFormRequired"  />
-			<asp:textbox id="txtPassword" runat="server" TextMode="Password" size="12" maxlength="128" AutoCompleteType="Disabled" />
+            <asp:Panel ID="passwordContainer" runat="server" CssClass="password-strength-container">
+    			<asp:textbox id="txtPassword" runat="server" TextMode="Password" CssClass="password-strength" size="12" maxlength="20" AutoCompleteType="Disabled" />
+            </asp:Panel>
         </div>
         <div class="dnnFormItem">
             <dnn:label id="plConfirm" runat="server" controlname="txtConfirm" text="Confirm Password:" cssclass="dnnFormRequired"  ></dnn:label>
-			<asp:textbox id="txtConfirm" runat="server" textmode="Password" size="12" maxlength="128" />
+			<asp:textbox id="txtConfirm" runat="server" textmode="Password" size="12" maxlength="20" CssClass="password-confirm"/>
             <asp:CompareValidator ID="ComparePasswordsValidator" runat="server"
                                   resourcekey = "ComparePasswordsValidator.ErrorMessage" 
-                                  CssClass="dnnFormMessage dnnFormError" 
-                                  Display="Dynamic"                     
+                                  CssClass="dnnFormMessage dnnFormError"    
+                                  Display="Dynamic"                               
                                   ControlToValidate="txtPassword" 
                                   ControlToCompare="txtConfirm"></asp:CompareValidator>
         </div>
