@@ -124,7 +124,7 @@
     <value>en-US</value>
   </data>
   <data name="Setting.FooterText.Text" xml:space="preserve">
-    <value>Copyright [year] by DotNetNuke Corporation</value>
+    <value>Copyright [year] by DNN Corp</value>
   </data>
   <data name="Tab.About.ContentPane.AboutUsModule.Title.Text" xml:space="preserve">
     <value>About Us</value>
@@ -163,7 +163,7 @@
     <value>Let me at it</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.0.Text" xml:space="preserve">
-    <value>The video below will &lt;strong&gt; help get you started &lt;/strong&gt; building your new DotNetNuke site. Using DotNetNuke is fast and easy and you can have your new site up and running with real content in just a matter of minutes.</value>
+    <value>The video below will &lt;strong&gt; help get you started &lt;/strong&gt; building your new site. Using DNN is fast and easy and you can have your new site up and running with real content in just a matter of minutes.</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.1.Text" xml:space="preserve">
     <value>Watch the Video</value>
@@ -187,7 +187,7 @@
     <value>Looking for answers?</value>
   </data>
   <data name="Tab.GettingStarted.RightPane.Module.Content.4.Text" xml:space="preserve">
-    <value>Do you have any questions, ideas for improvement or just want to meet some other DotNetNuke members?</value>
+    <value>Do you have any questions, ideas for improvement or just want to meet some other members?</value>
   </data>
   <data name="Tab.GettingStarted.RightPane.Module.Content.5.Text" xml:space="preserve">
     <value>Find an Answer</value>
@@ -202,24 +202,24 @@
     <value>We would love to hear how we're doing</value>
   </data>
   <data name="Tab.GettingStarted.Title.Text" xml:space="preserve">
-    <value>Welcome to Your DotNetNuke Installation</value>
+    <value>Welcome to Your Installation</value>
   </data>
   <data name="Tab.Home.Name.Text" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="Tab.Services.Content.Text" xml:space="preserve">
-    <value>Our Services</value>
-  </data>
-  <data name="Tab.Services.ContentPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.Content.Text" xml:space="preserve">
     <value>Our Products</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Title.Text" xml:space="preserve">
+    <value>Our Products</value>
+  </data>
+  <data name="Tab.Products.FooterLeftPane.Module.Title.Text" xml:space="preserve">
     <value>Customer Support</value>
   </data>
-  <data name="Tab.Services.FooterCenterPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterCenterPane.Module.Title.Text" xml:space="preserve">
     <value>Company</value>
   </data>
-  <data name="Tab.Services.FooterRightOuterPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightOuterPane.Module.Title.Text" xml:space="preserve">
     <value>Connect</value>
   </data>
   <data name="Tab.ContactUs.Content.Text" xml:space="preserve">
@@ -400,13 +400,13 @@
     <value>Connect</value>
   </data>
   <data name="Tab.PortalAdministration.Content.Text" xml:space="preserve">
-    <value>Portal Administration</value>
+    <value>Website Administration</value>
   </data>
   <data name="Tab.PortalAdministration.Name.Text" xml:space="preserve">
     <value>Admin</value>
   </data>
   <data name="Tab.PortalAdministration.Title.Text" xml:space="preserve">
-    <value>Portal Administration</value>
+    <value>Website Administration</value>
   </data>
   <data name="Tab.PortalAdministration.ContentPane.Module.Title.Text" xml:space="preserve">
     <value>Basic Features</value>
@@ -576,20 +576,20 @@
   <data name="Tab.Newsletters.ContentPane.Module.Title.Text" xml:space="preserve">
     <value>Newsletters</value>
   </data>
-  <data name="Tab.FileManager.Content.Text" xml:space="preserve">
-    <value>File Manager</value>
+  <data name="Tab.DigitalAssetsManagement.Content.Text" xml:space="preserve">
+    <value>File Management</value>
   </data>
-  <data name="Tab.FileManager.Description.Text" xml:space="preserve">
-    <value>Manage files within the portal.</value>
+  <data name="Tab.DigitalAssetsManagement.Description.Text" xml:space="preserve">
+    <value>Manage assets within the portal.</value>
   </data>
-  <data name="Tab.FileManager.Name.Text" xml:space="preserve">
-    <value>File Manager</value>
+  <data name="Tab.DigitalAssetsManagement.Name.Text" xml:space="preserve">
+    <value>File Management</value>
   </data>
-  <data name="Tab.FileManager.Title.Text" xml:space="preserve">
-    <value>File Manager</value>
+  <data name="Tab.DigitalAssetsManagement.Title.Text" xml:space="preserve">
+    <value>File Management</value>
   </data>
-  <data name="Tab.FileManager.ContentPane.Module.Title.Text" xml:space="preserve">
-    <value>File Manager</value>
+  <data name="Tab.DigitalAssetsManagement.ContentPane.Module.Title.Text" xml:space="preserve">
+    <value>File Management</value>
   </data>
   <data name="Tab.RecycleBin.Content.Text" xml:space="preserve">
     <value>Recycle Bin</value>
@@ -777,6 +777,12 @@
   <data name="Tab.Sharepoint.ContentPane.Module.Title.Text" xml:space="preserve">
     <value>SharePoint Connector</value>
   </data>
+  <data name="Tab.SearchAdmin.Description.Text" xml:space="preserve">
+    <value>Search Admin</value>
+  </data>
+  <data name="Tab.SearchAdmin.ContentPane.Module.Title.Text" xml:space="preserve">
+    <value>Search Admin</value>
+  </data>
   <data name="Tab.StyleGuide.Content.Text" xml:space="preserve">
     <value>StyleGuide</value>
   </data>
@@ -801,14 +807,14 @@
   <data name="Tab.StyleGuide.RightPane.Module.Title.Text" xml:space="preserve">
     <value>Awesome Cycles News</value>
   </data>
-  <data name="Tab.Services.FooterRightPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightPane.Module.Title.Text" xml:space="preserve">
     <value>Contact Us</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Title.Text" xml:space="preserve">
     <value>Products</value>
   </data>
-  <data name="Tab.Services.Name.Text" xml:space="preserve">
-    <value>Our Services</value>
+  <data name="Tab.Products.Name.Text" xml:space="preserve">
+    <value>Our Products</value>
   </data>
   <data name="PortalDescription.Text" xml:space="preserve">
     <value>Default Website Template</value>
@@ -820,10 +826,10 @@
     <value>Learn the basics of working with DNN</value>
   </data>
   <data name="Tab.GettingStarted.Header.Module.Title.Text" xml:space="preserve">
-    <value>&lt;strong&gt;Way to go!&lt;/strong&gt; You just completed your installation of DotNetNuke. &lt;strong&gt;What would you like to do next?&lt;/strong&gt;</value>
+    <value>&lt;strong&gt;Way to go!&lt;/strong&gt; You just completed your installation. &lt;strong&gt;What would you like to do next?&lt;/strong&gt;</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.2.Text" xml:space="preserve">
-    <value>Find out what improvements and additions we've made to DotNetNuke 7.0.</value>
+    <value>Find out what improvements and additions we've made to DNN Platform 7.1.</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.3.Text" xml:space="preserve">
     <value>Watch the Video</value>
@@ -1159,110 +1165,110 @@ from this location.</value>
   <data name="Tab.About.Contentpane.OurTeamModule.Content.31.Text" xml:space="preserve">
     <value>Fabrication / CBO</value>
   </data>
-  <data name="Tab.Services.FooterRightPane.Module.Content.0.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightPane.Module.Content.0.Text" xml:space="preserve">
     <value>Awesome Cycles, Inc.</value>
   </data>
-  <data name="Tab.Services.FooterRightPane.Module.Content.1.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightPane.Module.Content.1.Text" xml:space="preserve">
     <value>
 3457 W. Somewhere Street.
 Someplace, CA 12345</value>
   </data>
-  <data name="Tab.Services.FooterRightPane.Module.Content.2.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightPane.Module.Content.2.Text" xml:space="preserve">
     <value>
 Phone: (555) 555-4563</value>
   </data>
-  <data name="Tab.Services.FooterRightPane.Module.Content.3.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightPane.Module.Content.3.Text" xml:space="preserve">
     <value>
 Fax: (555) 555-4564</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.0.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.0.Text" xml:space="preserve">
     <value>Mountain</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.1.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.1.Text" xml:space="preserve">
     <value>Gravity</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.2.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.2.Text" xml:space="preserve">
     <value>Road</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.3.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.3.Text" xml:space="preserve">
     <value>City</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.4.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.4.Text" xml:space="preserve">
     <value>Junior</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.5.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.5.Text" xml:space="preserve">
     <value>Dirt/ Street</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.0.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.0.Text" xml:space="preserve">
     <value>Gravity Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.1.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.1.Text" xml:space="preserve">
     <value>We are constantly pushing the limits of what bikes are capable of. Through careful testing, evaluation and production practices we can 100% guarantee that our gravity specific bikes will help you push the limits in the ever evolving sport of freeride mountain biking.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.2.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.2.Text" xml:space="preserve">
     <value>Read more</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.3.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.3.Text" xml:space="preserve">
     <value>Mountain Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.4.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.4.Text" xml:space="preserve">
     <value>The mountain is where we at Awesome Cycles like to call home. Whether it’s a short ride through the woods with your family, or an epic all day adventure through some of the toughest terrain. We are sure have the perfect mountain bike for any situation.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.5.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.5.Text" xml:space="preserve">
     <value>Road Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.6.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.6.Text" xml:space="preserve">
     <value>From the Tour De France to the roads in California our road bikes have done it all. Taking some of the purest materials possible we have developed these modern road bikes to be both strong and amazingly light all without breaking the bank.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.7.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.7.Text" xml:space="preserve">
     <value>City Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.8.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.8.Text" xml:space="preserve">
     <value>With the rising cost of gas who has money to commute by car anymore? That is why for 2012 we are proud to launch our new line of city specific bikes. Stylish, affordable and easily customizable our city bikes could be just what you are looking for.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.9.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.9.Text" xml:space="preserve">
     <value>Junior Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.10.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.10.Text" xml:space="preserve">
     <value>This is where it all starts. A kids first bike is one of the greatest gifts you can give to them. With bikes designed to fit kids of all ages, we are sure you can find some thing that they will truly enjoy for many years to come.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.11.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.11.Text" xml:space="preserve">
     <value>Dirt / Street Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.12.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.12.Text" xml:space="preserve">
     <value>Our next generation of purpose built street, park and dirt jump machines have arrived. Built out of 100% Chromoly steel our BMX and Hard Tail frames can handle it all.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.13.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.13.Text" xml:space="preserve">
     <value>So what are you waiting for?</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.0.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.0.Text" xml:space="preserve">
     <value>FAQ</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.1.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.1.Text" xml:space="preserve">
     <value>Bike Manuals</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.2.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.2.Text" xml:space="preserve">
     <value>Product Catalogs</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.3.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.3.Text" xml:space="preserve">
     <value>Product Archive</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.4.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.4.Text" xml:space="preserve">
     <value>Warning</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.5.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.5.Text" xml:space="preserve">
     <value>Bike Warranty</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.6.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.6.Text" xml:space="preserve">
     <value>Newsletter</value>
   </data>
-  <data name="Tab.Services.FooterCenterPane.Module.Content.0.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterCenterPane.Module.Content.0.Text" xml:space="preserve">
     <value>History</value>
   </data>
-  <data name="Tab.Services.FooterCenterPane.Module.Content.1.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterCenterPane.Module.Content.1.Text" xml:space="preserve">
     <value>Careers</value>
   </data>
-  <data name="Tab.Services.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
     <value>Legal</value>
   </data>
   <data name="Tab.ContactUs.FooterRightPane.Module.Content.0.Text" xml:space="preserve">
@@ -1307,35 +1313,35 @@ Fax: (555) 555-4564</value>
 General: </value>
   </data>
   <data name="Tab.ContactUs.CenterPane.Module.Content.2.Text" xml:space="preserve">
-    <value>webmaster@awesomecycles.biz</value>
+    <value>webmaster@awesomecycles.com</value>
   </data>
   <data name="Tab.ContactUs.CenterPane.Module.Content.3.Text" xml:space="preserve">
     <value>
 Advertising: </value>
   </data>
   <data name="Tab.ContactUs.CenterPane.Module.Content.4.Text" xml:space="preserve">
-    <value>advertising@awesomecycles.biz</value>
+    <value>advertising@awesomecycles.com</value>
   </data>
   <data name="Tab.ContactUs.CenterPane.Module.Content.5.Text" xml:space="preserve">
     <value>
 Sponsorships: </value>
   </data>
   <data name="Tab.ContactUs.CenterPane.Module.Content.6.Text" xml:space="preserve">
-    <value>sales@awesomecycles.biz</value>
+    <value>sales@awesomecycles.com</value>
   </data>
   <data name="Tab.ContactUs.CenterPane.Module.Content.7.Text" xml:space="preserve">
     <value>
 Marketing: </value>
   </data>
   <data name="Tab.ContactUs.CenterPane.Module.Content.8.Text" xml:space="preserve">
-    <value>marketing@awesomecycles.biz</value>
+    <value>marketing@awesomecycles.com</value>
   </data>
   <data name="Tab.ContactUs.CenterPane.Module.Content.9.Text" xml:space="preserve">
     <value>
 Partnerships: </value>
   </data>
   <data name="Tab.ContactUs.CenterPane.Module.Content.10.Text" xml:space="preserve">
-    <value>partners@awesomecycles.biz</value>
+    <value>partners@awesomecycles.com</value>
   </data>
   <data name="Tab.ContactUs.CenterPane.Module.Content.11.Text" xml:space="preserve">
     <value>Phone Number</value>
@@ -1843,16 +1849,16 @@ Fax: (555) 555-4564</value>
     <value>Enhance your site with capabilities such as e-commerce.</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.12.Text" xml:space="preserve">
-    <value>Visit the DotNetNuke Store</value>
+    <value>Visit the DNN Store</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.13.Text" xml:space="preserve">
     <value>Sponsors</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.4.Text" xml:space="preserve">
-    <value>Personalize your DotNetNuke</value>
+    <value>Personalize your site</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.5.Text" xml:space="preserve">
-    <value>Are you ready to make DotNetNuke your own?</value>
+    <value>Are you ready to make the DNN Platform your own?</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.6.Text" xml:space="preserve">
     <value>We have the resources and tools to do just about anything you can imagine.</value>
@@ -1864,6 +1870,24 @@ Fax: (555) 555-4564</value>
     <value>Change the look of my site</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.9.Text" xml:space="preserve">
-    <value>Find new skin designs for your website on the DotNetNuke Store.</value>
+    <value>Find new skin designs for your website on the DNN Store.</value>
+  </data>
+  <data name="Tab.404ErrorPage.Content.Text" xml:space="preserve">
+    <value>404 Error Page</value>
+  </data>
+  <data name="Tab.404ErrorPage.Title.Text" xml:space="preserve">
+    <value>404 Error Page</value>
+  </data>
+  <data name="Tab.AdvUrlManagement.ContentPane.Module.Title.Text" xml:space="preserve">
+    <value>Advanced URL Management</value>
+  </data>
+  <data name="Tab.AdvUrlManagement.Description.Text" xml:space="preserve">
+    <value>Manage advanced url settings.</value>
+  </data>
+  <data name="Tab.404ErrorPage..Module.Content.Text" xml:space="preserve">
+    <value>Sorry, the page you are looking for cannot be found and might have been removed, had its name changed, or is temporarily unavailable. It is recommended that you start again from the homepage. Feel free to contact us if the problem persists or if you definitely cannot find what you’re looking for.</value>
+  </data>
+  <data name="Tab.404ErrorPage..Module.Title.Text" xml:space="preserve">
+    <value>Page cannot be found</value>
   </data>
 </root>

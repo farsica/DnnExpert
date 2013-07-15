@@ -9,14 +9,12 @@
 <%@ Register TagPrefix="dnn" TagName="COPYRIGHT" Src="~/Admin/Skins/Copyright.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="LINKTOMOBILE" Src="~/Admin/Skins/LinkToMobileSite.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="MENU" src="~/DesktopModules/DDRMenu/Menu.ascx" %>
-<div id="siteWrapper">  
+
+<div id="siteWrapper">
     <div id="userControls" class="wrapper">
         <div id="search">
-			<dnn:SEARCH ID="dnnSearch" runat="server" ShowSite="false" ShowWeb="false" EnableTheming="true" Submit="Search" CssClass="SearchButton" />
         </div><!---/search-->
          <div id="login">
-            <dnn:USER ID="dnnUser" runat="server" LegacyMode="false" /> 
-            <dnn:LOGIN ID="dnnLogin" CssClass="LoginLink" runat="server" LegacyMode="false" />
        	</div><!--/login-->
         <div class="clear"></div>
     </div><!--/userControls-->

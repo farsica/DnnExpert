@@ -242,7 +242,7 @@ div.RadComboBoxDropDown_Default .rcbHeader {
     text-shadow: none;
     margin: 0;
 }
-.RadComboBoxDropDown_Default_rtl .jspScrollable .jspContainer .rcbList{ margin: 0 9px 0 -9px !important;}
+.RadComboBoxDropDown_Default_rtl .jspScrollable .jspContainer .rcbList{ margin: 0 0 0 -9px !important;}
 
 /* hierarchy combox */
 .dnnOptGroupItem, 

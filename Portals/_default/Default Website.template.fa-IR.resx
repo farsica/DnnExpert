@@ -124,7 +124,7 @@
     <value>fa-IR</value>
   </data>
   <data name="Setting.FooterText.Text" xml:space="preserve">
-    <value>تمام حقوق مادی و معنوی این پورتال متعلق به تیم DnnExpert می باشد ([year])</value>
+    <value>تمام حقوق مادی و معنوی این پورتال متعلق به مرجع متخصصین دی ان ان DnnExpert می باشد ([year])</value>
   </data>
   <data name="Tab.About.ContentPane.AboutUsModule.Title.Text" xml:space="preserve">
     <value>درباره ما</value>
@@ -207,19 +207,19 @@
   <data name="Tab.Home.Name.Text" xml:space="preserve">
     <value>صفحه اصلی</value>
   </data>
-  <data name="Tab.Services.Content.Text" xml:space="preserve">
-    <value>خدمات ما</value>
-  </data>
-  <data name="Tab.Services.ContentPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.Content.Text" xml:space="preserve">
     <value>محصولات ما</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Title.Text" xml:space="preserve">
+    <value>محصولات ما</value>
+  </data>
+  <data name="Tab.Products.FooterLeftPane.Module.Title.Text" xml:space="preserve">
     <value>پشتیبانی مشتریان</value>
   </data>
-  <data name="Tab.Services.FooterCenterPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterCenterPane.Module.Title.Text" xml:space="preserve">
     <value>شرکت</value>
   </data>
-  <data name="Tab.Services.FooterRightOuterPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightOuterPane.Module.Title.Text" xml:space="preserve">
     <value>Connect</value>
   </data>
   <data name="Tab.ContactUs.Content.Text" xml:space="preserve">
@@ -576,19 +576,19 @@
   <data name="Tab.Newsletters.ContentPane.Module.Title.Text" xml:space="preserve">
     <value>خبرنامه ها</value>
   </data>
-  <data name="Tab.FileManager.Content.Text" xml:space="preserve">
+  <data name="Tab.DigitalAssetsManagement.Content.Text" xml:space="preserve">
     <value>فایل ها</value>
   </data>
-  <data name="Tab.FileManager.Description.Text" xml:space="preserve">
+  <data name="Tab.DigitalAssetsManagement.Description.Text" xml:space="preserve">
     <value>ماژول فایل ها امکان مدیریت فایل های پورتال را فراهم می آورد</value>
   </data>
-  <data name="Tab.FileManager.Name.Text" xml:space="preserve">
+  <data name="Tab.DigitalAssetsManagement.Name.Text" xml:space="preserve">
     <value>فایل ها</value>
   </data>
-  <data name="Tab.FileManager.Title.Text" xml:space="preserve">
+  <data name="Tab.DigitalAssetsManagement.Title.Text" xml:space="preserve">
     <value>فایل ها</value>
   </data>
-  <data name="Tab.FileManager.ContentPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.DigitalAssetsManagement.ContentPane.Module.Title.Text" xml:space="preserve">
     <value>فایل ها</value>
   </data>
   <data name="Tab.RecycleBin.Content.Text" xml:space="preserve">
@@ -777,6 +777,12 @@
   <data name="Tab.Sharepoint.ContentPane.Module.Title.Text" xml:space="preserve">
     <value>اتصال به شیر پوینت</value>
   </data>
+  <data name="Tab.SearchAdmin.Description.Text" xml:space="preserve">
+    <value>مدیریت جستجو</value>
+  </data>
+  <data name="Tab.SearchAdmin.ContentPane.Module.Title.Text" xml:space="preserve">
+    <value>مدیریت جستجو</value>
+  </data>
   <data name="Tab.StyleGuide.Content.Text" xml:space="preserve">
     <value>StyleGuide</value>
   </data>
@@ -801,14 +807,14 @@
   <data name="Tab.StyleGuide.RightPane.Module.Title.Text" xml:space="preserve">
     <value>Awesome Cycles News</value>
   </data>
-  <data name="Tab.Services.FooterRightPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightPane.Module.Title.Text" xml:space="preserve">
     <value>تماس با ما</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Title.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Title.Text" xml:space="preserve">
     <value>محصولات</value>
   </data>
-  <data name="Tab.Services.Name.Text" xml:space="preserve">
-    <value>خدمات ما</value>
+  <data name="Tab.Products.Name.Text" xml:space="preserve">
+    <value>محصولات ما</value>
   </data>
   <data name="PortalDescription.Text" xml:space="preserve">
     <value>الگوی پیش فرض پورتال</value>
@@ -823,7 +829,7 @@
     <value>&lt;strong&gt;Way to go!&lt;/strong&gt; You just completed your installation of DotNetNuke. &lt;strong&gt;What would you like to do next?&lt;/strong&gt;</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.2.Text" xml:space="preserve">
-    <value>Find out what improvements and additions we've made to DotNetNuke 7.0.</value>
+    <value>Find out what improvements and additions we've made to DNN Platform 7.1.</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.3.Text" xml:space="preserve">
     <value>مشاهده فایل ویدیویی</value>
@@ -947,7 +953,7 @@ people in the industry on hand to design and build exactly what you want.</value
     <value>کاتالوگ محصولات</value>
   </data>
   <data name="Tab.Home.FooterLeftPane.Module.Content.3.Text" xml:space="preserve">
-    <value>Product Archive</value>
+    <value>بایگانی محصولات</value>
   </data>
   <data name="Tab.Home.FooterLeftPane.Module.Content.4.Text" xml:space="preserve">
     <value>هشدار</value>
@@ -965,7 +971,7 @@ people in the industry on hand to design and build exactly what you want.</value
     <value>Careers</value>
   </data>
   <data name="Tab.Home.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
-    <value>قانونی</value>
+    <value>موارد قانونی</value>
   </data>
   <data name="Tab.About.FooterRightPane.Module.Content.0.Text" xml:space="preserve">
     <value>Awesome Cycles, Inc.</value>
@@ -1029,7 +1035,7 @@ Fax: (555) 555-4564</value>
     <value>Careers</value>
   </data>
   <data name="Tab.About.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
-    <value>قانونی</value>
+    <value>موارد قانونی</value>
   </data>
   <data name="Tab.About.Contentpane.AboutUsModule.Content.0.Text" xml:space="preserve">
     <value>Our very first shop opened in 2011 in SomePlace,</value>
@@ -1159,111 +1165,111 @@ from this location.</value>
   <data name="Tab.About.Contentpane.OurTeamModule.Content.31.Text" xml:space="preserve">
     <value>Fabrication / CBO</value>
   </data>
-  <data name="Tab.Services.FooterRightPane.Module.Content.0.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightPane.Module.Content.0.Text" xml:space="preserve">
     <value>Awesome Cycles, Inc.</value>
   </data>
-  <data name="Tab.Services.FooterRightPane.Module.Content.1.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightPane.Module.Content.1.Text" xml:space="preserve">
     <value>
 3457 W. Somewhere Street.
 Someplace, CA 12345</value>
   </data>
-  <data name="Tab.Services.FooterRightPane.Module.Content.2.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightPane.Module.Content.2.Text" xml:space="preserve">
     <value>
 Phone: (555) 555-4563</value>
   </data>
-  <data name="Tab.Services.FooterRightPane.Module.Content.3.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterRightPane.Module.Content.3.Text" xml:space="preserve">
     <value>
 Fax: (555) 555-4564</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.0.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.0.Text" xml:space="preserve">
     <value>Mountain</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.1.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.1.Text" xml:space="preserve">
     <value>Gravity</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.2.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.2.Text" xml:space="preserve">
     <value>خیابان</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.3.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.3.Text" xml:space="preserve">
     <value>شهر</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.4.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.4.Text" xml:space="preserve">
     <value>Junior</value>
   </data>
-  <data name="Tab.Services.FooterLeftOuterPane.Module.Content.5.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftOuterPane.Module.Content.5.Text" xml:space="preserve">
     <value>Dirt/ Street</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.0.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.0.Text" xml:space="preserve">
     <value>Gravity Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.1.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.1.Text" xml:space="preserve">
     <value>We are constantly pushing the limits of what bikes are capable of. Through careful testing, evaluation and production practices we can 100% guarantee that our gravity specific bikes will help you push the limits in the ever evolving sport of freeride mountain biking.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.2.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.2.Text" xml:space="preserve">
     <value>بیشتر</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.3.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.3.Text" xml:space="preserve">
     <value>Mountain Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.4.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.4.Text" xml:space="preserve">
     <value>The mountain is where we at Awesome Cycles like to call home. Whether it’s a short ride through the woods with your family, or an epic all day adventure through some of the toughest terrain. We are sure have the perfect mountain bike for any situation.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.5.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.5.Text" xml:space="preserve">
     <value>Road Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.6.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.6.Text" xml:space="preserve">
     <value>From the Tour De France to the roads in California our road bikes have done it all. Taking some of the purest materials possible we have developed these modern road bikes to be both strong and amazingly light all without breaking the bank.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.7.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.7.Text" xml:space="preserve">
     <value>City Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.8.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.8.Text" xml:space="preserve">
     <value>With the rising cost of gas who has money to commute by car anymore? That is why for 2012 we are proud to launch our new line of city specific bikes. Stylish, affordable and easily customizable our city bikes could be just what you are looking for.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.9.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.9.Text" xml:space="preserve">
     <value>Junior Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.10.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.10.Text" xml:space="preserve">
     <value>This is where it all starts. A kids first bike is one of the greatest gifts you can give to them. With bikes designed to fit kids of all ages, we are sure you can find some thing that they will truly enjoy for many years to come.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.11.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.11.Text" xml:space="preserve">
     <value>Dirt / Street Series</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.12.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.12.Text" xml:space="preserve">
     <value>Our next generation of purpose built street, park and dirt jump machines have arrived. Built out of 100% Chromoly steel our BMX and Hard Tail frames can handle it all.</value>
   </data>
-  <data name="Tab.Services.ContentPane.Module.Content.13.Text" xml:space="preserve">
+  <data name="Tab.Products.ContentPane.Module.Content.13.Text" xml:space="preserve">
     <value>So what are you waiting for?</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.0.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.0.Text" xml:space="preserve">
     <value>سئوالات متداول</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.1.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.1.Text" xml:space="preserve">
     <value>Bike Manuals</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.2.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.2.Text" xml:space="preserve">
     <value>کاتالوگ محصولات</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.3.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.3.Text" xml:space="preserve">
     <value>Product Archive</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.4.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.4.Text" xml:space="preserve">
     <value>هشدار</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.5.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.5.Text" xml:space="preserve">
     <value>Bike Warranty</value>
   </data>
-  <data name="Tab.Services.FooterLeftPane.Module.Content.6.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterLeftPane.Module.Content.6.Text" xml:space="preserve">
     <value>خبرنامه</value>
   </data>
-  <data name="Tab.Services.FooterCenterPane.Module.Content.0.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterCenterPane.Module.Content.0.Text" xml:space="preserve">
     <value>تاریخچه</value>
   </data>
-  <data name="Tab.Services.FooterCenterPane.Module.Content.1.Text" xml:space="preserve">
+  <data name="Tab.Products.FooterCenterPane.Module.Content.1.Text" xml:space="preserve">
     <value>Careers</value>
   </data>
-  <data name="Tab.Services.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
-    <value>قانونی</value>
+  <data name="Tab.Products.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
+    <value>قانون</value>
   </data>
   <data name="Tab.ContactUs.FooterRightPane.Module.Content.0.Text" xml:space="preserve">
     <value>Awesome Cycles, Inc.</value>
@@ -1389,7 +1395,7 @@ Fax: (555) 555-4564</value>
     <value>Careers</value>
   </data>
   <data name="Tab.ContactUs.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
-    <value>قانونی</value>
+    <value>موارد قانونی</value>
   </data>
   <data name="Tab.ContactUs.LeftPane.Module.Content.0.Text" xml:space="preserve">
     <value>San Mateo, California, USA | HQ</value>
@@ -1490,7 +1496,7 @@ consectetur adipiscing elit. Fusce sed leo. Maecenas ultrices lorem sit amet  di
     <value>استایل جایگزین</value>
   </data>
   <data name="Tab.StyleGuide.LeftPaneLowerRight.ButtonsModule.Content.4.Text" xml:space="preserve">
-    <value>Form Buttons [</value>
+    <value>دکمه فرم [</value>
   </data>
   <data name="Tab.StyleGuide.LeftPaneLowerRight.ListsModule.Content.0.Text" xml:space="preserve">
     <value>لیست مرتب نشده</value>
@@ -1535,26 +1541,26 @@ consectetur adipiscing elit. Fusce sed leo. Maecenas ultrices lorem sit amet  di
     <value>ستون چهار</value>
   </data>
   <data name="Tab.StyleGuide.LeftPaneBottom.ImageAlignmentModule.Content.0.Text" xml:space="preserve">
-    <value>تصویر - چپ چین</value>
+    <value>تصویر - راست چین</value>
   </data>
   <data name="Tab.StyleGuide.LeftPaneBottom.ImageAlignmentModule.Content.1.Text" xml:space="preserve">
-    <value>Image Align Left</value>
+    <value>چیدمان تصویر از سمت راست</value>
   </data>
   <data name="Tab.StyleGuide.LeftPaneBottom.ImageAlignmentModule.Content.2.Text" xml:space="preserve">
     <value> amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
 </value>
   </data>
   <data name="Tab.StyleGuide.LeftPaneBottom.ImageAlignmentModule.Content.3.Text" xml:space="preserve">
-    <value>تصویر - راست چین</value>
+    <value>تصویر - چپ چین</value>
   </data>
   <data name="Tab.StyleGuide.LeftPaneBottom.ImageAlignmentModule.Content.4.Text" xml:space="preserve">
-    <value>Image Align Right</value>
+    <value>چیدمان تصویر از سمت چپ</value>
   </data>
   <data name="Tab.StyleGuide.LeftPaneBottom.ImageAlignmentModule.Content.5.Text" xml:space="preserve">
-    <value>Image - Border Style</value>
+    <value>تصویر - استایل حاشیه</value>
   </data>
   <data name="Tab.StyleGuide.LeftPaneBottom.ImageAlignmentModule.Content.6.Text" xml:space="preserve">
-    <value>Image Border Style</value>
+    <value>استایل حاشیه تصویر</value>
   </data>
   <data name="Tab.StyleGuide.LeftPaneBottom.ImageAlignmentModule.Content.7.Text" xml:space="preserve">
     <value>Image - Polaroid Style</value>
@@ -1624,7 +1630,7 @@ Fax: (555) 555-4564</value>
     <value>کاتالوگ محصولات</value>
   </data>
   <data name="Tab.ActivityFeed.FooterLeftPane.Module.Content.3.Text" xml:space="preserve">
-    <value>Product Archive</value>
+    <value>بایگانی محصولات</value>
   </data>
   <data name="Tab.ActivityFeed.FooterLeftPane.Module.Content.4.Text" xml:space="preserve">
     <value>هشدار</value>
@@ -1642,7 +1648,7 @@ Fax: (555) 555-4564</value>
     <value>Careers</value>
   </data>
   <data name="Tab.ActivityFeed.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
-    <value>قانونی</value>
+    <value>موارد قانونی</value>
   </data>
   <data name="Tab.MyProfile.FooterRightPane.Module.Content.0.Text" xml:space="preserve">
     <value>Awesome Cycles, Inc.</value>
@@ -1688,7 +1694,7 @@ Fax: (555) 555-4564</value>
     <value>کاتالوگ محصولات</value>
   </data>
   <data name="Tab.MyProfile.FooterLeftPane.Module.Content.3.Text" xml:space="preserve">
-    <value>Product Archive</value>
+    <value>بایگانی محصولات</value>
   </data>
   <data name="Tab.MyProfile.FooterLeftPane.Module.Content.4.Text" xml:space="preserve">
     <value>هشدار</value>
@@ -1706,7 +1712,7 @@ Fax: (555) 555-4564</value>
     <value>Careers</value>
   </data>
   <data name="Tab.MyProfile.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
-    <value>قانونی</value>
+    <value>موارد قانونی</value>
   </data>
   <data name="Tab.MyFriends.FooterRightPane.Module.Content.0.Text" xml:space="preserve">
     <value>Awesome Cycles, Inc.</value>
@@ -1752,7 +1758,7 @@ Fax: (555) 555-4564</value>
     <value>کاتالوگ محصولات</value>
   </data>
   <data name="Tab.MyFriends.FooterLeftPane.Module.Content.3.Text" xml:space="preserve">
-    <value>Product Archive</value>
+    <value>بایگانی محصولات</value>
   </data>
   <data name="Tab.MyFriends.FooterLeftPane.Module.Content.4.Text" xml:space="preserve">
     <value>هشدار</value>
@@ -1770,7 +1776,7 @@ Fax: (555) 555-4564</value>
     <value>Careers</value>
   </data>
   <data name="Tab.MyFriends.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
-    <value>قانونی</value>
+    <value>موارد قانونی</value>
   </data>
   <data name="Tab.MyMessages.FooterRightPane.Module.Content.0.Text" xml:space="preserve">
     <value>Awesome Cycles, Inc.</value>
@@ -1789,7 +1795,7 @@ Phone: (555) 555-4563</value>
 Fax: (555) 555-4564</value>
   </data>
   <data name="Tab.MyMessages.FooterLeftOuterPane.Module.Content.0.Text" xml:space="preserve">
-    <value>Mountain</value>
+    <value>کوهستان</value>
   </data>
   <data name="Tab.MyMessages.FooterLeftOuterPane.Module.Content.1.Text" xml:space="preserve">
     <value>Gravity</value>
@@ -1816,7 +1822,7 @@ Fax: (555) 555-4564</value>
     <value>کاتالوگ محصولات</value>
   </data>
   <data name="Tab.MyMessages.FooterLeftPane.Module.Content.3.Text" xml:space="preserve">
-    <value>Product Archive</value>
+    <value>بایگانی محصولات</value>
   </data>
   <data name="Tab.MyMessages.FooterLeftPane.Module.Content.4.Text" xml:space="preserve">
     <value>هشدار</value>
@@ -1834,16 +1840,16 @@ Fax: (555) 555-4564</value>
     <value>Careers</value>
   </data>
   <data name="Tab.MyMessages.FooterCenterPane.Module.Content.2.Text" xml:space="preserve">
-    <value>قانونی</value>
+    <value>موارد قانونی</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.10.Text" xml:space="preserve">
     <value>افزودن امکان جدید</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.11.Text" xml:space="preserve">
-    <value>Enhance your site with capabilities such as e-commerce.</value>
+    <value>از سایت خود با امکاناتی همچون فروشگاه الکترونیک لذت ببرید.</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.12.Text" xml:space="preserve">
-    <value>Visit the DotNetNuke Store</value>
+    <value>مشاهده پورتال مرجع متخصصین دی ان ان - DnnExpert</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.13.Text" xml:space="preserve">
     <value>پشتیبانان مالی</value>
@@ -1852,18 +1858,36 @@ Fax: (555) 555-4564</value>
     <value>سفارشی سازی پورتال</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.5.Text" xml:space="preserve">
-    <value>Are you ready to make DotNetNuke your own?</value>
+    <value>آیا آمادگی سفارشی سازی پورتال را دارید؟</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.6.Text" xml:space="preserve">
-    <value>We have the resources and tools to do just about anything you can imagine.</value>
+    <value>ما منابع و ابزارهای مورد نیاز برای تحقق آرزوهای شما دارا می باشیم.</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.7.Text" xml:space="preserve">
     <value>I want to...</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.8.Text" xml:space="preserve">
-    <value>Change the look of my site</value>
+    <value>تغییر نمای ظاهری سایت</value>
   </data>
   <data name="Tab.GettingStarted.LeftPane.Module.Content.9.Text" xml:space="preserve">
-    <value>Find new skin designs for your website on the DotNetNuke Store.</value>
+    <value>برای یافتن طرح های پوسته می توانید به پورتال مرجع متخصصین دی ان ان مراجعه نمایید.</value>
+  </data>
+  <data name="Tab.404ErrorPage.Content.Text" xml:space="preserve">
+    <value>خطای 404</value>
+  </data>
+  <data name="Tab.404ErrorPage.Title.Text" xml:space="preserve">
+    <value>خطای 404</value>
+  </data>
+  <data name="Tab.AdvUrlManagement.ContentPane.Module.Title.Text" xml:space="preserve">
+    <value>مدیریت تنظیمات پیشرفته آدرس URL</value>
+  </data>
+  <data name="Tab.AdvUrlManagement.Description.Text" xml:space="preserve">
+    <value>مدیریت تنظیمات پیشرفته آدرس URL.</value>
+  </data>
+  <data name="Tab.404ErrorPage..Module.Content.Text" xml:space="preserve">
+    <value>متاسفانه صفحه مورد نظر شما یافت نشده و ممکن است حذف شده یا تغییر نام کرده و یا بصورت موقت غیر فعال می باشد. پیشنهاد می شود مجددا از صفحه اصلی آغاز نمایید. درصورت نیاز می توانید با مدیریت پورتال تماس حاصل نمایید.</value>
+  </data>
+  <data name="Tab.404ErrorPage..Module.Title.Text" xml:space="preserve">
+    <value>صفحه مورد نظر یافت نشد</value>
   </data>
 </root>

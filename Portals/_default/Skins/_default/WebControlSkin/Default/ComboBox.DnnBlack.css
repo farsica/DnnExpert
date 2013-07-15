@@ -40,17 +40,9 @@
 
 /* combobox */
 
-.RadComboBox_DnnBlack .rcbInputCellLeft, .RadComboBox_DnnBlack .rcbInputCellRight, .RadComboBox_DnnBlack .rcbArrowCellLeft, .RadComboBox_DnnBlack .rcbArrowCellRight {
-    /*background-image: url('ComboBox/rcbSprite.png');*/
-}
-
 .RadComboBox_DnnBlack table {
     border-collapse: separate !important;
     border-spacing: 0;
-}
-
-div.RadComboBox_DnnBlack .rcbArrowCell a {
-    /* 	line-height: 16px; 	height: 22px;     */
 }
 
 .RadComboBox_DnnBlack td.rcbInputCellLeft, .RadComboBox_DnnBlack td.rcbInputCellRight {

@@ -1,5 +1,5 @@
 ﻿/* Combo box css */
-@import url(ComboBox.Default.css);
+@import url(ComboBox.Default.rtl.css);
 
 /* START Telerik.Web.UI.Skins.Grid.css */
 .RadGrid .rgMasterTable, .RadGrid .rgDetailTable {
