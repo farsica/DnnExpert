@@ -5,7 +5,6 @@
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register Assembly="DotNetNuke.RadEditorProvider" Namespace="DotNetNuke.Providers.RadEditorProvider" TagPrefix="provider" %>
 
-    <!--Fariborz Khosravi-->
 <% if(Request.IsSecureConnection) { %>
 	<script type="text/javascript" src="[$protocol$]ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <% } else { %>
@@ -904,7 +903,6 @@
 								</label>
 							</td>
 							<td class="reControlCell">
-                                <!-- Fariborz khosravi -->
 								<telerik:RadDatePicker ID="LogStartDate" runat="server" Width="140px" MinDate="01/01/1000" MaxDate="01/01/3000" ShowPopupOnFocus ="True">
 								</telerik:RadDatePicker>
 							</td>
@@ -916,7 +914,6 @@
 								</label>
 							</td>
 							<td class="reControlCell">
-                                <!-- Fariborz khosravi -->
 								<telerik:RadDatePicker ID="LogEndDate" runat="server" Width="140px" MinDate="01/01/1000" MaxDate="01/01/3000" ShowPopupOnFocus ="True">
 								</telerik:RadDatePicker>
 							</td>

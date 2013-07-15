@@ -233,7 +233,6 @@ dnnModule.digitalAssets = function ($, $find, $telerik, dnnModal) {
         if (!leftPane.is(":visible")) {
             toggleButton.css("background-image", "url(" + settings.toggleLeftPaneHideImageUrl + ")");
             leftPane.animate({ width: 'toggle' }, 500);
-            //fariborz khosravi
             if ($(document.body).css("direction") == "rtl") {
                 contentPane.animate({ 'margin-right': 220 }, 500, 'swing', moreItemsHint);
             }
@@ -243,7 +242,6 @@ dnnModule.digitalAssets = function ($, $find, $telerik, dnnModal) {
         } else {
             toggleButton.css("background-image", "url(" + settings.toggleLeftPaneShowImageUrl + ")");
             leftPane.animate({ width: 'toggle' }, 500);
-            //fariborz khosravi
             if ($(document.body).css("direction") == "rtl") {
                 contentPane.animate({ 'margin-right': 0 }, 500, 'swing', moreItemsHint);
             }

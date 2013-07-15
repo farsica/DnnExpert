@@ -279,7 +279,6 @@
         var advancedTextClear = $('#dnnSearchResult_dnnSearchBox_input').prev();
         var wrapWidth = $('#dnnSearchResult_dnnSearchBox_input').parent().width();
 
-        //fariborz khosravi
         var rtl = $(document.body).css("direction") == "rtl";
 
         if (advancedTerm) {
@@ -289,7 +288,6 @@
                 .replace(/after:/g, '<b>after: </b>').replace(/type:/g, '<b>type: </b>');
             
             var w = advancedTextCtrl.html(htmlAdvancedTerm).width();
-            //fariborz khosravi
             $('#dnnSearchResult_dnnSearchBox_input').val(term).css({
                 width: wrapWidth - w - 165 - 8
             }).css((rtl ? "left" : "right"), w + 165);
@@ -298,7 +296,6 @@
         } else {
             advancedTextCtrl.html('').hide();
             var w1 = $('#dnnSearchResult_dnnSearchBox_input').next().next().next().width();
-            //fariborz khosravi
             $('#dnnSearchResult_dnnSearchBox_input').css({
                 width: wrapWidth - w1 - 50 - 8
             }).css((rtl ? "left" : "right"), w1 + 50);

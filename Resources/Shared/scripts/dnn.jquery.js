@@ -407,7 +407,6 @@
             });
             var helpSelector = $this.find(opts.helpSelector);
             $this.parent().css({ position: 'relative' });
-            //Fariborz Khosravi
             if ($(document.body).css("direction") == "rtl")
                 $this.css({ position: 'absolute', left: '-29%' });
             else

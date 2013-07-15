@@ -177,7 +177,6 @@ namespace DotNetNuke.Services.Install
             PageLocale.Value = cultureCode;
             _culture = cultureCode;
 
-            //Fariborz Khosravi
             Thread.CurrentThread.CurrentUICulture = Common.Globals.GetUICulture(null, cultureCode);
         }
 
@@ -194,7 +193,6 @@ namespace DotNetNuke.Services.Install
             //Set Script timeout to MAX value
             HttpContext.Current.Server.ScriptTimeout = int.MaxValue;
 
-            //Fariborz Khosravi
             if (_culture != null)
                 Thread.CurrentThread.CurrentUICulture = Common.Globals.GetUICulture(null, _culture);
 
@@ -299,7 +297,6 @@ namespace DotNetNuke.Services.Install
             Upgrade.Upgrade.DeleteInstallerFiles();
 
             Config.Touch();
-            //Fariborz Khosravi
             HttpContext.Current.Response.Redirect("../" + Globals.glbDefaultPage, true);
         }
         #endregion
@@ -359,7 +356,6 @@ namespace DotNetNuke.Services.Install
             {
                 if (!File.Exists(StatusFile)) File.CreateText(StatusFile).Close();
             }
-			//Fariborz Khosravi
             if (new CultureInfo(PageLocale.Value).TextInfo.IsRightToLeft)
             {
                 DefaultStylesheet.Attributes["href"] = ResolveUrl("~/Portals/_default/default.rtl.css?refresh");

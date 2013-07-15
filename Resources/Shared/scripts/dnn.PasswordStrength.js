@@ -38,7 +38,6 @@
             this.$element = $(this.element);
             this._$container = this.$element.parent();
 
-            //fariborz khosravi
             var t = $(document.body).css("direction") == "rtl" ? this.options.minLengthText + this.options.minLength : this.options.minLength + this.options.minLengthText;
             $("<span/>").addClass(this.options.labelCss).text(t).appendTo(this._$container);
 

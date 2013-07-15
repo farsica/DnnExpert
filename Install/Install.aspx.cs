@@ -149,7 +149,6 @@ namespace DotNetNuke.Services.Install
                     if (!installConfig.InstallCulture.Equals("en-us", StringComparison.InvariantCultureIgnoreCase))
                     {
                         var locale = LocaleController.Instance.GetLocale("en-US");
-						//Fariborz Khosravi
 						if(locale != null)
                         	Localization.Localization.RemoveLanguageFromPortal(0, locale.LanguageId);
                     }
@@ -175,7 +174,6 @@ namespace DotNetNuke.Services.Install
                         Logger.Error(strError);
                     }
 
-                    //Fariborz Khosravi
                     Response.Write("<h2>Å«Ì«‰ ⁄„·Ì«  ‰’»</h2>");
                     Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>»—«Ì „‘«ÂœÂ ÅÊ— «· ò·Ìò ‰„«ÌÌœ</a></h2><br/><br/>");
                     Response.Flush();
@@ -272,7 +270,6 @@ namespace DotNetNuke.Services.Install
                     {
                         Logger.Error(strError);
                     }
-                    //Fariborz Khosravi
 					Response.Write("<h2>Å«Ì«‰ ⁄„·Ì«  »—Ê“—”«‰Ì</h2>");
 					Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>»—«Ì „‘«ÂœÂ ÅÊ— «· ò·Ìò ‰„«ÌÌœ</a></h2><br/><br/>");
                 }
@@ -333,7 +330,6 @@ namespace DotNetNuke.Services.Install
 					//error removing the file
 					Logger.Error(ex);
 				}
-                //Fariborz Khosravi
                 Response.Write("<h2>Å«Ì«‰ ⁄„·Ì«  ‰’»</h2>");
                 Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>»—«Ì „‘«ÂœÂ ÅÊ— «· ò·Ìò ‰„«ÌÌœ</a></h2><br/><br/>");
                 Response.Flush();
@@ -363,7 +359,6 @@ namespace DotNetNuke.Services.Install
             Upgrade.Upgrade.InstallPackages("AuthSystem", true);
             Upgrade.Upgrade.InstallPackages("Package", true);
 
-            //Fariborz Khosravi
             Response.Write("<h2>Å«Ì«‰ ⁄„·Ì«  ‰’»</h2>");
             Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>»—«Ì „‘«ÂœÂ ÅÊ— «· ò·Ìò ‰„«ÌÌœ</a></h2><br/><br/>");
             Response.Flush();

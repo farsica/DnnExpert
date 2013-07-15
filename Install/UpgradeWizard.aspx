@@ -436,7 +436,6 @@
     </script>    
 
     <script type="text/javascript">
-        //Fariborz Khosravi
         $(document).ready(function () {
             if ($(document.body).css("direction") == "rtl")
                 $("#languageFlags").css("float", "left");

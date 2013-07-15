@@ -63,7 +63,6 @@
             var realInputRight = 50;
             var advancedDropdown = $('.dnnSearchBox_advanced_dropdown', this.$wrap);
             var advancedForm = $('#' + this.options.advancedId);
-            //fariborz khosravi
             var rtl = $(document.body).css("direction") == "rtl";
 
             if (advancedEnabled) {
@@ -71,7 +70,6 @@
                 var w = $('.dnnSearchBox_advanced', this.$wrap).width();
                 var w2 = $('.dnnSearchBox_advanced_query', this.$wrap).width();
                 realInputRight = w + w2 + 50;
-                //fariborz khosravi
                 var q = $('.dnnSearchBox_advanced_query', this.$wrap);
                 var a = $('.dnnSearchBoxClearAdvanced', this.$wrap);
                 if (rtl) {
@@ -83,7 +81,6 @@
                     a.css({ right: w + 38 });
                 }
             }
-            //fariborz khosravi
             if (rtl) {
                 this.realInput.css({ left: realInputRight });
                 if (originalVal) {
@@ -220,7 +217,6 @@
 
                 var val = realInput.val();
                 var right = parseInt(realInput.css('right').replace('px', '')) - 15;
-                //fariborz khosravi
                 var left = parseInt(realInput.css('left').replace('px', '')) - 15;
 
                 if (!val) {
@@ -229,7 +225,6 @@
                     $('.dnnSearchBox_preview', this.$wrap).remove();
                 }
                 else {
-                    //fariborz khosravi
                     if ($(document.body).css("direction") == "rtl") {
                         clearTextBtn.css({ left: left });
                     }

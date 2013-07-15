@@ -61,14 +61,12 @@ Telerik.Web.UI.RadCalendar.prototype = {
         Telerik.Web.UI.RadCalendar.callBaseMethod(this, "initialize");
         this.EnableTodayButtonSelection = (this.get_monthYearNavigationSettings()[4] == "False") ? false : true;
         this.DateTimeFormatInfo = new Telerik.Web.UI.Calendar.DateTimeFormatInfo(this.get__FormatInfoArray());
-        /*Fariborz Khosravi*/
         this.DateTimeFormatInfo.Calendar = Telerik.Web.UI.Calendar.PersianCalendar;
 
         this.DateTimeFormatInfo.CalendarWeekRule = this._calendarWeekRule;
         var e, f, r;
         var c = this._auxDatesHidden();
         var a = eval(c.value);
-        /*Fariborz Khosravi*/
         this.RangeMinDate = DnnExpert.Util.GregorianToPersian(a[0][0], a[0][1], a[0][2]);
         this.RangeMaxDate = DnnExpert.Util.GregorianToPersian(a[1][0], a[1][1], a[1][2]);
         this.FocusedDate = DnnExpert.Util.GregorianToPersian(a[2][0], a[2][1], a[2][2]);
@@ -705,7 +703,6 @@ Telerik.Web.UI.RadCalendar.prototype = {
             }
         } return null;
     }, _performDateSelection: function (a, f, c, d) {
-        /*Fariborz Khosravi*/
         a = DnnExpert.Util.GregorianToPersian(a[0], a[1], a[2]);
         if (this.Selection.CanSelect(a)) {
             if (c == true) {
@@ -900,14 +897,12 @@ Telerik.Web.UI.RadCalendar.prototype = {
             }, 200);
         }
     }, _getStepFromDate: function (a) {
-        /*Fariborz Khosravi*/
         a = DnnExpert.Util.GregorianToPersian(a[0], a[1], a[2]);
         var d = a[0] - this.FocusedDate[0];
         var b = a[1] - this.FocusedDate[1];
         var c = d * 12 + b;
         return c;
     }, _getBoundaryDate: function (a) {
-        /*Fariborz Khosravi*/
         a = DnnExpert.Util.GregorianToPersian(a[0], a[1], a[2]);
         if (!this.RangeValidation.IsDateValid(a)) {
             if (this._isInSameMonth(a, this.RangeMinDate)) {
@@ -1934,7 +1929,6 @@ Telerik.Web.UI.Calendar.MonthYearFastNavigation.prototype = {
         }
     }, OnToday: function (a) {
         var b = new Date();
-        /*Fariborz Khosravi*/
         var d = DnnExpert.Util.GregorianToPersian(b.getFullYear(), b.getMonth() + 1, b.getDate());
         this.Date = d[2];
         this.Month = d[1] - 1;
@@ -2257,7 +2251,6 @@ Telerik.Web.UI.Calendar.Selection.prototype = {
 };
 Telerik.Web.UI.Calendar.Selection.registerClass("Telerik.Web.UI.Calendar.Selection");
 Type.registerNamespace("Telerik.Web.UI.Calendar");
-/*Fariborz Khosravi*/
 Telerik.Web.UI.Calendar.PersianCalendar = {
     DatePartDay: 3, DatePartDayOfYear: 1, DatePartMonth: 2, DatePartYear: 0, DaysPer100Years: 36524, DaysPer400Years: 146097, DaysPer4Years: 1461, DaysPerYear: 365, DaysTo10000: 3652059, DaysToMonth365: [0, 31, 62, 93, 124, 155, 186, 216, 246, 276, 306, 336, 365], DaysToMonth366: [0, 31, 62, 93, 124, 155, 186, 216, 246, 276, 306, 336, 366], MaxMillis: 315537897600000, MillisPerDay: 86400000, MillisPerHour: 3600000, MillisPerMinute: 60000, MillisPerSecond: 1000, TicksPerDay: 864000000000, TicksPerHour: 36000000000, TicksPerMillisecond: 10000, TicksPerMinute: 600000000, TicksPerSecond: 10000000, MaxYear: 9378, LeapYears33: [0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0], GetDateFromArguments: function () {
         var c, b, a;
@@ -2311,10 +2304,8 @@ Telerik.Web.UI.Calendar.PersianCalendar = {
         } if (f < 1 || f > 12) {
             throw new Error("Month is out of range [1..12].");
         }
-        /*Fariborz Khosravi*/
         return (this.DaysUpToPersianYear(h) + this.DaysToMonth365[f - 1] + b - 1);
     }, GetDatePart: function (j, i) {
-        /*Fariborz Khosravi*/
         var num1 = this.GetInt(j / this.TicksPerDay) + 1;
         var num2 = this.GetInt(((num1 - 226894) * 33 / 12053)) + 1;
         var num3 = this.DaysUpToPersianYear(num2);
@@ -2348,14 +2339,12 @@ Telerik.Web.UI.Calendar.PersianCalendar = {
             return num6;
         throw new Error("InvalidOperation_DateTimeParsing");
     }, GetDayOfMonth: function (a) {
-        /*Fariborz Khosravi*/
         return this.GetDatePart(this.DateToTicks(a), 3);
     }, GetDayOfWeek: function (a) {
         var b = this.DateToTicks(a);
         var c = (b / 864000000000) + 1;
         return this.GetInt(c % 7);
     }, AddMonths: function (a, c) {
-        /*Fariborz Khosravi*/
         if (c < -120000 || c > 120000)
             throw new Error("ArgumentOutOfRange");
         var datePart1 = this.GetInt(this.GetDatePart((this.GetAbsoluteDate(a[0], a[1], a[2]) * this.TicksPerDay), 0));
@@ -2424,7 +2413,6 @@ Telerik.Web.UI.Calendar.PersianCalendar = {
         var a = this.GetGregorianYear(a);
         return 12;
     }, GetDaysInMonth: function (c, a) {
-        /*Fariborz Khosravi*/
         if (a == 10 && c == 9378)
             return 10;
         if (a == 12)
@@ -2432,7 +2420,6 @@ Telerik.Web.UI.Calendar.PersianCalendar = {
         else
             return a <= 6 ? 31 : 30;
     }, GetDaysInYear: function (a) {
-        /*Fariborz Khosravi*/
         if (a == 9378)
             return this.DaysToMonth365[9] + 10;
         return !this.IsLeapYear(a) ? 365 : 366;
@@ -2448,7 +2435,6 @@ Telerik.Web.UI.Calendar.PersianCalendar = {
         var d = a.getFullYear();
         var c = a.getMonth();
         var b = a.getDate();
-        /*Fariborz Khosravi*/
         var n = this.GetDaysInMonth(d, c);
         if (b < 1 || b > n) {
             return true;
@@ -2458,13 +2444,11 @@ Telerik.Web.UI.Calendar.PersianCalendar = {
         var c = a.getFullYear();
         var b = a.getMonth();
         if (this.IsLeapYear(c)) {
-            /*Fariborz Khosravi*/
             if (b == 12) {
                 return true;
             }
         } return false;
     }, IsLeapYear: function (a) {
-        /*Fariborz Khosravi*/
         if (a < 1 || a > 9378)
             throw new Error("Invalid YEAR");
         return (this.LeapYears33[a % 33] == 1);
