@@ -10,13 +10,11 @@
     <fieldset class="dnnClear">
         <div class="dnnFormItem">
             <dnn:Label ID="plFolder" runat="server" ControlName="cboFolders" Suffix=":" />
-            <dnn:DnnComboBox runat="server" ID="cboFolders"  AutoPostBack="true"/>
-           <%-- <asp:DropDownList ID="cboFolders" runat="server" AutoPostBack="true" />--%>
+            <dnn:DnnFolderDropDownList ID="cboFolders" runat="server" AutoPostBack="True" />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="plFile" runat="server" ControlName="cboFiles" Suffix=":" />
               <dnn:DnnComboBox runat="server" ID="cboFiles"  AutoPostBack="true"/>
-           <%--<asp:DropDownList ID="cboFiles" runat="server" AutoPostBack="true" />--%>
         </div>
     </fieldset>
     <h2 id="dnnPanel-ModuleContent" class="dnnFormSectionHead">
@@ -44,8 +42,6 @@
         };
         setupModule();
         Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
-            // note that this will fire when _any_ UpdatePanel is triggered,
-            // which may or may not cause an issue
             setupModule();
         });
     });

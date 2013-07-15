@@ -5,7 +5,7 @@
 .dnnTabImport textarea, .dnnTabExport textarea {
     min-height: 120px;
 }
-.dnnTabImport .dnnFormItem input, .dnnTabImport .dnnFormItem textarea, .dnnTabExport .dnnFormItem input, .dnnTabExport .dnnFormItem textarea {
+.dnnTabImport .dnnFormItem textarea, .dnnTabExport .dnnFormItem textarea {
     width: 45%;
 }
 .dnnTabImport .dnnFormItem input[type=checkbox], .dnnTabImport .dnnFormItem input[type=radio], .dnnTabExport .dnnFormItem input[type=checkbox] {

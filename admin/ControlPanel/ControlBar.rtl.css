@@ -61,16 +61,18 @@
     position: relative;
     float: right;
     margin-left: 15px;
-    width: 132px;
+    width: 65px;
     height: 39px;
     border-bottom: 5px solid #4e89e3; /*blue*/
 }
 .ServiceIcon > img {
-    margin: 8px -4px 0 0;
+    margin-top:5px;
+    margin-bottom:1px;
+    margin-left: 0;
 }
 
 .ServiceIcon.community {
-    border-bottom: 5px solid #red;
+    border-bottom: 5px solid red;
 }
 .ServiceIcon.professional {
     border-bottom: 5px solid #4e89e3; /*blue*/
@@ -329,7 +331,7 @@
 #ControlBar_LanguageSelector {
     border-top: 1px solid #555;
     padding-top: 10px;
-    width: 156px;
+    width: 200px;
 }
 #ControlBar_SiteSelector p,
 #ControlBar_LanguageSelector p{
@@ -990,7 +992,7 @@ ul#ControlBar_Module_ModulePosition li:hover{
 }
 #controlBar_SwitchSite, 
 #controlBar_SwitchLanguage {
-	width: 120px;
+	width: 150px;
 }
 #controlBar_SwitchSite .rcbInput, 
 #controlBar_SwitchLanguage .rcbInput {
@@ -1009,3 +1011,136 @@ ul#ControlBar_Module_ModulePosition li:hover{
 }
 
 .RadComboBox .rcbDisabled{ opacity: 0.3;}
+
+/* dropdown list black theme -- only for controlbar*/
+#ControlBar_ControlPanel .dnnBlackDropDown .selected-item {
+    border: 1px solid #464648;
+    padding: 0 !important;
+    background: #464648;
+    background: -moz-linear-gradient(top, #464648 1%, #333032 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#464648), color-stop(100%,#333032));
+    background: -webkit-linear-gradient(top, #464648 1%,#333032 100%);
+    background: -o-linear-gradient(top, #464648 1%,#333032 100%);
+    background: -ms-linear-gradient(top, #464648 1%,#333032 100%);
+    background: linear-gradient(to bottom, #464648 1%,#333032 100%);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .selected-item .selected-value {
+    color: #999;
+    background: url(../../../../../../images/dnnSpinnerDownArrowWhite.png) no-repeat center right transparent;
+}
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container {
+    border: 1px solid #222;
+    background-color: #444;
+    -webkit-box-shadow: 0 -2px 2px -2px #ccc;
+    box-shadow: 0 -2px 2px -2px #ccc;
+}
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .sort-button {
+    background: #464648;
+    background: -moz-linear-gradient(top, #464648 1%, #333032 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#464648), color-stop(100%,#333032));
+    background: -webkit-linear-gradient(top, #464648 1%,#333032 100%);
+    background: -o-linear-gradient(top, #464648 1%,#333032 100%);
+    background: -ms-linear-gradient(top, #464648 1%,#333032 100%);
+    background: linear-gradient(to bottom, #464648 1%,#333032 100%);
+    color: #ccc;
+    box-shadow: 0 2px 3px -2px #000;
+    border: 1px solid #222;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .sort-button span {
+    text-shadow: 0 1px 0 #000;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .search-container .search-input-container {
+    background: #101010;
+    background: -moz-linear-gradient(top, #101010 1%, #464547 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#101010), color-stop(100%,#464547));
+    background: -webkit-linear-gradient(top, #101010 1%,#464547 100%);
+    background: -o-linear-gradient(top, #101010 1%,#464547 100%);
+    background: -ms-linear-gradient(top, #101010 1%,#464547 100%);
+    background: linear-gradient(to bottom, #101010 1%,#464547 100%);
+    border: 1px solid #222;
+    box-shadow: 0 2px 3px -2px #ccc;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .search-container input.search-input {
+    background: #101010;
+    background: -moz-linear-gradient(top, #101010 1%, #464547 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#101010), color-stop(100%,#464547));
+    background: -webkit-linear-gradient(top, #101010 1%,#464547 100%);
+    background: -o-linear-gradient(top, #101010 1%,#464547 100%);
+    background: -ms-linear-gradient(top, #101010 1%,#464547 100%);
+    background: linear-gradient(to bottom, #101010 1%,#464547 100%);
+    color: #999;
+    padding: 7px;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .dt-content {
+    margin: 49px 0 0 0;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .dt-header {
+    background: #333;
+    border-bottom: 1px solid #222;
+    -moz-box-shadow: 0 6px 6px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 6px 6px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 6px 6px 0 rgba(0,0,0,0.5);
+    height: 42px;
+    padding: 7px 0 0 0;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .dt-footer {
+    background-color: #333;
+    border-top: 1px solid #222;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .dt-footer span {
+    color: #999;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .dt-footer span b{
+    color: #fff;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container ul.tv-nodes a.text {
+    color: #999;
+    background: url("images/controlbar_page.png") no-repeat 6px center;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container ul.tv-nodes li a.text.selected {
+    background-color: rgb(204, 204, 204);
+    border: 1px solid #bbb;
+    color: #333;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container ul.tv-nodes a.text:hover {
+    background-color: #666;
+    color: #ccc;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container ul.tv-nodes a.text.unselectable:hover {
+    color: #999;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .dt-footer .resizer {
+    background: url("images/controlbar_resize.png") no-repeat bottom;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .search-container a.search-button {
+    background-image: url("images/controlbar_search.png");
+    background-color: transparent;
+}
+
+#ControlBar_ControlPanel .dnnBlackDropDown .dt-container .search-container a.clear-button {
+    background-image: url("images/controlbar_cleartext.png");
+    background-color: transparent;
+}
+
+
+#ControlBar_ControlPanel .dnnBlackDropDown .tv-nodes li a.expanding,
+#ControlBar_ControlPanel .dnnBlackDropDown .tv-nodes li a:hover.expanding {
+    background: url("images/controlbar_loading.png") no-repeat 0 0;
+}

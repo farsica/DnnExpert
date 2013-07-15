@@ -9,6 +9,7 @@
     <title></title>
     <asp:PlaceHolder runat="server" ID="ClientDependencyHeadCss"></asp:PlaceHolder>
     <asp:PlaceHolder runat="server" ID="ClientDependencyHeadJs"></asp:PlaceHolder>
+    <!-- Fariborz Khosravi-->
     <link id="DefaultStylesheet" runat="server" rel="stylesheet" type="text/css" href="../Portals/_default/default.css?refresh" />    
     <link id="InstallStylesheet" runat="server" rel="stylesheet" type="text/css" href="Install.css?refresh" />    
      <!--[if IE]>
@@ -16,6 +17,7 @@
     <![endif]-->
     <link id="ComboBoxStylesheet" runat="server" rel="stylesheet" type="text/css" href="../Portals/_default/skins/_default/WebControlSkin/default/combobox.default.css?refresh" />
     <script type="text/javascript" src="../Resources/Shared/scripts/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../Resources/Shared/scripts/jquery/jquery-migrate.min.js"></script>
     <script type="text/javascript" src="../Resources/Shared/Scripts/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js"></script>
     <asp:placeholder id="SCRIPTS" runat="server"></asp:placeholder>
@@ -183,7 +185,7 @@
                                   Display="Dynamic"
                                 ></asp:RegularExpressionValidator>
                             </div>
-                            <div class="dnnFormItem">
+                            <div id="dbSecurityTypeRow" class="dnnFormItem">
                                 <dnn:Label ID="lblDatabaseSecurity" runat="server" ControlName="rblDatabaseSecurity" ResourceKey="DatabaseSecurity"/>
                                 <asp:RadioButtonList ID="databaseSecurityType" runat="server" RepeatDirection="Horizontal">
                                     <asp:ListItem Value="integrated" ResourceKey="DbSecurityIntegrated" Selected="True" />
@@ -220,7 +222,7 @@
             </div>
             <div class="installInstallation dnnClear" id="installInstallation">
                 <asp:Label ID="lblInstallationIntroInfo" runat="server" CssClass="installIntro" ResourceKey="InstallationIntroInfo" />
-                <div id="installInstallation" runat="Server" visible="True" class="dnnForm">
+                <div id="installInstallationPanel" runat="Server" visible="True" class="dnnForm ui-tabs-panel">
                     <div class="dnnFormItem">
                         <div id="installation-progress">
                             <span id="timer"> </span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span id="percentage" style="height: auto; max-height: 200px; overflow: auto"> </span>
@@ -373,7 +375,6 @@
 	            			autoOpen: true,
 	            			resizable: false,
 	            			closeOnEscape: false,
-	            			zIndex: 100000,
 	            			draggable: false
 	            		});
 	            	} else {
@@ -394,13 +395,12 @@
                 if (databaseType == "express") {
                     $('#databaseFilename').show();
                     $('#databaseName').hide();
-	                $("input[id^=databaseSecurityType][value='integrated']").attr("checked", true).trigger("change");
-	                $("input[id^=databaseSecurityType][value='userDefined']").attr("disabled", true);
-	                $("#databaseRunAs").attr("checked", true).attr("disabled", true);
+                    $("#dbSecurityTypeRow").hide();
+                    $("#databaseRunAs").attr("checked", true).attr("disabled", true);
                 } else {
                     $('#databaseName').show();
                     $('#databaseFilename').hide();
-                    $("input[id^=databaseSecurityType][value='userDefined']").attr("disabled", false);
+                    $("#dbSecurityTypeRow").show();
                     $("#databaseRunAs").attr("disabled", false);
                 }
             };
@@ -440,14 +440,14 @@
 	        };
             this.showInstallationTab = function () {
                 $("#tabs").tabs('enable', 1);
-                $("#tabs").tabs('select', 1);
+                $("#tabs").tabs('option', 'active', 1);
                 $("#tabs").tabs('disable', 0);
                 installWizard.disableValidators();
                 $("#languageFlags").hide();
             };
             this.showAccountInfoTab = function() {
                 $("#tabs").tabs('enable', 0);
-                $("#tabs").tabs('select', 0);
+                $("#tabs").tabs('option', 'active', 0);
                 $("#tabs").tabs('disable', 1);
                 $("#languageFlags").show();
             };
@@ -455,9 +455,9 @@
                 installWizard.stopProgressBar();
                 $('#seeLogs, #visitSite').removeClass('dnnDisabledAction');
                 $('#installation-steps > p').attr('class', 'step-done');
-                $('#tabs ul li a[href="#installInstallation"]').parent().removeClass('ui-tabs-selected ui-state-active');
+                $('#tabs ul li a[href="#installInstallation"]').parent().removeClass('ui-tabs-active ui-state-active');
                 $('#tabs ul li a[href="#installInstallation"]').parent().addClass('ui-state-disabled');
-                $('#tabs ul li a[href="#installViewWebsite"]').parent().addClass('ui-tabs-selected ui-state-active');
+                $('#tabs ul li a[href="#installViewWebsite"]').parent().addClass('ui-tabs-active ui-state-active');
                 $('.dnnWizardStepArrow', $('#tabs ul li a[href="#installAccountInfo"]')).css('background-position', '0 -401px');
                 $('.dnnWizardStepArrow', $('#tabs ul li a[href="#installInstallation"]')).css('background-position', '0 -401px');
                 $('.dnnWizardStepArrow', $('#tabs ul li a[href="#installInstallation"]')).css('background-position', '0 -201px');
@@ -566,7 +566,7 @@
                 $("#tabs").bind("tabscreate", function (event, ui) {
                     var index = 0, selectedIndex = 0;
                     $('.ui-tabs-nav li', $(this)).each(function () {
-                        if ($(this).hasClass('ui-tabs-selected'))
+                        if ($(this).hasClass('ui-tabs-active'))
                             selectedIndex = index;
                         index++;
                     });
@@ -575,8 +575,8 @@
                         $('.dnnWizardStepArrow', $(this)).eq(selectedIndex - 1).css('background-position', '0 -201px');
                 });
 
-                $("#tabs").bind("tabsselect", function (event, ui) {
-                    var index = ui.index;
+                $("#tabs").bind("tabsactivate", function (event, ui) {
+                    var index = ui.newTab.index();
                     $('.dnnWizardStepArrow', $(this)).css('background-position', '0 -401px');
                     $('.dnnWizardStepArrow', $(this)).eq(index).css('background-position', '0 -299px');
                     if (index) {
@@ -792,7 +792,7 @@
             //Disabling button
             $('#seeLogs, #visitSite, #retry').addClass('dnnDisabledAction');
             //Making sure that progress indicate 0            
-            $("#progressbar").progressbar('value', 0);
+            $("#progressbar").progressbar().progressbar('value', 0);
             $("#percentage").text('0%');
             installWizard.startProgressBar();
             $("#progressbar").removeClass('stoppedProgress');
@@ -874,6 +874,7 @@
     </script>    
 
     <script type="text/javascript">
+        //Fariborz Khosravi
         $(document).ready(function () {
             if ($(document.body).css("direction") == "rtl")
                 $("#languageFlags").css("float", "left");

@@ -516,4 +516,7 @@
 &lt;h3&gt;در صورت استفاده از سیستم عامل ویندوز 7 یا ویندوز سرور 2008 R2 و IIS7.5&lt;/h3&gt;
 &lt;p&gt;کاربر IIS AppPool\DefaultAppPool بایستی دسترسی خواندن، نوشتن و ویرایش در پوشه اصلی پورتال را دارا باشد.&lt;/p&gt;&lt;p&gt;&lt;a class="dnnPrimaryAction" href=""&gt;Recheck&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</value>
   </data>
+  <data name="InstallVersion.Text" xml:space="preserve">
+    <value>افزودن نسخه نصبی</value>
+  </data>
 </root>

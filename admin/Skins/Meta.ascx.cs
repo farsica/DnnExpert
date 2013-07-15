@@ -43,6 +43,10 @@ namespace DotNetNuke.UI.Skins.Controls
 
 		public string Content { get; set; }
 
+        public string HttpEquiv { get; set; }
+
+        public bool InsertFirst { get; set; }
+
 		#endregion
 
 		#region "Event Handlers"
@@ -51,13 +55,30 @@ namespace DotNetNuke.UI.Skins.Controls
 		{
 			base.OnPreRender(e);
 
-			if(!string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Content))
-			{
-				var metaTag = new HtmlMeta();
-				metaTag.Name = Name;
-				metaTag.Content = Content;
-				Page.Header.Controls.Add(metaTag);
-			}
+            //if(!string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Content))
+            //{
+            //    var metaTag = new HtmlMeta();
+            //    metaTag.Name = Name;
+            //    metaTag.Content = Content;
+            //    Page.Header.Controls.Add(metaTag);
+            //}
+
+            if ((!string.IsNullOrEmpty(Name) || !string.IsNullOrEmpty(HttpEquiv)) && !string.IsNullOrEmpty(Content))
+            {
+                var metaTag = new HtmlMeta();
+
+                if (!string.IsNullOrEmpty(HttpEquiv))
+                    metaTag.HttpEquiv = HttpEquiv;
+                if (!string.IsNullOrEmpty(Name))
+                    metaTag.Name = Name;
+
+                metaTag.Content = Content;
+
+                if (InsertFirst)
+                    Page.Header.Controls.AddAt(0, metaTag);
+                else
+                    Page.Header.Controls.Add(metaTag);
+            }
 		}
 
 		#endregion

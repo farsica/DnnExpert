@@ -6,8 +6,7 @@
     <fieldset>
 		<div class="dnnFormItem">
             <dnn:label id="plFolder" runat="server" controlname="cboFolders" suffix=":" />
-            <dnn:DnnComboBox runat="server" ID="cboFolders" />
-            <%--<asp:DropDownList ID="cboFolders" Runat="server" />--%>
+            <dnn:DnnFolderDropDownList ID="cboFolders" runat="server" />
         </div>
 		<div class="dnnFormItem">
             <dnn:label id="plFile" runat="server" controlname="txtFile" suffix=":" />

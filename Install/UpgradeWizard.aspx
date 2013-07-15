@@ -7,9 +7,10 @@
     <asp:PlaceHolder runat="server" ID="ClientDependencyHeadJs"></asp:PlaceHolder>
     <link id="DefaultStylesheet" runat="server" rel="stylesheet" type="text/css" class="needVer" href="../Portals/_default/default.css" />    
     <link id="InstallStylesheet" runat="server" rel="stylesheet" type="text/css" class="needVer" href="Install.css" />
-    <script type="text/javascript" src="../Resources/Shared/scripts/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="../Resources/Shared/Scripts/jquery/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="../Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js"></script>
+    <script type="text/javascript" src="../Resources/Shared/scripts/jquery/jquery.min.js?ver=<%=DotNetNuke.Common.Globals.FormatVersion(ApplicationVersion)%>"></script>
+	<script type="text/javascript" src="../Resources/Shared/scripts/jquery/jquery-migrate.min.js?ver=<%=DotNetNuke.Common.Globals.FormatVersion(ApplicationVersion)%>"></script>
+    <script type="text/javascript" src="../Resources/Shared/Scripts/jquery/jquery-ui.min.js?ver=<%=DotNetNuke.Common.Globals.FormatVersion(ApplicationVersion)%>"></script>
+    <script type="text/javascript" src="../Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js?ver=<%=DotNetNuke.Common.Globals.FormatVersion(ApplicationVersion)%>"></script>
     <asp:placeholder id="SCRIPTS" runat="server"></asp:placeholder>
 </head>
 <body>
@@ -25,7 +26,7 @@
         <img src="../images/Branding/DNN_logo.png" alt="http://dnnexpert.net" />
 
         <div id="languageFlags" style="float: right;">
-	    <asp:LinkButton  id="lang_fa_IR" class="flag" runat="server" value="fa-IR" OnClientClick="upgradeWizard.changePageLocale('lang_fa_IR','fa-IR');"><img src="../images/flags/fa-IR.gif" alt="fa-IR" class="flagimage"/></asp:LinkButton>
+	    	<asp:LinkButton  id="lang_fa_IR" class="flag" runat="server" value="fa-IR" OnClientClick="upgradeWizard.changePageLocale('lang_fa_IR','fa-IR');"><img src="../images/flags/fa-IR.gif" alt="fa-IR" class="flagimage"/></asp:LinkButton>
             <asp:LinkButton  id="lang_en_US" class="flag" runat="server" value="en-US" OnClientClick="upgradeWizard.changePageLocale('lang_en_US','en-US');"><img src="../images/flags/en-US.gif" alt="en-US" class="flagimage"/></asp:LinkButton>
             <asp:LinkButton  id="lang_de_DE" class="flag" runat="server" value="de-DE" OnClientClick="upgradeWizard.changePageLocale('lang_de_DE','de-DE');"><img src="../images/flags/de-DE.gif" alt="de-DE" class="flagimage"/></asp:LinkButton>
             <asp:LinkButton  id="lang_es_ES" class="flag" runat="server" value="es-ES" OnClientClick="upgradeWizard.changePageLocale('lang_es_ES','es-ES');"><img src="../images/flags/es-ES.gif" alt="es-ES" class="flagimage"/></asp:LinkButton> 
@@ -139,7 +140,7 @@
             };
             this.showInstallationTab = function () {
                 $("#tabs").tabs('enable', 1);
-                $("#tabs").tabs('select', 1);
+                $("#tabs").tabs('option', 'active', 1);
                 $("#tabs").tabs('disable', 0);
                 $("#languageFlags").hide();
                 $('#<%= dnnInstall.ClientID %>').css('display', 'none');
@@ -149,9 +150,9 @@
                 $('#seeLogs, #visitSite').removeClass('dnnDisabledAction');
 	            $('#visitSite').attr("href", location.pathname + "?complete");
                 $('#installation-steps > p').attr('class', 'step-done');
-                $('#tabs ul li a[href="#upgradeInstallation"]').parent().removeClass('ui-tabs-selected ui-state-active');
+                $('#tabs ul li a[href="#upgradeInstallation"]').parent().removeClass('ui-tabs-active ui-state-active');
                 $('#tabs ul li a[href="#upgradeInstallation"]').parent().addClass('ui-state-disabled');
-                $('#tabs ul li a[href="#upgradeViewWebsite"]').parent().addClass('ui-tabs-selected ui-state-active');
+                $('#tabs ul li a[href="#upgradeViewWebsite"]').parent().addClass('ui-tabs-active ui-state-active');
                 $('.dnnWizardStepArrow', $('#tabs ul li a[href="#upgradeAccountInfo"]')).css('background-position', '0 -401px');
                 $('.dnnWizardStepArrow', $('#tabs ul li a[href="#upgradeInstallation"]')).css('background-position', '0 -401px');
                 $('.dnnWizardStepArrow', $('#tabs ul li a[href="#upgradeInstallation"]')).css('background-position', '0 -201px');
@@ -208,7 +209,7 @@
                 $("#tabs").bind("tabscreate", function (event, ui) {
                     var index = 0, selectedIndex = 0;
                     $('.ui-tabs-nav li', $(this)).each(function () {
-                        if ($(this).hasClass('ui-tabs-selected'))
+                        if ($(this).hasClass('ui-tabs-active'))
                             selectedIndex = index;
                         index++;
                     });
@@ -218,8 +219,8 @@
                         $('.dnnWizardStepArrow', $(this)).eq(selectedIndex - 1).css('background-position', '0 -201px');
                 });
 
-                $("#tabs").bind("tabsselect", function (event, ui) {
-                    var index = ui.index;
+                $("#tabs").bind("tabsactivate", function (event, ui) {
+                    var index = ui.newTab.index();
                     $('.dnnWizardStepArrow', $(this)).css('background-position', '0 -401px');
                     $('.dnnWizardStepArrow', $(this)).eq(index).css('background-position', '0 -299px');
                     if (index) {
@@ -352,7 +353,7 @@
             //Disabling button
             $('#seeLogs, #visitSite, #retry').addClass('dnnDisabledAction');
             //Making sure that progress indicate 0            
-            $("#progressbar").progressbar('value', 0);
+            $("#progressbar").progressbar().progressbar('value', 0);
             $("#percentage").text('0%');
             upgradeWizard.startProgressBar();
             $("#progressbar").removeClass('stoppedProgress');
@@ -435,6 +436,7 @@
     </script>    
 
     <script type="text/javascript">
+        //Fariborz Khosravi
         $(document).ready(function () {
             if ($(document.body).css("direction") == "rtl")
                 $("#languageFlags").css("float", "left");

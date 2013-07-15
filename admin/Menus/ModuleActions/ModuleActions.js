@@ -13,28 +13,7 @@
         var panes = opts.panes;
         var supportsMove = opts.supportsMove;
         var count = adminCount + customCount;
-        var throttleTimeout;
-
-        $(window).resize(function () {
-            if ($.browser.msie) {
-                // IE fires multiple resize events while you are dragging the browser window which
-                // causes it to crash if you try to update the scrollpane on every one. So we need
-                // to throttle it to fire a maximum of once every 50 milliseconds...
-                if (!throttleTimeout) {
-                    throttleTimeout = setTimeout(
-                        function () {
-                            resetMenu(moduleId);
-                            throttleTimeout = null;
-                        },
-                        50
-                    );
-                }
-            }
-            else {
-                resetMenu(moduleId);
-            }
-        });
-
+        
         if (count > 0 || supportsMove) {
             var $form = $("body form");
             if ($form.find("div#moduleActions-" + moduleId).length === 0) {
@@ -50,9 +29,7 @@
                 if (supportsMove) {
                     buildMoveMenu(menuRoot, "Move", "actionMenuMove");
                 }
-
-                position(moduleId);
-
+                
 	            watchResize(moduleId);
             }
         }
@@ -217,7 +194,6 @@
                 $(this).detach()
                     .prependTo($("#dnn_" + targetPane))
                     .fadeIn("slow", function () {
-
                         //update server
                         completeMove(targetPane, 0);
                     });
@@ -266,74 +242,27 @@
                 top: containerPosition.top,
                 left: containerPosition.left + containerWidth - 65
             });
-        };
+        }
 	    
         function watchResize(mId) {
-        	var container = $(".DnnModule-" + mId);
-        	container.data("o-size", { w: container.width(), h: container.height() });
-	        var loopyFunc = function() {
-		        var data = container.data("o-size");
-		        if (data.w != container.width() || data.h != container.height()) {
-			        container.data("o-size", { w: container.width(), h: container.height() });
-			        container.trigger("resize");
-		        }
+            var container = $(".DnnModule-" + mId);
+            container.data("o-size", { w: container.width(), h: container.height() });
+            var loopyFunc = function () {
+                var data = container.data("o-size");
+                if (data.w != container.width() || data.h != container.height()) {
+                    container.data("o-size", { w: container.width(), h: container.height() });
+                    container.trigger("resize");
+                }
 
-		        setTimeout(loopyFunc, 250);
-	        };
+                setTimeout(loopyFunc, 250);
+            };
 
-	        container.on("resize", function() {
-		        position(mId);
-	        });
-
-	        loopyFunc();
-        }
-
-        function resetMenu(mId) {
-            var root = $("#moduleActions-" + mId + " > ul");
-            root.find("li.actionMenuMove").remove();
-            if (supportsMove) {
-                buildMoveMenu(root, opts.moveText, "actionMenuMove");
-            }
-
-            position(mId);
-
-            // rebind hoverIntent 
-            $('#moduleActions-' + mId + ' li.actionMenuMove > ul').jScrollPane();
-            $('#moduleActions-' + mId + ' li.actionMenuMove').hoverIntent({
-                over: function () {
-                    // detect position
-                    var windowHeight = $(window).height();
-                    var windowScroll = $(window).scrollTop();
-                    var thisTop = $(this).offset().top;
-                    var atViewPortTop = (thisTop - windowScroll) < windowHeight / 2;
-                    var ul = $(this).find('ul');
-                    var ulHeight = ul.height();
-                    if (!atViewPortTop) {
-                        ul.css('position', 'absolute').css({ top: -ulHeight, right: 0 }).show('slide', { direction: 'down' }, 80, function () {
-                            $(this).jScrollPane();
-                        });
-                    }
-                    else {
-                        ul.css('position', 'absolute').css({ top: 20, right: 0 }).show('slide', { direction: 'up' }, 80, function () {
-                            $(this).jScrollPane();
-                        });
-                    }
-                },
-                out: function () {
-                    var ul = $(this).find('ul');
-
-                    if (ul && ul.position()) {
-                        if (ul.position().top > 0) {
-                            ul.hide('slide', { direction: 'up' }, 80);
-                        } else {
-                            ul.hide('slide', { direction: 'down' }, 80);
-                        }
-                    }
-                },
-                timeout: 400,
-                interval: 200
+            container.on("resize", function () {
+                position(mId);
             });
-        }
+
+            loopyFunc();
+        };
 
         function completeMove(targetPane, moduleOrder) {
             //remove empty pane class
@@ -377,5 +306,47 @@
         bottomText: "Bottom",
         movePaneText: "To {0}"
     };
+    
+    // register window resize on ajaxComplete to reposition action menus - only in edit mode
+    // after page fully load
+    var resizeThrottle;
+    $(window).resize(function () {
+        if (resizeThrottle) {
+            clearTimeout(resizeThrottle);
+            resizeThrottle = null;
+        }
+        resizeThrottle = setTimeout(
+            function () {
+                var menu = $('.actionMenu');
+                menu.each(function () {
+                    var $this = $(this);
+                    var id = $this.attr('id');
+                    if (id) {
+                        var mId = id.split('-')[1];
+                        var container = $(".DnnModule-" + mId);
+                        var root = $('ul.dnn_mact', $this);
+                        var containerPosition = container.offset();
+                        var containerWidth = container.width();
+
+                        root.css({
+                            position: "absolute",
+                            marginLeft: 0,
+                            marginTop: 0,
+                            top: containerPosition.top,
+                            left: containerPosition.left + containerWidth - 65
+                        });
+                    }
+                });
+                resizeThrottle = null;
+            },
+            100
+        );
+    });
+    $(window).load(function () {
+        $(document).ajaxComplete(function () {
+            $(window).resize();
+        });
+        $(window).resize();
+    });
 
 })(jQuery);

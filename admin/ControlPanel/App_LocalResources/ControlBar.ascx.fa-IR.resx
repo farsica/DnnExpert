@@ -321,4 +321,7 @@
   <data name="NoModule.Text" xml:space="preserve">
     <value>ماژولی در دسترس نمی باشد</value>
   </data>
+  <data name="Tool.ManageLocalization.Text" xml:space="preserve">
+    <value>بومی سازی صفحه</value>
+  </data>
 </root>

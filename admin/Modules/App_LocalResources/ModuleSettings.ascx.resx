@@ -438,11 +438,11 @@
   <data name="ControlTitle_settings.Text" xml:space="preserve">
     <value>{0} Settings</value>
   </data>
-  <data name="plSearchOnce.Help" xml:space="preserve">
-    <value>Select whether to show all pages in search result which include this module.</value>
+  <data name="AllowIndexLabel.Help" xml:space="preserve">
+    <value>This setting controls whether a module should be indexed by search crawlers.</value>
   </data>
-  <data name="plSearchOnce.Text" xml:space="preserve">
-    <value>Only Display Search Results Once</value>
+  <data name="AllowIndexLabel.Text" xml:space="preserve">
+    <value>Allow Indexing?</value>
   </data>
   <data name="isShareableLabel.Help" xml:space="preserve">
     <value>Check this box to allow the module to be shared across sites.</value>

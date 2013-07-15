@@ -22,12 +22,14 @@
 
 using System;
 using System.Collections;
+using System.Linq;
 using System.Threading;
 using System.Web.UI;
 
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Portals;
+using DotNetNuke.Entities.Portals.Internal;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Web.UI.WebControls;
 
@@ -67,10 +69,9 @@ namespace DotNetNuke.UI.ControlPanel
                 if ((!string.IsNullOrEmpty(SitesLst.SelectedValue)))
                 {
                     int selectedPortalID = int.Parse(SitesLst.SelectedValue);
-                    var portalAliasCtrl = new PortalAliasController();
-                    ArrayList portalAliases = portalAliasCtrl.GetPortalAliasArrayByPortalID(selectedPortalID);
+                    var portalAliases = TestablePortalAliasController.Instance.GetPortalAliasesByPortalId(selectedPortalID).ToList();
 
-                    if (((portalAliases != null) && portalAliases.Count > 0 && (portalAliases[0] != null)))
+                    if ((portalAliases.Count > 0 && (portalAliases[0] != null)))
                     {
                         Response.Redirect(Globals.AddHTTP(((PortalAliasInfo) portalAliases[0]).HTTPAlias));
                     }

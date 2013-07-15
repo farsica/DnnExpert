@@ -438,11 +438,11 @@
   <data name="ControlTitle_settings.Text" xml:space="preserve">
     <value>تنظیمات {0}</value>
   </data>
-  <data name="plSearchOnce.Help" xml:space="preserve">
-    <value>لطفا برای نمایش همه صفحات شامل این ماژول در نتیجه جستجو، این گزینه را انتخاب نمایید.</value>
+  <data name="AllowIndexLabel.Help" xml:space="preserve">
+    <value>درصورت انتخاب این گزینه، این ماژول قابلت ایندکس شدن داشته و می توان بر روی محتوای آن جستجو نمود.</value>
   </data>
-  <data name="plSearchOnce.Text" xml:space="preserve">
-    <value>نمایش در نتایج جستجو به ازای هر صفحه شامل این ماژول</value>
+  <data name="AllowIndexLabel.Text" xml:space="preserve">
+    <value>قابل ایندکس شدن؟</value>
   </data>
   <data name="isShareableLabel.Help" xml:space="preserve">
     <value>در صورت انتخاب این گزینه، ماژول قابلیت به اشتراک گذاری در بین وب سایت ها خواهد داشت.</value>

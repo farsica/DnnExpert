@@ -133,7 +133,7 @@ namespace DotNetNuke.Modules.Admin.Sales
                     string strPayPalURL;
 
                     // Sandbox mode
-                    if (settings.ContainsKey("paypalsandbox") && !String.IsNullOrEmpty(settings["paypalsandbox"]) && settings["paypalsandbox"] == "true")
+                    if (settings.ContainsKey("paypalsandbox") && !String.IsNullOrEmpty(settings["paypalsandbox"]) && settings["paypalsandbox"].Equals("true", StringComparison.InvariantCultureIgnoreCase))
                     {
                         strPayPalURL = "https://www.sandbox.paypal.com/cgi-bin/webscr?";
                     }

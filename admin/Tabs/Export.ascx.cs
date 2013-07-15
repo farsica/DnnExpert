@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections;
+using System.Linq;
 using System.Web.UI.WebControls;
 using System.Xml;
 
@@ -95,38 +96,16 @@ namespace DotNetNuke.Modules.Admin.Tabs
 
             try
             {
-                if (!Page.IsPostBack)
+                if (Page.IsPostBack) return;
+                cmdCancel.NavigateUrl = Globals.NavigateURL();
+                var folders = FolderManager.Instance.GetFolders(UserInfo, "ADD");
+                cboFolders.Services.Parameters.Add("permission", "ADD");
+                var templateFolder = folders.SingleOrDefault(f => f.FolderPath == "Templates/");
+                if (templateFolder != null) cboFolders.SelectedFolder = templateFolder;
+                
+                if (Tab != null)
                 {
-                    cmdCancel.NavigateUrl = Globals.NavigateURL();
-#pragma warning disable 612,618
-                    ArrayList folders = FileSystemUtils.GetFoldersByUser(PortalId, false, false, "ADD");
-#pragma warning restore 612,618
-                    foreach (FolderInfo folder in folders)
-                    {
-                        var folderItem = new ListItem
-                                             {
-                                                 Text =
-                                                     folder.FolderPath == Null.NullString
-                                                         ? Localization.GetString("Root", LocalResourceFile)
-                                                         : PathUtils.Instance.RemoveTrailingSlash(folder.DisplayPath),
-                                                 Value = folder.FolderPath
-                                             };
-                        //cboFolders.Items.Add(folderItem);
-                        cboFolders.AddItem(folderItem.Text, folderItem.Value);
-                    }
-                    if (Tab != null)
-                    {
-                        txtFile.Text = Globals.CleanName(Tab.TabName);
-                    }
-                    //if (cboFolders.Items.FindByValue("Templates/") != null)
-                    //{
-                    //    cboFolders.Items.FindByValue("Templates/").Selected = true;
-                    //}
-
-                    if (cboFolders.FindItemByValue("Templates/") != null)
-                    {
-                        cboFolders.FindItemByValue("Templates/").Selected = true;
-                    }
+                    txtFile.Text = Globals.CleanName(Tab.TabName);
                 }
             }
             catch (Exception exc)
@@ -143,29 +122,41 @@ namespace DotNetNuke.Modules.Admin.Tabs
                 {
                     return;
                 }
-                string filename = PortalSettings.HomeDirectoryMapPath + cboFolders.SelectedItem.Value + txtFile.Text + ".page.template";
-                filename = filename.Replace("/", "\\");
 
-                var xmlTemplate = new XmlDocument();
-                XmlNode nodePortal = xmlTemplate.AppendChild(xmlTemplate.CreateElement("portal"));
-                nodePortal.Attributes.Append(XmlUtils.CreateAttribute(xmlTemplate, "version", "3.0"));
+                if (cboFolders.SelectedItem != null)
+                {
+                    var folder = FolderManager.Instance.GetFolder(cboFolders.SelectedItemValueAsInt);
+                    if (folder != null)
+                    {
+                        var filename = PortalSettings.HomeDirectoryMapPath + folder.FolderPath + txtFile.Text + ".page.template";
+                        filename = filename.Replace("/", "\\");
 
-                //Add template description
-                XmlElement node = xmlTemplate.CreateElement("description");
-                node.InnerXml = Server.HtmlEncode(txtDescription.Text);
-                nodePortal.AppendChild(node);
+                        var xmlTemplate = new XmlDocument();
+                        XmlNode nodePortal = xmlTemplate.AppendChild(xmlTemplate.CreateElement("portal"));
+                        if (nodePortal.Attributes != null)
+                        {
+                            nodePortal.Attributes.Append(XmlUtils.CreateAttribute(xmlTemplate, "version", "3.0"));
+                        }
 
-                //Serialize tabs
-                XmlNode nodeTabs = nodePortal.AppendChild(xmlTemplate.CreateElement("tabs"));
-                SerializeTab(xmlTemplate, nodeTabs);
+                        //Add template description
+                        XmlElement node = xmlTemplate.CreateElement("description");
+                        node.InnerXml = Server.HtmlEncode(txtDescription.Text);
+                        nodePortal.AppendChild(node);
 
-                xmlTemplate.Save(filename);
-                UI.Skins.Skin.AddModuleMessage(this, "", string.Format(Localization.GetString("ExportedMessage", LocalResourceFile), filename), ModuleMessage.ModuleMessageType.BlueInfo);
+                        //Serialize tabs
+                        XmlNode nodeTabs = nodePortal.AppendChild(xmlTemplate.CreateElement("tabs"));
+                        SerializeTab(xmlTemplate, nodeTabs);
 
-                //add file to Files table
+                        xmlTemplate.Save(filename);
+                        UI.Skins.Skin.AddModuleMessage(this, "", string.Format(Localization.GetString("ExportedMessage", LocalResourceFile), filename), ModuleMessage.ModuleMessageType.BlueInfo);
+
+                        //add file to Files table
 #pragma warning disable 612,618
-                FileSystemUtils.AddFile(txtFile.Text + ".page.template", PortalId, cboFolders.SelectedItem.Value, PortalSettings.HomeDirectoryMapPath, "application/octet-stream");
+                        FileSystemUtils.AddFile(txtFile.Text + ".page.template", PortalId, folder.FolderPath, PortalSettings.HomeDirectoryMapPath, "application/octet-stream");
 #pragma warning restore 612,618
+
+                    }
+                }
             }
             catch (Exception exc)
             {

@@ -121,7 +121,7 @@
     <value>Account Info</value>
   </data>
   <data name="BestPractices.Text" xml:space="preserve">
-    <value>You are about to upgrade your website to a more recent version of the DotNetNuke application. Applying upgrades on a consistent basis is the best way to ensure that you are protecting the integrity of your investment and the security of your users and assets. Before proceeding with the automated upgrade process please ensure that:
+    <value>You are about to upgrade your website to a more recent version of the application. Applying upgrades on a consistent basis is the best way to ensure that you are protecting the integrity of your investment and the security of your users and assets. Before proceeding with the automated upgrade process please ensure that:
 &lt;ul&gt;
 &lt;li&gt;you have made plans to first attempt this process in a staging environment
 &lt;li&gt;you have documented your current installation characteristics including doing research on the compatibility of any third party modules which you may be using
@@ -175,7 +175,7 @@
     <value>Minutes</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>DotNetNuke Upgrade</value>
+    <value>Upgrade</value>
   </data>
   <data name="Upgrade.Text" xml:space="preserve">
     <value>Upgrade</value>
@@ -193,7 +193,7 @@
     <value>Host (SuperUser) Username:</value>
   </data>
   <data name="Version.Text" xml:space="preserve">
-    <value>DotNetNuke Upgrade - Version {0}</value>
+    <value>Upgrade - Version {0}</value>
   </data>
   <data name="ViewWebsite.Text" xml:space="preserve">
     <value>View Website</value>

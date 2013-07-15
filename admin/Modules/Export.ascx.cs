@@ -184,19 +184,10 @@ namespace DotNetNuke.Modules.Admin.Modules
                 }
                 if (!Page.IsPostBack)
                 {
-                    cmdCancel.NavigateUrl = Globals.NavigateURL(); 
+                    cmdCancel.NavigateUrl = Globals.NavigateURL();
 
-                    //cboFolders.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
-                    cboFolders.InsertItem(0, "<" + Localization.GetString("None_Specified") + ">", "-");
-                    var user = UserController.GetCurrentUserInfo();
-                    var folders = FolderManager.Instance.GetFileSystemFolders(user, "ADD");
-                    foreach (var folderItem in
-                        from FolderInfo folder in folders
-                        select new ListItem { Text = folder.FolderPath == Null.NullString ? Localization.GetString("Root", LocalResourceFile) : folder.DisplayPath, Value = folder.FolderPath })
-                    {
-                        //cboFolders.Items.Add(folderItem);
-                        cboFolders.AddItem(folderItem.Text, folderItem.Value);
-                    }
+                    cboFolders.UndefinedItem = new ListItem("<" + Localization.GetString("None_Specified") + ">", string.Empty);
+                    cboFolders.Services.Parameters.Add("permission", "ADD");
                     if (Module != null)
                     {
                         txtFile.Text = CleanName(Module.ModuleTitle);
@@ -213,18 +204,23 @@ namespace DotNetNuke.Modules.Admin.Modules
         {
             try
             {
-                if (cboFolders.SelectedIndex != 0 && !String.IsNullOrEmpty(txtFile.Text))
+                if (cboFolders.SelectedItem != null && !String.IsNullOrEmpty(txtFile.Text))
                 {
-                    var strFile = "content." + CleanName(Module.DesktopModule.ModuleName) + "." + CleanName(txtFile.Text) + ".xml";
-                    var strMessage = ExportModule(ModuleId, strFile, cboFolders.SelectedItem.Value);
-                    if (String.IsNullOrEmpty(strMessage))
+                    var folder = FolderManager.Instance.GetFolder(cboFolders.SelectedItemValueAsInt);
+                    if (folder != null)
                     {
-                        Response.Redirect(Globals.NavigateURL(), true);
-                    }
-                    else
-                    {
-                        UI.Skins.Skin.AddModuleMessage(this, strMessage, ModuleMessage.ModuleMessageType.RedError);
-                    }
+                        var strFile = "content." + CleanName(Module.DesktopModule.ModuleName) + "." + CleanName(txtFile.Text) + ".xml";
+                        var strMessage = ExportModule(ModuleId, strFile, folder.FolderPath);
+                        if (String.IsNullOrEmpty(strMessage))
+                        {
+                            Response.Redirect(Globals.NavigateURL(), true);
+                        }
+                        else
+                        {
+                            UI.Skins.Skin.AddModuleMessage(this, strMessage, ModuleMessage.ModuleMessageType.RedError);
+                        }
+                        }
+                    
                 }
                 else
                 {

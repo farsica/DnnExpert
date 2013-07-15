@@ -149,8 +149,10 @@ namespace DotNetNuke.Modules.Admin.Modules
                 rowTab.Visible = cboTab.Items.Count != 1;
                 chkAllTabs.Checked = Module.AllTabs;
                 trnewPages.Visible = chkAllTabs.Checked;
-                rowSearchOnce.Visible = chkAllTabs.Checked;
-                chkSearchOnce.Checked = Settings["searchonce"] != null && bool.Parse(Settings["searchonce"].ToString());
+                allowIndexRow.Visible = desktopModule.IsSearchable;
+                chkAllowIndex.Checked = Settings["AllowIndex"] == null || Settings["AllowIndex"] != null && bool.Parse(Settings["AllowIndex"].ToString());
+                
+
                 cboVisibility.SelectedIndex = (int)Module.Visibility;
                 chkAdminBorder.Checked = Settings["hideadminborder"] != null && bool.Parse(Settings["hideadminborder"].ToString());
 
@@ -447,7 +449,7 @@ namespace DotNetNuke.Modules.Admin.Modules
                         chkNewTabs.Enabled = false;
                         chkDefault.Enabled = false;
                         chkAllModules.Enabled = false;
-                        chkSearchOnce.Enabled = false;
+                        chkAllowIndex.Enabled = false;
                         cboTab.Enabled = false;
                     }
                     if (_moduleId != -1)
@@ -463,7 +465,6 @@ namespace DotNetNuke.Modules.Admin.Modules
 
                         cboVisibility.SelectedIndex = 0; //maximized
                         chkAllTabs.Checked = false;
-                        chkSearchOnce.Checked = false;
                         cmdDelete.Visible = false;
                     }
                     if (Module != null)
@@ -508,7 +509,6 @@ namespace DotNetNuke.Modules.Admin.Modules
         protected void OnAllTabsCheckChanged(object sender, EventArgs e)
         {
             trnewPages.Visible = chkAllTabs.Checked;
-            rowSearchOnce.Visible = chkAllTabs.Checked;
         }
 
         protected void OnCacheProviderIndexChanged(object sender, EventArgs e)
@@ -550,7 +550,8 @@ namespace DotNetNuke.Modules.Admin.Modules
                 {
                     var moduleController = new ModuleController();
                     var allTabsChanged = false;
-                    var searchOnceChanged = false;
+                    //TODO: REMOVE IF UNUSED
+                    //var allowIndexChanged = false;
 
                     //tab administrators can only manage their own tab
                     if (!TabPermissionController.CanAdminPage())
@@ -559,7 +560,7 @@ namespace DotNetNuke.Modules.Admin.Modules
                         chkNewTabs.Enabled = false;
                         chkDefault.Enabled = false;
                         chkAllModules.Enabled = false;
-                        chkSearchOnce.Enabled = false;
+                        chkAllowIndex.Enabled = false;
                         cboTab.Enabled = false;
                     }
                     Module.ModuleID = _moduleId;
@@ -580,13 +581,15 @@ namespace DotNetNuke.Modules.Admin.Modules
                     Module.AllTabs = chkAllTabs.Checked;
                     moduleController.UpdateTabModuleSetting(Module.TabModuleID, "hideadminborder", chkAdminBorder.Checked.ToString());
 
-                    //check whether searchonce value is changed
-                    var searchOnce = Settings.ContainsKey("searchonce") && Convert.ToBoolean(Settings["searchonce"]);
-                    if (searchOnce != chkSearchOnce.Checked)
+                    //check whether allow index value is changed
+                    var allowIndex = Settings.ContainsKey("AllowIndex") && Convert.ToBoolean(Settings["AllowIndex"]);
+                    if (allowIndex != chkAllowIndex.Checked)
                     {
-                        searchOnceChanged = true;
+                        moduleController.UpdateTabModuleSetting(Module.TabModuleID, "AllowIndex", chkAllowIndex.Checked ? "True" : "False");
                     }
-                    moduleController.UpdateTabModuleSetting(Module.TabModuleID, "searchonce", chkSearchOnce.Checked.ToString());
+                    moduleController.UpdateTabModuleSetting(Module.TabModuleID, "AllowIndex", chkAllowIndex.Checked.ToString());
+
+
                     switch (Int32.Parse(cboVisibility.SelectedItem.Value))
                     {
                         case 0:
@@ -719,27 +722,6 @@ namespace DotNetNuke.Modules.Admin.Modules
                         {
                             moduleController.DeleteAllModules(_moduleId, TabId, listTabs);
                         }
-                    }
-
-                    //if searchonce is changed, then should update all other tabmodules to update the setting value.
-                    if (searchOnceChanged)
-                    {
-                        moduleController.GetAllTabsModulesByModuleID(_moduleId)
-                            .Cast<ModuleInfo>()
-                            .Where(t => t.TabID != TabId)
-                            .ToList()
-                            .ForEach(tm =>
-                                        {
-                                            if (chkSearchOnce.Checked)
-                                            {
-                                                moduleController.UpdateTabModuleSetting(tm.TabModuleID, "DisableSearch", "true");
-                                            }
-                                            else
-                                            {
-                                                moduleController.DeleteTabModuleSetting(tm.TabModuleID, "DisableSearch");
-                                            }
-                                        });
-
                     }
 
                     //Navigate back to admin page

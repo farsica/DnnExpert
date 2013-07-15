@@ -1,6 +1,6 @@
-ï»¿#region Copyright
+#region Copyright
 // 
-// DotNetNukeÂ® - http://www.dotnetnuke.com
+// DotNetNuke® - http://www.dotnetnuke.com
 // Copyright (c) 2002-2013
 // by DotNetNuke Corporation
 // 
@@ -69,7 +69,7 @@ namespace DotNetNuke.Services.Install
             //Write out Header
             HtmlUtils.WriteHeader(Response, "executeScripts");
 
-            Response.Write("<h2>Ú¯Ø²Ø§Ø±Ø´ ÙˆØ¶Ø¹ÙŠØª Ø§Ø¬Ø±Ø§ÙŠ Ø§Ø³Ú©Ø±ÙŠÙ¾Øª Ù‡Ø§</h2>");
+            Response.Write("<h2>ÒÇÑÔ æÖÚíÊ ÇÌÑÇí ÇÓ˜ÑíÊ åÇ</h2>");
             Response.Flush();
 
             string strProviderPath = DataProvider.Instance().GetProviderPath();
@@ -77,7 +77,7 @@ namespace DotNetNuke.Services.Install
             {
                 Upgrade.Upgrade.ExecuteScripts(strProviderPath);
             }
-            Response.Write("<h2>Ù¾Ø§ÙŠØ§Ù† Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ø¬Ø±Ø§</h2>");
+            Response.Write("<h2>ÇíÇä ÚãáíÇÊ ÇÌÑÇ</h2>");
             Response.Flush();
 
 
@@ -130,11 +130,11 @@ namespace DotNetNuke.Services.Install
                 string strProviderPath = DataProvider.Instance().GetProviderPath();
                 if (!strProviderPath.StartsWith("ERROR:"))
                 {
-                    Response.Write("<h2>Ù†Ø³Ø®Ù‡: " + Globals.FormatVersion(DotNetNukeContext.Current.Application.Version) + "</h2>");
+                    Response.Write("<h2>äÓÎå: " + Globals.FormatVersion(DotNetNukeContext.Current.Application.Version) + "</h2>");
                     Response.Flush();
 
                     Response.Write("<br/><br/>");
-                    Response.Write("<h2>Ú¯Ø²Ø§Ø±Ø´ ÙˆØ¶Ø¹ÙŠØª Ù†ØµØ¨</h2>");
+                    Response.Write("<h2>ÒÇÑÔ æÖÚíÊ äÕÈ</h2>");
                     Response.Flush();
 
                     if (!CheckPermissions())
@@ -149,6 +149,7 @@ namespace DotNetNuke.Services.Install
                     if (!installConfig.InstallCulture.Equals("en-us", StringComparison.InvariantCultureIgnoreCase))
                     {
                         var locale = LocaleController.Instance.GetLocale("en-US");
+						//Fariborz Khosravi
 						if(locale != null)
                         	Localization.Localization.RemoveLanguageFromPortal(0, locale.LanguageId);
                     }
@@ -167,8 +168,16 @@ namespace DotNetNuke.Services.Install
                         ClientResourceManager.AddConfiguration();
                     }
 
-                    Response.Write("<h2>Ù¾Ø§ÙŠØ§Ù† Ø¹Ù…Ù„ÙŠØ§Øª Ù†ØµØ¨</h2>");
-                    Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>Ø¨Ø±Ø§ÙŠ Ù…Ø´Ø§Ù‡Ø¯Ù‡ Ù¾ÙˆØ±ØªØ§Ù„ Ú©Ù„ÙŠÚ© Ù†Ù…Ø§ÙŠÙŠØ¯</a></h2><br/><br/>");
+                    var installVersion = DataProvider.Instance().GetInstallVersion();
+                    string strError = Config.UpdateInstallVersion(installVersion);
+                    if (!string.IsNullOrEmpty(strError))
+                    {
+                        Logger.Error(strError);
+                    }
+
+                    //Fariborz Khosravi
+                    Response.Write("<h2>ÇíÇä ÚãáíÇÊ äÕÈ</h2>");
+                    Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>ÈÑÇí ãÔÇåÏå æÑÊÇá ˜áí˜ äãÇííÏ</a></h2><br/><br/>");
                     Response.Flush();
 
                     //remove installwizard files
@@ -183,7 +192,7 @@ namespace DotNetNuke.Services.Install
                 else
                 {
 					//upgrade error
-                    Response.Write("<h2>Ø®Ø·Ø§ Ø¯Ø± Ø¨Ø±ÙˆØ²Ø±Ø³Ø§Ù†ÙŠ: " + strProviderPath + "</h2>");
+                    Response.Write("<h2>ÎØÇ ÏÑ ÈÑæÒÑÓÇäí: " + strProviderPath + "</h2>");
                     Response.Flush();
                 }
 
@@ -195,27 +204,7 @@ namespace DotNetNuke.Services.Install
         private void UpgradeApplication()
         {
             var databaseVersion = DataProvider.Instance().GetVersion();
-
-            //first update the InstallVersion app setting if needed
-            bool redirectNeeded;
-            string strError = Config.UpdateInstallVersion(databaseVersion, out redirectNeeded);
-
-            if (String.IsNullOrEmpty(strError))
-            {
-                if (redirectNeeded)
-                {
-                    // we've update web.config, so we need to restart the page
-                    Response.Redirect(HttpContext.Current.Request.RawUrl, true);
-                }
-            }
-            else
-            {
-                //403-3 Error - Redirect to ErrorPage
-                string strURL = "~/ErrorPage.aspx?status=403_3&error=" + strError;
-                HttpContext.Current.Response.Clear();
-                HttpContext.Current.Server.Transfer(strURL);
-            }
-
+            var installVersion = DataProvider.Instance().GetInstallVersion();
 
             //Start Timer
             Upgrade.Upgrade.StartTimer();
@@ -223,7 +212,7 @@ namespace DotNetNuke.Services.Install
             //Write out Header
             HtmlUtils.WriteHeader(Response, "upgrade");
 
-            Response.Write("<h2>Ù†Ø³Ø®Ù‡ Ø¬Ø§Ø±ÙŠ Ù†Ø±Ù… Ø§ÙØ²Ø§Ø±: " + Globals.FormatVersion(DotNetNukeContext.Current.Application.Version) + "</h2>");
+            Response.Write("<h2>äÓÎå ÌÇÑí äÑã ÇİÒÇÑ: " + Globals.FormatVersion(DotNetNukeContext.Current.Application.Version) + "</h2>");
             Response.Flush();
 
             //get path to script files
@@ -233,7 +222,7 @@ namespace DotNetNuke.Services.Install
                 //get current database version
                 var strDatabaseVersion = Globals.FormatVersion(databaseVersion);
 
-                Response.Write("<h2>Ù†Ø³Ø®Ù‡ Ø¬Ø§Ø±ÙŠ Ø¨Ø§Ù†Ú© Ø§Ø·Ù„Ø§Ø¹Ø§Øª: " + strDatabaseVersion + "</h2>");
+                Response.Write("<h2>äÓÎå ÌÇÑí ÈÇä˜ ÇØáÇÚÇÊ: " + strDatabaseVersion + "</h2>");
                 Response.Flush();
 
                 string ignoreWarning = Null.NullString;
@@ -262,12 +251,12 @@ namespace DotNetNuke.Services.Install
                 if (strWarning == Null.NullString || ignoreWarning == "true")
                 {
                     Response.Write("<br/><br/>");
-					Response.Write("<h2>Ú¯Ø²Ø§Ø±Ø´ ÙˆØ¶Ø¹ÙŠØª Ø¨Ø±ÙˆØ²Ø±Ø³Ø§Ù†ÙŠ</h2>");
+					Response.Write("<h2>ÒÇÑÔ æÖÚíÊ ÈÑæÒÑÓÇäí</h2>");
                     Response.Flush();
                     //stop scheduler
                     SchedulingProvider.Instance().Halt("Stopped by Upgrade Process");
 
-                    Upgrade.Upgrade.UpgradeDNN(strProviderPath, DataProvider.Instance().GetVersion());
+                    Upgrade.Upgrade.UpgradeDNN(strProviderPath, databaseVersion);
 
                     //Install optional resources if present
                     Upgrade.Upgrade.InstallPackages("Module", true);
@@ -278,19 +267,25 @@ namespace DotNetNuke.Services.Install
                     Upgrade.Upgrade.InstallPackages("AuthSystem", true);
                     Upgrade.Upgrade.InstallPackages("Package", true);
 
-					Response.Write("<h2>Ù¾Ø§ÙŠØ§Ù† Ø¹Ù…Ù„ÙŠØ§Øª Ø¨Ø±ÙˆØ²Ø±Ø³Ø§Ù†ÙŠ</h2>");
-					Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>Ø¨Ø±Ø§ÙŠ Ù…Ø´Ø§Ù‡Ø¯Ù‡ Ù¾ÙˆØ±ØªØ§Ù„ Ú©Ù„ÙŠÚ© Ù†Ù…Ø§ÙŠÙŠØ¯</a></h2><br/><br/>");
+                    string strError = Config.UpdateInstallVersion(installVersion);
+                    if (!string.IsNullOrEmpty(strError))
+                    {
+                        Logger.Error(strError);
+                    }
+                    //Fariborz Khosravi
+					Response.Write("<h2>ÇíÇä ÚãáíÇÊ ÈÑæÒÑÓÇäí</h2>");
+					Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>ÈÑÇí ãÔÇåÏå æÑÊÇá ˜áí˜ äãÇííÏ</a></h2><br/><br/>");
                 }
                 else
                 {
-                    Response.Write("<h2>Ù‡Ø´Ø¯Ø§Ø±:</h2>" + strWarning.Replace(Environment.NewLine, "<br />"));
-                    Response.Write("<br/><br/><a href='Install.aspx?mode=upgrade&ignoreWarning=true'>Ø¨Ø±Ø§ÙŠ Ø´Ø±ÙˆØ¹ Ø¨Ø±ÙˆØ²Ø±Ø³Ø§Ù†ÙŠ Ù†Ø±Ù… Ø§ÙØ²Ø§Ø± Ú©Ù„ÙŠÚ© Ù†Ù…Ø§ÙŠÙŠØ¯.</a>");
+                    Response.Write("<h2>åÔÏÇÑ:</h2>" + strWarning.Replace(Environment.NewLine, "<br />"));
+                    Response.Write("<br/><br/><a href='Install.aspx?mode=upgrade&ignoreWarning=true'>ÈÑÇí ÔÑæÚ ÈÑæÒÑÓÇäí äÑã ÇİÒÇÑ ˜áí˜ äãÇííÏ.</a>");
                 }
                 Response.Flush();
             }
             else
             {
-                Response.Write("<h2>Ø®Ø·Ø§ Ø¯Ø± Ø¨Ø±ÙˆØ²Ø±Ø³Ø§Ù†ÙŠ: " + strProviderPath + "</h2>");
+                Response.Write("<h2>ÎØÇ ÏÑ ÈÑæÒÑÓÇäí: " + strProviderPath + "</h2>");
                 Response.Flush();
             }
 
@@ -305,7 +300,7 @@ namespace DotNetNuke.Services.Install
 
             //Write out Header
             HtmlUtils.WriteHeader(Response, "addPortal");
-            Response.Write("<h2>Ú¯Ø²Ø§Ø±Ø´ ÙˆØ¶Ø¹ÙŠØª Ø§ÙØ²ÙˆØ¯Ù† Ù¾ÙˆØ±ØªØ§Ù„</h2>");
+            Response.Write("<h2>ÒÇÑÔ æÖÚíÊ ÇİÒæÏä æÑÊÇá</h2>");
             Response.Flush();
 
             //install new portal(s)
@@ -338,8 +333,9 @@ namespace DotNetNuke.Services.Install
 					//error removing the file
 					Logger.Error(ex);
 				}
-                Response.Write("<h2>Ù¾Ø§ÙŠØ§Ù† Ø¹Ù…Ù„ÙŠØ§Øª Ù†ØµØ¨</h2>");
-                Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>Ø¨Ø±Ø§ÙŠ Ù…Ø´Ø§Ù‡Ø¯Ù‡ Ù¾ÙˆØ±ØªØ§Ù„ Ú©Ù„ÙŠÚ© Ù†Ù…Ø§ÙŠÙŠØ¯</a></h2><br/><br/>");
+                //Fariborz Khosravi
+                Response.Write("<h2>ÇíÇä ÚãáíÇÊ äÕÈ</h2>");
+                Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>ÈÑÇí ãÔÇåÏå æÑÊÇá ˜áí˜ äãÇííÏ</a></h2><br/><br/>");
                 Response.Flush();
             }
 
@@ -355,7 +351,7 @@ namespace DotNetNuke.Services.Install
             //Write out Header
             HtmlUtils.WriteHeader(Response, "installResources");
 
-            Response.Write("<h2>Ú¯Ø²Ø§Ø±Ø´ ÙˆØ¶Ø¹ÙŠØª Ù†ØµØ¨ Ù…Ù†Ø§Ø¨Ø¹</h2>");
+            Response.Write("<h2>ÒÇÑÔ æÖÚíÊ äÕÈ ãäÇÈÚ</h2>");
             Response.Flush();
 
             //install new resources(s)
@@ -367,8 +363,9 @@ namespace DotNetNuke.Services.Install
             Upgrade.Upgrade.InstallPackages("AuthSystem", true);
             Upgrade.Upgrade.InstallPackages("Package", true);
 
-            Response.Write("<h2>Ù¾Ø§ÙŠØ§Ù† Ø¹Ù…Ù„ÙŠØ§Øª Ù†ØµØ¨</h2>");
-            Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>Ø¨Ø±Ø§ÙŠ Ù…Ø´Ø§Ù‡Ø¯Ù‡ Ù¾ÙˆØ±ØªØ§Ù„ Ú©Ù„ÙŠÚ© Ù†Ù…Ø§ÙŠÙŠØ¯</a></h2><br/><br/>");
+            //Fariborz Khosravi
+            Response.Write("<h2>ÇíÇä ÚãáíÇÊ äÕÈ</h2>");
+            Response.Write("<br/><br/><h2><a href='../" + Globals.glbDefaultPage + "'>ÈÑÇí ãÔÇåÏå æÑÊÇá ˜áí˜ äãÇííÏ</a></h2><br/><br/>");
             Response.Flush();
 
             //Write out Footer
@@ -395,28 +392,28 @@ namespace DotNetNuke.Services.Install
                         //do not show versions if the same to stop information leakage
                         if (currentAssembly == currentDatabase)
                         {
-                            Response.Write("<h2>Ù†Ø³Ø®Ù‡ Ø¬Ø§Ø±ÙŠ Ù†Ø±Ù… Ø§ÙØ²Ø§Ø± Ùˆ Ø¨Ø§Ù†Ú© Ø§Ø·Ù„Ø§Ø¹Ø§Øª ÙŠÚ©Ø³Ø§Ù† Ù…ÙŠ Ø¨Ø§Ø´Ø¯.</h2>");
+                            Response.Write("<h2>äÓÎå ÌÇÑí äÑã ÇİÒÇÑ æ ÈÇä˜ ÇØáÇÚÇÊ í˜ÓÇä ãí ÈÇÔÏ.</h2>");
                         }
                         else
                         {
-                            Response.Write("<h2>Ù†Ø³Ø®Ù‡ Ø¬Ø§Ø±ÙŠ Ù†Ø±Ù… Ø§ÙØ²Ø§Ø±: " + currentAssembly + "</h2>");
+                            Response.Write("<h2>äÓÎå ÌÇÑí äÑã ÇİÒÇÑ: " + currentAssembly + "</h2>");
                             //Call Upgrade with the current DB Version to upgrade an
                             //existing DNN installation
                             strDatabaseVersion = ((int)dr["Major"]).ToString("00") + "." + ((int)dr["Minor"]).ToString("00") + "." + ((int)dr["Build"]).ToString("00");
-                            Response.Write("<h2>Ù†Ø³Ø®Ù‡ Ø¬Ø§Ø±ÙŠ Ø¨Ø§Ù†Ú© Ø§Ø·Ù„Ø§Ø¹Ø§Øª: " + strDatabaseVersion + "</h2>");
+                            Response.Write("<h2>äÓÎå ÌÇÑí ÈÇä˜ ÇØáÇÚÇÊ: " + strDatabaseVersion + "</h2>");
                         }
 
-                        Response.Write("<br/><br/><a href='Install.aspx?mode=Install'>Ø¨Ø±Ø§ÙŠ Ø¨Ø±ÙˆØ²Ø±Ø³Ø§Ù†ÙŠ Ù†Ø±Ù… Ø§ÙØ²Ø§Ø± Ú©Ù„ÙŠÚ© Ù†Ù…Ø§ÙŠÙŠØ¯</a>");
+                        Response.Write("<br/><br/><a href='Install.aspx?mode=Install'>ÈÑÇí ÈÑæÒÑÓÇäí äÑã ÇİÒÇÑ ˜áí˜ äãÇííÏ</a>");
                         Response.Flush();
                     }
                     else
                     {
                         //Write out Header
                         HtmlUtils.WriteHeader(Response, "noDBVersion");
-                        Response.Write("<h2>Ù†Ø³Ø®Ù‡ Ø¬Ø§Ø±ÙŠ Ù†Ø±Ù… Ø§ÙØ²Ø§Ø±: " + DotNetNukeContext.Current.Application.Version.ToString(3) + "</h2>");
+                        Response.Write("<h2>äÓÎå ÌÇÑí äÑã ÇİÒÇÑ: " + DotNetNukeContext.Current.Application.Version.ToString(3) + "</h2>");
 
-                        Response.Write("<h2>Ù†Ø³Ø®Ù‡ Ø¬Ø§Ø±ÙŠ Ø¨Ø§Ù†Ú© Ø§Ø·Ù„Ø§Ø¹Ø§Øª: Ù†ØµØ¨ Ù†Ø´Ø¯Ù‡</h2>");
-                        Response.Write("<br/><br/><h2><a href='Install.aspx?mode=Install'>Ø¨Ø±Ø§ÙŠ Ù†ØµØ¨ Ù†Ø±Ù… Ø§ÙØ²Ø§Ø± Ù¾ÙˆØ±ØªØ§Ù„ Ø³ÙˆØ¦ÙŠØªØŒ Ú©Ù„ÙŠÚ© Ù†Ù…Ø§ÙŠÙŠØ¯</a></h2>");
+                        Response.Write("<h2>äÓÎå ÌÇÑí ÈÇä˜ ÇØáÇÚÇÊ: äÕÈ äÔÏå</h2>");
+                        Response.Write("<br/><br/><h2><a href='Install.aspx?mode=Install'>ÈÑÇí äÕÈ äÑã ÇİÒÇÑ æÑÊÇá ÓæÆíÊ¡ ˜áí˜ äãÇííÏ</a></h2>");
                         Response.Flush();
                     }
                     dr.Close();
@@ -426,7 +423,7 @@ namespace DotNetNuke.Services.Install
                     //Write out Header
                     Logger.Error(ex);
                     HtmlUtils.WriteHeader(Response, "error");
-                    Response.Write("<h2>Ù†Ø³Ø®Ù‡ Ø¬Ø§Ø±ÙŠ Ù†Ø±Ù… Ø§ÙØ²Ø§Ø±: " + DotNetNukeContext.Current.Application.Version.ToString(3) + "</h2>");
+                    Response.Write("<h2>äÓÎå ÌÇÑí äÑã ÇİÒÇÑ: " + DotNetNukeContext.Current.Application.Version.ToString(3) + "</h2>");
 
                     Response.Write("<h2>" + ex.Message + "</h2>");
                     Response.Flush();
@@ -436,7 +433,7 @@ namespace DotNetNuke.Services.Install
             {
                 //Write out Header
                 HtmlUtils.WriteHeader(Response, "error");
-                Response.Write("<h2>Ù†Ø³Ø®Ù‡ Ø¬Ø§Ø±ÙŠ Ù†Ø±Ù… Ø§ÙØ²Ø§Ø±: " + DotNetNukeContext.Current.Application.Version.ToString(3) + "</h2>");
+                Response.Write("<h2>äÓÎå ÌÇÑí äÑã ÇİÒÇÑ: " + DotNetNukeContext.Current.Application.Version.ToString(3) + "</h2>");
 
                 Response.Write("<h2>" + strProviderPath + "</h2>");
                 Response.Flush();
@@ -531,7 +528,7 @@ namespace DotNetNuke.Services.Install
             bool verified = new FileSystemPermissionVerifier(Server.MapPath("~")).VerifyAll();
             HtmlUtils.WriteFeedback(HttpContext.Current.Response,
                                     0,
-                                    "Ø¨Ø±Ø±Ø³ÙŠ Ø¯Ø³ØªØ±Ø³ÙŠ Ù‡Ø§ÙŠ ÙØ§ÙŠÙ„ Ùˆ Ù¾ÙˆØ´Ù‡ " + (verified ? "<font color='green'>Ù…ÙˆÙÙ‚ÙŠØª Ø¢Ù…ÙŠØ²</font>" : "<font color='red'>Ø®Ø·Ø§</font>") + "<br/>");
+                                    "ÈÑÑÓí ÏÓÊÑÓí åÇí İÇíá æ æÔå " + (verified ? "<font color='green'>ãæİŞíÊ ÂãíÒ</font>" : "<font color='red'>ÎØÇ</font>") + "<br/>");
             Response.Flush();
 
             return verified;

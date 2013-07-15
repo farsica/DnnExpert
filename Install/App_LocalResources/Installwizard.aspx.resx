@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccountInfoIntro.Text" xml:space="preserve">
-    <value>To setup your DotNetNuke Installation, enter the following information.</value>
+    <value>To setup your Installation, enter the following information.</value>
   </data>
   <data name="AdminInfo.Text" xml:space="preserve">
     <value>Administrative Information</value>
@@ -199,7 +199,7 @@
     <value>Installing Languages</value>
   </data>
   <data name="InstallTitle.Text" xml:space="preserve">
-    <value>DotNetNuke Installation</value>
+    <value>Installation</value>
   </data>
   <data name="IntroDetail.Text" xml:space="preserve">
     <value>&lt;a class="videoLink" href="http://www.dotnetnuke.com/Resources/Training/Training-Videos/Installation.aspx" target="new"&gt;View Installation Video&lt;/a&gt;</value>
@@ -424,7 +424,7 @@
     <value>Name of your database file.</value>
   </data>
   <data name="InstallationIntroInfo.Text" xml:space="preserve">
-    <value>DotNetNuke is being installed. Thanks for your patience...</value>
+    <value>The product is being installed. Thanks for your patience...</value>
   </data>
   <data name="LicenseActivation.Text" xml:space="preserve">
     <value>Activating License</value>
@@ -467,7 +467,7 @@ Standard Database setup option is unavailable</value>
     <value>Installation Complete!</value>
   </data>
   <data name="PageTitle.Text" xml:space="preserve">
-    <value>DotNetNuke Installation</value>
+    <value>Installation</value>
   </data>
   <data name="TimerMinutes.Text" xml:space="preserve">
     <value>Minutes</value>
@@ -516,5 +516,8 @@ Using Windows Explorer, browse to the folders of your website ( {0} ). Right-cli
 &lt;p&gt;The NT AUTHORITY\NETWORK SERVICE User Account must have Read, Write, and Change Control of the virtual root of your Website.&lt;/p&gt;
 &lt;h3&gt;If using Windows 7 or Windows Server 2008 R2 and  IIS7.5&lt;/h3&gt;
 &lt;p&gt;The IIS AppPool\DefaultAppPool User Account must have Read, Write, and Change Control of the virtual root of your Website.&lt;/p&gt;&lt;p&gt;&lt;a class="dnnPrimaryAction" href=""&gt;Recheck&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</value>
+  </data>
+  <data name="InstallVersion.Text" xml:space="preserve">
+    <value>Adding InstallVersion</value>
   </data>
 </root>

@@ -29,6 +29,7 @@ using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Host;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Users;
+using DotNetNuke.Entities.Users.Membership;
 using DotNetNuke.Instrumentation;
 using DotNetNuke.Security;
 using DotNetNuke.Security.Membership;
@@ -148,15 +149,21 @@ namespace DotNetNuke.Modules.Admin.Security
 
             var isEnabled = true;
 
-            if (MembershipProviderConfig.PasswordRetrievalEnabled)
+            //if (MembershipProviderConfig.PasswordRetrievalEnabled)
+            //{
+            //    lblHelp.Text = Localization.GetString("SendPasswordHelp", LocalResourceFile);
+            //    cmdSendPassword.Text = Localization.GetString("SendPassword", LocalResourceFile);
+            //}
+            //else if (MembershipProviderConfig.PasswordResetEnabled)
+            //{
+            //    lblHelp.Text = Localization.GetString("ResetPasswordHelp", LocalResourceFile);
+            //    cmdSendPassword.Text = Localization.GetString("ResetPassword", LocalResourceFile);
+            //}
+            //both retrieval and reset now use password token resets
+            if (MembershipProviderConfig.PasswordRetrievalEnabled || MembershipProviderConfig.PasswordResetEnabled)
             {
-                lblHelp.Text = Localization.GetString("SendPasswordHelp", LocalResourceFile);
-                cmdSendPassword.Text = Localization.GetString("SendPassword", LocalResourceFile);
-            }
-            else if (MembershipProviderConfig.PasswordResetEnabled)
-            {
-                lblHelp.Text = Localization.GetString("ResetPasswordHelp", LocalResourceFile);
-                cmdSendPassword.Text = Localization.GetString("ResetPassword", LocalResourceFile);
+                lblHelp.Text = Localization.GetString("ResetTokenHelp", LocalResourceFile);
+                cmdSendPassword.Text = Localization.GetString("ResetToken", LocalResourceFile);
             }
             else
             {
@@ -210,6 +217,7 @@ namespace DotNetNuke.Modules.Admin.Security
 
             var url = Globals.LoginURL(returnUrl, (Request.QueryString["override"] != null));
             hlLogin.NavigateUrl = PortalSettings.EnablePopUps && PortalSettings.LoginTabId == Null.NullInteger ? UrlUtils.PopUpUrl(url,this, PortalSettings, false,false): url;
+
         }
 
         /// <summary>
@@ -285,32 +293,36 @@ namespace DotNetNuke.Modules.Admin.Security
                         }
                         else
                         {
-                            if (MembershipProviderConfig.PasswordRetrievalEnabled)
-                            {
-                                try
-                                {
-                                    _user.Membership.Password = UserController.GetPassword(ref _user, txtAnswer.Text);
-                                }
-                                catch (Exception exc)
-                                {
-                                    Logger.Error(exc);
+                            //if (MembershipProviderConfig.PasswordRetrievalEnabled)
+                            //{
+                            //    try
+                            //    {
+                            //        _user.Membership.Password = UserController.GetPassword(ref _user, txtAnswer.Text);
+                            //    }
+                            //    catch (Exception exc)
+                            //    {
+                            //        Logger.Error(exc);
 
-                                    canSend = false;
-                                }
-                            }
-                            else
-                            {
-                                try
-                                {
-                                    _user.Membership.Password = UserController.GeneratePassword();
-                                    UserController.ResetPassword(_user, txtAnswer.Text);
-                                }
-                                catch (Exception exc)
-                                {
-                                    Logger.Error(exc);
+                            //        canSend = false;
+                            //    }
+                            //}
+                            //else
+                            //{
+                            //    try
+                            //    {
+                            //        _user.Membership.Password = UserController.GeneratePassword();
+                            //        UserController.ResetPassword(_user, txtAnswer.Text);
+                            //    }
+                            //    catch (Exception exc)
+                            //    {
+                            //        Logger.Error(exc);
 
-                                    canSend = false;
-                                }
+                            //        canSend = false;
+                            //    }
+                            //}
+                            if (MembershipProviderConfig.PasswordRetrievalEnabled || MembershipProviderConfig.PasswordResetEnabled)
+                            {
+                                UserController.ResetPasswordToken(_user);
                             }
                             if (canSend)
                             {

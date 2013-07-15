@@ -43,7 +43,10 @@ using DotNetNuke.Services.Localization;
 using DotNetNuke.Services.Upgrade;
 using DotNetNuke.UI.Utilities;
 using DotNetNuke.Web.Client.ClientResourceManagement;
+using DotNetNuke.Web.Common;
 using DotNetNuke.Web.UI.WebControls;
+
+using Telerik.Web.UI;
 
 using Globals = DotNetNuke.Common.Globals;
 
@@ -104,18 +107,19 @@ namespace DotNetNuke.UI.ControlPanels
             }
 
             ServicesFramework.Instance.RequestAjaxAntiForgerySupport();
+            var multipleSite = false;
 
             if (!IsPostBack)
             {
                 LoadCategoryList();
-                LoadSiteList();
+                multipleSite = LoadSiteList();
                 LoadVisibilityList();
                 AutoSetUserMode();
 	            BindPortalsList();
 	            BindLanguagesList();
             }
 
-            LoadTabModuleMessage = SiteList.Items.Count == 2 ? GetString("LoadingTabModuleCE.Text") : GetString("LoadingTabModule.Text");
+            LoadTabModuleMessage = multipleSite ? GetString("LoadingTabModuleCE.Text") : GetString("LoadingTabModule.Text");
 		}
 	
 		#endregion
@@ -151,6 +155,7 @@ namespace DotNetNuke.UI.ControlPanels
 
 		protected string PreviewPopup()
 		{
+			//Fariborz Khosravi
 			var previewUrl = string.Format("{0}/{3}?ctl={1}&previewTab={2}&TabID={2}", 
 										Globals.AddHTTP(PortalSettings.PortalAlias.HTTPAlias), 
 										"MobilePreview",
@@ -233,70 +238,66 @@ namespace DotNetNuke.UI.ControlPanels
             switch (toolName)
             {
                 case "PageSettings":
-
-                    if(TabPermissionController.CanManagePage())
+                    if (TabPermissionController.CanManagePage())
+                    {
                         returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Tab", "action=edit&activeTab=settingTab");
-
+                    }
                     break;
-
                 case "CopyPage":
-
                     if (TabPermissionController.CanCopyPage())
+                    {
                         returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Tab", "action=copy&activeTab=copyTab");
-
+                    }
                     break;
-
                 case "DeletePage":
-
-                    if(TabPermissionController.CanDeletePage())
-                        returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Tab", "action=delete");                   
-                       
+                    if (TabPermissionController.CanDeletePage())
+                    {
+                        returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Tab", "action=delete");
+                    }
                     break;
-
                 case "PageTemplate":
-
-                    if(TabPermissionController.CanManagePage())
-                        returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Tab", "action=edit&activeTab=advancedTab");                   
-                       
+                    if (TabPermissionController.CanManagePage())
+                    {
+                        returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Tab", "action=edit&activeTab=advancedTab");
+                    }
                     break;
-
+                case "PageLocalization":
+                    if (TabPermissionController.CanManagePage())
+                    {
+                        returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Tab", "action=edit&activeTab=localizationTab");
+                    }
+                    break;
                 case "PagePermission":
-
                     if (TabPermissionController.CanAdminPage())
+                    {
                         returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "Tab", "action=edit&activeTab=permissionsTab");
-
+                    }
                     break;
-
                 case "ImportPage":
-
                     if (TabPermissionController.CanImportPage())
+                    {
                         returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "ImportTab");
-
+                    }
                     break;
-
                 case "ExportPage":
-
                     if (TabPermissionController.CanExportPage())
+                    {
                         returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "ExportTab");
-
+                    }
                     break;
-
                 case "NewPage":
-
-                    if (DotNetNuke.Security.Permissions.TabPermissionController.CanAddPage())
+                    if (TabPermissionController.CanAddPage())
+                    {
                         returnValue = Globals.NavigateURL("Tab", "activeTab=settingTab");
-
+                    }
                     break;
-
+                case "UploadFile":
+                    returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "File Manager");
+                    break;
                 default:
                     if ((!string.IsNullOrEmpty(moduleFriendlyName)))
                     {
                         var additionalParams = new List<string>();
-                        if ((toolName == "UploadFile" || toolName == "HostUploadFile"))
-                        {
-                            additionalParams.Add("ftype=File");
-                            additionalParams.Add("rtab=" + PortalSettings.ActiveTab.TabID);
-                        }
                         returnValue = GetTabURL(additionalParams, toolName, isHostTool, 
                                                 moduleFriendlyName, controlKey, showAsPopUp);
                     }
@@ -339,7 +340,12 @@ namespace DotNetNuke.UI.ControlPanels
             return strURL;
         }
 
-        protected string GetTabURL(string tabName, bool isHostTool)
+		protected string GetTabURL(string tabName, bool isHostTool)
+		{
+			return GetTabURL(tabName, isHostTool, null);
+		}
+
+        protected string GetTabURL(string tabName, bool isHostTool, int? parentId)
         {
             if ((isHostTool && !UserController.GetCurrentUserInfo().IsSuperUser))
             {
@@ -347,16 +353,18 @@ namespace DotNetNuke.UI.ControlPanels
             }
 
             int portalId = (isHostTool) ? Null.NullInteger : PortalSettings.PortalId;
-            return GetTabURL(tabName, portalId);
+            return GetTabURL(tabName, portalId, parentId);
         }
 
-        protected string GetTabURL(string tabName, int portalId)
+        protected string GetTabURL(string tabName, int portalId, int? parentId)
         {
-            var tabController = new TabController();   
-            var tab = tabController.GetTabByName(tabName, portalId);
+            var tabController = new TabController();
+			var tab = parentId.HasValue ? tabController.GetTabByName(tabName, portalId, parentId.Value) : tabController.GetTabByName(tabName, portalId);
 
-            if(tab != null)
+            if (tab != null)
+            {
                 return tab.FullUrl;
+            }
 
             return string.Empty;
         }
@@ -683,44 +691,32 @@ namespace DotNetNuke.UI.ControlPanels
         private void LoadCategoryList()
         {
             ITermController termController = Util.GetTermController();
-            CategoryList.DataSource = termController.GetTermsByVocabulary("Module_Categories").OrderBy(t => t.Weight).Where(t => t.Name != "< None >").ToList();
+            var terms = termController.GetTermsByVocabulary("Module_Categories").OrderBy(t => t.Weight).Where(t => t.Name != "< None >").ToList();
+            var allTerm = new Term("All", Localization.GetString("AllCategories", LocalResourceFile));
+            terms.Add(allTerm);
+            CategoryList.DataSource = terms;
             CategoryList.DataBind();
-            CategoryList.AddItem(Localization.GetString("AllCategories", LocalResourceFile), "All");
             if (!IsPostBack)
             {
                 CategoryList.Select("All", false);
             }
         }
 
-        private void LoadSiteList()
+        private bool LoadSiteList()
         {
             // Is there more than one site in this group?
             var multipleSites = GetCurrentPortalsGroup().Count() > 1;
-            var list = new List<ListItem>();
-            list.Add(new ListItem { Text = GetString("SelectSite.Text"), Value = "" });
-            if(multipleSites)
+            if (multipleSites)
             {
-                var portals = GetCurrentPortalsGroup();
-                foreach (var portal in portals)
-                {
-                    var item = new ListItem() { Text = portal.PortalName, Value = portal.PortalID.ToString() };
-                    list.Add(item);
-                }
+                PageList.Services.GetFirstLevelItemsMethod = "PickListService/GetPagesInPortalGroup";
+                PageList.Services.GetChildrenMethod = "PickListService/GetPagesInPortalGroup";
+                PageList.Services.SearchMethod = "PickListService/SearchPagesInPortalGroup";
+                PageList.Services.GetTreeForItemMethod = "PickListService/GetTreePathForPageInPortalGroup";
             }
 
-            else
-            {
-                var item = new ListItem() {Text = PortalSettings.PortalName, Value = PortalSettings.PortalId.ToString()};
-                list.Add(item);
-            }
-
-            foreach(var item in list)
-            {
-                var comboItem = new DotNetNuke.Web.UI.WebControls.DnnComboBoxItem();
-                comboItem.Text = item.Text;
-                comboItem.Value = item.Value;
-                SiteList.Items.Add(comboItem);
-            }
+            PageList.UndefinedItem = new ListItem(SharedConstants.Unspecified, string.Empty);
+            PageList.OnClientSelectionChanged.Add("dnn.controlBar.ControlBar_Module_PageList_Changed");
+            return multipleSites;
         }
 
         private void LoadVisibilityList()
@@ -970,7 +966,7 @@ namespace DotNetNuke.UI.ControlPanels
                 {
                     case "Host Settings":
                     case "Site Management":
-                    case "File Manager":
+                    case "File Management":
                     case "Extensions":
                     case "Dashboard":
                     case "Health Monitoring":
@@ -1002,7 +998,7 @@ namespace DotNetNuke.UI.ControlPanels
                     case "Pages":
                     case "Security Roles":
                     case "User Accounts":
-                    case "File Manager":
+                    case "File Management":
                     case "Recycle Bin":
                     case "Log Viewer":
                         _adminBaseTabs.Add(tabInfo);

@@ -143,7 +143,7 @@ namespace DotNetNuke.Modules.Admin.Modules
         {
             base.OnLoad(e);
 
-            cboFolders.SelectedIndexChanged += OnFoldersIndexChanged;
+            cboFolders.SelectionChanged += OnFoldersIndexChanged;
             cboFiles.SelectedIndexChanged += OnFilesIndexChanged;
             cmdImport.Click += OnImportClick;
 
@@ -152,16 +152,8 @@ namespace DotNetNuke.Modules.Admin.Modules
                 if (!Page.IsPostBack)
                 {
                     cmdCancel.NavigateUrl = Globals.NavigateURL();
-                    //cboFolders.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
-                    cboFolders.InsertItem(0, "<" + Localization.GetString("None_Specified") + ">", "-");
-                    var user = UserController.GetCurrentUserInfo();
-                    var folders = FolderManager.Instance.GetFileSystemFolders(user, "BROWSE, ADD");
-                    foreach (FolderInfo folder in folders)
-                    {
-                        var folderItem = new ListItem { Text = folder.FolderPath == Null.NullString ? Localization.GetString("Root", LocalResourceFile) : folder.DisplayPath, Value = folder.FolderPath };
-                        //cboFolders.Items.Add(folderItem);
-                        cboFolders.AddItem(folderItem.Text, folderItem.Value);
-                    }
+                    cboFolders.UndefinedItem = new ListItem("<" + Localization.GetString("None_Specified") + ">", string.Empty);
+                    cboFolders.Services.Parameters.Add("permission", "ADD");
                 }
             }
             catch (Exception exc)
@@ -173,9 +165,8 @@ namespace DotNetNuke.Modules.Admin.Modules
         protected void OnFoldersIndexChanged(object sender, EventArgs e)
         {
             cboFiles.Items.Clear();
-            //cboFiles.Items.Insert(0, new ListItem("<" + Localization.GetString("None_Specified") + ">", "-"));
             cboFiles.InsertItem(0, "<" + Localization.GetString("None_Specified") + ">", "-");
-            if (cboFolders.SelectedIndex == 0)
+            if (cboFolders.SelectedItem == null)
             {
                 return;
             }
@@ -183,12 +174,15 @@ namespace DotNetNuke.Modules.Admin.Modules
             {
                 return;
             }
-            var arrFiles = Globals.GetFileList(PortalId, "xml", false, cboFolders.SelectedItem.Value);
+
+            var folder = FolderManager.Instance.GetFolder(cboFolders.SelectedItemValueAsInt);
+            if (folder == null) return;
+
+            var arrFiles = Globals.GetFileList(PortalId, "xml", false, folder.FolderPath);
             foreach (FileItem objFile in arrFiles)
             {
-                if (objFile.Text.IndexOf("content." + Globals.CleanName(Module.DesktopModule.ModuleName) + ".") != -1)
+                if (objFile.Text.IndexOf("content." + Globals.CleanName(Module.DesktopModule.ModuleName) + ".", System.StringComparison.Ordinal) != -1)
                 {
-                    //cboFiles.Items.Add(new ListItem(objFile.Text.Replace("content." + Globals.CleanName(Module.DesktopModule.ModuleName) + ".", ""), objFile.Text));
                     cboFiles.AddItem(objFile.Text.Replace("content." + Globals.CleanName(Module.DesktopModule.ModuleName) + ".", ""), objFile.Text);
                 }
 
@@ -197,9 +191,9 @@ namespace DotNetNuke.Modules.Admin.Modules
                 {
                     continue;
                 }
-                if (objFile.Text.IndexOf("content." + Globals.CleanName(Module.DesktopModule.FriendlyName) + ".") != -1)
+
+                if (objFile.Text.IndexOf("content." + Globals.CleanName(Module.DesktopModule.FriendlyName) + ".", System.StringComparison.Ordinal) != -1)
                 {
-                    //cboFiles.Items.Add(new ListItem(objFile.Text.Replace("content." + Globals.CleanName(Module.DesktopModule.FriendlyName) + ".", ""), objFile.Text));
                     cboFiles.AddItem(objFile.Text.Replace("content." + Globals.CleanName(Module.DesktopModule.FriendlyName) + ".", ""), objFile.Text);
                 }
             }
@@ -207,7 +201,11 @@ namespace DotNetNuke.Modules.Admin.Modules
 
         protected void OnFilesIndexChanged(object sender, EventArgs e)
         {
-            var objStreamReader = File.OpenText(PortalSettings.HomeDirectoryMapPath + cboFolders.SelectedItem.Value + cboFiles.SelectedItem.Value);
+            if (cboFolders.SelectedItem == null) return;
+            var folder = FolderManager.Instance.GetFolder(cboFolders.SelectedItemValueAsInt);
+            if (folder == null) return;
+
+            var objStreamReader = File.OpenText(PortalSettings.HomeDirectoryMapPath + folder.FolderPath + cboFiles.SelectedItem.Value);
             var content = objStreamReader.ReadToEnd();
             objStreamReader.Close();
             txtContent.Text = content.Replace("><", ">\r\n<");

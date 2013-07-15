@@ -177,6 +177,7 @@ namespace DotNetNuke.Services.Install
             PageLocale.Value = cultureCode;
             _culture = cultureCode;
 
+            //Fariborz Khosravi
             Thread.CurrentThread.CurrentUICulture = Common.Globals.GetUICulture(null, cultureCode);
         }
 
@@ -193,6 +194,7 @@ namespace DotNetNuke.Services.Install
             //Set Script timeout to MAX value
             HttpContext.Current.Server.ScriptTimeout = int.MaxValue;
 
+            //Fariborz Khosravi
             if (_culture != null)
                 Thread.CurrentThread.CurrentUICulture = Common.Globals.GetUICulture(null, _culture);
 
@@ -254,6 +256,7 @@ namespace DotNetNuke.Services.Install
 
             //restore Script timeout
             HttpContext.Current.Server.ScriptTimeout = scriptTimeOut;
+
         }
 
         private static void CurrentStepActivity(string status)
@@ -296,6 +299,7 @@ namespace DotNetNuke.Services.Install
             Upgrade.Upgrade.DeleteInstallerFiles();
 
             Config.Touch();
+            //Fariborz Khosravi
             HttpContext.Current.Response.Redirect("../" + Globals.glbDefaultPage, true);
         }
         #endregion
@@ -327,36 +331,7 @@ namespace DotNetNuke.Services.Install
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            UpdateInstallVersion();
             GetInstallerLocales();
-        }
-
-        private void UpdateInstallVersion()
-        {
-            var databaseVersion = DataProvider.Instance().GetVersion();
-
-            //first update the InstallVersion app setting if needed
-            bool redirectNeeded;
-            string strError = Config.UpdateInstallVersion(databaseVersion, out redirectNeeded);
-
-            if (String.IsNullOrEmpty(strError))
-            {
-                if (redirectNeeded)
-                {
-                    // we've update web.config, so we need to restart the page
-                    Response.Redirect(HttpContext.Current.Request.RawUrl, true);
-                }
-                else
-                {
-                    if (!String.IsNullOrEmpty(strError))
-                    {
-                        //403-3 Error - Redirect to ErrorPage
-                        string strURL = "~/ErrorPage.aspx?status=403_3&error=" + strError;
-                        HttpContext.Current.Response.Clear();
-                        HttpContext.Current.Server.Transfer(strURL);
-                    }
-                }
-            }
         }
 
         /// -----------------------------------------------------------------------------
@@ -384,6 +359,7 @@ namespace DotNetNuke.Services.Install
             {
                 if (!File.Exists(StatusFile)) File.CreateText(StatusFile).Close();
             }
+			//Fariborz Khosravi
             if (new CultureInfo(PageLocale.Value).TextInfo.IsRightToLeft)
             {
                 DefaultStylesheet.Attributes["href"] = ResolveUrl("~/Portals/_default/default.rtl.css?refresh");
@@ -404,7 +380,7 @@ namespace DotNetNuke.Services.Install
 
         //Ordered List of Steps (and weight in percentage) to be executed
         private static IDictionary<IInstallationStep, int> _steps = new Dictionary<IInstallationStep, int>
-                                        { {upgradeDatabase, 50}, {upgradeExtensions, 50} };
+                                        { {upgradeDatabase, 50}, {upgradeExtensions, 49}, {new InstallVersionStep(), 1} };
 
         [System.Web.Services.WebMethod()]
         public static Tuple<bool, string> ValidateInput(Dictionary<string, string> accountInfo)
@@ -447,11 +423,6 @@ namespace DotNetNuke.Services.Install
             LaunchUpgrade();
            }
         }
-
-        //protected string LocalizeString(string key)
-        //{
-        //    return Localization.Localization.GetString(key, LocalResourceFile, _culture);
-        //}
 
         [System.Web.Services.WebMethod()]
         public static object GetInstallationLog(int startRow)

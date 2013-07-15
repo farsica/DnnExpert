@@ -2,6 +2,7 @@
     CodeFile="ControlBar.ascx.cs" %>
 <%@ Import Namespace="DotNetNuke.Security.Permissions" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web" %>
+<!--SEO NOINDEX-->
 <asp:Panel ID="ControlPanel" runat="server">
     <div id="ControlBar">
         <div class="ControlContainer">
@@ -14,7 +15,7 @@
             <ul id="ControlNav">
                 <% if (UserController.GetCurrentUserInfo().IsInRole("Administrators"))
                    {%>
-                <li><a href="<%= GetTabURL("Admin", false) %>">
+                <li><a href="<%= GetTabURL("Admin", false, Null.NullInteger) %>">
                     <%= GetString("Tool.Admin.Text") %></a>
                     <div class="subNav advanced">
                         <ul class="subNavToggle">
@@ -51,7 +52,7 @@
                 </li>
                 <% if (UserController.GetCurrentUserInfo().IsSuperUser)
                    {%>
-                <li><a href="<%= GetTabURL("Host", true) %>">
+                <li><a href="<%= GetTabURL("Host", true, Null.NullInteger) %>">
                     <%= GetString("Tool.Host.Text") %></a>
                     <div class="subNav advanced">
                         <ul class="subNavToggle">
@@ -87,7 +88,6 @@
                     <!--close subNav-->
                 </li>
                 <% } %>
-				<!--SEO NOINDEX-->
                 <li class="controlBar_ArrowMenu"><a href="javascript:void(0)">
                     <%= GetString("Tool.Tools.Text") %></a>
                     <div class="subNav">
@@ -144,11 +144,9 @@
                     </div>
                     <!--close subNav-->
                 </li>
-				<!--END SEO-->
                 <% } %>
             </ul>
             <!--close ControlNav-->
-			<!--SEO NOINDEX-->
             <ul id="ControlActionMenu">
                <% if (TabPermissionController.HasTabPermission("EDIT,CONTENT,MANAGE"))
                   {%>
@@ -210,12 +208,12 @@
                         <li>
                             <% if (PortalSettings.EnablePopUps)
                                {%>
-                                <a href='<%= BuildToolUrl("NewUser", false, "User Accounts", "Edit", "", true) %>'
+                                <a href='<%= BuildToolUrl("NewUser", false, "User Accounts", "Edit", "", false) %>'
                                    class="ControlBar_PopupLink">
                             <% }
                                else
                                {%>
-                                <a href='<%= BuildToolUrl("NewUser", false, "User Accounts", "Edit", "", true) %>'>
+                                <a href='<%= BuildToolUrl("NewUser", false, "User Accounts", "Edit", "", false) %>'>
                                <%} %>
                             <%= GetString("Tool.NewUser.Text") %></a>
                         </li>
@@ -258,6 +256,11 @@
                         
                         <li><a href="<%= BuildToolUrl("PageTemplate", false, "", "", "", true) %>" class="ControlBar_PopupLink">
                             <%= GetString("Tool.ManageTemplate.Text") %></a></li>
+                            <% if (PortalSettings.ContentLocalizationEnabled)
+                               { %>
+                        <li><a href="<%= BuildToolUrl("PageLocalization", false, "", "", "", true) %>" class="ControlBar_PopupLink">
+                            <%= GetString("Tool.ManageLocalization.Text") %></a></li>
+                            <% } %>
                         <% } %>
                         <% if (TabPermissionController.CanAdminPage())
                            {%>
@@ -281,7 +284,6 @@
                 </li>
             </ul>
              <%}%>
-			<!--END SEO-->
         </div>
         
          <% if (TabPermissionController.HasTabPermission("EDIT,CONTENT,MANAGE"))
@@ -312,8 +314,7 @@
         </div>
         <div id="ControlBar_Module_AddExistingModule" class="ControlModulePanel">
             <div class="ControlModuleContainer">
-                <dnn:DnnComboBox ID="SiteList" runat="server" CssClass="dnnLeftComboBox" OnClientSelectedIndexChanged="dnn.controlBar.ControlBar_Module_SiteList_Changed" Skin="DnnBlack" />
-                <dnn:DnnComboBox ID="PageList" runat="server" CssClass="dnnLeftComboBox" OnClientSelectedIndexChanged="dnn.controlBar.ControlBar_Module_PageList_Changed" Skin="DnnBlack" />
+                <dnn:DnnPageDropDownList ID="PageList" runat="server" CssClass="dnnLeftComboBox dnnBlackDropDown" />
                 <dnn:DnnComboBox ID="VisibilityLst" runat="server" CssClass="dnnLeftComboBox" Enabled="false" Skin="DnnBlack" />
                 <div class="ControlBar_chckCopyModule">
                     <input type="checkbox" id="ControlBar_Module_chkCopyModule" /><label for="ControlBar_Module_chkCopyModule"><%= GetString("Tool.MakeCopy.Text") %></label></div>
@@ -377,11 +378,9 @@
     dnn.controlBarSettings = {
         currentUserMode: '<%= GetModeForAttribute() %>',
         categoryComboId: '<%= CategoryList.ClientID %>',
-        portalComboId: '<%= SiteList.ClientID %>',
-        pageComboId: '<%= PageList.ClientID %>',
     	visibilityComboId: '<%= VisibilityLst.ClientID %>',
     	makeCopyCheckboxId: 'ControlBar_Module_chkCopyModule',
-		
+		pagePickerId: '<%= PageList.ClientID %>',
         yesText: '<%= DotNetNuke.UI.Utilities.ClientAPI.GetSafeJSString(Localization.GetString("Yes.Text", Localization.SharedResourceFile)) %>',
         noText: '<%= DotNetNuke.UI.Utilities.ClientAPI.GetSafeJSString(Localization.GetString("No.Text", Localization.SharedResourceFile)) %>',
         titleText: '<%= DotNetNuke.UI.Utilities.ClientAPI.GetSafeJSString(Localization.GetString("Confirm.Text", Localization.SharedResourceFile)) %>',
@@ -404,3 +403,4 @@
     });
 
 </script>
+<!--END SEO-->

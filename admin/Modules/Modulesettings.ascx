@@ -46,14 +46,14 @@
                     <dnn:label id="plAllTabs" runat="server" controlname="chkAllTabs" />
                     <asp:CheckBox ID="chkAllTabs" runat="server" AutoPostBack="true" />
                 </div>
-                <div class="dnnFormItem" id="rowSearchOnce" runat="server">
-                    <dnn:label id="plSearchOnce" runat="server" controlname="chkSearchOnce" />
-                    <asp:CheckBox ID="chkSearchOnce" runat="server" />
-                </div>
                 <div class="dnnFormItem" id="trnewPages" runat="server">
                     <dnn:label id="plNewTabs" runat="server" controlname="chkNewTabs" />
                     <asp:CheckBox ID="chkNewTabs" runat="server" />
-                </div>
+                </div>               
+				<div class="dnnFormItem" id="allowIndexRow" runat="server">
+					<dnn:Label ID="AllowIndexLabel" runat="server" ControlName="chkAllowIndex" />
+					<asp:CheckBox ID="chkAllowIndex" runat="server" />
+				</div>  
                 <div id="isShareableRow" runat="server" Visible="False" class="dnnFormItem">
                     <dnn:label id="isShareableLabel" runat="server" controlname="isShareableCheckBox" />
                     <asp:CheckBox ID="isShareableCheckBox" runat="server"/>
@@ -127,6 +127,7 @@
             <fieldset>
                 <div id="permissionsRow" runat="server">
                     <dnn:modulepermissionsgrid id="dgPermissions" runat="server" />
+                    <div class="dnnClear"></div>
                     <asp:CheckBox ID="chkInheritPermissions" Visible="false" AutoPostBack="true" runat="server" resourcekey="InheritPermissions" />
                 </div>
             </fieldset>
