@@ -65,7 +65,10 @@ function __dnn_setScrollTop(iTop)
 				dnn.setVar('ScrollToControl', '');
 			}
 		}
-		window.scrollTo(0, iTop);
+
+		if (document.getElementsByTagName("html")[0].style["overflow"] != "hidden") {
+			window.scrollTo(0, iTop);
+		}
 	}
 }
 
