@@ -15,6 +15,7 @@
     <meta id="MetaCopyright" runat="Server" name="COPYRIGHT" />
     <meta id="MetaGenerator" runat="Server" name="GENERATOR" />
     <meta id="MetaAuthor" runat="Server" name="AUTHOR" />
+    <meta name="DEVELOPEDBY" content="http://dnnexpert.net" />
     <meta name="RESOURCE-TYPE" content="DOCUMENT" />
     <meta name="DISTRIBUTION" content="GLOBAL" />
     <meta id="MetaRobots" runat="server" name="ROBOTS" />

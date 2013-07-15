@@ -374,6 +374,7 @@ namespace DotNetNuke.Framework
                 KeyWords += ",Farsica,PortalSuite,DnnExpert";
             }
 
+            //Fariborz Khosravi
             //META copyright
             if (!string.IsNullOrEmpty(PortalSettings.FooterText))
             {
@@ -421,6 +422,13 @@ namespace DotNetNuke.Framework
                 // don't use the new API to register widgets until we better understand their asynchronous script loading requirements.
                 ClientAPI.RegisterStartUpScript(Page, "initWidgets", string.Format("<script type=\"text/javascript\" src=\"{0}\" ></script>", ResolveUrl("~/Resources/Shared/scripts/initWidgets.js")));
             }
+
+			//register the custom stylesheet of current page
+			if (PortalSettings.ActiveTab.TabSettings.ContainsKey("CustomStylesheet") && !string.IsNullOrEmpty(PortalSettings.ActiveTab.TabSettings["CustomStylesheet"].ToString()))
+			{
+				var customStylesheet = Path.Combine(PortalSettings.HomeDirectory, PortalSettings.ActiveTab.TabSettings["CustomStylesheet"].ToString());
+				ClientResourceManager.RegisterStyleSheet(this, customStylesheet);
+			}
         }
 
         /// -----------------------------------------------------------------------------
@@ -637,8 +645,6 @@ namespace DotNetNuke.Framework
         /// -----------------------------------------------------------------------------
         protected override void OnInit(EventArgs e)
         {
-          
-
             base.OnInit(e);
 
             //set global page settings
