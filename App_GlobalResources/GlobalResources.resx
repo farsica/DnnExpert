@@ -240,7 +240,7 @@
   <data name="BannerType.Script.String" xml:space="preserve">
     <value>Script</value>
   </data>
-  <data name="//Host//SearchAdmin.String" xml:space="preserve">
+  <data name="//Admin//SearchAdmin.String" xml:space="preserve">
     <value>Search Admin</value>
   </data>
   <data name="//Host//Lists.String" xml:space="preserve">
@@ -653,18 +653,19 @@ Thank you, we appreciate your support...
   <data name="EMAIL_PASSWORD_REMINDER_BODY.Text" xml:space="preserve">
     <value>Dear [User:DisplayName],
 
-You have requested a Password Reminder from [Portal:PortalName].
+You have requested a Password Reset Token from [Portal:PortalName].
 
 Please login using the following information:
 
 Website Address: [Portal:URL]
 Username:   [User:Username]
-Password: [Membership:Password]
+
+Link to reset password: http://[Portal:URL]/default.aspx?ctl=PasswordReset&amp;resetToken=[Membership:PasswordResetToken]
 
 Sincerely,
 [Portal:PortalName]
 
-*Note: If you did not request a Password Reminder, please disregard this Message.
+*Note: If you did not request a Password Reset Token, please disregard this Message.
 </value>
   </data>
   <data name="EMAIL_PROFILE_UPDATED_SUBJECT.Text" xml:space="preserve">
@@ -1325,5 +1326,20 @@ Please do not reply to this email.</value>
   </data>
   <data name="//ContactUs.String" xml:space="preserve">
     <value>Contact Us</value>
+  </data>
+  <data name="//Host//AdvancedURLManagement.String" xml:space="preserve">
+    <value>Advanced URL Management</value>
+  </data>
+  <data name="//Admin//FileManagement.String" xml:space="preserve">
+    <value>File Management</value>
+  </data>
+  <data name="//Host//FileManagement.String" xml:space="preserve">
+    <value>File Management</value>
+  </data>
+  <data name="UrlPathCleaned.Error" xml:space="preserve">
+    <value>The Page URL entered contains characters which cannot be used in a URL.   These characters have been removed.  Click the 'Update' button again to accept the modified URL.</value>
+  </data>
+  <data name="UrlPathNotUnique.Error" xml:space="preserve">
+    <value>The submitted URL is not available.  If you wish to accept the suggested alternative, please click Save.</value>
   </data>
 </root>

@@ -286,7 +286,10 @@
     <value>آدرس پست الکترونیک وارد شده نامعتبر می باشد. لطفا آدرس پست الکترونیک معتبری را وارد نمایید.</value>
   </data>
   <data name="InvalidPassword.Text" xml:space="preserve">
-    <value>رمزعبور وارد شده نامعتبر است. لطفا رمزعبور معتبری وارد نمایید. رمزعبور بایستی حداقل شامل [PasswordLength] کاراکتر بوده و حداقل شامل [NoneAlphabet] کاراکتر غیرحروف باشد.</value>
+    <value>رمزعبور وارد شده نامعتبر است. لطفا رمزعبور معتبری وارد نمایید. رمزعبور بایستی حداقل شامل [PasswordLength] کاراکتر بوده و حداقل شامل [NoneAlphabet] کاراکتر غیرحروف بوده و شامل نام کاربری انتخابی نباشد.</value>
+  </data>
+  <data name="BannedPasswordUsed.Text" xml:space="preserve">
+    <value>رمز عبور وارد شده نامعتبر می باشد. مقدار وارد شده همانند نام کاربری بوده و یا در لیست ممنوعه رمزهای عبور قرار دارد.</value>
   </data>
   <data name="InvalidQuestion.Text" xml:space="preserve">
     <value>سئوال وارد شده نامعتبر می باشد. لطفا سئوال معتبری را وارد نمایید.</value>
@@ -1556,5 +1559,203 @@
   </data>
   <data name="MyFolderName.Text" xml:space="preserve">
     <value>پوشه من</value>
+  </data>
+  <data name="Basic.Text" xml:space="preserve">
+    <value>تنظیمات پایه پروفایل</value>
+  </data>
+  <data name="Contact.Text" xml:space="preserve">
+    <value>اطلاعات تماس</value>
+  </data>
+  <data name="Location.Text" xml:space="preserve">
+    <value>اطلاعات مکانی</value>
+  </data>
+  <data name="ProfileUrlCleaned.Text" xml:space="preserve">
+    <value>آدرس URL وارد شده شامل حروف نامعتبر بود که توسط سیستم حذف گردید. درصورت تمایل به استفاده از مقدار پیشنهادی توسط سیستم، مجددا بر روی دکمه "بروزرسانی" کلیک نمایید.</value>
+  </data>
+  <data name="CleanWarningTitle.Text" xml:space="preserve">
+    <value>آدس URL بازسازی گردید</value>
+  </data>
+  <data name="DuplicateUrlWarningTitle.Text" xml:space="preserve">
+    <value>آدرس URL تکراری</value>
+  </data>
+  <data name="ProfileUrlNotUnique.Text" xml:space="preserve">
+    <value>آدرس URL درخواستی در دسترس نمی باشد. درصورت تمایل به استفاده از گزینه پیشنهادی، بر روی دکمه بروزرسانی کلیک نمایید.</value>
+  </data>
+  <data name="DraftCompleted.Action" xml:space="preserve">
+    <value>تکمیل پیش نویس</value>
+  </data>
+  <data name="DraftCompleted.Comment" xml:space="preserve">
+    <value>پیش نویس تکمیل شده و آماده انتشار می باشد</value>
+  </data>
+  <data name="StateCompleted.Action" xml:space="preserve">
+    <value>تکمیل مرحله</value>
+  </data>
+  <data name="StateCompleted.Comment" xml:space="preserve">
+    <value>مرحله "[STATE]" تایید گردید</value>
+  </data>
+  <data name="StateDiscarded.Action" xml:space="preserve">
+    <value>عدم تایید مرحله</value>
+  </data>
+  <data name="StateDiscarded.Comment" xml:space="preserve">
+    <value>مرحله "[STATE]" تایید نگردید</value>
+  </data>
+  <data name="StateInitiated.Action" xml:space="preserve">
+    <value>آغاز مرحله</value>
+  </data>
+  <data name="StateInitiated.Comment" xml:space="preserve">
+    <value>چرخه کاری در مرحله "[STATE]" قرار دارد </value>
+  </data>
+  <data name="WorkflowApproved.Action" xml:space="preserve">
+    <value>تکمیل چرخه کاری</value>
+  </data>
+  <data name="WorkflowApproved.Comment" xml:space="preserve">
+    <value>چرخه کاری "[WORKFLOW]" تکمیل شده و تایید گردید</value>
+  </data>
+  <data name="WorkflowError.Action" xml:space="preserve">
+    <value>خطا در چرخه کاری</value>
+  </data>
+  <data name="WorkflowError.Comment" xml:space="preserve">
+    <value>بروز خطا در چرخه کاری "[WORKFLOW]"</value>
+  </data>
+  <data name="WorkflowStarted.Action" xml:space="preserve">
+    <value>آغاز چرخه کاری</value>
+  </data>
+  <data name="WorkflowStarted.Comment" xml:space="preserve">
+    <value>چرخه کاری "[WORKFLOW]" آغاز گردید</value>
+  </data>
+  <data name="URLPROVIDER_NameMissing.Text" xml:space="preserve">
+    <value>عدم درج نام شیوه مدیریت آدرس های URL</value>
+  </data>
+  <data name="URLPROVIDER_Registered.Text" xml:space="preserve">
+    <value>شیوه مدیریت آدرس های URL ثبت گردید</value>
+  </data>
+  <data name="URLPROVIDER_TypeMissing.Text" xml:space="preserve">
+    <value>عدم درج نوع شیوه مدیریت آدرس های URL</value>
+  </data>
+  <data name="URLPROVIDER_UnRegistered.Text" xml:space="preserve">
+    <value>شیوه مدیریت آدرس های URL ثبت نگردید</value>
+  </data>
+  <data name="URLPROVIDER_ReadSuccess.Text" xml:space="preserve">
+    <value>راهنمای نصب شیوه مدیریت آدرس های URL با موفقیت خوانده شد</value>
+  </data>
+  <data name="DefaultWorkflowDescription.Text" xml:space="preserve">
+    <value>این قابلیت برای نویسنده، امکان مدیریت مطالب خود را فراهم می آورد؛ سپس این مطالب قبل از انتشار، توسط سایر کاربران بررسی می گردد</value>
+  </data>
+  <data name="DefaultWorkflowName.Text" xml:space="preserve">
+    <value>تایید محتوا</value>
+  </data>
+  <data name="DefaultWorkflowState1.OnCompleteMessageBody" xml:space="preserve">
+    <value>[DATE]: فایل [FILE] برای بررسی توسط [USER] آماده می باشد</value>
+  </data>
+  <data name="DefaultWorkflowState1.OnCompleteMessageSubject" xml:space="preserve">
+    <value>فایل برای بررسی آماده می باشد</value>
+  </data>
+  <data name="DefaultWorkflowState1.OnDiscardMessageBody" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultWorkflowState1.OnDiscardMessageSubject" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultWorkflowState1.StateName" xml:space="preserve">
+    <value>پیش نویس</value>
+  </data>
+  <data name="DefaultWorkflowState2.OnCompleteMessageBody" xml:space="preserve">
+    <value>[DATE]: استفاده از فایل [FILE] توسط [USER] تایید گردیده است</value>
+  </data>
+  <data name="DefaultWorkflowState2.OnCompleteMessageSubject" xml:space="preserve">
+    <value>فایل تایید گردید</value>
+  </data>
+  <data name="DefaultWorkflowState2.OnDiscardMessageBody" xml:space="preserve">
+    <value>[DATE]: فایل [FILE] توسط [USER] تایید نگردید</value>
+  </data>
+  <data name="DefaultWorkflowState2.OnDiscardMessageSubject" xml:space="preserve">
+    <value>عدم تایید فایل</value>
+  </data>
+  <data name="DefaultWorkflowState2.StateName" xml:space="preserve">
+    <value>آماده برای بررسی</value>
+  </data>
+  <data name="DefaultWorkflowState3.OnCompleteMessageBody" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultWorkflowState3.OnCompleteMessageSubject" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultWorkflowState3.OnDiscardMessageBody" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultWorkflowState3.OnDiscardMessageSubject" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultWorkflowState3.StateName" xml:space="preserve">
+    <value>منتشر شده</value>
+  </data>
+  <data name="Save.Text" xml:space="preserve">
+    <value>ذخیره</value>
+  </data>
+  <data name="Cancel.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="CommentProvided.Action" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="CommentProvided.Comment" xml:space="preserve">
+    <value>توضیحات مرحله "[STATE]": [COMMENT]</value>
+  </data>
+  <data name="WorkflowDiscarded.Action" xml:space="preserve">
+    <value>عدم تایید چرخه کاری</value>
+  </data>
+  <data name="WorkflowDiscarded.Comment" xml:space="preserve">
+    <value>چرخه کاری "[WORKFLOW]" در مرحله "[STATE]" تایید نگردید</value>
+  </data>
+  <data name="DropDownList.SearchInputPlaceHolder" xml:space="preserve">
+    <value>جستجو...</value>
+  </data>
+  <data name="DropDownList.SearchButtonTooltip" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="DropDownList.ClearButtonTooltip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="DropDownList.SortAscendingButtonTitle" xml:space="preserve">
+    <value>الف-ی</value>
+  </data>
+  <data name="DropDownList.SortAscendingButtonTooltip" xml:space="preserve">
+    <value>نمایش بصورت صعودی</value>
+  </data>
+  <data name="DropDownList.SortDescendingButtonTooltip" xml:space="preserve">
+    <value>نمایش بصورت نزولی</value>
+  </data>
+  <data name="DropDownList.UnsortedOrderButtonTooltip" xml:space="preserve">
+    <value>حذف ترتیب نمایش</value>
+  </data>
+  <data name="DropDownList.Results" xml:space="preserve">
+    <value>مورد</value>
+  </data>
+  <data name="DropDownList.SelectedItemExpandTooltip" xml:space="preserve">
+    <value>برای نمایش کامل این بخش کلیک نمایید</value>
+  </data>
+  <data name="DropDownList.SelectedItemCollapseTooltip" xml:space="preserve">
+    <value>برای کوچک کردن این بخش کلیک نمایید</value>
+  </data>
+  <data name="DropDownList.LoadingResultText" xml:space="preserve">
+    <value>...بارگزاری نتایج</value>
+  </data>
+  <data name="DropDownList.SelectWebPageDefaultText" xml:space="preserve">
+    <value>انتخاب صفحه</value>
+  </data>
+  <data name="DropDownList.SelectUserDefaultText" xml:space="preserve">
+    <value>انتخاب کاربر</value>
+  </data>
+  <data name="DropDownList.SelectFolderDefaultText" xml:space="preserve">
+    <value>انتخاب پوشه</value>
+  </data>
+  <data name="SEARCH_NoLink.Text" xml:space="preserve">
+    <value>[لینکی موجود نمی باشد]</value>
+  </data>
+  <data name="VerificationSuccess.Text" xml:space="preserve">
+    <value>حساب کاربری شما با موفقیت تایید گردیده است</value>
+  </data>
+  <data name="RootFolder.Name" xml:space="preserve">
+    <value>شاخه اصلی سایت</value>
   </data>
 </root>

@@ -112,81 +112,21 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Cancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="AlreadyExists.Text" xml:space="preserve">
+    <value>The file already exists</value>
   </data>
-  <data name="ComboBox.EmptyMessage" xml:space="preserve">
-    <value>There are no items in the list.</value>
+  <data name="ErrorMessage.Text" xml:space="preserve">
+    <value>The file '{0}' could not be uploaded: {1}</value>
   </data>
-  <data name="FieldSuffix.Text" xml:space="preserve">
-    <value>:</value>
-  </data>
-  <data name="File.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
-  <data name="Folder.Text" xml:space="preserve">
-    <value>Folder</value>
-  </data>
-  <data name="MyFolder.Text" xml:space="preserve">
-    <value>My Folder</value>
+  <data name="ExtensionNotAllowed.Text" xml:space="preserve">
+    <value>File extension not allowed</value>
   </data>
   <data name="NoPermission.Text" xml:space="preserve">
-    <value>You do not have permissions to view any files on the file system</value>
-  </data>
-  <data name="Ok.Text" xml:space="preserve">
-    <value>Ok</value>
-  </data>
-  <data name="PortalRoot.Text" xml:space="preserve">
-    <value>Site Root</value>
-  </data>
-  <data name="Save.Text" xml:space="preserve">
-    <value>Save File</value>
-  </data>
-  <data name="Upload.Text" xml:space="preserve">
-    <value>Upload File</value>
-  </data>
-  <data name="UploadError.Text" xml:space="preserve">
-    <value>File type {1} is not valid in this context. Valid File Types Include: {0}</value>
-  </data>
-  <data name="PasswordStrengthFair.Text" xml:space="preserve">
-    <value>fair</value>
-  </data>
-  <data name="PasswordStrengthMinLength.Text" xml:space="preserve">
-    <value>-character minimum</value>
-  </data>
-  <data name="PasswordStrengthStrong.Text" xml:space="preserve">
-    <value>strong</value>
-  </data>
-  <data name="PasswordStrengthWeak.Text" xml:space="preserve">
-    <value>weak</value>
-  </data>
-  <data name="CriteriaOneUpperCaseLetter.Text" xml:space="preserve">
-    <value>One upper-case letter</value>
-  </data>
-  <data name="CriteriaOneLowerCaseLetter.Text" xml:space="preserve">
-    <value>One lower-case letter</value>
-  </data>
-  <data name="CriteriaSpecialChar.Text" xml:space="preserve">
-    <value>Special character (!,@,#,%)</value>
-  </data>
-  <data name="CriteriaAtLeastNSpecialChars.Text" xml:space="preserve">
-    <value>At least {0} special characters (!,@,#,%)</value>
-  </data>
-  <data name="CriteriaOneNumber.Text" xml:space="preserve">
-    <value>One number</value>
-  </data>
-  <data name="CriteriaAtLeastNChars.Text" xml:space="preserve">
-    <value>At least {0} characters</value>
-  </data>
-  <data name="ConfirmPasswordUnmatched.Text" xml:space="preserve">
-    <value>Password does not match</value>
-  </data>
-  <data name="ConfirmPasswordMatched.Text" xml:space="preserve">
-    <value>Password is matched</value>
+    <value>No permission</value>
   </data>
 </root>

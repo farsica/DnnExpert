@@ -267,4 +267,34 @@
   <data name="AmbiguousController.Text" xml:space="preserve">
     <value>بیش از یک مورد Controller با نام '{0}' در دامنه های {1} موجود می باشد.</value>
   </data>
+  <data name="MaxLengthExceeded.Text" xml:space="preserve">
+    <value>طول فیلد {0} بیشتر از حداکثر مقدار مجاز می باشد</value>
+  </data>
+  <data name="InvalidPublishPeriod.Text" xml:space="preserve">
+    <value>تاریخ پایان بایستی بزرگتر از تاریخ شروع باشد</value>
+  </data>
+  <data name="ProfileService_UpdateVanityUrl.Error" xml:space="preserve">
+    <value>بروز خطا در زمان بروزرسانی آدرس URL پروفایل. درصورت تکرار خطا لطفا با مدیریت پورتال تماس حاصل فرمایید.</value>
+  </data>
+  <data name="StartDateMustNotBeInThePast.Text" xml:space="preserve">
+    <value>تاریخ شروع بایستی بزرگتر مساوی تاریخ جاری باشد</value>
+  </data>
+  <data name="StartDateRequired.Text" xml:space="preserve">
+    <value>درج تاریخ شروع الزامی می باشد</value>
+  </data>
+  <data name="FileLockedRunningWorkflowError.Text" xml:space="preserve">
+    <value>فایل قفل می باشد. با توجه به اینکه این فایل جزئی از یک چرخه کاری می باشد، بروزرسانی آن امکان پذیر نمی باشد.</value>
+  </data>
+  <data name="InstallPackageError.Text" xml:space="preserve">
+    <value>بروز خطا در زمان نصب بسته {0}: {1}</value>
+  </data>
+  <data name="FileLockedOutOfPublishPeriodError.Text" xml:space="preserve">
+    <value>فایل قفل می باشد. با توجه به اینکه این فایل در بازه شروع و پایان معتبری قرار ندارد، بروزرسانی آن امکان پذیر نمی باشد.</value>
+  </data>
+  <data name="CannotMoveFolderAlreadyExists.Text" xml:space="preserve">
+    <value>امکان انتقال پوشه "{0}" امکان پذیر نمی باشد. پوشه ای با همین عنوان در پوشه "{1}" موجود می باشد.</value>
+  </data>
+  <data name="CannotMoveFolderBetweenFolderType.Text" xml:space="preserve">
+    <value>امکان انتقال پوشه "{0}" امکان پذیر نمی باشد. عملیات انتقال بین این دو پوشه مجاز نمی باشد</value>
+  </data>
 </root>

@@ -153,4 +153,40 @@
   <data name="UploadError.Text" xml:space="preserve">
     <value>فایل با پسوند {1} در اینجا نامعتبر می باشد. پسوندهای معتبر عبارتند از: {0}</value>
   </data>
+  <data name="PasswordStrengthFair.Text" xml:space="preserve">
+    <value>متوسط</value>
+  </data>
+  <data name="PasswordStrengthMinLength.Text" xml:space="preserve">
+    <value>حداقل تعداد حروف -</value>
+  </data>
+  <data name="PasswordStrengthStrong.Text" xml:space="preserve">
+    <value>قوی</value>
+  </data>
+  <data name="PasswordStrengthWeak.Text" xml:space="preserve">
+    <value>ضعیف</value>
+  </data>
+  <data name="CriteriaOneUpperCaseLetter.Text" xml:space="preserve">
+    <value>1 حروف بزرگ</value>
+  </data>
+  <data name="CriteriaOneLowerCaseLetter.Text" xml:space="preserve">
+    <value>1 حروف کوچک</value>
+  </data>
+  <data name="CriteriaSpecialChar.Text" xml:space="preserve">
+    <value>حروف خاص (!,@,#,%)</value>
+  </data>
+  <data name="CriteriaAtLeastNSpecialChars.Text" xml:space="preserve">
+    <value>حداقل شامل {0} حرف خاص (!,@,#,%)</value>
+  </data>
+  <data name="CriteriaOneNumber.Text" xml:space="preserve">
+    <value>1 عدد</value>
+  </data>
+  <data name="CriteriaAtLeastNChars.Text" xml:space="preserve">
+    <value>حداقل شامل {0} حرف</value>
+  </data>
+  <data name="ConfirmPasswordUnmatched.Text" xml:space="preserve">
+    <value>رمز عبور و تاییدیه آن یکسان نمی باشند</value>
+  </data>
+  <data name="ConfirmPasswordMatched.Text" xml:space="preserve">
+    <value>رمز عبور و تاییدیه آن یکسان می باشند</value>
+  </data>
 </root>

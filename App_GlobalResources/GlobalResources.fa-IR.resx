@@ -240,8 +240,8 @@
   <data name="BannerType.Script.String" xml:space="preserve">
     <value>اسکریپت</value>
   </data>
-  <data name="//Host//SearchAdmin.String" xml:space="preserve">
-    <value>جستجوی پورتال</value>
+  <data name="//Admin//SearchAdmin.String" xml:space="preserve">
+    <value>مدیریت جستجو</value>
   </data>
   <data name="//Host//Lists.String" xml:space="preserve">
     <value>لیست ها</value>
@@ -265,13 +265,13 @@
     <value>ویرایش صفحه</value>
   </data>
   <data name="View Folder.Permission" xml:space="preserve">
-    <value>نمایش فایل های درون پوشه</value>
+    <value>باز کردن و نمایش فایل های درون پوشه</value>
   </data>
   <data name="Write to Folder.Permission" xml:space="preserve">
     <value>درج در پوشه</value>
   </data>
   <data name="Browse Folder.Permission" xml:space="preserve">
-    <value>مشاهده فایل های درون پوشه</value>
+    <value>مشاهده لیست فایل های درون پوشه</value>
   </data>
   <data name="EMAIL_SMTP_TEST_SUBJECT.Text" xml:space="preserve">
     <value>سیستم تست پیکربندی میزبان پست الکترونیک در پورتال [Host:HostTitle]</value>
@@ -521,14 +521,14 @@
   <data name="EMAIL_PASSWORD_REMINDER_BODY.Text" xml:space="preserve">
     <value>&lt;div dir="rtl"&gt;
     کاربر گرامی [User:DisplayName]&lt;br/&gt;
-شما درخواست یادآوری رمز عبور برای  پورتال [Portal:PortalName] نموده اید.&lt;br/&gt;
+شما درخواست تنظیم مجدد رمز عبور برای  پورتال [Portal:PortalName] نموده اید.&lt;br/&gt;
 برای ورود به سیستم می توانید از مشخصات زیر استفاده نمایید:&lt;br/&gt;
 آدرس پورتال: [Portal:URL]&lt;br/&gt;
 نام کاربری:   [User:Username]&lt;br/&gt;
-رمز عبور: [Membership:Password]&lt;br/&gt;
+لینک تنظیم مجدد رمز عبور: http://[Portal:URL]/default.aspx?ctl=PasswordReset&amp;resetToken=[Membership:PasswordResetToken]&lt;br/&gt;
 با احترام&lt;br/&gt;
 پورتال [Portal:PortalName]&lt;br/&gt;
-*نکته: در صورتی که شما درخواست یادآوری رمز عبور ننموده اید، لطفا این پیغام را در نظر نگیرید.
+*نکته: در صورتی که شما درخواست تنظیم مجدد رمز عبور ننموده اید، لطفا این پیغام را در نظر نگیرید.
 &lt;/div&gt;
 </value>
   </data>
@@ -936,7 +936,7 @@
     <value>امکانات پیشرفته</value>
   </data>
   <data name="//Host//ProfessionalFeatures//ActivateYourLicense.String" xml:space="preserve">
-    <value>فعال کردن لایسنس</value>
+    <value>فعال کردن مجوز استفاده</value>
   </data>
   <data name="//Host//ProfessionalFeatures//ApplicationIntegrity.String" xml:space="preserve">
     <value>یکپارچگی برنامه</value>
@@ -948,7 +948,7 @@
     <value>پایگاه دانش</value>
   </data>
   <data name="//Host//ProfessionalFeatures//LicenseManagement.String" xml:space="preserve">
-    <value>لایسنس</value>
+    <value>مجوز استفاده</value>
   </data>
   <data name="//Host//ProfessionalFeatures//ManageWebServers.String" xml:space="preserve">
     <value>وب سرورها</value>
@@ -1150,5 +1150,20 @@
   </data>
   <data name="//ContactUs.String" xml:space="preserve">
     <value>تماس با ما</value>
+  </data>
+  <data name="//Host//AdvancedURLManagement.String" xml:space="preserve">
+    <value>مدیریت پیشرفته آدرس های URL</value>
+  </data>
+  <data name="//Admin//FileManagement.String" xml:space="preserve">
+    <value>مدیریت فایل ها</value>
+  </data>
+  <data name="//Host//FileManagement.String" xml:space="preserve">
+    <value>مدیریت فایل ها</value>
+  </data>
+  <data name="UrlPathCleaned.Error" xml:space="preserve">
+    <value>آدرس URL وارد شده شامل حروف نامعتبر بود که توسط سیستم حذف گردید. درصورت تمایل به استفاده از مقدار پیشنهادی توسط سیستم، مجددا بر روی دکمه "بروزرسانی" کلیک نمایید.</value>
+  </data>
+  <data name="UrlPathNotUnique.Error" xml:space="preserve">
+    <value>آدرس URL درج شده موجود نمی باشد. درصورت تمایل به استفاده از گزینه پیشنهادی، بر روی دکمه "ذخیره" کلیک نمایید.</value>
   </data>
 </root>
