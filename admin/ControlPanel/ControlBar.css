@@ -1116,6 +1116,15 @@ ul#ControlBar_Module_ModulePosition {
 
 #ControlBar_ControlPanel .dnnBlackDropDown .dt-container .sort-button span {
     text-shadow: 0 1px 0 #000;
+    background: url("../../Images/sort-dark-sprite.png") no-repeat scroll 100% 20px transparent;
+}
+
+#ControlBar_ControlPanel .dnnDropDownList .dt-container .sort-button.desc span {
+    background-position: 100% 7px;
+}
+
+#ControlBar_ControlPanel .dnnDropDownList .dt-container .sort-button.asc span {
+    background-position: 100% -12px;
 }
 
 #ControlBar_ControlPanel .dnnBlackDropDown .dt-container .search-container .search-input-container {

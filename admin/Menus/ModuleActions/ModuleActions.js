@@ -257,7 +257,7 @@
                 setTimeout(loopyFunc, 250);
             };
 
-            container.on("resize", function () {
+            container.trigger("resize", function () {
                 position(mId);
             });
 

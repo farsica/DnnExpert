@@ -291,7 +291,7 @@ namespace DotNetNuke.UI.ControlPanels
                     }
                     break;
                 case "UploadFile":
-                    returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "File Manager");
+					returnValue = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "WebUpload");
                     break;
                 default:
                     if ((!string.IsNullOrEmpty(moduleFriendlyName)))
@@ -707,10 +707,11 @@ namespace DotNetNuke.UI.ControlPanels
             var multipleSites = GetCurrentPortalsGroup().Count() > 1;
             if (multipleSites)
             {
-                PageList.Services.GetFirstLevelItemsMethod = "PickListService/GetPagesInPortalGroup";
-                PageList.Services.GetChildrenMethod = "PickListService/GetPagesInPortalGroup";
-                PageList.Services.SearchMethod = "PickListService/SearchPagesInPortalGroup";
-                PageList.Services.GetTreeForItemMethod = "PickListService/GetTreePathForPageInPortalGroup";
+                PageList.Services.GetTreeMethod = "ItemListService/GetPagesInPortalGroup";
+                PageList.Services.GetNodeDescendantsMethod = "ItemListService/GetPageDescendantsInPortalGroup";
+                PageList.Services.SearchTreeMethod = "ItemListService/SearchPagesInPortalGroup";
+                PageList.Services.GetTreeWithNodeMethod = "ItemListService/GetTreePathForPageInPortalGroup";
+                PageList.Services.SortTreeMethod = "ItemListService/SortPagesInPortalGroup";
             }
 
             PageList.UndefinedItem = new ListItem(SharedConstants.Unspecified, string.Empty);
@@ -732,7 +733,7 @@ namespace DotNetNuke.UI.ControlPanels
             if (GetTabURL("Getting Started", false).Length < 1) gettingStartedLink.Visible = false;
         }
 
-        private IEnumerable<PortalInfo> GetCurrentPortalsGroup()
+        private static IEnumerable<PortalInfo> GetCurrentPortalsGroup()
         {
             var groups = PortalGroupController.Instance.GetPortalGroups().ToArray();
 

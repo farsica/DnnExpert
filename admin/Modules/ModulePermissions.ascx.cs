@@ -82,7 +82,7 @@ namespace DotNetNuke.Modules.Admin.Modules
         {
             get
             {
-                return Request.Params["ReturnURL"] ?? Globals.NavigateURL();
+                return UrlUtils.ValidReturnUrl(Request.Params["ReturnURL"]) ?? Globals.NavigateURL();
             }
         }
 

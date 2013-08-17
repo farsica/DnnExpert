@@ -66,9 +66,7 @@
     border-bottom: 5px solid #4e89e3; /*blue*/
 }
 .ServiceIcon > img {
-    margin-top:5px;
-    margin-bottom:1px;
-    margin-left: 0;
+    margin: 5px 0 1px;
 }
 
 .ServiceIcon.community {
@@ -694,6 +692,7 @@ span.controlBar_editPageTxt{
 }
 
 .ControlModuleContainer {
+    direction:rtl;
     position: relative;
     width: 980px;    
     margin: 0 auto;
@@ -1052,6 +1051,15 @@ ul#ControlBar_Module_ModulePosition li:hover{
 
 #ControlBar_ControlPanel .dnnBlackDropDown .dt-container .sort-button span {
     text-shadow: 0 1px 0 #000;
+    background: url("../../Images/sort-dark-sprite.png") no-repeat scroll 100% 20px transparent;
+}
+
+#ControlBar_ControlPanel .dnnDropDownList .dt-container .sort-button.desc span {
+    background-position: 100% 7px;
+}
+
+#ControlBar_ControlPanel .dnnDropDownList .dt-container .sort-button.asc span {
+    background-position: 100% -12px;
 }
 
 #ControlBar_ControlPanel .dnnBlackDropDown .dt-container .search-container .search-input-container {
